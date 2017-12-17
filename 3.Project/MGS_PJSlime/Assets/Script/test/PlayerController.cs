@@ -21,6 +21,7 @@ public class PlayerController : EntityBase {
 		bc = GetComponent<BoxCollider2D>();
 
 		if (isServer) {
+			GameEngine.direct.player = transform;
 			rb.simulated = true;
 			SetSize();
 		}
@@ -149,7 +150,13 @@ public class PlayerController : EntityBase {
 				rb.velocity = new Vector2(moveDirection * moveJumpForce, rb.velocity.y);
 			}				
 		}
-	}	
+	}
+	
+	private void OnCollisionEnter2D(Collision2D collision) {
+		if (isServer && collision.transform.tag == "End") {
+			Destroy(gameObject);
+		}
+	}
 
 	private void OnCollisionExit2D(Collision2D collision) {
 		if (isServer) {
