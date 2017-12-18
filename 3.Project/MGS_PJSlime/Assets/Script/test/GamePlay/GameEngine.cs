@@ -7,6 +7,8 @@ public class GameEngine : MonoBehaviour {
 	public Transform units;
 	public Transform camera;
 	public Transform player;
+	public Transform unit;
+	public bool connecting;
 
 	private void Start() {
 		direct = this;
@@ -15,10 +17,13 @@ public class GameEngine : MonoBehaviour {
 	private void Update() {
 		if (player) {
 			camera.position = new Vector3(player.position.x , player.position.y + 5 , camera.position.z);
+			if (!connecting) {
+				Network.InitializeServer(1, 7777);
+			}
 		}
 	}
 
-	void OnSerializeNetworkView() {
-		Debug.Log("22");
+	void OnServerInitialized() {
+		connecting = true;
 	}
 }
