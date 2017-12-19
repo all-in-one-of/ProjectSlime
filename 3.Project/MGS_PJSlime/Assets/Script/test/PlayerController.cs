@@ -29,13 +29,13 @@ public class PlayerController : EntityBase {
 
 	void Update () {
 		if (isLocalPlayer) {
-			float horizonDirection = (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) ? 1 : 0)
-				+ (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) ? -1 : 0);
+			float horizonDirection = (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) || Input.GetAxis("Horizontal") > 0 ? 1 : 0)
+				+ (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || Input.GetAxis("Horizontal") < 0 ? -1 : 0);
 			bool upCommand = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow);
 			bool downCommand = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);
-			bool jumpCommand = Input.GetKeyDown(KeyCode.Space);
+			bool jumpCommand = Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button1);
 
-			if (eatSkill && Input.GetKeyDown(KeyCode.E)) {
+			if (eatSkill && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Joystick1Button2))) {
 				CmdEat(upCommand);
 
 			} else if (downCommand) {
