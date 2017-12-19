@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Networking;
 using UnityEngine;
 
 public class GameEngine : MonoBehaviour {
@@ -9,6 +10,7 @@ public class GameEngine : MonoBehaviour {
 	public Transform player;
 	public Transform unit;
 	public bool connecting;
+	NetworkClient myClient;
 
 	private void Start() {
 		direct = this;
@@ -21,6 +23,10 @@ public class GameEngine : MonoBehaviour {
 				Network.InitializeServer(1, 7777);
 			}
 		}
+	}
+	public void OnConnected(NetworkMessage netMsg) {
+		Debug.Log("Connected to server");
+		connecting = true;
 	}
 
 	void OnServerInitialized() {

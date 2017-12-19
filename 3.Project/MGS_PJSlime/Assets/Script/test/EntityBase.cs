@@ -21,13 +21,13 @@ public class EntityBase : NetworkBehaviour {
 		rb = GetComponent<Rigidbody2D>();
 		bc = GetComponent<BoxCollider2D>();
 
-		if (isServer) {
+		if (Network.isServer) {
 			rb.simulated = true;
 		}
 	}
 
 	private void OnCollisionStay2D(Collision2D collision) {
-		if (isServer) {
+		if (Network.isServer) {
 			FOnCollisionStay2D(collision);
 		}
 	}

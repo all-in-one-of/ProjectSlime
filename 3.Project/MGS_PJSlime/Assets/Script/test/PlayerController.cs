@@ -10,39 +10,58 @@ public class PlayerController : EntityBase {
 	public float jumpForce;
 	public bool eatSkill = true;
 	public bool jumping = false;
+	public bool isPs4 = false;
 
 	public SpriteRenderer sprite;
 	public Dictionary<Collider2D, int> touching = new Dictionary<Collider2D, int>();
-	private string MoveInputAxis = "Horizontal";
 
 
 	protected override void FStart() {
 		rb = GetComponent<Rigidbody2D>();
 		bc = GetComponent<BoxCollider2D>();
 
-		if (isServer) {
-			GameEngine.direct.player = transform;
+		if (Network.isServer) {
+			//GameEngine.direct.player = transform;
 			rb.simulated = true;
 			SetSize();
 		}
 	}
-
+	
 	void Update () {
-		if (isLocalPlayer) {
-			float horizonDirection = (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) || Input.GetAxis("Horizontal") > 0 ? 1 : 0)
-				+ (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || Input.GetAxis("Horizontal") < 0 ? -1 : 0);
-			bool upCommand = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow);
-			bool downCommand = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);
-			bool jumpCommand = Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button1);
+		if (Network.isClient || Network.isServer) {
+			float horizonDirection = 0;
+			bool upCommand = false;
+			bool downCommand = false;
+			bool jumpCommand = false;
+			bool eCommand = false;
 
-			if (eatSkill && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Joystick1Button2))) {
+			if (!isPs4) {
+				horizonDirection = (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) ? 1 : 0)
+				+ (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) ? -1 : 0);
+				upCommand = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow);
+				downCommand = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);
+				jumpCommand = Input.GetKeyDown(KeyCode.Space);
+				eCommand = Input.GetKeyDown(KeyCode.E);
+
+			} else {
+				horizonDirection = (Input.GetAxis("Horizontal") > 0 ? 1 : 0) + (Input.GetAxis("Horizontal") < 0 ? -1 : 0);
+				upCommand = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow);
+				downCommand = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);
+				jumpCommand = Input.GetKeyDown(KeyCode.Joystick1Button1);
+				eCommand = Input.GetKeyDown(KeyCode.Joystick1Button2);
+			}
+
+			if (eatSkill && eCommand) {
 				CmdEat(upCommand);
 
 			} else if (downCommand) {
 				CmdCrouch();
 
-			} else {
-				CmdApplyInput(horizonDirection, jumpCommand);
+			} else if (horizonDirection != 0) {
+				CmdMove(horizonDirection);
+
+			} else if (jumpCommand) {
+				CmdJump(jumpCommand);
 			}
 
 			if (!eatSkill ) {
@@ -50,7 +69,7 @@ public class PlayerController : EntityBase {
 			}
 		}
 
-		if (isServer) {
+		if (Network.isServer) {
 			if (touching.Count == 0) {
 				RpcState("Jump");
 			}
@@ -85,6 +104,11 @@ public class PlayerController : EntityBase {
 	}
 
 	[Command]
+	public void CmdRegist() {
+		isPs4 = true;
+	}
+
+	[Command]
 	public void CmdCrouch() {
 		if (anim.GetCurrentAnimatorStateInfo(0).IsTag("Eat")) {
 			return;
@@ -113,7 +137,7 @@ public class PlayerController : EntityBase {
 	}
 
 	[Command]
-	public void CmdApplyInput(float moveDirection, bool jumpCommand) {
+	public void CmdJump(bool jumpCommand) {
 		if (anim.GetCurrentAnimatorStateInfo(0).IsTag("Eat")) {
 			return;
 		}
@@ -122,6 +146,13 @@ public class PlayerController : EntityBase {
 			rb.AddForce(Vector2.up * jumpForce * ((22 - hp) * 0.05f), ForceMode2D.Impulse);
 			jumping = true;
 			RpcState("Jump");
+			return;
+		}
+	}
+
+	[Command]
+	public void CmdMove(float moveDirection) {
+		if (anim.GetCurrentAnimatorStateInfo(0).IsTag("Eat")) {
 			return;
 		}
 
@@ -153,13 +184,13 @@ public class PlayerController : EntityBase {
 	}
 	
 	private void OnCollisionEnter2D(Collision2D collision) {
-		if (isServer && collision.transform.tag == "End") {
+		if (Network.isServer && collision.transform.tag == "End") {
 			Destroy(gameObject);
 		}
 	}
 
 	private void OnCollisionExit2D(Collision2D collision) {
-		if (isServer) {
+		if (Network.isServer) {
 			touching.Remove(collision.collider);
 		}
 	}
