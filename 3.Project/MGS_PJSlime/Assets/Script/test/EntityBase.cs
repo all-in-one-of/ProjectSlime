@@ -8,7 +8,7 @@ public class EntityBase : NetworkBehaviour {
 	public bool eatAble = true;
 	public float invincibleTimer;
 	public int attack = 1;
-	public int hp = 2;
+	public int hp = 3;
 
 	protected Rigidbody2D rb;
 	protected BoxCollider2D bc;

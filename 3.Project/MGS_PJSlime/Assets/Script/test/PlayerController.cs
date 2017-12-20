@@ -15,7 +15,6 @@ public class PlayerController : EntityBase {
 	public SpriteRenderer sprite;
 	public Dictionary<Collider2D, int> touching = new Dictionary<Collider2D, int>();
 
-
 	protected override void FStart() {
 		rb = GetComponent<Rigidbody2D>();
 		bc = GetComponent<BoxCollider2D>();
@@ -52,7 +51,12 @@ public class PlayerController : EntityBase {
 			}
 
 			if (eatSkill && eCommand) {
-				CmdEat(upCommand);
+				if (hp % 3 == 2) {
+					CmdDigestive();
+
+				} else {
+					CmdEat(upCommand);
+				}
 
 			} else if (downCommand) {
 				CmdCrouch();
@@ -122,6 +126,30 @@ public class PlayerController : EntityBase {
 	}
 
 	[Command]
+	public void CmdDigestive() {
+		if (anim.GetCurrentAnimatorStateInfo(0).IsTag("Eat")) {
+			return;
+		}
+
+		if (!anim.GetCurrentAnimatorStateInfo(0).IsTag("Jump")) {
+			bool eatCheck = false;
+			foreach (Transform unit in GameEngine.direct.units) {
+				if (Vector2.Distance(transform.position, unit.position) <= size * 0.25f + 3) {
+					eatCheck = true;
+					break;
+				}
+			}
+
+			if (eatCheck) {
+				RpcState("Digestive");
+			} else {
+				RpcState("EatHorizon");
+			}
+			Eat();
+		}
+	}
+
+	[Command]
 	public void CmdEat(bool upCommand) {
 		if (anim.GetCurrentAnimatorStateInfo(0).IsTag("Eat")) {
 			return;
@@ -144,7 +172,7 @@ public class PlayerController : EntityBase {
 		}
 
 		if (jumpCommand && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Jump")) {
-			rb.AddForce(Vector2.up * jumpForce * ((22 - hp) * 0.05f), ForceMode2D.Impulse);
+			rb.AddForce(Vector2.up * jumpForce * ((40 - size) * 0.025f), ForceMode2D.Impulse);
 			jumping = true;
 			RpcState("Jump");
 			return;
@@ -232,7 +260,7 @@ public class PlayerController : EntityBase {
 
 	private void Eat() {
 		foreach (Transform unit in GameEngine.direct.units) {
-			if (Vector2.Distance(transform.position, unit.position) <= 4) {
+			if (Vector2.Distance(transform.position, unit.position) <= size * 0.25f + 3) {
 				Destroy(unit.gameObject);
 				hp++;
 				SetSize();
@@ -252,8 +280,11 @@ public class PlayerController : EntityBase {
 		}
 	}
 
+	float size = 0;
+
 	protected void SetSize() {
-		float size = (0.25f * (1 + hp)) * (transform.localScale.x / Mathf.Abs(transform.localScale.x));
-		transform.localScale = new Vector3(size, Mathf.Abs(size), 1);
+		size = (int)(hp / 3);
+		float tempsize = (0.5f + size * 0.25f) * (transform.localScale.x / Mathf.Abs(transform.localScale.x));
+		transform.localScale = new Vector3(tempsize, Mathf.Abs(tempsize), 1);
 	}
 }
