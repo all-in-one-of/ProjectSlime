@@ -21,7 +21,7 @@ public class PlayerController : EntityBase {
 		bc = GetComponent<BoxCollider2D>();
 
 		if (Network.isServer) {
-			//GameEngine.direct.player = transform;
+			GameEngine.direct.player = transform;
 			rb.simulated = true;
 			SetSize();
 		}
@@ -57,11 +57,12 @@ public class PlayerController : EntityBase {
 			} else if (downCommand) {
 				CmdCrouch();
 
+			} else if (jumpCommand) {
+				CmdJump(jumpCommand);
+
 			} else if (horizonDirection != 0) {
 				CmdMove(horizonDirection);
 
-			} else if (jumpCommand) {
-				CmdJump(jumpCommand);
 			}
 
 			if (!eatSkill ) {
@@ -104,8 +105,8 @@ public class PlayerController : EntityBase {
 	}
 
 	[Command]
-	public void CmdRegist() {
-		isPs4 = true;
+	public void CmdRegist(bool ps4) {
+		isPs4 = ps4;
 	}
 
 	[Command]

@@ -1851,6 +1851,7 @@ MonoBehaviour:
   - {fileID: 1222184263987072, guid: 51c62c7314a73ae4ba92b6871bda7b23, type: 2}
   a: 0
   clock: 100
+  ps4: 0
 --- !u!114 &719829357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3477,7 +3478,7 @@ MonoBehaviour:
   m_LogLevel: 2
   m_PlayerPrefab: {fileID: 1522737058896698, guid: 086a37de30f290540a4f0cade2f31619,
     type: 2}
-  m_AutoCreatePlayer: 1
+  m_AutoCreatePlayer: 0
   m_PlayerSpawnMethod: 0
   m_OfflineScene: 
   m_OnlineScene: 
