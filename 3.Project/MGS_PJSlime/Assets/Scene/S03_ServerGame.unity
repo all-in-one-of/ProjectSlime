@@ -2935,7 +2935,6 @@ MonoBehaviour:
   - {fileID: 1222184263987072, guid: 51c62c7314a73ae4ba92b6871bda7b23, type: 2}
   a: 0
   clock: 100
-  ps4: 0
 --- !u!114 &719829357
 MonoBehaviour:
   m_ObjectHideFlags: 0

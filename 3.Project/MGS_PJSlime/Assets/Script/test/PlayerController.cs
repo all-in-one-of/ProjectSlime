@@ -10,7 +10,7 @@ public class PlayerController : EntityBase {
 	public float jumpForce;
 	public bool eatSkill = true;
 	public bool jumping = false;
-	public bool isPs4 = false;
+	public int PlayerIndex = 0;
 
 	public SpriteRenderer sprite;
 	public Dictionary<Collider2D, int> touching = new Dictionary<Collider2D, int>();
@@ -34,18 +34,31 @@ public class PlayerController : EntityBase {
 			bool jumpCommand = false;
 			bool eCommand = false;
 
-			if (!isPs4) {
-				horizonDirection = (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) ? 1 : 0)
-				+ (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) ? -1 : 0);
+			if (PlayerIndex == 0) {
+				horizonDirection = (Input.GetAxis("LKeyboard") > 0 ? 1 : 0) + (Input.GetAxis("LKeyboard") < 0 ? -1 : 0);
 				upCommand = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow);
 				downCommand = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);
 				jumpCommand = Input.GetKeyDown(KeyCode.Space);
 				eCommand = Input.GetKeyDown(KeyCode.E);
 
-			} else {
-				horizonDirection = (Input.GetAxis("Horizontal") > 0 ? 1 : 0) + (Input.GetAxis("Horizontal") < 0 ? -1 : 0);
+			} else if (PlayerIndex == 1) {
+				horizonDirection = (Input.GetAxis("RKeyboard") > 0 ? 1 : 0) + (Input.GetAxis("RKeyboard") < 0 ? -1 : 0);
+				upCommand = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow);
+				downCommand = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow); 
+				jumpCommand = Input.GetKeyDown(KeyCode.Space);
+				eCommand = Input.GetKeyDown(KeyCode.E);
+
+			} else if (PlayerIndex == 2) {
+				horizonDirection = (Input.GetAxis("PS4LHorizontal") > 0 ? 1 : 0) + (Input.GetAxis("PS4LHorizontal") < 0 ? -1 : 0);
 				upCommand = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow);
 				downCommand = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);
+				jumpCommand = Input.GetAxis("LVPanel") < 0;
+				eCommand = Input.GetAxis("LHPanel") > 0;
+
+			} else if (PlayerIndex == 3) {
+				horizonDirection = (Input.GetAxis("PS4RHorizontal") > 0 ? 1 : 0) + (Input.GetAxis("PS4RHorizontal") < 0 ? -1 : 0);
+				upCommand = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow);
+				downCommand = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);				
 				jumpCommand = Input.GetKeyDown(KeyCode.Joystick1Button1);
 				eCommand = Input.GetKeyDown(KeyCode.Joystick1Button2);
 			}
@@ -109,8 +122,8 @@ public class PlayerController : EntityBase {
 	}
 
 	[Command]
-	public void CmdRegist(bool ps4) {
-		isPs4 = ps4;
+	public void CmdRegist(int index) {
+		PlayerIndex = index;
 	}
 
 	[Command]

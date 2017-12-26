@@ -8,7 +8,6 @@ public class PrototypeSystem : NetworkBehaviour {
 	public GameObject[] obj;
 	public int a = 0;
 	public int clock;
-	public bool ps4 = false;
 
 	void Update () {
 		if (isServer && GameEngine.direct.connecting) {
@@ -25,11 +24,10 @@ public class PrototypeSystem : NetworkBehaviour {
 	}
 
 	public void SPlayer2() {
-		if (a < 2) {
+		if (a < 4) {
 			GameObject newObj = Network.Instantiate(player, new Vector3(transform.position.x + Random.Range(-15, 15), transform.position.y, 0), Quaternion.identity, 0) as GameObject;
 			NetworkServer.Spawn(newObj);
-			newObj.GetComponent<PlayerController>().CmdRegist(ps4);
-			ps4 = !ps4;
+			newObj.GetComponent<PlayerController>().CmdRegist(a);
 			a++;
 		}		
 	}
