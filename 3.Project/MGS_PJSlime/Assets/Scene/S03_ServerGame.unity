@@ -2721,6 +2721,7 @@ GameObject:
   - component: {fileID: 667678160}
   - component: {fileID: 667678162}
   - component: {fileID: 667678161}
+  - component: {fileID: 667678163}
   m_Layer: 0
   m_Name: WoodPlate2 (4)
   m_TagString: Ground
@@ -2787,6 +2788,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6.7196465, y: 1.1068755}
   m_EdgeRadius: 0
+--- !u!114 &667678163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 667678159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c2f2594b781b52459490ad7064b93a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shift: {x: 0, y: 5}
 --- !u!1 &692546074
 GameObject:
   m_ObjectHideFlags: 0

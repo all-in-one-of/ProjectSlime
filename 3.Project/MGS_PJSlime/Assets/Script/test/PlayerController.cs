@@ -3,13 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class PlayerController : EntityBase {	 
+public class PlayerController : EntityBase {
+	public enum State {
+		Normal,
+		Jump,
+	};
+
+	public State state = State.Normal;
 	public Animator anim;	
 	public float moveForce;
 	public float moveJumpForce; 
 	public float jumpForce;
 	public bool eatSkill = true;
-	public bool jumping = false;
 	public int PlayerIndex = 0;
 
 	public SpriteRenderer sprite;
@@ -29,35 +34,34 @@ public class PlayerController : EntityBase {
 	void Update () {
 		if (Network.isClient || Network.isServer) {
 			float horizonDirection = 0;
-			bool upCommand = false;
 			bool downCommand = false;
 			bool jumpCommand = false;
 			bool eCommand = false;
 
+			if (Input.GetKeyDown(KeyCode.Greater)) {
+				Debug.Log("ss");
+			}
+
 			if (PlayerIndex == 0) {
-				horizonDirection = (Input.GetAxis("LKeyboard") > 0 ? 1 : 0) + (Input.GetAxis("LKeyboard") < 0 ? -1 : 0);
-				upCommand = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow);
+				horizonDirection = (Input.GetAxisRaw("LKeyboard") > 0 ? 1 : 0) + (Input.GetAxisRaw("LKeyboard") < 0 ? -1 : 0);
 				downCommand = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);
 				jumpCommand = Input.GetKeyDown(KeyCode.Space);
 				eCommand = Input.GetKeyDown(KeyCode.E);
 
 			} else if (PlayerIndex == 1) {
-				horizonDirection = (Input.GetAxis("RKeyboard") > 0 ? 1 : 0) + (Input.GetAxis("RKeyboard") < 0 ? -1 : 0);
-				upCommand = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow);
+				horizonDirection = (Input.GetAxisRaw("RKeyboard") > 0 ? 1 : 0) + (Input.GetAxisRaw("RKeyboard") < 0 ? -1 : 0);
 				downCommand = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow); 
-				jumpCommand = Input.GetKeyDown(KeyCode.Space);
-				eCommand = Input.GetKeyDown(KeyCode.E);
+				jumpCommand = Input.GetKeyDown(KeyCode.Comma);
+				eCommand = Input.GetKeyDown(KeyCode.Period);
 
 			} else if (PlayerIndex == 2) {
-				horizonDirection = (Input.GetAxis("PS4LHorizontal") > 0 ? 1 : 0) + (Input.GetAxis("PS4LHorizontal") < 0 ? -1 : 0);
-				upCommand = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow);
+				horizonDirection = (Input.GetAxisRaw("PS4LHorizontal") > 0 ? 1 : 0) + (Input.GetAxisRaw("PS4LHorizontal") < 0 ? -1 : 0);
 				downCommand = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);
-				jumpCommand = Input.GetAxis("LVPanel") < 0;
-				eCommand = Input.GetAxis("LHPanel") > 0;
+				jumpCommand = Input.GetAxisRaw("LVPanel") < 0;
+				eCommand = Input.GetAxisRaw("LHPanel") > 0;
 
 			} else if (PlayerIndex == 3) {
-				horizonDirection = (Input.GetAxis("PS4RHorizontal") > 0 ? 1 : 0) + (Input.GetAxis("PS4RHorizontal") < 0 ? -1 : 0);
-				upCommand = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow);
+				horizonDirection = (Input.GetAxisRaw("PS4RHorizontal") > 0 ? 1 : 0) + (Input.GetAxisRaw("PS4RHorizontal") < 0 ? -1 : 0);
 				downCommand = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);				
 				jumpCommand = Input.GetKeyDown(KeyCode.Joystick1Button1);
 				eCommand = Input.GetKeyDown(KeyCode.Joystick1Button2);
@@ -68,7 +72,7 @@ public class PlayerController : EntityBase {
 					CmdDigestive();
 
 				} else {
-					CmdEat(upCommand);
+					CmdEat();
 				}
 
 			} else if (downCommand) {
@@ -144,7 +148,7 @@ public class PlayerController : EntityBase {
 			return;
 		}
 
-		if (!anim.GetCurrentAnimatorStateInfo(0).IsTag("Jump")) {
+		if (state != State.Jump) {
 			bool eatCheck = false;
 			foreach (Transform unit in GameEngine.direct.units) {
 				if (Vector2.Distance(transform.position, unit.position) <= size * 0.25f + 3) {
@@ -163,17 +167,13 @@ public class PlayerController : EntityBase {
 	}
 
 	[Command]
-	public void CmdEat(bool upCommand) {
+	public void CmdEat() {
 		if (anim.GetCurrentAnimatorStateInfo(0).IsTag("Eat")) {
 			return;
 		}
 
-		if (!anim.GetCurrentAnimatorStateInfo(0).IsTag("Jump")) {
-			if (upCommand ) {
-				RpcState("EatUp");
-			} else {
-				RpcState("EatHorizon");
-			}
+		if (state != State.Jump) {
+			RpcState("EatHorizon");
 			Eat();
 		} 
 	}
@@ -184,9 +184,9 @@ public class PlayerController : EntityBase {
 			return;
 		}
 
-		if (jumpCommand && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Jump")) {
+		if (jumpCommand && state != State.Jump) {
 			rb.AddForce(Vector2.up * jumpForce * ((40 - size) * 0.025f), ForceMode2D.Impulse);
-			jumping = true;
+			state = State.Jump;
 			RpcState("Jump");
 			return;
 		}
@@ -202,8 +202,9 @@ public class PlayerController : EntityBase {
 			moveDirection = 0;
 		}
 				
-		if (!anim.GetCurrentAnimatorStateInfo(0).IsTag("Jump")) {//地面發呆
+		if (state != State.Jump) {//地面發呆
 			if (moveDirection == 0) {
+				Debug.Log("ss");
 				if (!anim.GetCurrentAnimatorStateInfo(0).IsTag("Idle") ) {
 					RpcState("Idle");
 				}
@@ -262,6 +263,7 @@ public class PlayerController : EntityBase {
 		if (side == 0 && !touching.ContainsValue(0)) {
 			RpcState("Idle");
 			rb.velocity = Vector2.zero;
+			state = State.Normal;
 		}
 
 		if (!touching.ContainsKey(collision.collider)) {
