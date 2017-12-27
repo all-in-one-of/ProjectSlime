@@ -6,6 +6,7 @@ using UnityEngine.Networking;
 public class PrototypeSystem : NetworkBehaviour {
 	public GameObject player;
 	public GameObject[] obj;
+	public Material[] mt;
 	public int a = 0;
 	public int clock;
 
@@ -27,6 +28,7 @@ public class PrototypeSystem : NetworkBehaviour {
 		if (a < 4) {
 			GameObject newObj = Network.Instantiate(player, new Vector3(transform.position.x + Random.Range(-15, 15), transform.position.y, 0), Quaternion.identity, 0) as GameObject;
 			NetworkServer.Spawn(newObj);
+			newObj.GetComponentInChildren<SpriteRenderer>().material = mt[a];
 			newObj.GetComponent<PlayerController>().CmdRegist(a);
 			a++;
 		}		
