@@ -204,7 +204,6 @@ public class PlayerController : EntityBase {
 				
 		if (state != State.Jump) {//地面發呆
 			if (moveDirection == 0) {
-				Debug.Log("ss");
 				if (!anim.GetCurrentAnimatorStateInfo(0).IsTag("Idle") ) {
 					RpcState("Idle");
 				}
