@@ -39,8 +39,8 @@ public class EntityBase : NetworkBehaviour {
 		}
 	}
 
-	public virtual void Attack(int damage) {
-		if (!isInvincible) {
+	public virtual void Attack(int damage, bool firstOrder = false) {
+		if (!isInvincible || firstOrder) {
 			hp--;
 			isInvincible = true;
 			if (hp == 0) {

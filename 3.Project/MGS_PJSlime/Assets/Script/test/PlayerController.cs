@@ -25,7 +25,6 @@ public class PlayerController : EntityBase {
 		bc = GetComponent<BoxCollider2D>();
 
 		if (Network.isServer) {
-			GameEngine.direct.player = transform;
 			rb.simulated = true;
 			SetSize();
 		}
@@ -126,8 +125,11 @@ public class PlayerController : EntityBase {
 	}
 
 	[Command]
-	public void CmdRegist(int index) {
+	public void CmdRegist(int index , int health) {
 		PlayerIndex = index;
+		hp = health;
+		SetSize();
+		GameEngine.direct.players.Add(this);
 	}
 
 	[Command]
@@ -226,8 +228,13 @@ public class PlayerController : EntityBase {
 	}
 	
 	private void OnCollisionEnter2D(Collision2D collision) {
-		if (Network.isServer && collision.transform.tag == "End") {
-			Destroy(gameObject);
+		if (Network.isServer ) {
+			if (collision.transform.tag == "End") {
+				GameEngine.direct.OnVictory();
+
+			} else if (collision.transform.tag == "Dead") {
+				GameEngine.direct.OnDead(this);
+			}
 		}
 	}
 
@@ -283,12 +290,12 @@ public class PlayerController : EntityBase {
 		}
 	}
 
-	public override void Attack(int damage) {
-		if (!isInvincible) {
+	public override void Attack(int damage , bool firstOrder = false) {
+		if (!isInvincible || firstOrder) {
 			isInvincible = true;
-			hp--;
+			hp = hp - damage;
 			if (hp == 0) {
-				Destroy(gameObject);
+				GameEngine.direct.OnDead(this);
 			}
 			SetSize();
 		}

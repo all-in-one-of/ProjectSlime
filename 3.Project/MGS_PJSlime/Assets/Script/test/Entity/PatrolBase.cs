@@ -5,6 +5,7 @@ using UnityEngine.Networking;
 
 public class PatrolBase : NetworkBehaviour {
 	public Vector2 shift = new Vector2(0, 0);
+	public float speed = 0.05f;
 
 	protected Vector2 a = new Vector2(0, 0);
 	protected Vector2 b = new Vector2(0, 0);
@@ -17,7 +18,7 @@ public class PatrolBase : NetworkBehaviour {
 	}
 	
 	void Update () {
-		transform.position = Vector2.Lerp(transform.position, target ? a : b, 0.05f);
+		transform.position = Vector2.Lerp(transform.position, target ? a : b, speed);
 		if (Vector2.Distance(transform.position, target ? a : b) < 0.1f) {
 			target = !target;
 		}
