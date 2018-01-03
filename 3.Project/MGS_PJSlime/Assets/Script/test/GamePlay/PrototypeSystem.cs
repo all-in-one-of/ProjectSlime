@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class PrototypeSystem : NetworkBehaviour {
 	public GameObject player;
@@ -24,13 +26,14 @@ public class PrototypeSystem : NetworkBehaviour {
 		}
 	}
 
-	public void SPlayer2() {
+	public void SPlayer2(EventSystem set) {
 		if (a < 4) {
 			GameObject newObj = Network.Instantiate(player, new Vector3(transform.position.x + Random.Range(-15, 15), transform.position.y, 0), Quaternion.identity, 0) as GameObject;
 			NetworkServer.Spawn(newObj);
 			newObj.GetComponentInChildren<SpriteRenderer>().material = mt[a];
 			newObj.GetComponent<PlayerController>().CmdRegist(a);
 			a++;
+			set.SetSelectedGameObject(gameObject);
 		}		
 	}
 }
