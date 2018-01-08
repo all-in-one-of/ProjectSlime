@@ -3346,10 +3346,10 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 5618c008df7875742856de4ed77f97e5, type: 2}
   a: 0
   clock: 100
-  hostIntSize: 0
-  intSize: 0
-  jumpForce: 0
-  jumpGape: 0
+  hostIntSize: 6
+  intSize: 2
+  jumpForce: 35
+  jumpGape: 40
 --- !u!114 &719829357
 MonoBehaviour:
   m_ObjectHideFlags: 0

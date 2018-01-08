@@ -32,7 +32,7 @@ public class PatrolBase : NetworkBehaviour {
 				target = !target;
 			}
 		} else if(breakAble2) {
-			if (breaking && Time.timeSinceLevelLoad - clock > resetTimer) {
+			if (breaking && Time.timeSinceLevelLoad - clock > resetTimer + 1) {
 				UnBreak();
 			}
 		}		
@@ -41,6 +41,10 @@ public class PatrolBase : NetworkBehaviour {
 	public void Break() {
 		breaking = true;
 		clock = Time.timeSinceLevelLoad;
+		Invoke("RealBreal",1);
+	}
+
+	public void RealBreal() {
 		transform.localScale = Vector2.zero;
 	}
 
