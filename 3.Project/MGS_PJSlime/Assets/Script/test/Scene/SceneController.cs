@@ -12,7 +12,7 @@ public class SceneController : MonoBehaviour {
 
 	private void Update() {
 		if (GameEngine.direct.player) {
-			transform.position = new Vector3(GameEngine.direct.player.position.x * shift.x + origin.x, GameEngine.direct.player.position.y * shift.y + origin.y, transform.position.z);
+			transform.position = new Vector3(GameEngine.direct.player.transform.position.x * shift.x + origin.x, GameEngine.direct.player.transform.position.y * shift.y + origin.y, transform.position.z);
 		}
 	}
 }

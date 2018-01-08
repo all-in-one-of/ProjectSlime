@@ -34,7 +34,7 @@ public class PrototypeSystem : NetworkBehaviour {
 
 			if (a == 0) {
 				newObj.GetComponent<PlayerController>().CmdRegist(a, 6);
-				GameEngine.direct.Focus(newObj.transform);
+				GameEngine.direct.Focus(newObj.GetComponent<PlayerController>());
 			} else {
 				newObj.GetComponent<PlayerController>().CmdRegist(a, 2);
 			}

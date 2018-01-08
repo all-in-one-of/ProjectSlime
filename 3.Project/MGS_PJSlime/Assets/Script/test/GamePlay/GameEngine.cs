@@ -10,7 +10,7 @@ public class GameEngine : MonoBehaviour {
 	public bool connecting;
 	NetworkClient myClient;
 
-	public Transform player;
+	public PlayerController player;
 	public List<PlayerController> players = new List<PlayerController>();
 
 	private void Start() {
@@ -19,7 +19,7 @@ public class GameEngine : MonoBehaviour {
 
 	private void Update() {
 		if (player) {
-			camera.position = new Vector3(player.position.x , player.position.y + 5 , camera.position.z);
+			camera.position = new Vector3(player.transform.position.x , player.transform.position.y + 5 , camera.position.z);
 			if (!connecting) {
 				Network.InitializeServer(1, 7777);
 			}
@@ -31,16 +31,30 @@ public class GameEngine : MonoBehaviour {
 		connecting = true;
 	}
 
-	public void Focus(Transform focusing) {
+	public void Focus(PlayerController focusing) {
 		player = focusing;
 	}
-
+	
 	void OnServerInitialized() {
 		connecting = true;
 	}
 
 	public void OnVictory() {
 
+	}
+	
+	public void ResetCamera() {
+		PlayerController temp = null;
+
+		foreach (PlayerController unit in players) {
+			if (temp == null) {
+				temp = unit;
+
+			} else if (temp.hp < unit.hp) {
+				temp = unit;
+			}
+		}
+		player = temp;
 	}
 
 	public void OnDead(PlayerController value) {
@@ -53,6 +67,7 @@ public class GameEngine : MonoBehaviour {
 					value.transform.position = unit.transform.position;
 					value.Attack(0, true);
 					value.hp = 2;
+					ResetCamera();
 					return;
 				}
 			}
@@ -61,19 +76,7 @@ public class GameEngine : MonoBehaviour {
 		if (dead) {
 			players.Remove(value);
 			Destroy(value.gameObject);
-		}
-
-		PlayerController temp = null;
-
-		foreach (PlayerController unit in players) {
-			if (temp == null) {
-				temp = unit;
-
-			} else if (temp.hp < unit.hp) {
-				temp = unit;
-			}
-		}
-
-		player = temp.transform;
+		}		
+		ResetCamera();
 	}
 }

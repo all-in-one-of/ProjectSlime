@@ -184,12 +184,12 @@ MonoBehaviour:
   invincibleTimer: 0
   attack: 1
   hp: 2
+  state: 0
   anim: {fileID: 95711770884029156}
   moveForce: 10
   moveJumpForce: 8
   jumpForce: 35
   eatSkill: 1
-  jumping: 0
   PlayerIndex: 0
   sprite: {fileID: 212185036657135504}
 --- !u!212 &212185036657135504

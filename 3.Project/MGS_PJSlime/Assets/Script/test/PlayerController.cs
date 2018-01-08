@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class PlayerController : EntityBase {
+public class PlayerController : EntityBase {	
+	private static float BasicSize = 0.25f;
+
 	public enum State {
 		Normal,
 		Jump,
 	};
 
+
 	public State state = State.Normal;
-	public Animator anim;	
+	public Animator anim;
 	public float moveForce;
 	public float moveJumpForce; 
 	public float jumpForce;
@@ -19,7 +22,7 @@ public class PlayerController : EntityBase {
 
 	public SpriteRenderer sprite;
 	public Dictionary<Collider2D, int> touching = new Dictionary<Collider2D, int>();
-
+	
 	protected override void FStart() {
 		rb = GetComponent<Rigidbody2D>();
 		bc = GetComponent<BoxCollider2D>();
@@ -67,12 +70,7 @@ public class PlayerController : EntityBase {
 			}
 
 			if (eatSkill && eCommand) {
-				if (hp % 3 == 2) {
-					CmdDigestive();
-
-				} else {
-					CmdEat();
-				}
+				CmdDigestive();
 
 			} else if (downCommand) {
 				CmdCrouch();
@@ -126,10 +124,10 @@ public class PlayerController : EntityBase {
 
 	[Command]
 	public void CmdRegist(int index , int health) {
+		GameEngine.direct.players.Add(this);
 		PlayerIndex = index;
 		hp = health;
 		SetSize();
-		GameEngine.direct.players.Add(this);
 	}
 
 	[Command]
@@ -281,7 +279,7 @@ public class PlayerController : EntityBase {
 
 	private void Eat() {
 		foreach (Transform unit in GameEngine.direct.units) {
-			if (Vector2.Distance(transform.position, unit.position) <= size * 0.25f + 3) {
+			if (Vector2.Distance(transform.position, unit.position) <= (BasicSize + size * 0.125f) + 3) {
 				Destroy(unit.gameObject);
 				hp++;
 				SetSize();
@@ -304,8 +302,9 @@ public class PlayerController : EntityBase {
 	float size = 0;
 
 	protected void SetSize() {
-		size = (int)(hp / 3);
-		float tempsize = (0.5f + size * 0.25f) * (transform.localScale.x / Mathf.Abs(transform.localScale.x));
+		size = hp;
+		float tempsize = (BasicSize + size * 0.125f) * (transform.localScale.x / Mathf.Abs(transform.localScale.x));
 		transform.localScale = new Vector3(tempsize, Mathf.Abs(tempsize), 1);
+		GameEngine.direct.ResetCamera();
 	}
 }
