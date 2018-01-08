@@ -12,6 +12,11 @@ public class PrototypeSystem : NetworkBehaviour {
 	public int a = 0;
 	public int clock;
 
+	public int hostIntSize;
+	public int intSize;
+	public float jumpForce;
+	public int jumpGape;
+
 	void Update () {
 		if (isServer && GameEngine.direct.connecting) {
 			if (transform.childCount < 20 && clock >= 30) {
@@ -33,10 +38,10 @@ public class PrototypeSystem : NetworkBehaviour {
 			newObj.GetComponentInChildren<SpriteRenderer>().material = mt[a];
 
 			if (a == 0) {
-				newObj.GetComponent<PlayerController>().CmdRegist(a, 6);
+				newObj.GetComponent<PlayerController>().CmdRegist(a, hostIntSize , jumpForce , jumpGape);
 				GameEngine.direct.Focus(newObj.GetComponent<PlayerController>());
 			} else {
-				newObj.GetComponent<PlayerController>().CmdRegist(a, 2);
+				newObj.GetComponent<PlayerController>().CmdRegist(a, intSize , jumpForce, jumpGape);
 			}
 
 			a++;

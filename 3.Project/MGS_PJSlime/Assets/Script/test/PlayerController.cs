@@ -16,7 +16,10 @@ public class PlayerController : EntityBase {
 	public Animator anim;
 	public float moveForce;
 	public float moveJumpForce; 
+
 	public float jumpForce;
+	public int jumpGape;
+
 	public bool eatSkill = true;
 	public int PlayerIndex = 0;
 
@@ -123,10 +126,12 @@ public class PlayerController : EntityBase {
 	}
 
 	[Command]
-	public void CmdRegist(int index , int health) {
+	public void CmdRegist(int PlayerIndex, int hp, float jumpForce , int jumpGape) {
 		GameEngine.direct.players.Add(this);
-		PlayerIndex = index;
-		hp = health;
+		this.PlayerIndex = PlayerIndex;
+		this.hp = hp;
+		this.jumpForce = jumpForce;
+		this.jumpGape = jumpGape;
 		SetSize();
 	}
 
@@ -185,7 +190,7 @@ public class PlayerController : EntityBase {
 		}
 
 		if (jumpCommand && state != State.Jump) {
-			rb.AddForce(Vector2.up * jumpForce * ((40 - size) * 0.025f), ForceMode2D.Impulse);
+			rb.AddForce(Vector2.up * jumpForce * ((jumpGape - size) / jumpGape), ForceMode2D.Impulse);
 			state = State.Jump;
 			RpcState("Jump");
 			return;
