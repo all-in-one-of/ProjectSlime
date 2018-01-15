@@ -290,7 +290,7 @@ public class PlayerController : EntityBase {
 			if (collision.transform.tag == "End") {
 				GameEngine.direct.OnVictory();
 
-			} else if (collision.transform.tag == "Dead") {
+			} else if (collision.transform.tag == "Dead" || collision.transform.tag == "Scene") {
 				GameEngine.direct.OnDead(this);
 			}
 		}
