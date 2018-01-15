@@ -12,6 +12,7 @@ public class GameEngine : MonoBehaviour {
 
 	public PlayerController player;
 	public List<PlayerController> players = new List<PlayerController>();
+	public List<GameObject> playerUIs = new List<GameObject>();
 
 	private void Start() {
 		direct = this;
@@ -19,7 +20,7 @@ public class GameEngine : MonoBehaviour {
 
 	private void Update() {
 		if (player) {
-			camera.position = new Vector3(player.transform.position.x , player.transform.position.y + 5 , camera.position.z);
+			camera.position = new Vector3(player.transform.position.x , player.transform.position.y , camera.position.z);
 			if (!connecting) {
 				Network.InitializeServer(1, 7777);
 			}
@@ -47,36 +48,41 @@ public class GameEngine : MonoBehaviour {
 		PlayerController temp = null;
 
 		foreach (PlayerController unit in players) {
-			if (temp == null) {
-				temp = unit;
+			if (!unit.isDead) {
+				if (temp == null) {
+					temp = unit;
 
-			} else if (temp.hp < unit.hp) {
-				temp = unit;
+				} else if (temp.hp < unit.hp) {
+					temp = unit;
+				}
 			}
 		}
 		player = temp;
 	}
 
-	public void OnDead(PlayerController value) {
-		bool dead = true;
+	public void OnRegist(PlayerController value) {
+		players.Add(value);
+		playerUIs[value.PlayerIndex].SetActive(true);
+	}
 
+	public void OnDead(PlayerController value) {
+		value.Dead();
+		ResetCamera();
+		playerUIs[value.PlayerIndex].SetActive(false);
+	}
+
+	public void OnReborn(PlayerController value) {
 		foreach (PlayerController unit in players) {
-			if (unit.gameObject != value) {
-				if (unit.hp > 2) {
-					unit.Attack(2, true);
-					value.transform.position = unit.transform.position;
-					value.Attack(0, true);
-					value.hp = 2;
-					ResetCamera();
-					return;
-				}
+			if (unit.gameObject != value && unit.hp > 2 && !unit.isDead) {
+				unit.Attack(2, true);
+				value.transform.position = unit.transform.position;
+				value.Attack(0, true);
+				value.hp = 2;
+				value.Reborn();
+				ResetCamera();
+				playerUIs[value.PlayerIndex].SetActive(true);
+				return;
 			}
 		}
-
-		if (dead) {
-			players.Remove(value);
-			Destroy(value.gameObject);
-		}		
-		ResetCamera();
 	}
 }

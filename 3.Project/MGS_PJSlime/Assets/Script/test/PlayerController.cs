@@ -20,12 +20,17 @@ public class PlayerController : EntityBase {
 	public float jumpForce;
 	public int jumpGape;
 
+	public bool isDead = false;
 	public bool eatSkill = true;
 	public int PlayerIndex = 0;
 
 	public SpriteRenderer sprite;
 	public Dictionary<Collider2D, int> touching = new Dictionary<Collider2D, int>();
-	
+
+
+	protected float size = 0;
+
+
 	protected override void FStart() {
 		rb = GetComponent<Rigidbody2D>();
 		bc = GetComponent<BoxCollider2D>();
@@ -37,35 +42,57 @@ public class PlayerController : EntityBase {
 	}
 	
 	void Update () {
-		if (Network.isClient || Network.isServer) {
+		if ((Network.isClient || Network.isServer)) {			
+
 			float horizonDirection = 0;
 			bool downCommand = false;
 			bool jumpCommand = false;
 			bool eCommand = false;
-
-			if (Input.GetKeyDown(KeyCode.Greater)) {
-				Debug.Log("ss");
-			}
+			
 
 			if (PlayerIndex == 0) {
+				if (isDead) {
+					if (Input.GetKeyDown(KeyCode.E)) {
+						GameEngine.direct.OnReborn(this);
+					}
+					return;
+				}
 				horizonDirection = (Input.GetAxisRaw("LKeyboard") > 0 ? 1 : 0) + (Input.GetAxisRaw("LKeyboard") < 0 ? -1 : 0);
 				downCommand = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);
 				jumpCommand = Input.GetKeyDown(KeyCode.Space);
 				eCommand = Input.GetKeyDown(KeyCode.E);
 
 			} else if (PlayerIndex == 1) {
+				if (isDead) {
+					if (Input.GetKeyDown(KeyCode.Period)) {
+						GameEngine.direct.OnReborn(this);
+					}
+					return;
+				}
 				horizonDirection = (Input.GetAxisRaw("RKeyboard") > 0 ? 1 : 0) + (Input.GetAxisRaw("RKeyboard") < 0 ? -1 : 0);
 				downCommand = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow); 
 				jumpCommand = Input.GetKeyDown(KeyCode.Comma);
 				eCommand = Input.GetKeyDown(KeyCode.Period);
 
 			} else if (PlayerIndex == 2) {
+				if (isDead) {
+					if (Input.GetAxisRaw("LHPanel") > 0) {
+						GameEngine.direct.OnReborn(this);
+					}
+					return;
+				}
 				horizonDirection = (Input.GetAxisRaw("PS4LHorizontal") > 0 ? 1 : 0) + (Input.GetAxisRaw("PS4LHorizontal") < 0 ? -1 : 0);
 				downCommand = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);
 				jumpCommand = Input.GetAxisRaw("LVPanel") < 0;
 				eCommand = Input.GetAxisRaw("LHPanel") > 0;
 
 			} else if (PlayerIndex == 3) {
+				if (isDead) {
+					if (Input.GetKeyDown(KeyCode.Joystick1Button2)) {
+						GameEngine.direct.OnReborn(this);
+					}
+					return;
+				}
 				horizonDirection = (Input.GetAxisRaw("PS4RHorizontal") > 0 ? 1 : 0) + (Input.GetAxisRaw("PS4RHorizontal") < 0 ? -1 : 0);
 				downCommand = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);				
 				jumpCommand = Input.GetKeyDown(KeyCode.Joystick1Button1);
@@ -127,11 +154,11 @@ public class PlayerController : EntityBase {
 
 	[Command]
 	public void CmdRegist(int PlayerIndex, int hp, float jumpForce , int jumpGape) {
-		GameEngine.direct.players.Add(this);
 		this.PlayerIndex = PlayerIndex;
 		this.hp = hp;
 		this.jumpForce = jumpForce;
 		this.jumpGape = jumpGape;
+		GameEngine.direct.OnRegist(this);
 		SetSize();
 	}
 
@@ -229,9 +256,37 @@ public class PlayerController : EntityBase {
 			}				
 		}
 	}
-	
-	private void OnCollisionEnter2D(Collision2D collision) {
-		if (Network.isServer ) {
+
+	public override void Attack(int damage, bool firstOrder = false) {
+		if (!isInvincible || firstOrder) {
+			isInvincible = true;
+			hp = hp - damage;
+			if (hp == 0) {
+				GameEngine.direct.OnDead(this);
+			} else {
+				SetSize();
+			}
+		}
+	}
+
+	public override void Dead() {
+		rb.simulated = false;
+		transform.localScale = Vector3.zero;
+		isDead = true;
+	}
+
+	public void Reborn() {
+		rb.simulated = true;
+		SetSize();
+		isDead = false;
+	}
+
+	protected void OnCollisionEnter2D(Collision2D collision) {
+		if (Network.isServer) {
+			if (isDead) {
+				return;
+			}
+
 			if (collision.transform.tag == "End") {
 				GameEngine.direct.OnVictory();
 
@@ -241,13 +296,21 @@ public class PlayerController : EntityBase {
 		}
 	}
 
-	private void OnCollisionExit2D(Collision2D collision) {
+	protected void OnCollisionExit2D(Collision2D collision) {
 		if (Network.isServer) {
+			if (isDead) {
+				return;
+			}
+
 			touching.Remove(collision.collider);
 		}
 	}
 
 	protected override void FOnCollisionStay2D(Collision2D collision) {
+		if (isDead) {
+			return;
+		}
+
 		Vector2 pointOfContact = collision.contacts[0].normal;
 
 		//Left
@@ -267,8 +330,8 @@ public class PlayerController : EntityBase {
 			TouchSide(collision, 0);
 		}
 	}
-	
-	private void TouchSide(Collision2D collision , int side) {
+
+	private void TouchSide(Collision2D collision, int side) {
 		if (side == 0 && !touching.ContainsValue(0)) {
 			RpcState("Idle");
 			rb.velocity = Vector2.zero;
@@ -282,33 +345,20 @@ public class PlayerController : EntityBase {
 		}
 	}
 
-	private void Eat() {
+	protected void Eat() {
 		foreach (Transform unit in GameEngine.direct.units) {
 			if (Vector2.Distance(transform.position, unit.position) <= (BasicSize + size * 0.125f) + 3) {
-				Destroy(unit.gameObject);
+				unit.GetComponent<EntityBase>().Dead();
 				hp++;
 				SetSize();
 				return;
 			}
 		}
 	}
-
-	public override void Attack(int damage , bool firstOrder = false) {
-		if (!isInvincible || firstOrder) {
-			isInvincible = true;
-			hp = hp - damage;
-			if (hp == 0) {
-				GameEngine.direct.OnDead(this);
-			}
-			SetSize();
-		}
-	}
-
-	float size = 0;
-
+	
 	protected void SetSize() {
 		size = hp;
-		float tempsize = (BasicSize + size * 0.125f) * (transform.localScale.x / Mathf.Abs(transform.localScale.x));
+		float tempsize = (BasicSize + size * 0.125f) * (transform.localScale.x != 0 ?(transform.localScale.x / Mathf.Abs(transform.localScale.x)) : 1);
 		transform.localScale = new Vector3(tempsize, Mathf.Abs(tempsize), 1);
 		GameEngine.direct.ResetCamera();
 	}

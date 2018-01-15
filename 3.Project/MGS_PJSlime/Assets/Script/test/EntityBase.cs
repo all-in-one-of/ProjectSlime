@@ -44,8 +44,12 @@ public class EntityBase : NetworkBehaviour {
 			hp--;
 			isInvincible = true;
 			if (hp == 0) {
-				Destroy(gameObject);
+				Dead();
 			}
 		}
+	}
+
+	public virtual void Dead() {
+		Destroy(gameObject);
 	}
 }
