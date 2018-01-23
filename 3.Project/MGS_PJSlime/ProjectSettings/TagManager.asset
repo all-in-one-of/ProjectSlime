@@ -9,7 +9,6 @@ TagManager:
   - Slime
   - End
   - Dead
-  - Scene
   layers:
   - Default
   - TransparentFX
@@ -19,7 +18,7 @@ TagManager:
   - UI
   - 
   - 
-  - Scene
+  - 
   - Player
   - 
   - 
