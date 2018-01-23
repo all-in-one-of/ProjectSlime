@@ -2,7 +2,7 @@
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
-public class NetworkManager : MonoBehaviour {
+public class NetworkManagerM : MonoBehaviour {
 	public Text debugText;
 	public bool isAtStartup = true;
 

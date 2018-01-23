@@ -4,8 +4,12 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class PrototypeSystem : NetworkBehaviour {
+	public NetworkManager networkManager;
+	public GameObject spawnPoint;
+
 	public GameObject player;
 	public GameObject[] obj;
 	public Material[] mt;
@@ -33,7 +37,7 @@ public class PrototypeSystem : NetworkBehaviour {
 
 	public void SPlayer2(EventSystem set) {
 		if (a < 4) {
-			GameObject newObj = Network.Instantiate(player, new Vector3(transform.position.x + Random.Range(-5, 5), transform.position.y + 10, 0), Quaternion.identity, 0) as GameObject;
+			GameObject newObj = Network.Instantiate(player, new Vector3(spawnPoint.transform.position.x + Random.Range(-5, 5), spawnPoint.transform.position.y , 0), Quaternion.identity, 0) as GameObject;
 			NetworkServer.Spawn(newObj);
 			newObj.GetComponentInChildren<SpriteRenderer>().material = mt[a];
 
@@ -46,6 +50,12 @@ public class PrototypeSystem : NetworkBehaviour {
 
 			a++;
 			set.SetSelectedGameObject(gameObject);
-		}		
+		}
+	}
+
+	public void ResetScene(EventSystem set) {
+		networkManager.StopHost();
+		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+		set.SetSelectedGameObject(gameObject);
 	}
 }

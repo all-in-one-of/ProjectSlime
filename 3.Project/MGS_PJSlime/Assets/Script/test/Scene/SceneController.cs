@@ -11,8 +11,8 @@ public class SceneController : MonoBehaviour {
 	}
 
 	private void Update() {
-		if (GameEngine.direct.player) {
-			transform.position = new Vector3(GameEngine.direct.player.transform.position.x * shift.x + origin.x, GameEngine.direct.player.transform.position.y * shift.y + origin.y, transform.position.z);
+		if (GameEngine.mainPlayer) {
+			transform.position = new Vector3(GameEngine.mainPlayer.transform.position.x * shift.x + origin.x, GameEngine.mainPlayer.transform.position.y * shift.y + origin.y, transform.position.z);
 		}
 	}
 }

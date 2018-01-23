@@ -5,12 +5,11 @@ using UnityEngine;
 
 public class GameEngine : MonoBehaviour {
 	public static GameEngine direct;
-	public Transform camera;
 	public Transform units;
 	public bool connecting;
 	NetworkClient myClient;
 
-	public PlayerController player;
+	public static PlayerController mainPlayer;
 	public List<PlayerController> players = new List<PlayerController>();
 	public List<GameObject> playerUIs = new List<GameObject>();
 
@@ -19,11 +18,8 @@ public class GameEngine : MonoBehaviour {
 	}
 
 	private void Update() {
-		if (player) {
-			camera.position = new Vector3(player.transform.position.x , player.transform.position.y , camera.position.z);
-			if (!connecting) {
-				Network.InitializeServer(1, 7777);
-			}
+		if (!connecting) {
+			Network.InitializeServer(1, 7777);
 		}
 	}
 
@@ -33,7 +29,7 @@ public class GameEngine : MonoBehaviour {
 	}
 
 	public void Focus(PlayerController focusing) {
-		player = focusing;
+		mainPlayer = focusing;
 	}
 	
 	void OnServerInitialized() {
@@ -57,7 +53,7 @@ public class GameEngine : MonoBehaviour {
 				}
 			}
 		}
-		player = temp;
+		mainPlayer = temp;
 	}
 
 	public void OnRegist(PlayerController value) {
@@ -82,6 +78,19 @@ public class GameEngine : MonoBehaviour {
 				ResetCamera();
 				playerUIs[value.PlayerIndex].SetActive(true);
 				return;
+			}
+		}
+	}
+
+	public void KillBorder(Vector2 cameraPos) {
+		for (int i = 0; i < players.Count; i++) {
+			if (players[i] != mainPlayer ) {
+				if (Mathf.Abs(players[i].transform.position.x - cameraPos.x) > 30) {
+					OnDead(players[i]);
+				}
+				if (Mathf.Abs(players[i].transform.position.y - cameraPos.y) > 17) {
+					OnDead(players[i]);
+				}
 			}
 		}
 	}

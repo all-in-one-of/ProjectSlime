@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
+
 public class PlayerController : EntityBase {	
 	private static float BasicSize = 0.25f;
 
@@ -25,11 +26,11 @@ public class PlayerController : EntityBase {
 	public int PlayerIndex = 0;
 
 	public SpriteRenderer sprite;
-	public Dictionary<Collider2D, int> touching = new Dictionary<Collider2D, int>();
+	public Dictionary<Collider2D, int> touching;
 
 
 	protected float size = 0;
-
+	
 
 	protected override void FStart() {
 		rb = GetComponent<Rigidbody2D>();
@@ -38,6 +39,7 @@ public class PlayerController : EntityBase {
 		if (Network.isServer) {
 			rb.simulated = true;
 			SetSize();
+			touching = new Dictionary<Collider2D, int>();
 		}
 	}
 	
