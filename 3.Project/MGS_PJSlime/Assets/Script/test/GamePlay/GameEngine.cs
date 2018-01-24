@@ -13,6 +13,20 @@ public class GameEngine : MonoBehaviour {
 	public List<PlayerController> players = new List<PlayerController>();
 	public List<GameObject> playerUIs = new List<GameObject>();
 
+	public float walkXSpeed = 8;
+	public float walkXAcc = 10;
+	public float walkXDec = 10;
+
+	public float jumpXSpeed = 8;
+	public float jumpXAcc = 10;
+	public float jumpXDec = 10;
+
+	public float jumpYForce = 8;
+	public float jumpYDec = 10;
+
+	public float iceXAcc = 10;
+	public float iceXDec = 10;
+
 	private void Start() {
 		direct = this;
 	}

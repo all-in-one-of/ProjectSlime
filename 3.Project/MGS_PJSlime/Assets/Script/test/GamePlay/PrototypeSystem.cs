@@ -18,7 +18,6 @@ public class PrototypeSystem : NetworkBehaviour {
 
 	public int hostIntSize;
 	public int intSize;
-	public float jumpForce;
 	public int jumpGape;
 
 	void Update () {
@@ -42,10 +41,10 @@ public class PrototypeSystem : NetworkBehaviour {
 			newObj.GetComponentInChildren<SpriteRenderer>().material = mt[a];
 
 			if (a == 0) {
-				newObj.GetComponent<PlayerController>().CmdRegist(a, hostIntSize , jumpForce , jumpGape);
+				newObj.GetComponent<PlayerController>().CmdRegist(a, hostIntSize , jumpGape);
 				GameEngine.direct.Focus(newObj.GetComponent<PlayerController>());
 			} else {
-				newObj.GetComponent<PlayerController>().CmdRegist(a, intSize , jumpForce, jumpGape);
+				newObj.GetComponent<PlayerController>().CmdRegist(a, intSize , jumpGape);
 			}
 
 			a++;

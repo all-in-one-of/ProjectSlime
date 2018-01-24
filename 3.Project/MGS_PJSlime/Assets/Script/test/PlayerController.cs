@@ -15,20 +15,18 @@ public class PlayerController : EntityBase {
 
 	public State state = State.Normal;
 	public Animator anim;
-	public float moveForce;
-	public float moveJumpForce; 
-
-	public float jumpForce;
+	
 	public int jumpGape;
 
 	public bool isDead = false;
 	public bool eatSkill = true;
 	public int PlayerIndex = 0;
+	public Vector2 velocitA;
+	public Vector2 deVelocity;
 
 	public SpriteRenderer sprite;
 	public Dictionary<Collider2D, int> touching;
-
-
+	
 	protected float size = 0;
 	
 
@@ -113,6 +111,8 @@ public class PlayerController : EntityBase {
 			} else if (horizonDirection != 0) {
 				CmdMove(horizonDirection);
 
+			} else {
+				CmdIdle();
 			}
 
 			if (!eatSkill ) {
@@ -143,10 +143,16 @@ public class PlayerController : EntityBase {
 		}		
 	}
 
+	void FixedUpdate() {
+		if (Network.isServer) {
+			velocitA.y = !touching.ContainsValue(2) ? rb.velocity.y - GameEngine.direct.jumpYDec * Time.deltaTime : 0;// - GameEngine.direct.jumpYDec * Time.deltaTime;
+			rb.velocity = velocitA;
+		}
+	}
+
 	[ClientRpc]
 	public void RpcApplyTransform(Vector2 position, Vector2 localScale) {
 		transform.position = position;
-		//transform.localScale = localScale;
 	}
 		
 	[ClientRpc]
@@ -155,10 +161,9 @@ public class PlayerController : EntityBase {
 	}
 
 	[Command]
-	public void CmdRegist(int PlayerIndex, int hp, float jumpForce , int jumpGape) {
+	public void CmdRegist(int PlayerIndex, int hp, int jumpGape) {
 		this.PlayerIndex = PlayerIndex;
 		this.hp = hp;
-		this.jumpForce = jumpForce;
 		this.jumpGape = jumpGape;
 		GameEngine.direct.OnRegist(this);
 		SetSize();
@@ -171,7 +176,7 @@ public class PlayerController : EntityBase {
 		}
 
 		if (!anim.GetCurrentAnimatorStateInfo(0).IsTag("Crouch") && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Jump") ) {
-			rb.velocity = Vector2.zero;
+			//rb.velocity = Vector2.zero;
 			RpcState("Crouch");
 		}
 	}
@@ -219,7 +224,7 @@ public class PlayerController : EntityBase {
 		}
 
 		if (jumpCommand && state != State.Jump) {
-			rb.AddForce(Vector2.up * jumpForce * ((jumpGape - size) / jumpGape), ForceMode2D.Impulse);
+			rb.AddForce(Vector2.up * GameEngine.direct.jumpYForce * ((jumpGape - size) / jumpGape), ForceMode2D.Impulse);
 			state = State.Jump;
 			RpcState("Jump");
 			return;
@@ -235,27 +240,51 @@ public class PlayerController : EntityBase {
 		if ((moveDirection == 1 && touching.ContainsValue(2)) || (moveDirection == -1 && touching.ContainsValue(3))) {
 			moveDirection = 0;
 		}
-				
+
 		if (state != State.Jump) {//地面發呆
-			if (moveDirection == 0) {
-				if (!anim.GetCurrentAnimatorStateInfo(0).IsTag("Idle") ) {
-					RpcState("Idle");
-				}
-				rb.velocity = new Vector2(0, rb.velocity.y);
-			} else {
-				if (!anim.GetCurrentAnimatorStateInfo(0).IsTag("Walk") ) {
+			if (moveDirection != 0) {				
+				if (!anim.GetCurrentAnimatorStateInfo(0).IsTag("Walk")) {
 					RpcState("Walk");
 				}
 
 				transform.localScale = new Vector3(moveDirection * Mathf.Abs(transform.localScale.x), transform.localScale.y, 1);
-				rb.velocity = new Vector2(moveDirection * moveForce, rb.velocity.y);
-			}
 
+				if (!IsSlideing()) {
+					velocitA.x = Accelerator(velocitA.x, moveDirection * GameEngine.direct.walkXAcc, moveDirection * GameEngine.direct.walkXSpeed);
+				} else {
+					velocitA.x = Accelerator(velocitA.x, moveDirection * GameEngine.direct.iceXAcc, moveDirection * GameEngine.direct.walkXSpeed);
+				}				
+				return;
+			}
+			CmdIdle();
 		} else  {//空中移動
 			if (moveDirection != 0) {
 				transform.localScale = new Vector3(moveDirection * Mathf.Abs( transform.localScale.x), transform.localScale.y, 1);
-				rb.velocity = new Vector2(moveDirection * moveJumpForce, rb.velocity.y);
+				velocitA.x = Accelerator(velocitA.x, moveDirection * GameEngine.direct.jumpXAcc, moveDirection * GameEngine.direct.jumpXSpeed);
 			}				
+		}
+	}
+
+	[Command]
+	public void CmdIdle() {
+		if (anim.GetCurrentAnimatorStateInfo(0).IsTag("Eat")) {
+			return;
+		}
+
+		if (state != State.Jump) {//地面發呆
+			if (!anim.GetCurrentAnimatorStateInfo(0).IsTag("Idle")) {
+				RpcState("Idle");
+			}
+
+			if (rb.velocity.x != 0) {
+				if (!IsSlideing()) {
+					velocitA.x = Decelerator(velocitA.x, GameEngine.direct.walkXDec, 0);
+				} else {
+					velocitA.x = Decelerator(velocitA.x, GameEngine.direct.iceXDec, 0);
+				}
+			}
+		} else {//空中移動
+			velocitA.x = Decelerator(velocitA.x, GameEngine.direct.iceXDec, 0);
 		}
 	}
 
@@ -336,7 +365,7 @@ public class PlayerController : EntityBase {
 	private void TouchSide(Collision2D collision, int side) {
 		if (side == 0 && !touching.ContainsValue(0)) {
 			RpcState("Idle");
-			rb.velocity = Vector2.zero;
+			//rb.velocity = Vector2.zero;
 			state = State.Normal;
 		}
 
@@ -362,6 +391,39 @@ public class PlayerController : EntityBase {
 		size = hp;
 		float tempsize = (BasicSize + size * 0.125f) * (transform.localScale.x != 0 ?(transform.localScale.x / Mathf.Abs(transform.localScale.x)) : 1);
 		transform.localScale = new Vector3(tempsize, Mathf.Abs(tempsize), 1);
-		GameEngine.direct.ResetCamera();
+		GameEngine.direct.ResetCamera();		
+	}
+
+	public bool IsSlideing() {
+		foreach (Collider2D collider in touching.Keys) {
+			if (collider.name == "Ice") {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public float Accelerator(float value , float acc , float maxValue) {
+		acc = acc * Time.deltaTime;
+
+		if (maxValue > 0) {
+			return value + acc >= maxValue ? maxValue : value + acc;
+
+		} else if (maxValue < 0) {
+			return value + acc <= maxValue ? maxValue : value + acc;
+		}
+		return 0;
+	}
+
+	public float Decelerator(float value, float dec, float finalValue) {
+		dec = dec * Time.deltaTime;
+
+		if (value > finalValue) {
+			return value - dec <= finalValue ? finalValue : value - dec;
+
+		} else if (value < finalValue) {
+			return value + dec >= finalValue ? finalValue : value + dec;
+		}
+		return finalValue;
 	}
 }
