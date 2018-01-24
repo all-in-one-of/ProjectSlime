@@ -8,6 +8,7 @@ public class PatrolBase : NetworkBehaviour {
 	public bool breakAble2 = false;
 	public Vector2 shift = new Vector2(0, 0);
 	public float speed = 0.05f;
+	public float crackTimer;
 	public float resetTimer;
 
 	protected Vector2 a = new Vector2(0, 0);
@@ -32,7 +33,7 @@ public class PatrolBase : NetworkBehaviour {
 				target = !target;
 			}
 		} else if(breakAble2) {
-			if (breaking && Time.timeSinceLevelLoad - clock > resetTimer + 1) {
+			if (breaking && Time.timeSinceLevelLoad - clock > resetTimer + crackTimer) {
 				UnBreak();
 			}
 		}		
@@ -41,7 +42,7 @@ public class PatrolBase : NetworkBehaviour {
 	public void Break() {
 		breaking = true;
 		clock = Time.timeSinceLevelLoad;
-		Invoke("RealBreal",1);
+		Invoke("RealBreal", crackTimer);
 	}
 
 	public void RealBreal() {
