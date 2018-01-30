@@ -3,8 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraManager : MonoBehaviour {
+	public static GameObject obj;
 	public float maxSpeed;
 	public float minSpeed;
+
+	private void Start() {
+		obj = gameObject;
+	}
 
 	private void Update() {
 		if (GameEngine.mainPlayer) {
