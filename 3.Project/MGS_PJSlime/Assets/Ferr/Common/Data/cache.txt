@@ -8,5 +8,7 @@ Assets/Ferr/2DTerrain/TerrainMaterials/CaveTerrainMaterial.prefab
 Assets/Ferr/2DTerrain/TerrainMaterials/ForegroundTerrainMaterial.prefab
 Assets/Ferr/2DTerrain/TerrainMaterials/SandTerrainMaterial.prefab
 Assets/NewTerrainMaterial.prefab
+Assets/Ferr/2DTerrain/TerrainMaterials/IceTerrainMaterial.prefab
+Assets/Ferr/2DTerrain/TerrainMaterials/RockWTerrainMaterial.prefab
 
 [Ferr2DT_PathTerrain]

@@ -144,8 +144,16 @@ public class PlayerController : EntityBase {
 	}
 
 	void FixedUpdate() {
-		if (Network.isServer) {
-			velocitA.y = !touching.ContainsValue(2) ? rb.velocity.y - GameEngine.direct.jumpYDec * Time.deltaTime : 0;// - GameEngine.direct.jumpYDec * Time.deltaTime;
+		if (Network.isServer && !isDead) {
+			if (touching.ContainsValue(2) && velocitA.x > 1) {
+				velocitA.x = 0;
+
+			} else if(touching.ContainsValue(3) && velocitA.x < 1) {
+				velocitA.x = 0;
+			}
+
+			velocitA.y = rb.velocity.y - GameEngine.direct.jumpYDec * Time.deltaTime ;
+			//velocitA.y = !touching.ContainsValue(2) ? rb.velocity.y - GameEngine.direct.jumpYDec * Time.deltaTime : 0;
 			rb.velocity = velocitA;
 		}
 	}
@@ -304,6 +312,7 @@ public class PlayerController : EntityBase {
 		rb.simulated = false;
 		transform.localScale = Vector3.zero;
 		isDead = true;
+		velocitA = Vector2.zero;
 	}
 
 	public void Reborn() {
