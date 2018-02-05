@@ -4,10 +4,8 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using UnityEngine.SceneManagement;
 
 public class PrototypeSystem : NetworkBehaviour {
-	public NetworkManager networkManager;
 	public GameObject spawnPoint;
 
 	public GameObject player;
@@ -19,6 +17,8 @@ public class PrototypeSystem : NetworkBehaviour {
 	public int hostIntSize;
 	public int intSize;
 	public int jumpGape;
+	public bool order = false;
+		
 
 	void Update () {
 		if (isServer && GameEngine.direct.connecting) {
@@ -50,11 +50,5 @@ public class PrototypeSystem : NetworkBehaviour {
 			a++;
 			set.SetSelectedGameObject(gameObject);
 		}
-	}
-
-	public void ResetScene(EventSystem set) {
-		networkManager.StopHost();
-		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-		set.SetSelectedGameObject(gameObject);
 	}
 }

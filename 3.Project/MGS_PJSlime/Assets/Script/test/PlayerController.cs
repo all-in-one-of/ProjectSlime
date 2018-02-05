@@ -42,7 +42,7 @@ public class PlayerController : EntityBase {
 	}
 	
 	void Update () {
-		if ((Network.isClient || Network.isServer)) {			
+		if ((Network.isClient || Network.isServer)) {
 
 			float horizonDirection = 0;
 			bool downCommand = false;
@@ -88,15 +88,15 @@ public class PlayerController : EntityBase {
 
 			} else if (PlayerIndex == 3) {
 				if (isDead) {
-					if (Input.GetKeyDown(KeyCode.Joystick1Button2)) {
+					if (Input.GetKeyDown(KeyCode.Mouse1)) {
 						GameEngine.direct.OnReborn(this);
 					}
 					return;
 				}
 				horizonDirection = (Input.GetAxisRaw("PS4RHorizontal") > 0 ? 1 : 0) + (Input.GetAxisRaw("PS4RHorizontal") < 0 ? -1 : 0);
 				downCommand = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);				
-				jumpCommand = Input.GetKeyDown(KeyCode.Joystick1Button1);
-				eCommand = Input.GetKeyDown(KeyCode.Joystick1Button2);
+				jumpCommand = Input.GetKeyDown(KeyCode.Mouse0);
+				eCommand = Input.GetKeyDown(KeyCode.Mouse1);
 			}
 
 			if (eatSkill && eCommand) {

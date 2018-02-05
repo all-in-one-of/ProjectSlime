@@ -1,8 +1,22 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
-public class NetworkManagerM : MonoBehaviour {
+public class SkyTalker : MonoBehaviour {
+	public static NetworkManager networkManager;
+
+	void Start() {
+		FStart();
+	}
+
+	protected void FStart() {
+		networkManager = GetComponent<NetworkManager>();
+		networkManager.StartHost();
+	}
+
+	/*
 	public Text debugText;
 	public bool isAtStartup = true;
 
@@ -60,5 +74,11 @@ public class NetworkManagerM : MonoBehaviour {
 	public void OnConnected(NetworkMessage netMsg) {
 		debugText.text = "OnConnected";
 		Debug.Log("Connected to server");
+	}*/
+	
+		
+	public void ResetScene(EventSystem set) {
+		networkManager.StopHost();
+		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 }

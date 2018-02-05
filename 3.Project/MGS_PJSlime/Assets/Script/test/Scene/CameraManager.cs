@@ -21,7 +21,7 @@ public class CameraManager : MonoBehaviour {
 				speed = minSpeed;
 			}
 
-			transform.position = Vector3.Lerp(transform.position , new Vector3(GameEngine.mainPlayer.transform.position.x, GameEngine.mainPlayer.transform.position.y, transform.position.z) , Time.deltaTime * speed);
+			transform.position = Vector3.Lerp(transform.position , new Vector3(GameEngine.mainPlayer.transform.position.x, GameEngine.mainPlayer.transform.position.y + 5, transform.position.z) , Time.deltaTime * speed);
 			GameEngine.direct.KillBorder(transform.position);
 		}
 	}
