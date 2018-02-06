@@ -9,6 +9,8 @@ TagManager:
   - Slime
   - End
   - Dead
+  - Scene
+  - CheckPoint
   layers:
   - Default
   - TransparentFX
