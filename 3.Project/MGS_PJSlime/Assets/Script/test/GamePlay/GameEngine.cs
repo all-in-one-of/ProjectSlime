@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class GameEngine : MonoBehaviour {
 	public static GameEngine direct;
+	private static string checkPoint = "";
+
 	public Transform units;
 	public bool connecting;
-	NetworkClient myClient;
 
 	public static PlayerController mainPlayer;
 	public List<PlayerController> players = new List<PlayerController>();
@@ -107,5 +108,17 @@ public class GameEngine : MonoBehaviour {
 				}
 			}
 		}
+	}
+
+	public static void RegistCheckPoint(string obj) {
+		checkPoint = obj;
+	}
+
+	public static void ResetCheckPoint() {
+		checkPoint = null;
+	}
+
+	public static string GetCheckPoint() {
+		return checkPoint;
 	}
 }

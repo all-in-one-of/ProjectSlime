@@ -5,7 +5,7 @@ using UnityEngine.Networking;
 
 
 public class PlayerController : EntityBase {	
-	private static float BasicSize = 0.25f;
+	private static float BasicSize = 0.5f;
 
 	public enum State {
 		Normal,
@@ -387,7 +387,7 @@ public class PlayerController : EntityBase {
 
 	protected void Eat() {
 		foreach (Transform unit in GameEngine.direct.units) {
-			if (Vector2.Distance(transform.position, unit.position) <= (BasicSize + size * 0.125f) + 3) {
+			if (Vector2.Distance(transform.position, unit.position) <= (BasicSize + size * 0.125f) + 2) {
 				unit.GetComponent<EntityBase>().Dead();
 				hp++;
 				SetSize();
@@ -434,5 +434,11 @@ public class PlayerController : EntityBase {
 			return value + dec >= finalValue ? finalValue : value + dec;
 		}
 		return finalValue;
+	}
+
+	private void OnTriggerEnter2D(Collider2D collider) {
+		if (Network.isServer) {
+			GameEngine.RegistCheckPoint(collider.gameObject.name);
+		}
 	}
 }
