@@ -5,7 +5,7 @@ AnimatorController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: 11
+  m_Name: Citizen
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:
@@ -40,7 +40,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 107789e141c1c704a91f9253ae68e4c5, type: 2}
+  m_Motion: {fileID: 7400000, guid: e9406b2b35d0f1a4e910e6ca1bc43eb0, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -65,7 +65,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: c7ca3000545d1704da911782b0157e27, type: 2}
+  m_Motion: {fileID: 7400000, guid: 87d1f644a0c0a59449d898ff63258b07, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -90,7 +90,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: ac7cbd4638fd3b74fb6305a09df5e6c1, type: 2}
+  m_Motion: {fileID: 7400000, guid: 728e0ac6b80ce4544ba966c6b3acc5c6, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

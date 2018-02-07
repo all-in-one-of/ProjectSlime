@@ -17,6 +17,12 @@ public class EntityBase : NetworkBehaviour {
 		FStart();
 	}
 
+	void FixedUpdate() {
+		if (Network.isServer) {
+			FFixedUpdate();
+		}
+	}
+
 	protected virtual void FStart() {
 		rb = GetComponent<Rigidbody2D>();
 		bc = GetComponent<BoxCollider2D>();
@@ -24,6 +30,10 @@ public class EntityBase : NetworkBehaviour {
 		if (Network.isServer) {
 			rb.simulated = true;
 		}
+	}
+
+	protected virtual void FFixedUpdate() {
+		
 	}
 
 	private void OnCollisionEnter2D(Collision2D collision) {

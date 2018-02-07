@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114566685032838122}
   - component: {fileID: 114750477386181880}
   m_Layer: 0
-  m_Name: 11
+  m_Name: Citizen
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 212132215307380778}
   - component: {fileID: 95020298519906906}
   m_Layer: 0
-  m_Name: 11
+  m_Name: anim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

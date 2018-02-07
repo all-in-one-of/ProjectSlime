@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 public class PatrolBase : NetworkBehaviour {
+	public bool carryAble = false;
 	public bool floatAble = true;
 	public bool breakAble2 = false;
 	public Vector2 shift = new Vector2(0, 0);
@@ -57,6 +58,12 @@ public class PatrolBase : NetworkBehaviour {
 	private void OnCollisionStay2D(Collision2D collision) {
 		if (breakAble2 && !breaking) {
 			Break();
+		}
+	}
+
+	private void OnTriggerEnter2D(Collider2D collider) {
+		if (carryAble) {
+			gameObject.transform.SetParent(transform);
 		}
 	}
 }

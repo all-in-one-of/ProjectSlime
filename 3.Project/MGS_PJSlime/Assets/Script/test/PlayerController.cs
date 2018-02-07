@@ -143,8 +143,8 @@ public class PlayerController : EntityBase {
 		}		
 	}
 
-	void FixedUpdate() {
-		if (Network.isServer && !isDead) {
+	protected override void FFixedUpdate() {
+		if (!isDead) {
 			if (touching.ContainsValue(2) && velocitA.x > 1) {
 				velocitA.x = 0;
 
@@ -310,6 +310,7 @@ public class PlayerController : EntityBase {
 
 	public override void OnDead() {
 		GameEngine.direct.OnDead(this);
+		rb.simulated = false;
 		transform.localScale = Vector3.zero;
 		isDead = true;
 		velocitA = Vector2.zero;
