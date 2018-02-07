@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class PrototypeSystem : NetworkBehaviour {
+	public static PrototypeSystem direct;
 	public GameObject player;
 	public GameObject[] obj;
 	public Material[] mt;
@@ -16,7 +17,10 @@ public class PrototypeSystem : NetworkBehaviour {
 	public int intSize;
 	public int jumpGape;
 	public bool order = false;
-		
+
+	private void Start() {
+		direct = this;
+	}
 
 	void Update () {
 		if (isServer && GameEngine.direct.connecting) {
@@ -32,23 +36,32 @@ public class PrototypeSystem : NetworkBehaviour {
 		}
 	}
 
-	public void SPlayer2(EventSystem set) {
+	void OnServerInitialized() {
+		SpawnPlayer();
+	}
+
+	public void SpawnPlayer(EventSystem set) {
+		SpawnPlayer();
+		set.SetSelectedGameObject(gameObject);
+	}
+
+	public void SpawnPlayer() {
 		if (a < 4) {
 			Vector2 spawnPoint = GameEngine.GetCheckPoint() != "" ? GameObject.Find(GameEngine.GetCheckPoint()).transform.position : transform.position;
 
-			GameObject newObj = Network.Instantiate(player, new Vector3(spawnPoint.x + Random.Range(-5, 5), spawnPoint.y , 0), Quaternion.identity, 0) as GameObject;
+			GameObject newObj = Network.Instantiate(player, new Vector3(spawnPoint.x + Random.Range(-5, 5), spawnPoint.y, 0), Quaternion.identity, 0) as GameObject;
 			NetworkServer.Spawn(newObj);
 			newObj.GetComponentInChildren<SpriteRenderer>().material = mt[a];
 
 			if (a == 0) {
-				newObj.GetComponent<PlayerController>().CmdRegist(a, hostIntSize , jumpGape);
+				newObj.GetComponent<PlayerController>().CmdRegist(a, hostIntSize, jumpGape);
 				GameEngine.direct.Focus(newObj.GetComponent<PlayerController>());
 			} else {
-				newObj.GetComponent<PlayerController>().CmdRegist(a, intSize , jumpGape);
+				newObj.GetComponent<PlayerController>().CmdRegist(a, intSize, jumpGape);
 			}
 
 			a++;
-			set.SetSelectedGameObject(gameObject);
+
 		}
 	}
 }

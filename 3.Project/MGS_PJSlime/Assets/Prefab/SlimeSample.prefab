@@ -184,9 +184,8 @@ MonoBehaviour:
   invincibleTimer: 0
   attack: 1
   hp: 2
-  state: 0
+  state: 1
   anim: {fileID: 95711770884029156}
-  jumpForce: 35
   jumpGape: 0
   isDead: 0
   eatSkill: 1
