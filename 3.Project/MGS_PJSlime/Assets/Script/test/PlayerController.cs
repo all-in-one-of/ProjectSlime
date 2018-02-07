@@ -301,7 +301,7 @@ public class PlayerController : EntityBase {
 			isInvincible = true;
 			hp = hp - damage;
 			if (hp == 0) {
-				GameEngine.direct.OnDead(this);
+				OnDead();
 			} else {
 				SetSize();
 			}
@@ -309,11 +309,10 @@ public class PlayerController : EntityBase {
 	}
 
 	public override void OnDead() {
-		rb.simulated = false;
+		GameEngine.direct.OnDead(this);
 		transform.localScale = Vector3.zero;
 		isDead = true;
 		velocitA = Vector2.zero;
-		base.OnDead();
 	}
 
 	public void Reborn() {
@@ -341,7 +340,7 @@ public class PlayerController : EntityBase {
 			GameEngine.direct.OnVictory();
 
 		} else if (collision.transform.tag == "Dead" || collision.transform.tag == "Scene") {
-			GameEngine.direct.OnDead(this);
+			OnDead();
 		}
 	}
 

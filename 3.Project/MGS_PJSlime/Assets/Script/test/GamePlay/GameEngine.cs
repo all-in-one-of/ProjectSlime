@@ -100,10 +100,10 @@ public class GameEngine : MonoBehaviour {
 		for (int i = 0; i < players.Count; i++) {
 			if (players[i] != mainPlayer ) {
 				if (Mathf.Abs(players[i].transform.position.x - cameraPos.x) > 30) {
-					OnDead(players[i]);
+					players[i].OnDead();
 				}
 				if (Mathf.Abs(players[i].transform.position.y - cameraPos.y) > 17) {
-					OnDead(players[i]);
+					players[i].OnDead();
 				}
 			}
 		}
