@@ -77,7 +77,6 @@ public class GameEngine : MonoBehaviour {
 	}
 
 	public void OnDead(PlayerController value) {
-		value.Dead();
 		ResetCamera();
 		playerUIs[value.PlayerIndex].SetActive(false);
 	}

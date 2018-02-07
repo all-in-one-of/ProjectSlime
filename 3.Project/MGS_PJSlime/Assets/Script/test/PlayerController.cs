@@ -308,11 +308,12 @@ public class PlayerController : EntityBase {
 		}
 	}
 
-	public override void Dead() {
+	public override void OnDead() {
 		rb.simulated = false;
 		transform.localScale = Vector3.zero;
 		isDead = true;
 		velocitA = Vector2.zero;
+		base.OnDead();
 	}
 
 	public void Reborn() {
@@ -320,22 +321,7 @@ public class PlayerController : EntityBase {
 		SetSize();
 		isDead = false;
 	}
-
-	protected void OnCollisionEnter2D(Collision2D collision) {
-		if (Network.isServer) {
-			if (isDead) {
-				return;
-			}
-
-			if (collision.transform.tag == "End") {
-				GameEngine.direct.OnVictory();
-
-			} else if (collision.transform.tag == "Dead" || collision.transform.tag == "Scene") {
-				GameEngine.direct.OnDead(this);
-			}
-		}
-	}
-
+	
 	protected void OnCollisionExit2D(Collision2D collision) {
 		if (Network.isServer) {
 			if (isDead) {
@@ -343,6 +329,19 @@ public class PlayerController : EntityBase {
 			}
 
 			touching.Remove(collision.collider);
+		}
+	}
+
+	protected override void FOnCollisionEnter2D(Collision2D collision) {
+		if (isDead) {
+			return;
+		}
+
+		if (collision.transform.tag == "End") {
+			GameEngine.direct.OnVictory();
+
+		} else if (collision.transform.tag == "Dead" || collision.transform.tag == "Scene") {
+			GameEngine.direct.OnDead(this);
 		}
 	}
 
@@ -388,7 +387,7 @@ public class PlayerController : EntityBase {
 	protected void Eat() {
 		foreach (Transform unit in GameEngine.direct.units) {
 			if (Vector2.Distance(transform.position, unit.position) <= (BasicSize + size * 0.125f) + 2) {
-				unit.GetComponent<EntityBase>().Dead();
+				unit.GetComponent<EntityBase>().OnDead();
 				hp++;
 				SetSize();
 				return;

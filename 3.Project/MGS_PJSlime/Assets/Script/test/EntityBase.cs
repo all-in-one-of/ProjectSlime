@@ -39,7 +39,9 @@ public class EntityBase : NetworkBehaviour {
 	}
 
 	protected virtual void FOnCollisionEnter2D(Collision2D collision) {
-		
+		if (collision.transform.tag == "Dead" || collision.transform.tag == "Scene") {
+			OnDead();
+		}
 	}
 
 	protected virtual void FOnCollisionStay2D(Collision2D collision) {
@@ -54,12 +56,12 @@ public class EntityBase : NetworkBehaviour {
 			hp--;
 			isInvincible = true;
 			if (hp == 0) {
-				Dead();
+				OnDead();
 			}
 		}
 	}
 
-	public virtual void Dead() {
+	public virtual void OnDead() {
 		Destroy(gameObject);
 	}
 }
