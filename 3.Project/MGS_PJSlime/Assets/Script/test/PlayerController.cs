@@ -25,7 +25,7 @@ public class PlayerController : EntityBase {
 	public Vector2 deVelocity;
 
 	public SpriteRenderer sprite;
-	public Dictionary<Collider2D, int> touching;
+	public Dictionary<Collider2D, int> touching = new Dictionary<Collider2D, int>();
 	
 	protected float size = 0;
 	
@@ -37,7 +37,6 @@ public class PlayerController : EntityBase {
 		if (Network.isServer) {
 			rb.simulated = true;
 			SetSize();
-			touching = new Dictionary<Collider2D, int>();
 		}
 	}
 	

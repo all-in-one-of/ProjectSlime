@@ -20,6 +20,7 @@ public class PatrolBase : NetworkBehaviour {
 	protected bool breaking = false;
 	protected Vector2 size;
 
+
 	void Start() {
 		a = (Vector2)transform.position + shift;
 		b = (Vector2)transform.position - shift;
@@ -27,7 +28,6 @@ public class PatrolBase : NetworkBehaviour {
 	}
 	
 	void Update () {
-
 		if (floatAble) {
 			transform.position = Vector2.Lerp(transform.position, target ? a : b, speed);
 			if (Vector2.Distance(transform.position, target ? a : b) < 0.1f) {
@@ -60,10 +60,21 @@ public class PatrolBase : NetworkBehaviour {
 			Break();
 		}
 	}
-
-	private void OnTriggerEnter2D(Collider2D collider) {
+	/*
+	private void OnCollisionEnter2D(Collision2D collision) {
 		if (carryAble) {
-			gameObject.transform.SetParent(transform);
+			collision.transform.SetParent(transform);
 		}
+	}*/
+	/*
+	void ConnectTo(Rigidbody2D character) {
+		SliderJoint2D joint = GetComponent<SliderJoint2D>();
+		joint.connectedBody = character;
 	}
+
+	void OnCollisionEnter2D(Collision2D collision) {
+		if (carryAble && collision.collider.tag == "Slime") {
+			ConnectTo(collision.collider.GetComponent<Rigidbody2D>());
+		}
+	}*/
 }

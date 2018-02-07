@@ -16,7 +16,7 @@ public class EntityBase : NetworkBehaviour {
 	void Start() {
 		FStart();
 	}
-
+	
 	void FixedUpdate() {
 		if (Network.isServer) {
 			FFixedUpdate();
