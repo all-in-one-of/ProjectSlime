@@ -10,6 +10,7 @@ public class EntityBase : NetworkBehaviour {
 	public int attack = 1;
 	public int hp = 3;
 
+	protected Animator an;
 	protected Rigidbody2D rb;
 	protected BoxCollider2D bc;
 
@@ -24,6 +25,7 @@ public class EntityBase : NetworkBehaviour {
 	}
 
 	protected virtual void FStart() {
+		an = GetComponentInChildren<Animator>();
 		rb = GetComponent<Rigidbody2D>();
 		bc = GetComponent<BoxCollider2D>();
 
@@ -72,6 +74,13 @@ public class EntityBase : NetworkBehaviour {
 	}
 
 	public virtual void OnDead() {
+		bc.enabled = false;
+		rb.simulated = false;
+		an.Play("Eaten");
+		Invoke("temp", 0.6f);
+	}
+
+	private void temp() {
 		Destroy(gameObject);
 	}
 }

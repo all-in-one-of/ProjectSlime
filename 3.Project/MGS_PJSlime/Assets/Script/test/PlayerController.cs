@@ -26,7 +26,12 @@ public class PlayerController : EntityBase {
 
 	public SpriteRenderer sprite;
 	public Dictionary<Collider2D, int> touching = new Dictionary<Collider2D, int>();
-	
+	public Transform eating = null;
+
+	public AudioSource bornAudio;
+	public AudioSource jumpAudio;
+	public AudioSource eatAudio;
+
 	protected float size = 0;
 	
 
@@ -116,6 +121,10 @@ public class PlayerController : EntityBase {
 
 			if (!eatSkill ) {
 				Eat();
+			}
+
+			if (eating) {
+				eating.transform.position = Vector2.Lerp(eating.transform.position, transform.position, 0.1f);
 			}
 		}
 
@@ -231,6 +240,7 @@ public class PlayerController : EntityBase {
 		}
 
 		if (jumpCommand && state != State.Jump) {
+			jumpAudio.Play();
 			rb.AddForce(Vector2.up * GameEngine.direct.jumpYForce * ((jumpGape - size) / jumpGape), ForceMode2D.Impulse);
 			state = State.Jump;
 			RpcState("Jump");
@@ -316,6 +326,7 @@ public class PlayerController : EntityBase {
 	}
 
 	public void Reborn() {
+		bornAudio.Play();
 		rb.simulated = true;
 		SetSize();
 		isDead = false;
@@ -384,8 +395,10 @@ public class PlayerController : EntityBase {
 	}
 
 	protected void Eat() {
+		eatAudio.Play();
 		foreach (Transform unit in GameEngine.direct.units) {
 			if (Vector2.Distance(transform.position, unit.position) <= (BasicSize + size * 0.125f) + 2) {
+				eating = unit;
 				unit.GetComponent<EntityBase>().OnDead();
 				hp++;
 				SetSize();
