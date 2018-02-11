@@ -17,8 +17,6 @@ public class PlayerController : EntityBase {
 	public Animator anim;
 	
 	public int jumpGape;
-
-	public bool isDead = false;
 	public bool eatSkill = true;
 	public int PlayerIndex = 0;
 	public Vector2 velocitA;

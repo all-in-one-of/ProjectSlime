@@ -6,9 +6,11 @@ using UnityEngine.Networking;
 public class EntityBase : NetworkBehaviour {
 	public bool isInvincible = false;
 	public bool eatAble = true;
+	public bool isDead = false;
 	public float invincibleTimer;
 	public int attack = 1;
 	public int hp = 3;
+
 
 	protected Animator an;
 	protected Rigidbody2D rb;

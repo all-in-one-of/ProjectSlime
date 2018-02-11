@@ -21,8 +21,8 @@ GameObject:
   - component: {fileID: 4036250707748826}
   - component: {fileID: 61021706782844602}
   - component: {fileID: 50367699658273506}
-  - component: {fileID: 114566685032838122}
   - component: {fileID: 114750477386181880}
+  - component: {fileID: 114655675951970550}
   m_Layer: 0
   m_Name: Citizen
   m_TagString: Enemy
@@ -136,7 +136,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114566685032838122
+--- !u!114 &114655675951970550
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1026908276139460}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f171ace8a065d8489a92ee4a45dd020, type: 3}
+  m_Script: {fileID: 11500000, guid: d42c92ec36a982243b6267bf1e5eb73e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isInvincible: 0
@@ -152,6 +152,12 @@ MonoBehaviour:
   invincibleTimer: 0
   attack: 0
   hp: 2
+  moveAI: 1
+  aiClock: 0
+  movePos: 0
+  moveShift: 5
+  moveSpeed: 3
+  nowSpeed: 0
 --- !u!114 &114750477386181880
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -38,8 +38,8 @@ GameObject:
   - component: {fileID: 4110307699992168}
   - component: {fileID: 61963306017913898}
   - component: {fileID: 50251864796638112}
-  - component: {fileID: 114421222974510678}
   - component: {fileID: 114377937996577804}
+  - component: {fileID: 114371243434242250}
   m_Layer: 0
   m_Name: Citizen2
   m_TagString: Enemy
@@ -136,6 +136,29 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114371243434242250
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1222184263987072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d42c92ec36a982243b6267bf1e5eb73e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isInvincible: 0
+  eatAble: 1
+  isDead: 0
+  invincibleTimer: 0
+  attack: 1
+  hp: 2
+  moveAI: 1
+  aiClock: 0
+  movePos: 0
+  moveShift: 3
+  moveSpeed: 3
+  nowSpeed: 0
 --- !u!114 &114377937996577804
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -168,22 +191,6 @@ MonoBehaviour:
     i15: 35
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
---- !u!114 &114421222974510678
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1222184263987072}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f171ace8a065d8489a92ee4a45dd020, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isInvincible: 0
-  eatAble: 1
-  invincibleTimer: 0
-  attack: 1
-  hp: 2
 --- !u!212 &212494056212787808
 SpriteRenderer:
   m_ObjectHideFlags: 1
