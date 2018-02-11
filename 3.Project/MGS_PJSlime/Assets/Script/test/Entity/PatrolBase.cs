@@ -19,7 +19,7 @@ public class PatrolBase : NetworkBehaviour {
 	protected float clock = 0;
 	protected bool breaking = false;
 	protected Vector2 size;
-
+	public Transform carryobj = null;
 
 	void Start() {
 		a = (Vector2)transform.position + shift;
@@ -29,7 +29,14 @@ public class PatrolBase : NetworkBehaviour {
 	
 	void Update () {
 		if (floatAble) {
+			Vector2 offset = transform.position;
 			transform.position = Vector2.Lerp(transform.position, target ? a : b, speed);
+
+			offset = (Vector2)transform.position - offset;
+			if (carryobj) {
+				carryobj.position = (Vector2)carryobj.position + offset;
+			}
+
 			if (Vector2.Distance(transform.position, target ? a : b) < 0.1f) {
 				target = !target;
 			}
@@ -60,12 +67,18 @@ public class PatrolBase : NetworkBehaviour {
 			Break();
 		}
 	}
-	/*
+	
 	private void OnCollisionEnter2D(Collision2D collision) {
 		if (carryAble) {
-			collision.transform.SetParent(transform);
+			carryobj = collision.transform;
 		}
-	}*/
+	}
+
+	private void OnCollisionExit2D(Collision2D collision) {
+		if (carryAble) {
+			carryobj = null;
+		}
+	}
 	/*
 	void ConnectTo(Rigidbody2D character) {
 		SliderJoint2D joint = GetComponent<SliderJoint2D>();

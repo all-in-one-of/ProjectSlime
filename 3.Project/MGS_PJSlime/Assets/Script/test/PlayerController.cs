@@ -47,7 +47,7 @@ public class PlayerController : EntityBase {
 	
 	void Update () {
 		if ((Network.isClient || Network.isServer)) {
-
+			
 			float horizonDirection = 0;
 			bool downCommand = false;
 			bool jumpCommand = false;
@@ -130,6 +130,7 @@ public class PlayerController : EntityBase {
 
 		if (Network.isServer) {
 			if (touching.Count == 0) {
+				state = State.Jump;
 				RpcState("Jump");
 			}
 
@@ -330,15 +331,16 @@ public class PlayerController : EntityBase {
 		rb.simulated = true;
 		SetSize();
 		isDead = false;
+		state = State.Jump;
 	}
 	
 	protected void OnCollisionExit2D(Collision2D collision) {
 		if (Network.isServer) {
+			touching.Remove(collision.collider);
+
 			if (isDead) {
 				return;
 			}
-
-			touching.Remove(collision.collider);
 		}
 	}
 
