@@ -19,6 +19,7 @@ public class PlayerController : EntityBase {
 	public int jumpGape;
 	public bool eatSkill = true;
 	public int PlayerIndex = 0;
+	public Vector2 velocityOut;
 	public Vector2 velocitA;
 	public Vector2 deVelocity;
 
@@ -152,6 +153,11 @@ public class PlayerController : EntityBase {
 
 	protected override void FFixedUpdate() {
 		if (!isDead) {
+			if (velocityOut.x != 0) {
+				velocitA.x = velocitA.x + velocityOut.x;
+				velocityOut = Vector2.zero;
+			}
+
 			if (touching.ContainsValue(2) && velocitA.x > 1) {
 				velocitA.x = 0;
 
@@ -160,7 +166,6 @@ public class PlayerController : EntityBase {
 			}
 
 			velocitA.y = rb.velocity.y - GameEngine.direct.jumpYDec * Time.deltaTime ;
-			//velocitA.y = !touching.ContainsValue(2) ? rb.velocity.y - GameEngine.direct.jumpYDec * Time.deltaTime : 0;
 			rb.velocity = velocitA;
 		}
 	}
@@ -284,6 +289,17 @@ public class PlayerController : EntityBase {
 	[Command]
 	public void CmdIdle() {
 		if (anim.GetCurrentAnimatorStateInfo(0).IsTag("Eat")) {
+			if (state != State.Jump) {
+				if (rb.velocity.x != 0) {
+					if (!IsSlideing()) {
+						velocitA.x = Decelerator(velocitA.x, GameEngine.direct.walkXDec, 0);
+					} else {
+						velocitA.x = Decelerator(velocitA.x, GameEngine.direct.iceXDec, 0);
+					}
+				}
+			} else {//空中移動
+				velocitA.x = Decelerator(velocitA.x, GameEngine.direct.iceXDec, 0);
+			}
 			return;
 		}
 
@@ -317,10 +333,10 @@ public class PlayerController : EntityBase {
 	}
 
 	public override void OnDead() {
+		isDead = true;
 		GameEngine.direct.OnDead(this);
 		rb.simulated = false;
 		transform.localScale = Vector3.zero;
-		isDead = true;
 		velocitA = Vector2.zero;
 	}
 
@@ -330,6 +346,7 @@ public class PlayerController : EntityBase {
 		SetSize();
 		isDead = false;
 		state = State.Jump;
+		touching = new Dictionary<Collider2D, int>();
 	}
 	
 	protected void OnCollisionExit2D(Collision2D collision) {
@@ -352,6 +369,38 @@ public class PlayerController : EntityBase {
 
 		} else if (collision.transform.tag == "Dead" || collision.transform.tag == "Scene") {
 			OnDead();
+
+		} else if (collision.transform.tag == "Slime") {
+			PlayerController ipc = collision.gameObject.GetComponent<PlayerController>();
+
+			float xv = velocitA.x >= 0 ? 1 : -1;
+			float ixv = ipc.velocitA.x >= 0 ? 1 : -1;
+
+			float xe = velocitA.x + xv * size;
+			float ixe = ipc.velocitA.x + ixv * ipc.size;
+
+			if (Mathf.Abs(xe) > Mathf.Abs(ixe) && velocitA.x != 0) {
+				Debug.Log(name + "[1]:" + name + "/" + xe + "撞" + collision.gameObject.name + "/" + ixe);
+
+				if (Mathf.Abs(xe + ixe) >= 6) {
+					collision.gameObject.GetComponent<PlayerController>().velocityOut.x = xv * Mathf.Abs(xe + ixe) * 0.5f;
+				}
+
+				/*
+				if (xv == ixv) {
+					Debug.Log(name + "[1]:" + name + "/" + xe + "撞" + collision.gameObject.name + "/" + ixe);
+
+					if (Mathf.Abs(xe + ixe) >= 6) {
+						collision.gameObject.GetComponent<PlayerController>().velocityOut.x = xv * Mathf.Abs(xe + ixe) * 0.5f;
+					}
+				} else {
+					Debug.Log(name + "[2]:" + name + "/" + xe + "撞" + collision.gameObject.name + "/" + ixe);
+
+					if (Mathf.Abs(xe + ixe) >= 6) {
+						collision.gameObject.GetComponent<PlayerController>().velocityOut.x = xv * Mathf.Abs(xe + ixe) * 0.5f;
+					}
+				}*/
+			}
 		}
 	}
 

@@ -10,5 +10,6 @@ Assets/Ferr/2DTerrain/TerrainMaterials/SandTerrainMaterial.prefab
 Assets/NewTerrainMaterial.prefab
 Assets/Ferr/SlimeTerrain/TerrainMaterials/IceTerrainMaterial.prefab
 Assets/Ferr/SlimeTerrain/TerrainMaterials/RockWTerrainMaterial.prefab
+Assets/Ferr/SlimeTerrain/TerrainMaterials/LavaTerrainMaterial.prefab
 
 [Ferr2DT_PathTerrain]

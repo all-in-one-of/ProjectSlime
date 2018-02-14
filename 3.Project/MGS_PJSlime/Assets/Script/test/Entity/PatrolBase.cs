@@ -19,7 +19,7 @@ public class PatrolBase : NetworkBehaviour {
 	protected float clock = 0;
 	protected bool breaking = false;
 	protected Vector2 size;
-	public Transform carryobj = null;
+	public List<Transform> carryobj = new List<Transform>();
 
 	void Start() {
 		a = (Vector2)transform.position + shift;
@@ -33,8 +33,10 @@ public class PatrolBase : NetworkBehaviour {
 			transform.position = Vector2.Lerp(transform.position, target ? a : b, speed);
 
 			offset = (Vector2)transform.position - offset;
-			if (carryobj) {
-				carryobj.position = (Vector2)carryobj.position + offset;
+			if (carryobj.Count > 0) {
+				foreach (Transform obj in carryobj) {
+					obj.position = (Vector2)obj.position + offset;
+				}				
 			}
 
 			if (Vector2.Distance(transform.position, target ? a : b) < 0.1f) {
@@ -69,16 +71,18 @@ public class PatrolBase : NetworkBehaviour {
 	}
 	
 	private void OnCollisionEnter2D(Collision2D collision) {
-		if (carryAble) {
-			carryobj = collision.transform;
+		if (carryAble && !carryobj.Contains(collision.transform)) {
+			carryobj.Add(collision.transform);
 		}
 	}
 
 	private void OnCollisionExit2D(Collision2D collision) {
-		if (carryAble) {
-			carryobj = null;
+		if (carryAble && carryobj.Contains(collision.transform)) {
+			carryobj.Remove(collision.transform);
 		}
 	}
+
+
 	/*
 	void ConnectTo(Rigidbody2D character) {
 		SliderJoint2D joint = GetComponent<SliderJoint2D>();
