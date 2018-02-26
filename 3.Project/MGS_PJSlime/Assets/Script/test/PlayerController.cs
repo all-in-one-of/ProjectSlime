@@ -105,7 +105,7 @@ public class PlayerController : EntityBase {
 				CmdDigestive();
 
 			} else if (downCommand) {
-				CmdCrouch();
+				CmdCrouch(horizonDirection);
 
 			} else if (jumpCommand) {
 				CmdJump(jumpCommand);
@@ -185,14 +185,27 @@ public class PlayerController : EntityBase {
 	}
 
 	[Command]
-	public void CmdCrouch() {
+	public void CmdCrouch(float direction) {
 		if (anim.GetCurrentAnimatorStateInfo(0).IsTag("Eat")) {
 			return;
 		}
 
-		if (!anim.GetCurrentAnimatorStateInfo(0).IsTag("Crouch") && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Jump") ) {
-			//rb.velocity = Vector2.zero;
-			RpcState("Crouch");
+		if (state != State.Jump) {//地面發呆
+			Facing(direction);
+
+			if (!anim.GetCurrentAnimatorStateInfo(0).IsTag("Crouch") && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Jump")) {
+				RpcState("Crouch");
+			}
+
+			if (rb.velocity.x != 0) {
+				if (!IsSlideing()) {
+					velocitA.x = Decelerator(velocitA.x, GameEngine.direct.walkXDec, 0);
+				} else {
+					velocitA.x = Decelerator(velocitA.x, GameEngine.direct.iceXDec, 0);
+				}
+			}
+		} else {//空中移動
+			velocitA.x = Decelerator(velocitA.x, GameEngine.direct.iceXDec, 0);
 		}
 	}
 
@@ -247,36 +260,42 @@ public class PlayerController : EntityBase {
 		}
 	}
 
+	protected void Facing(float direction) {
+		if (direction != 0) {
+			transform.localScale = new Vector3(direction * Mathf.Abs(transform.localScale.x), transform.localScale.y, 1);
+		}
+	}
+
 	[Command]
-	public void CmdMove(float moveDirection) {
+	public void CmdMove(float direction) {
 		if (anim.GetCurrentAnimatorStateInfo(0).IsTag("Eat")) {
 			return;
 		}
-
-		if ((moveDirection == 1 && touching.ContainsValue(2)) || (moveDirection == -1 && touching.ContainsValue(3))) {
-			moveDirection = 0;
+		
+		if ((direction == 1 && touching.ContainsValue(2)) || (direction == -1 && touching.ContainsValue(3))) {
+			direction = 0;
 		}
 
 		if (state != State.Jump) {//地面發呆
-			if (moveDirection != 0) {				
+			if (direction != 0) {				
 				if (!anim.GetCurrentAnimatorStateInfo(0).IsTag("Walk")) {
 					RpcState("Walk");
 				}
 
-				transform.localScale = new Vector3(moveDirection * Mathf.Abs(transform.localScale.x), transform.localScale.y, 1);
+				Facing(direction);
 
 				if (!IsSlideing()) {
-					velocitA.x = Accelerator(velocitA.x, moveDirection * GameEngine.direct.walkXAcc, moveDirection * GameEngine.direct.walkXSpeed);
+					velocitA.x = Accelerator(velocitA.x, direction * GameEngine.direct.walkXAcc, direction * GameEngine.direct.walkXSpeed);
 				} else {
-					velocitA.x = Accelerator(velocitA.x, moveDirection * GameEngine.direct.iceXAcc, moveDirection * GameEngine.direct.walkXSpeed);
+					velocitA.x = Accelerator(velocitA.x, direction * GameEngine.direct.iceXAcc, direction * GameEngine.direct.walkXSpeed);
 				}				
 				return;
 			}
 			CmdIdle();
 		} else  {//空中移動
-			if (moveDirection != 0) {
-				transform.localScale = new Vector3(moveDirection * Mathf.Abs( transform.localScale.x), transform.localScale.y, 1);
-				velocitA.x = Accelerator(velocitA.x, moveDirection * GameEngine.direct.jumpXAcc, moveDirection * GameEngine.direct.jumpXSpeed);
+			if (direction != 0) {
+				Facing(direction);
+				velocitA.x = Accelerator(velocitA.x, direction * GameEngine.direct.jumpXAcc, direction * GameEngine.direct.jumpXSpeed);
 			}				
 		}
 	}
