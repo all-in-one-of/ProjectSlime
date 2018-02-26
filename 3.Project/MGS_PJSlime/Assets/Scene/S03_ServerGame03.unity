@@ -21561,7 +21561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f2e6c1f3974d83408a79ba5912c0179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shift: {x: 3, y: 0}
+  shift: {x: 2, y: 0}
 --- !u!1 &1607801353
 GameObject:
   m_ObjectHideFlags: 0
@@ -24971,7 +24971,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f2e6c1f3974d83408a79ba5912c0179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shift: {x: 6, y: 0}
+  shift: {x: 4, y: 0}
 --- !u!1001 &1842938947
 Prefab:
   m_ObjectHideFlags: 0
