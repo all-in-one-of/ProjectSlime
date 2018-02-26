@@ -17,7 +17,6 @@ public class PlayerController : EntityBase {
 	public Animator anim;
 	
 	public int jumpGape;
-	public bool eatSkill = true;
 	public int PlayerIndex = 0;
 	public Vector2 velocityOut;
 	public Vector2 velocitA;
@@ -50,7 +49,7 @@ public class PlayerController : EntityBase {
 			float horizonDirection = 0;
 			bool downCommand = false;
 			bool jumpCommand = false;
-			bool eCommand = false;
+			bool eatCommand = false;
 			
 
 			if (PlayerIndex == 0) {
@@ -63,7 +62,7 @@ public class PlayerController : EntityBase {
 				horizonDirection = (Input.GetAxisRaw("LKeyboard") > 0 ? 1 : 0) + (Input.GetAxisRaw("LKeyboard") < 0 ? -1 : 0);
 				downCommand = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);
 				jumpCommand = Input.GetKeyDown(KeyCode.Space);
-				eCommand = Input.GetKeyDown(KeyCode.E);
+				eatCommand = Input.GetKeyDown(KeyCode.E);
 
 			} else if (PlayerIndex == 1) {
 				if (isDead) {
@@ -75,7 +74,7 @@ public class PlayerController : EntityBase {
 				horizonDirection = (Input.GetAxisRaw("RKeyboard") > 0 ? 1 : 0) + (Input.GetAxisRaw("RKeyboard") < 0 ? -1 : 0);
 				downCommand = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow); 
 				jumpCommand = Input.GetKeyDown(KeyCode.Comma);
-				eCommand = Input.GetKeyDown(KeyCode.Period);
+				eatCommand = Input.GetKeyDown(KeyCode.Period);
 
 			} else if (PlayerIndex == 2) {
 				if (isDead) {
@@ -87,7 +86,7 @@ public class PlayerController : EntityBase {
 				horizonDirection = (Input.GetAxisRaw("PS4LHorizontal") > 0 ? 1 : 0) + (Input.GetAxisRaw("PS4LHorizontal") < 0 ? -1 : 0);
 				downCommand = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);
 				jumpCommand = Input.GetAxisRaw("LVPanel") < 0;
-				eCommand = Input.GetAxisRaw("LHPanel") > 0;
+				eatCommand = Input.GetAxisRaw("LHPanel") > 0;
 
 			} else if (PlayerIndex == 3) {
 				if (isDead) {
@@ -99,10 +98,10 @@ public class PlayerController : EntityBase {
 				horizonDirection = (Input.GetAxisRaw("PS4RHorizontal") > 0 ? 1 : 0) + (Input.GetAxisRaw("PS4RHorizontal") < 0 ? -1 : 0);
 				downCommand = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);				
 				jumpCommand = Input.GetKeyDown(KeyCode.Mouse0);
-				eCommand = Input.GetKeyDown(KeyCode.Mouse1);
+				eatCommand = Input.GetKeyDown(KeyCode.Mouse1);
 			}
 
-			if (eatSkill && eCommand) {
+			if (eatCommand) {
 				CmdDigestive();
 
 			} else if (downCommand) {
@@ -117,11 +116,7 @@ public class PlayerController : EntityBase {
 			} else {
 				CmdIdle();
 			}
-
-			if (!eatSkill ) {
-				Eat();
-			}
-
+			
 			if (eating) {
 				eating.transform.position = Vector2.Lerp(eating.transform.position, transform.position, 0.1f);
 			}
@@ -136,9 +131,9 @@ public class PlayerController : EntityBase {
 			if (isInvincible) {
 				invincibleTimer += Time.deltaTime;
 				
-				if (invincibleTimer < 3f) {
-					float remainder = invincibleTimer % 0.3f;
-					sprite.color = remainder > 0.15f ? Color.white : Color.clear;
+				if (invincibleTimer < 2f) {
+					float remainder = invincibleTimer % 0.2f;
+					sprite.color = remainder > 0.1f ? Color.white : new Color(1 , 1 , 1 , 0.4f);
 
 				} else {
 					invincibleTimer = 0;
