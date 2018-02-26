@@ -50,7 +50,7 @@ public class PlayerController : EntityBase {
 			bool downCommand = false;
 			bool jumpCommand = false;
 			bool eatCommand = false;
-			
+
 
 			if (PlayerIndex == 0) {
 				if (isDead) {
@@ -59,8 +59,8 @@ public class PlayerController : EntityBase {
 					}
 					return;
 				}
-				horizonDirection = (Input.GetAxisRaw("LKeyboard") > 0 ? 1 : 0) + (Input.GetAxisRaw("LKeyboard") < 0 ? -1 : 0);
-				downCommand = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);
+				horizonDirection = (Input.GetAxisRaw("LeftHorizon") > 0 ? 1 : 0) + (Input.GetAxisRaw("LeftHorizon") < 0 ? -1 : 0);
+				downCommand = Input.GetAxisRaw("LeftVertical") < 0;
 				jumpCommand = Input.GetKeyDown(KeyCode.Space);
 				eatCommand = Input.GetKeyDown(KeyCode.E);
 
@@ -71,8 +71,8 @@ public class PlayerController : EntityBase {
 					}
 					return;
 				}
-				horizonDirection = (Input.GetAxisRaw("RKeyboard") > 0 ? 1 : 0) + (Input.GetAxisRaw("RKeyboard") < 0 ? -1 : 0);
-				downCommand = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow); 
+				horizonDirection = (Input.GetAxisRaw("RightHorizon") > 0 ? 1 : 0) + (Input.GetAxisRaw("RightHorizon") < 0 ? -1 : 0);
+				downCommand = Input.GetAxisRaw("RightVertical") < 0;
 				jumpCommand = Input.GetKeyDown(KeyCode.Comma);
 				eatCommand = Input.GetKeyDown(KeyCode.Period);
 
@@ -83,8 +83,8 @@ public class PlayerController : EntityBase {
 					}
 					return;
 				}
-				horizonDirection = (Input.GetAxisRaw("PS4LHorizontal") > 0 ? 1 : 0) + (Input.GetAxisRaw("PS4LHorizontal") < 0 ? -1 : 0);
-				downCommand = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);
+				horizonDirection = (Input.GetAxisRaw("PS4LeftHorizon") > 0 ? 1 : 0) + (Input.GetAxisRaw("PS4LeftHorizon") < 0 ? -1 : 0);
+				downCommand = Input.GetAxisRaw("PS4LeftVertical") > 0;
 				jumpCommand = Input.GetAxisRaw("LVPanel") < 0;
 				eatCommand = Input.GetAxisRaw("LHPanel") > 0;
 
@@ -95,10 +95,10 @@ public class PlayerController : EntityBase {
 					}
 					return;
 				}
-				horizonDirection = (Input.GetAxisRaw("PS4RHorizontal") > 0 ? 1 : 0) + (Input.GetAxisRaw("PS4RHorizontal") < 0 ? -1 : 0);
-				downCommand = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);				
-				jumpCommand = Input.GetKeyDown(KeyCode.Mouse0);
-				eatCommand = Input.GetKeyDown(KeyCode.Mouse1);
+				horizonDirection = (Input.GetAxisRaw("PS4RightHorizon") > 0 ? 1 : 0) + (Input.GetAxisRaw("PS4RightHorizon") < 0 ? -1 : 0);
+				downCommand = Input.GetAxisRaw("PS4RightVertical") > 0;
+				jumpCommand = Input.GetAxisRaw("PS4RightVerticalPanel") > 0;
+				eatCommand = Input.GetAxisRaw("PS4RightHorizonPanel") > 0;
 			}
 
 			if (eatCommand) {
