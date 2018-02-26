@@ -65,4 +65,8 @@ public class PrototypeSystem : NetworkBehaviour {
 
 		}
 	}
+
+	public void Pause(EventSystem set) {
+		Time.timeScale = Time.timeScale == 0 ? 1 : 0;
+	}
 }
