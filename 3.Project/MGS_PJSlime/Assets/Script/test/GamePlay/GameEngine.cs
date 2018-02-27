@@ -120,4 +120,5 @@ public class GameEngine : MonoBehaviour {
 	public static string GetCheckPoint() {
 		return checkPoint;
 	}
+
 }
