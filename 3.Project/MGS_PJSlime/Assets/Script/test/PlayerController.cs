@@ -419,7 +419,11 @@ public class PlayerController : EntityBase {
 	}
 
 	protected override void FOnCollisionStay2D(Collision2D collision) {
-		if (isDead) {
+		if (isDead ) {
+			return;
+		}
+
+		if (collision.contacts.Length == 0) {
 			return;
 		}
 

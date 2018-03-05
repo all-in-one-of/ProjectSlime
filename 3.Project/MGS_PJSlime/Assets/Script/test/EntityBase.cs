@@ -41,15 +41,11 @@ public class EntityBase : NetworkBehaviour {
 	}
 
 	private void OnCollisionEnter2D(Collision2D collision) {
-		if (Network.isServer) {
-			FOnCollisionEnter2D(collision);
-		}
+		if (Network.isServer) { FOnCollisionEnter2D(collision); }
 	}
 
 	private void OnCollisionStay2D(Collision2D collision) {
-		if (Network.isServer) {
-			FOnCollisionStay2D(collision);
-		}
+		if (Network.isServer) { FOnCollisionStay2D(collision); }
 	}
 
 	protected virtual void FOnCollisionEnter2D(Collision2D collision) {
@@ -78,7 +74,9 @@ public class EntityBase : NetworkBehaviour {
 	public virtual void OnDead() {
 		bc.enabled = false;
 		rb.simulated = false;
-		an.Play("Eaten");
+		if (an) {
+			an.Play("Eaten");
+		}
 		Invoke("temp", 0.6f);
 	}
 

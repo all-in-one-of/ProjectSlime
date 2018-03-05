@@ -4091,7 +4091,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -4115,7 +4115,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!4 &293658773
 Transform:
   m_ObjectHideFlags: 0
@@ -23361,6 +23361,9 @@ MonoBehaviour:
   - {fileID: 1026908276139460, guid: b9b5d6ededd6efd45a17849dc5cc20bf, type: 2}
   - {fileID: 1222184263987072, guid: 51c62c7314a73ae4ba92b6871bda7b23, type: 2}
   - {fileID: 1523133011794390, guid: 69d582db655bb0a438f80bc068cd8267, type: 2}
+  - {fileID: 1974477046238388, guid: bd3df764a3f6e21449119a7bfa452886, type: 2}
+  - {fileID: 1634725205279740, guid: e16acf8c8993c904fba92a6a51cf82e8, type: 2}
+  - {fileID: 1020570859304842, guid: e40a8f5fd6daea346a3cf7e415ce3ce0, type: 2}
   m_CustomConfig: 0
   m_MaxConnections: 4
   m_ConnectionConfig:
