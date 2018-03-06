@@ -7,7 +7,6 @@ using UnityEngine.EventSystems;
 
 public class PrototypeSystem : NetworkBehaviour {
 	public static PrototypeSystem direct;
-	public Transform sp;
 	public GameObject player;
 	public GameObject[] obj;
 	public Material[] mt;
@@ -22,21 +21,7 @@ public class PrototypeSystem : NetworkBehaviour {
 	private void Start() {
 		direct = this;
 	}
-
-	void Update () {
-		if (isServer && GameEngine.direct.connecting) {
-			if (GameEngine.direct.units.childCount < 40 && clock >= 120) {
-				
-				GameObject newObj = Network.Instantiate(obj[Random.Range(0, obj.Length)], new Vector3(sp.position.x + Random.Range(-50, 50),sp.transform.position.y, 0), Quaternion.identity, 0) as GameObject;
-				NetworkServer.Spawn(newObj);
-				newObj.transform.SetParent(GameEngine.direct.units);
-				newObj.GetComponent<NetworkIdentity>().RebuildObservers(true);
-				clock = 0;
-			}
-			clock++;
-		}
-	}
-
+	
 	void OnServerInitialized() {
 		SpawnPlayer();
 	}
