@@ -13,7 +13,7 @@ public class SpawnBase : NetworkBehaviour {
 	
 	void Update() {
 		if (isServer && GameEngine.direct.connecting) {
-			if (GameEngine.direct.units.childCount < 40 && clock >= 120) {
+			if (GameEngine.direct.units.childCount < 400 && clock >= 120) {
 
 				GameObject newObj = Network.Instantiate(spawnObject[Random.Range(0, spawnObject.Length)], new Vector3(transform.position.x + Random.Range(-offset.x, offset.x), transform.transform.position.y, +Random.Range(-offset.y, offset.y)), Quaternion.identity, 0) as GameObject;
 				NetworkServer.Spawn(newObj);

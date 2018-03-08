@@ -14,6 +14,7 @@ public class EnemyBase : EntityBase {
 	public GameObject bullet;
 	public float bulletSpeed;
 
+	public  Vector2 aiGape = new Vector2(2,4);
 	private float movePos;
 	private float aiClock;
 	private float nowSpeed;
@@ -67,7 +68,7 @@ public class EnemyBase : EntityBase {
 				}
 			}
 
-			aiClock = Random.Range(2, 5) + Time.timeSinceLevelLoad;
+			aiClock = Random.Range(aiGape.x, aiGape.y) + Time.timeSinceLevelLoad;
 		}
 	}
 }
