@@ -7,6 +7,12 @@ public class ProjectileBase : EntityBase {
 	private float lifeClock;
 	private bool active;
 
+	private void OnTriggerEnter2D(Collider2D collider) {
+		if (Network.isServer) {
+			FOnTriggerEnter2D(collider);
+		}
+	}
+
 	protected override void FStart() {
 		base.FStart();
 		if (Network.isServer) {
@@ -34,15 +40,19 @@ public class ProjectileBase : EntityBase {
 		rb.velocity = new Vector2(nowSpeed, rb.velocity.y);
 	}
 
-	protected override void FOnCollisionStay2D(Collision2D collision) {
+	protected void FOnTriggerEnter2D(Collider2D collision) {
 		EntityBase other = collision.gameObject.GetComponent<EntityBase>();
 		if (other && attack > 0) {
 			if (collision.transform.tag == "Slime") {
 				other.Attack(attack);
-			}			
+			}
 			Destroy(gameObject);
 		}
 	}
+
+	protected override void FOnCollisionEnter2D(Collision2D collision) { }
+
+	protected override void FOnCollisionStay2D(Collision2D collision) { }
 
 	protected virtual void LifeTimeSeqence() {
 		if (10 < Time.timeSinceLevelLoad - lifeClock) {
