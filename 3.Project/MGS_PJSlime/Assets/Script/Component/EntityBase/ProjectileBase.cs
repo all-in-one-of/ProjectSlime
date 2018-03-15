@@ -45,8 +45,8 @@ public class ProjectileBase : EntityBase {
 		if (other && attack > 0) {
 			if (collision.transform.tag == "Slime") {
 				other.Attack(attack);
+				Destroy(gameObject);
 			}
-			Destroy(gameObject);
 		}
 	}
 

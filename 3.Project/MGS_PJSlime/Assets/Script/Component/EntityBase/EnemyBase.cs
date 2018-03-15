@@ -33,9 +33,7 @@ public class EnemyBase : EntityBase {
 		AISeqence();
 		rb.velocity = new Vector2(nowSpeed, rb.velocity.y);
 	}
-
-	//rb.AddForce(Vector2.up * GameEngine.direct.jumpYForce * ((jumpGape - size) / jumpGape), ForceMode2D.Impulse);
-
+	
 	protected virtual void AISeqence() {
 		if (aiClock < Time.timeSinceLevelLoad) {
 			if (jumpAI) {
