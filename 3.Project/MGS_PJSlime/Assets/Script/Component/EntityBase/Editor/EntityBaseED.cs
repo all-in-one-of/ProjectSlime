@@ -36,8 +36,8 @@ public class EnemyBaseED : Editor {
 
 		EditorTools.Space();
 
-		script.aiGape.x = EditorTools.FloatField(script.aiGape.x, "AI低頻(s)");
-		script.aiGape.y = EditorTools.FloatField(script.aiGape.y, "AI高頻(s)");
+		script.aiGape.x = EditorTools.FloatField(script.aiGape.x, "最快動作(s)");
+		script.aiGape.y = EditorTools.FloatField(script.aiGape.y, "最慢動作(s)");
 		
 
 		script.moveAI	= EditorTools.BoolField(script.moveAI	, "移動AI");
