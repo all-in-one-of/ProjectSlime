@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public abstract class GearBase : NetworkBehaviour {
+	public bool active = true;
 	public abstract bool BaseTrigger();
 	public abstract bool Trigger();
 }

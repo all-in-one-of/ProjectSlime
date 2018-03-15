@@ -19,7 +19,7 @@ public class SpawnerBase : GearBase {
 	}
 
 	void Update() {
-		if (isServer && GameEngine.direct.connecting) {
+		if (isServer && GameEngine.direct.connecting && active) {
 			AISeqence();
 		}
 	}
@@ -54,5 +54,6 @@ public class SpawnerBase : GearBase {
 		NetworkServer.Spawn(newObj);
 		newObj.transform.SetParent(GameEngine.direct.units);
 		newObj.GetComponent<NetworkIdentity>().RebuildObservers(true);
+		spawnObject.Add(newObj);
 	}
 }

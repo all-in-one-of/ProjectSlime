@@ -7,8 +7,9 @@ using UnityEngine.EventSystems;
 
 public class TriggerBase : NetworkBehaviour {
 	public List<GearBase> triggerObject = new List<GearBase>();
-
 	public float resetTime = 6;
+	public bool enforceTrigger = false;
+
 	protected bool triggering = false;
 	protected float clock = 0;
 	
@@ -25,7 +26,11 @@ public class TriggerBase : NetworkBehaviour {
 			clock = Time.timeSinceLevelLoad;
 
 			foreach (GearBase gear in triggerObject) {
-				gear.Trigger();
+				if (enforceTrigger) {
+					gear.BaseTrigger();
+				} else {
+					gear.Trigger();
+				}				
 			}
 		}
 	}

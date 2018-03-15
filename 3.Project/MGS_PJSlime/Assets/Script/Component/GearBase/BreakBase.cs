@@ -21,7 +21,7 @@ public class BreakBase : GearBase {
 	}
 
 	void OnCollisionStay2D(Collision2D collision) {
-		if (!breaking) {
+		if (!breaking && active) {
 			Trigger();
 		}
 	}

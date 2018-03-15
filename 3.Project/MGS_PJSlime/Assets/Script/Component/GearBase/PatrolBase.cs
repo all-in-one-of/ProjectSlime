@@ -13,7 +13,7 @@ public class PatrolBase : GearBase {
 	protected List<Transform> carryobj = new List<Transform>();
 	protected Vector2 max = new Vector2(0, 0);
 	protected Vector2 min = new Vector2(0, 0);
-	protected bool target = true;
+	protected bool positive = true;
 
 	float aa = 0;
 
@@ -23,16 +23,21 @@ public class PatrolBase : GearBase {
 	}
 	
 	void FixedUpdate() {
-		if (!accMode) {
-			Vector2 shift = (target ? vector : -vector) * Time.deltaTime;
-			transform.position = (Vector2)transform.position + shift;
-			CarryObj(shift);
+		if (positive && (transform.position.x > max.x || transform.position.y > max.y)) {
+
+		} else if (!positive && (transform.position.x < min.x || transform.position.y < min.y)) {
 
 		} else {
-
-			Vector2 shift = (target ? vector : -vector) * Time.deltaTime;
+			Vector2 shift = (positive ? vector : -vector) * Time.deltaTime;
 			transform.position = (Vector2)transform.position + shift;
 			CarryObj(shift);
+		}
+
+		
+
+		if (!accMode) {
+
+		} else {
 
 			/*
 			Vector2 shift = transform.position;
@@ -42,12 +47,14 @@ public class PatrolBase : GearBase {
 		}
 		
 		if (transform.position.x > max.x || transform.position.y > max.y || transform.position.x < min.x || transform.position.y < min.y) {
-			Trigger();
+			if (active) {
+				Trigger();
+			}
 		}
 	}
 
 	public override bool BaseTrigger() {
-		target = !target;
+		positive = !positive;
 		return true;
 	}
 
