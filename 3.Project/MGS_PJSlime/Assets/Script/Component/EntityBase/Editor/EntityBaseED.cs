@@ -12,6 +12,7 @@ public class EntityBaseED : Editor {
 	}
 
 	public override void OnInspectorGUI() {
+		EditorTools.TitleField("實體物件");
 		script.attack = EditorTools.IntField(script.attack		, "傷害");
 		script.hp = EditorTools.IntField(script.hp				, "生命值");
 		script.eatAble = EditorTools.BoolField(script.eatAble	, "可食用");
@@ -30,6 +31,7 @@ public class EnemyBaseED : Editor {
 	}
 
 	public override void OnInspectorGUI() {
+		EditorTools.TitleField("單位物件");
 		script.attack	= EditorTools.IntField(script.attack	, "傷害");
 		script.hp		= EditorTools.IntField(script.hp		, "生命值");
 		script.eatAble	= EditorTools.BoolField(script.eatAble	, "可食用");
@@ -63,6 +65,7 @@ public class ProjectileBaseED : Editor {
 	}
 
 	public override void OnInspectorGUI() {
+		EditorTools.TitleField("子彈物件");
 		script.attack	= EditorTools.IntField(script.attack	, "傷害");
 		script.hp		= EditorTools.IntField(script.hp		, "生命值");
 		script.eatAble	= EditorTools.BoolField(script.eatAble	, "可食用");

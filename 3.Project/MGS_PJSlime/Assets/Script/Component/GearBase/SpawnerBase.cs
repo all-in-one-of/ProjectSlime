@@ -5,7 +5,7 @@ using UnityEngine.Networking;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class SpawnerBase : NetworkBehaviour {
+public class SpawnerBase : GearBase {
 	public List<GameObject> spawnObject = new List<GameObject>();
 	public Vector2 spawnOffset;
 	public Vector2 acGape = new Vector2(2, 4);
@@ -23,20 +23,27 @@ public class SpawnerBase : NetworkBehaviour {
 			AISeqence();
 		}
 	}
-	
+
+	public override bool BaseTrigger() {
+		SpawnObject();
+		return true;
+	}
+
+	public override bool Trigger() {
+		if (limit > 0) {
+			for (int i = 0; i < spawnedObject.Length; i++) {
+				if (spawnedObject[i] == null) {
+					return BaseTrigger();
+				}
+			}
+			return false;
+		}
+		return BaseTrigger();
+	}
+
 	protected virtual void AISeqence() {
 		if (acClock < Time.timeSinceLevelLoad) {
-			if (limit > 0) {
-				for (int i = 0; i < spawnedObject.Length; i++) {
-					if (spawnedObject[i] == null) {
-						SpawnObject();
-						acClock = Random.Range(acGape.x, acGape.y) + Time.timeSinceLevelLoad;
-
-						break;
-					}
-				}
-			} else {
-				SpawnObject();
+			if (Trigger()) {
 				acClock = Random.Range(acGape.x, acGape.y) + Time.timeSinceLevelLoad;
 			}
 		}
