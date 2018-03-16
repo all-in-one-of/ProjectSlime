@@ -13,7 +13,7 @@ public class PatrolBase : GearBase {
 	protected List<Transform> carryobj = new List<Transform>();
 	protected Vector2 max = new Vector2(0, 0);
 	protected Vector2 min = new Vector2(0, 0);
-	protected bool positive = true;
+	public bool positive = true;
 
 	float aa = 0;
 
@@ -22,7 +22,7 @@ public class PatrolBase : GearBase {
 		min = (Vector2)transform.position - vector * onceTime * 0.5f;
 
 		if (!active) {
-			transform.position = max;
+			transform.position = positive ? max : min;
 		}
 	}
 	
