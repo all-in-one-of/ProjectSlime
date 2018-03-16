@@ -20,6 +20,10 @@ public class PatrolBase : GearBase {
 	void Start() {
 		max = (Vector2)transform.position + vector * onceTime * 0.5f;
 		min = (Vector2)transform.position - vector * onceTime * 0.5f;
+
+		if (!active) {
+			transform.position = max;
+		}
 	}
 	
 	void FixedUpdate() {
@@ -47,7 +51,7 @@ public class PatrolBase : GearBase {
 		}
 		
 		if (transform.position.x > max.x || transform.position.y > max.y || transform.position.x < min.x || transform.position.y < min.y) {
-			if (active) {
+			if (active || IsTriggering()) {
 				Trigger();
 			}
 		}

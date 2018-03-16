@@ -30,7 +30,7 @@ public class PlayerController : EntityBase {
 	public AudioSource jumpAudio;
 	public AudioSource eatAudio;
 
-	protected float size = 0;
+	public float size = 0;
 	
 
 	protected override void FStart() {
