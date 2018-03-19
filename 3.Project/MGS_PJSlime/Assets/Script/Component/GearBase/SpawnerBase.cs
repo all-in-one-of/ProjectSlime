@@ -54,6 +54,11 @@ public class SpawnerBase : GearBase {
 		NetworkServer.Spawn(newObj);
 		newObj.transform.SetParent(GameEngine.direct.units);
 		newObj.GetComponent<NetworkIdentity>().RebuildObservers(true);
-		spawnObject.Add(newObj);
+		for (int i = 0; i < spawnedObject.Length; i++) {
+				if (spawnedObject[i] == null) {
+					spawnedObject[i] =newObj;
+break;
+				}
+			}
 	}
 }
