@@ -60,7 +60,7 @@ public class PlayerController : EntityBase {
 					return;
 				}
 				horizonDirection = (Input.GetAxisRaw("LeftHorizon") > 0 ? 1 : 0) + (Input.GetAxisRaw("LeftHorizon") < 0 ? -1 : 0);
-				downCommand = Input.GetAxisRaw("LeftVertical") < 0;
+				downCommand = Input.GetKey(KeyCode.Q);
 				jumpCommand = Input.GetKeyDown(KeyCode.Space);
 				eatCommand = Input.GetKeyDown(KeyCode.E);
 
@@ -72,7 +72,7 @@ public class PlayerController : EntityBase {
 					return;
 				}
 				horizonDirection = (Input.GetAxisRaw("RightHorizon") > 0 ? 1 : 0) + (Input.GetAxisRaw("RightHorizon") < 0 ? -1 : 0);
-				downCommand = Input.GetAxisRaw("RightVertical") < 0;
+				downCommand = Input.GetKey(KeyCode.Slash);
 				jumpCommand = Input.GetKeyDown(KeyCode.Comma);
 				eatCommand = Input.GetKeyDown(KeyCode.Period);
 
@@ -84,19 +84,19 @@ public class PlayerController : EntityBase {
 					return;
 				}
 				horizonDirection = (Input.GetAxisRaw("PS4LeftHorizon") > 0 ? 1 : 0) + (Input.GetAxisRaw("PS4LeftHorizon") < 0 ? -1 : 0);
-				downCommand = Input.GetAxisRaw("PS4LeftVertical") > 0;
+				downCommand = Input.GetAxisRaw("LVPanel") > 0;
 				jumpCommand = Input.GetAxisRaw("LVPanel") < 0;
 				eatCommand = Input.GetAxisRaw("LHPanel") > 0;
 
 			} else if (PlayerIndex == 3) {
 				if (isDead) {
-					if (Input.GetKeyDown(KeyCode.Mouse1)) {
+					if (Input.GetAxisRaw("PS4RightHorizonPanel") > 0) {
 						GameEngine.direct.OnReborn(this);
 					}
 					return;
 				}
 				horizonDirection = (Input.GetAxisRaw("PS4RightHorizon") > 0 ? 1 : 0) + (Input.GetAxisRaw("PS4RightHorizon") < 0 ? -1 : 0);
-				downCommand = Input.GetAxisRaw("PS4RightVertical") > 0;
+				downCommand = Input.GetAxisRaw("PS4RightVerticalPanel") < 0;
 				jumpCommand = Input.GetAxisRaw("PS4RightVerticalPanel") > 0;
 				eatCommand = Input.GetAxisRaw("PS4RightHorizonPanel") > 0;
 			}
