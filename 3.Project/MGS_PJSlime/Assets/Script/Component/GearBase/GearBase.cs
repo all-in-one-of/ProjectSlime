@@ -12,12 +12,12 @@ public abstract class GearBase : NetworkBehaviour {
 		continuous
 	}
 
-	public TriggerType triggerType;
-	public List<TriggerBase> triggers = new List<TriggerBase>();
-	public bool active = true;
-
 	public abstract bool BaseTrigger();
 	public abstract bool Trigger();
+
+	public TriggerType triggerType;
+	public List<TriggerBase> triggers = new List<TriggerBase>();	
+	protected bool active = true;
 
 	public bool IsTriggering() {
 		foreach (TriggerBase trigger in triggers) {

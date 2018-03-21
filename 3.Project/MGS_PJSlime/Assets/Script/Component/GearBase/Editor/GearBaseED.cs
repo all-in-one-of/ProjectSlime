@@ -2,6 +2,19 @@
 using System.Collections;
 using UnityEditor;
 using System;
+/*
+[CustomEditor(typeof(TriggerBase))]
+public class TriggerBaseED : Editor {
+	TriggerBase script;
+
+	public void OnEnable() {
+		script = (TriggerBase)target;
+	}
+
+	public override void OnInspectorGUI() {
+		EditorTools.Mig();
+	}
+}*/
 
 [CustomEditor(typeof(PatrolBase))]
 public class PatrolBaseED : Editor {
@@ -14,7 +27,13 @@ public class PatrolBaseED : Editor {
 	public override void OnInspectorGUI() {
 		EditorTools.TitleField("移動機關");
 		script.triggerType  = (GearBase.TriggerType)EditorTools.EnumField(script.triggerType , "機關模式");
-		script.active		= EditorTools.BoolField(script.active		, "自動機關");
+		EditorTools.LabelField("壓力機關");
+		var serializedObject = new SerializedObject(target);
+		var property = serializedObject.FindProperty("triggers");
+		serializedObject.Update();
+		EditorGUILayout.PropertyField(property, true);
+		serializedObject.ApplyModifiedProperties();
+
 		script.accMode		= EditorTools.BoolField(script.accMode		, "緩衝模式(損毀)");
 		script.carryMode	= EditorTools.BoolField(script.carryMode	, "運輸模式");
 		script.positive		= EditorTools.BoolField(script.positive		, "正極狀態");
@@ -34,7 +53,6 @@ public class BreakBaseED : Editor {
 
 	public override void OnInspectorGUI() {
 		EditorTools.TitleField("碎裂機關");
-		script.active = EditorTools.BoolField(script.active, "自動機關");
 		script.breakTime = EditorTools.FloatField(script.breakTime, "損壞時間(s)");
 		script.resetTime = EditorTools.FloatField(script.resetTime, "回復時間(s)");		
 		EditorTools.Mig();
@@ -51,7 +69,6 @@ public class SpawnerBaseED : Editor {
 
 	public override void OnInspectorGUI() {
 		EditorTools.TitleField("生怪機關");
-		script.active = EditorTools.BoolField(script.active, "自動機關");
 		EditorGUILayout.LabelField("生成單位");
 		var serializedObject = new SerializedObject(target);
 		var property = serializedObject.FindProperty("spawnObject");

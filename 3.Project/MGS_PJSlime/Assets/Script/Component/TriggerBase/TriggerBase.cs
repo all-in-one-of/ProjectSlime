@@ -81,7 +81,7 @@ public class TriggerBase : NetworkBehaviour {
 					weight += entity.GetComponent<PlayerController>().size;
 				}
 
-				return weight >= triggerWeight;
+				return weight > triggerWeight;
 			} else {
 				return touching.Count > 0;
 			}

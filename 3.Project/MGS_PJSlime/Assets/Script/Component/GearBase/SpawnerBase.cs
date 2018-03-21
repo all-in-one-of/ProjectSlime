@@ -19,8 +19,13 @@ public class SpawnerBase : GearBase {
 	}
 
 	void Update() {
-		if (isServer && GameEngine.direct.connecting && active) {
-			AISeqence();
+		if (isServer && GameEngine.direct.connecting ) {
+			if (active || (triggerType == TriggerType.continuous && IsTriggering())) {
+				if (triggerType == TriggerType.continuous && !IsTriggering()) {
+					return;
+				}
+				AISeqence();
+			}
 		}
 	}
 
@@ -49,16 +54,18 @@ public class SpawnerBase : GearBase {
 		}
 	}
 
-	protected void SpawnObject() {
-		GameObject newObj = Network.Instantiate(spawnObject[Random.Range(0, spawnObject.Count)], new Vector3(transform.position.x + Random.Range(-spawnOffset.x, spawnOffset.x), transform.transform.position.y, +Random.Range(-spawnOffset.y, spawnOffset.y)), Quaternion.identity, 0) as GameObject;
-		NetworkServer.Spawn(newObj);
-		newObj.transform.SetParent(GameEngine.direct.units);
-		newObj.GetComponent<NetworkIdentity>().RebuildObservers(true);
+	protected void SpawnObject() {		
 		for (int i = 0; i < spawnedObject.Length; i++) {
-				if (spawnedObject[i] == null) {
-					spawnedObject[i] =newObj;
-break;
+			if (spawnedObject[i] == null) {
+				spawnedObject[i] = Network.Instantiate(spawnObject[Random.Range(0, spawnObject.Count)], new Vector3(transform.position.x + Random.Range(-spawnOffset.x, spawnOffset.x), transform.transform.position.y, +Random.Range(-spawnOffset.y, spawnOffset.y)), Quaternion.identity, 0) as GameObject;
+				NetworkServer.Spawn(spawnedObject[i]);
+				spawnedObject[i].transform.SetParent(GameEngine.direct.units);
+				spawnedObject[i].GetComponent<NetworkIdentity>().RebuildObservers(true);
+				if (triggerType == TriggerType.once) {
+					active = false;
 				}
+				break;
 			}
+		}
 	}
 }

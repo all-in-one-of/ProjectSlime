@@ -21,7 +21,7 @@ public class BreakBase : GearBase {
 	}
 
 	void OnCollisionStay2D(Collision2D collision) {
-		if (active) {
+		if (active || (triggerType == TriggerType.continuous && IsTriggering())) {
 			if (triggerType == TriggerType.continuous && !IsTriggering()) {
 				return;
 			}
