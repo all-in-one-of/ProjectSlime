@@ -32,7 +32,7 @@ public class PatrolBase : GearBase {
 		}
 
 		if (triggerType == TriggerType.once) {
-			active = true;
+			active = false;
 		}
 	}
 	
@@ -70,6 +70,7 @@ public class PatrolBase : GearBase {
 						if (firstTrigger) {
 							unTriggerable = true;
 						}
+
 						firstTrigger = true;
 					}
 				}
@@ -80,6 +81,11 @@ public class PatrolBase : GearBase {
 				if (triggerType == TriggerType.once) {
 					active = false;
 				}*/
+			} 
+		}
+		if (!active && triggerType == TriggerType.once) {
+			if (IsTriggering()) {
+				active = true;
 			}
 		}
 	}
