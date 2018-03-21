@@ -16,6 +16,7 @@ public class PatrolBaseED : Editor {
 		script.active		= EditorTools.BoolField(script.active, "自動機關");
 		script.accMode		= EditorTools.BoolField(script.accMode, "緩衝模式(損毀)");
 		script.carryMode	= EditorTools.BoolField(script.carryMode, "運輸模式");
+		script.positive		= EditorTools.BoolField(script.positive, "運輸模式");
 		script.vector		= EditorTools.Vector2Field(script.vector, "移動速度(m/s)");
 		script.onceTime		= EditorTools.FloatField(script.onceTime, "時間(s)");
 		EditorTools.Mig();

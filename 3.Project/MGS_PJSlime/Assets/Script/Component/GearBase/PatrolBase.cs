@@ -9,20 +9,20 @@ public class PatrolBase : GearBase {
 	public float onceTime = 5;
 	public bool accMode = true;
 	public bool carryMode = false;
+	public bool positive = true;
 
 	protected List<Transform> carryobj = new List<Transform>();
 	protected Vector2 max = new Vector2(0, 0);
 	protected Vector2 min = new Vector2(0, 0);
-	public bool positive = true;
 
 	float aa = 0;
 
 	void Start() {
-		max = (Vector2)transform.position + vector * onceTime * 0.5f;
-		min = (Vector2)transform.position - vector * onceTime * 0.5f;
+		max = (Vector2)transform.position ;
+		min = (Vector2)transform.position - vector * onceTime ;
 
-		if (!active) {
-			transform.position = positive ? max : min;
+		if (!positive) {
+			transform.position = min;
 		}
 	}
 	
