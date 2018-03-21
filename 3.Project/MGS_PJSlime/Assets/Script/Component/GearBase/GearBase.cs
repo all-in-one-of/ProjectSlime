@@ -6,6 +6,13 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public abstract class GearBase : NetworkBehaviour {
+	public enum TriggerType {
+		always,
+		once,
+		continuous
+	}
+
+	public TriggerType triggerType;
 	public List<TriggerBase> triggers = new List<TriggerBase>();
 	public bool active = true;
 

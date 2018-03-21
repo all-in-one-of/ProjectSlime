@@ -21,7 +21,10 @@ public class BreakBase : GearBase {
 	}
 
 	void OnCollisionStay2D(Collision2D collision) {
-		if (!breaking && active) {
+		if (active) {
+			if (triggerType == TriggerType.continuous && !IsTriggering()) {
+				return;
+			}
 			Trigger();
 		}
 	}
@@ -31,6 +34,9 @@ public class BreakBase : GearBase {
 			breaking = true;
 			clock = Time.timeSinceLevelLoad;
 			Invoke("Break", breakTime);
+			if ( triggerType == TriggerType.once) {
+				active = false;
+			}
 			return true;
 		}
 		return false;

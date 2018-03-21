@@ -51,7 +51,7 @@ public class PatrolBase : GearBase {
 		}
 		
 		if (transform.position.x > max.x || transform.position.y > max.y || transform.position.x < min.x || transform.position.y < min.y) {
-			if (active || IsTriggering()) {
+			if (triggerType == TriggerType.always || (triggerType == TriggerType.continuous && IsTriggering())) {
 				Trigger();
 			}
 		}

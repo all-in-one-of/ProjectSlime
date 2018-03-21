@@ -13,12 +13,13 @@ public class PatrolBaseED : Editor {
 
 	public override void OnInspectorGUI() {
 		EditorTools.TitleField("移動機關");
-		script.active		= EditorTools.BoolField(script.active, "自動機關");
-		script.accMode		= EditorTools.BoolField(script.accMode, "緩衝模式(損毀)");
-		script.carryMode	= EditorTools.BoolField(script.carryMode, "運輸模式");
-		script.positive		= EditorTools.BoolField(script.positive, "運輸模式");
-		script.vector		= EditorTools.Vector2Field(script.vector, "移動速度(m/s)");
-		script.onceTime		= EditorTools.FloatField(script.onceTime, "時間(s)");
+		script.triggerType  = (GearBase.TriggerType)EditorTools.EnumField(script.triggerType , "機關模式");
+		script.active		= EditorTools.BoolField(script.active		, "自動機關");
+		script.accMode		= EditorTools.BoolField(script.accMode		, "緩衝模式(損毀)");
+		script.carryMode	= EditorTools.BoolField(script.carryMode	, "運輸模式");
+		script.positive		= EditorTools.BoolField(script.positive		, "正極狀態");
+		script.vector		= EditorTools.Vector2Field(script.vector	, "移動速度(m/s)");
+		script.onceTime		= EditorTools.FloatField(script.onceTime	, "時間(s)");
 		EditorTools.Mig();
 	}
 }
