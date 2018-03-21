@@ -10,9 +10,10 @@ public class BreakBase : GearBase {
 	protected float clock = 0;
 	protected Vector2 originSize;
 
-	void Start() {
+	protected override void FStart() {
 		originSize = transform.localScale;
 	}
+
 
 	void Update () {
 		if (breaking && Time.timeSinceLevelLoad - clock > resetTime + breakTime) {

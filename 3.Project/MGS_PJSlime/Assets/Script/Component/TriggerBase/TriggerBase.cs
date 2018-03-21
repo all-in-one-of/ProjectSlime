@@ -6,66 +6,78 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class TriggerBase : NetworkBehaviour {
-	public List<GearBase> triggerObject = new List<GearBase>();
-	public List<Collider2D> touching = new List<Collider2D>();
+	public enum TriggerType {
+		continuous,
+		once,
+	}
+
+	public TriggerType triggerType;
 	public float resetTime = 6;
 	public bool enforceMode = false;
-	public bool activeMode = false;
 	public bool weightMode = false;
 	public int triggerWeight = 6;
 
+	protected List<GearBase> onceObject = new List<GearBase>();
+	protected List<Collider2D> nowTouching = new List<Collider2D>();
 	protected bool triggering = false;
 	protected float clock = 0;
 	
-
 	void Update() {
-		if (triggering && Time.timeSinceLevelLoad - clock > resetTime ) {
-			ResetTrigger();
+		if (triggerType == TriggerType.once) {
+			if (triggering && Time.timeSinceLevelLoad - clock > resetTime) {
+				ResetTrigger();
+			}
 		}
 	}
 
+	public void RegistGear(GearBase Object) {
+		onceObject.Add(Object);
+	}
+
 	protected void OnTriggerEnter2D(Collider2D collider) {
-		if (!triggering) {
-			if (weightMode) {
-				if (collider.GetComponent<PlayerController>()) {
-					if (collider.GetComponent<PlayerController>().size >= triggerWeight) {
+		if (triggerType == TriggerType.once) {
+			if (!triggering) {
+				if (weightMode) {
+					if (collider.GetComponent<PlayerController>()) {
+						if (collider.GetComponent<PlayerController>().size >= triggerWeight) {
 
-					} 
-				} else {
-					return;
+						}
+					} else {
+						return;
+					}
 				}
-			}
 
-			triggering = true;
-			clock = Time.timeSinceLevelLoad;
+				triggering = true;
+				clock = Time.timeSinceLevelLoad;
 
-			foreach (GearBase gear in triggerObject) {
-				if (enforceMode) {
-					gear.BaseTrigger();
-				} else {
-					gear.Trigger();
-				}				
+				foreach (GearBase gear in onceObject) {
+					if (enforceMode) {
+						gear.BaseTrigger();
+					} else {
+						gear.Trigger();
+					}
+				}
 			}
 		}
 	}
 
 	protected void OnTriggerStay2D(Collider2D collider) {
-		if (activeMode) {
+		if (triggerType == TriggerType.continuous) {
 			if (weightMode) {
-				if (!touching.Contains(collider) && collider.GetComponent<PlayerController>()) {
-					touching.Add(collider);
+				if (!nowTouching.Contains(collider) && collider.GetComponent<PlayerController>()) {
+					nowTouching.Add(collider);
 				}
 			} else {
-				if (!touching.Contains(collider)) {
-					touching.Add(collider);
+				if (!nowTouching.Contains(collider)) {
+					nowTouching.Add(collider);
 				}
 			}
 		}
 	}
 
 	protected void OnTriggerExit2D(Collider2D collider) {
-		if (activeMode) {
-			touching.Remove(collider);
+		if (triggerType == TriggerType.continuous) {
+			nowTouching.Remove(collider);
 		}
 	}
 
@@ -74,16 +86,16 @@ public class TriggerBase : NetworkBehaviour {
 	}
 
 	public bool IsTriggering() {
-		if (activeMode) {
+		if (triggerType == TriggerType.continuous) {
 			if (weightMode) {
 				float weight = 0;
-				foreach(Collider2D entity in touching) {
+				foreach(Collider2D entity in nowTouching) {
 					weight += entity.GetComponent<PlayerController>().size;
 				}
 
 				return weight > triggerWeight;
 			} else {
-				return touching.Count > 0;
+				return nowTouching.Count > 0;
 			}
 		}
 		return false;

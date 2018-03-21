@@ -19,9 +19,9 @@ public class PatrolBase : GearBase {
 	protected bool unTriggerable = false;
 	float aa = 0;
 
-	void Start() {
-		max = (Vector2)transform.position ;
-		min = (Vector2)transform.position - vector * onceTime ;
+	protected override void FStart() {
+		max = (Vector2)transform.position;
+		min = (Vector2)transform.position - vector * onceTime;
 
 		if (!positive) {
 			transform.position = min;

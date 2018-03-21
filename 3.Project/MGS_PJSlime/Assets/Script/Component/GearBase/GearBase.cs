@@ -19,6 +19,17 @@ public abstract class GearBase : NetworkBehaviour {
 	public List<TriggerBase> triggers = new List<TriggerBase>();	
 	protected bool active = true;
 
+	void Start() {
+		foreach (TriggerBase trigger in triggers) {
+			trigger.RegistGear(this);
+		}
+		FStart();
+	}
+
+	protected virtual void FStart() {
+
+	}
+
 	public bool IsTriggering() {
 		foreach (TriggerBase trigger in triggers) {
 			if (trigger.IsTriggering()) {

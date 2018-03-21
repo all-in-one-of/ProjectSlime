@@ -14,7 +14,8 @@ public class SpawnerBase : GearBase {
 	protected GameObject[] spawnedObject;
 	protected float acClock;
 
-	void Start() {
+
+	protected override void FStart() {
 		spawnedObject = new GameObject[limit];
 	}
 
