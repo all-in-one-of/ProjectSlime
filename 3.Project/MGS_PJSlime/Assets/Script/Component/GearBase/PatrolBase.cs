@@ -13,18 +13,35 @@ public class PatrolBase : GearBase {
 	public bool DEBUG = false;
 
 	protected List<Transform> carryobj = new List<Transform>();
-	protected Vector2 max = new Vector2(0, 0);
-	protected Vector2 min = new Vector2(0, 0);
+	public Vector2 pa = new Vector2(0, 0);
+	public Vector2 pb = new Vector2(0, 0);
 	protected bool firstTrigger = false;
 	protected bool unTriggerable = false;
 	float aa = 0;
 
+	protected float distance;
+
 	protected override void FStart() {
-		max = (Vector2)transform.position;
-		min = (Vector2)transform.position - vector * onceTime;
+		pa = (Vector2)transform.position;
+		pb = (Vector2)transform.position + vector * onceTime;
+
+		distance = Vector2.Distance(pa, pb);
+
+		/*
+		if (min.x > max.x) {
+			float temp = max.x;
+			max.x = min.x;
+			min.x = temp;
+		}
+		if (min.y > max.y) {
+			float temp = max.y;
+			max.y = min.y;
+			min.y = temp;
+		}*/
+
 
 		if (!positive) {
-			transform.position = min;
+			transform.position = pb;
 		}
 
 		if (triggerType == TriggerType.continuous) {
@@ -39,6 +56,27 @@ public class PatrolBase : GearBase {
 	void FixedUpdate() {
 		if (!unTriggerable) {
 			if (active || (triggerType == TriggerType.continuous && IsTriggering())) {
+
+				if ((positive && Vector2.Distance(pa, transform.position) <= distance) || (!positive && Vector2.Distance(pb, transform.position) <= distance)) {
+					Vector2 shift = (positive ? vector : -vector) * Time.deltaTime;
+					transform.position = (Vector2)transform.position + shift;
+					CarryObj(shift);
+				}
+
+				
+				if ((positive && Vector2.Distance(pa, transform.position) > distance) || (!positive && Vector2.Distance(pb, transform.position) > distance)) {	
+					Trigger();
+					if (triggerType == TriggerType.once) {
+						if (firstTrigger) {
+							unTriggerable = true;
+						}
+
+						firstTrigger = true;
+					}
+				}
+
+
+				/*
 				if (positive && (transform.position.x > max.x || transform.position.y > max.y)) {
 
 				} else if (!positive && (transform.position.x < min.x || transform.position.y < min.y)) {
@@ -48,8 +86,18 @@ public class PatrolBase : GearBase {
 					transform.position = (Vector2)transform.position + shift;
 					CarryObj(shift);
 				}
+								
 
+				if ((positive && (transform.position.x > max.x || transform.position.y > max.y)) || (!positive && (transform.position.x < min.x || transform.position.y < min.y))) {
+					Trigger();
+					if (triggerType == TriggerType.once) {
+						if (firstTrigger) {
+							unTriggerable = true;
+						}
 
+						firstTrigger = true;
+					}
+				}*/
 
 				if (!accMode) {
 
@@ -62,18 +110,6 @@ public class PatrolBase : GearBase {
 					CarryObj(shift);*/
 				}
 
-
-
-				if ((positive && (transform.position.x > max.x || transform.position.y > max.y)) || (!positive && (transform.position.x < min.x || transform.position.y < min.y))) {
-					Trigger();
-					if (triggerType == TriggerType.once) {
-						if (firstTrigger) {
-							unTriggerable = true;
-						}
-
-						firstTrigger = true;
-					}
-				}
 				/*
 				if (triggerType == TriggerType.always || (triggerType == TriggerType.continuous && IsTriggering())) {
 					Trigger();

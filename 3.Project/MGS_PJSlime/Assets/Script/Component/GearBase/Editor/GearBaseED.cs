@@ -17,6 +17,7 @@ public class TriggerBaseED : Editor {
 		script.resetTime		= EditorTools.FloatField(script.resetTime, "按鈕冷卻時間(s)");
 		script.weightMode		= EditorTools.BoolField(script.weightMode, "壓力需求");
 		script.triggerWeight	= EditorTools.IntField(script.triggerWeight, "壓力值");
+
 		EditorTools.Mig();
 	}
 }
@@ -44,6 +45,9 @@ public class PatrolBaseED : Editor {
 		script.positive		= EditorTools.BoolField(script.positive		, "正極狀態");
 		script.vector		= EditorTools.Vector2Field(script.vector	, "移動速度(m/s)");
 		script.onceTime		= EditorTools.FloatField(script.onceTime	, "時間(s)");
+		
+		EditorTools.Vector2Field(script.pa, "#A點");
+		EditorTools.Vector2Field(script.pb, "#B點");
 		EditorTools.Mig();
 	}
 }
