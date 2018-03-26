@@ -515,7 +515,7 @@ public class PlayerController : EntityBase {
 	}
 
 	private void OnTriggerEnter2D(Collider2D collider) {
-		if (Network.isServer) {
+		if (Network.isServer && collider.tag == "CheckPoint") {
 			GameEngine.RegistCheckPoint(collider.gameObject.name);
 		}
 	}
