@@ -3,24 +3,6 @@ using System.Collections;
 using UnityEditor;
 using System;
 
-[CustomEditor(typeof(TriggerBase))]
-public class TriggerBaseED : Editor {
-	TriggerBase script;
-
-	public void OnEnable() {
-		script = (TriggerBase)target;		
-	}
-
-	public override void OnInspectorGUI() { 
-		EditorTools.TitleField("觸發機關");
-		script.triggerType		= (TriggerBase.TriggerType)EditorTools.EnumField(script.triggerType, "觸發模式");
-		script.resetTime		= EditorTools.FloatField(script.resetTime, "按鈕冷卻時間(s)");
-		script.weightMode		= EditorTools.BoolField(script.weightMode, "壓力需求");
-		script.triggerWeight	= EditorTools.IntField(script.triggerWeight, "壓力值");
-
-		EditorTools.Mig();
-	}
-}
 
 [CustomEditor(typeof(PatrolBase))]
 public class PatrolBaseED : Editor {
@@ -31,15 +13,31 @@ public class PatrolBaseED : Editor {
 	}
 
 	public override void OnInspectorGUI() {
-		EditorTools.TitleField("移動機關");
-		script.triggerType  = (GearBase.TriggerType)EditorTools.EnumField(script.triggerType , "機關模式");
-		EditorTools.LabelField("壓力機關");
-		var serializedObject = new SerializedObject(target);
-		var property = serializedObject.FindProperty("triggers");
-		serializedObject.Update();
-		EditorGUILayout.PropertyField(property, true);
-		serializedObject.ApplyModifiedProperties();
+		if (script.triggerType == GearBase.TriggerType.once || script.triggerType == GearBase.TriggerType.continuous) {
+			EditorTools.TitleField("移動機關 - 壓力模式");
+			script.triggerType = (GearBase.TriggerType)EditorTools.EnumField(script.triggerType, "機關模式");
 
+			var serializedObject = new SerializedObject(target);
+			var property = serializedObject.FindProperty("triggers");
+			serializedObject.Update();
+			EditorGUILayout.PropertyField(property, true);
+			serializedObject.ApplyModifiedProperties();
+
+		} else if (script.triggerType == GearBase.TriggerType.button || script.triggerType == GearBase.TriggerType.oncebutton) {
+			EditorTools.TitleField("移動機關 - 按鈕模式");
+			script.triggerType = (GearBase.TriggerType)EditorTools.EnumField(script.triggerType, "機關模式");
+
+			var serializedObject = new SerializedObject(target);
+			var property = serializedObject.FindProperty("triggers");
+			serializedObject.Update();
+			EditorGUILayout.PropertyField(property, true);
+			serializedObject.ApplyModifiedProperties();
+
+		} else {
+			EditorTools.TitleField("移動機關 - 自動模式");
+			script.triggerType = (GearBase.TriggerType)EditorTools.EnumField(script.triggerType, "機關模式");
+		}
+		
 		script.accMode		= EditorTools.BoolField(script.accMode		, "緩衝模式(損毀)");
 		script.carryMode	= EditorTools.BoolField(script.carryMode	, "運輸模式");
 		script.positive		= EditorTools.BoolField(script.positive		, "正極狀態");

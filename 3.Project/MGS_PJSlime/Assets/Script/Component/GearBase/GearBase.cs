@@ -9,19 +9,25 @@ public abstract class GearBase : NetworkBehaviour {
 	public enum TriggerType {
 		always,
 		once,
-		continuous
+		continuous,
+		button,
+		oncebutton,
 	}
 
 	public abstract bool BaseTrigger();
 	public abstract bool Trigger();
-
+	
 	public TriggerType triggerType;
 	public List<TriggerBase> triggers = new List<TriggerBase>();	
 	protected bool active = true;
 
 	void Start() {
 		foreach (TriggerBase trigger in triggers) {
-			trigger.RegistGear(this);
+			if (trigger) {
+				trigger.RegistGear(this);
+			} else {
+				Debug.LogWarning("#GearBase:triggers註冊異常");
+			}	
 		}
 		FStart();
 	}
@@ -32,9 +38,11 @@ public abstract class GearBase : NetworkBehaviour {
 
 	public bool IsTriggering() {
 		foreach (TriggerBase trigger in triggers) {
-			if (trigger.IsTriggering()) {
-				return true;
-			}
+			if (trigger) {
+				if (trigger.IsTriggering()) {
+					return true;
+				}
+			}			
 		}
 		return false;
 	}
