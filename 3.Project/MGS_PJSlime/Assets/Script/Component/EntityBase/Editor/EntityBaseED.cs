@@ -51,7 +51,8 @@ public class EnemyBaseED : Editor {
 		script.jumpForce	= EditorTools.FloatField(script.jumpForce, "跳躍力");
 		script.bullet		= (GameObject)EditorTools.ObjectField(script.bullet , typeof(GameObject), "彈種");
 		script.bulletSpeed	= EditorTools.FloatField(script.bulletSpeed, "槍口初速(m/s)");
-		
+		script.bulletLife	= EditorTools.FloatField(script.bulletLife, "子彈持續時間(s)");
+
 		EditorTools.Mig();
 	}
 }

@@ -13,6 +13,7 @@ public class EnemyBase : EntityBase {
 
 	public GameObject bullet;
 	public float bulletSpeed;
+	public float bulletLife = 10;
 
 	public  Vector2 aiGape = new Vector2(2,4);
 	private float movePos;
@@ -58,10 +59,10 @@ public class EnemyBase : EntityBase {
 				if (Random.Range(0, 2) == 0) {
 					if (Random.Range(0, 2) == 0) {
 						GameObject newBullet = PrototypeSystem.direct.SpawnUnit(bullet, new Vector2(transform.position.x - 1, transform.position.y));
-						newBullet.GetComponent<ProjectileBase>().FireProjectile(-bulletSpeed);
+						newBullet.GetComponent<ProjectileBase>().FireProjectile(-bulletSpeed , bulletLife);
 					} else {
 						GameObject newBullet = PrototypeSystem.direct.SpawnUnit(bullet, new Vector2(transform.position.x + 1, transform.position.y));
-						newBullet.GetComponent<ProjectileBase>().FireProjectile(bulletSpeed);
+						newBullet.GetComponent<ProjectileBase>().FireProjectile(bulletSpeed , bulletLife);
 					}
 				}
 			}

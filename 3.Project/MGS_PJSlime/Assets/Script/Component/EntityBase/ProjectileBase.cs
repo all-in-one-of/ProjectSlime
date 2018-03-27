@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ProjectileBase : EntityBase {
 	public float nowSpeed;
+	public float lifeTime = 10;
 	private float lifeClock;
 	private bool active;
 
@@ -20,8 +21,9 @@ public class ProjectileBase : EntityBase {
 		}
 	}
 
-	public void FireProjectile(float speed) {
+	public void FireProjectile(float speed , float life) {
 		lifeClock = Time.timeSinceLevelLoad;
+		lifeTime = life;
 		nowSpeed = speed;
 		active = true;
 	}
@@ -55,7 +57,7 @@ public class ProjectileBase : EntityBase {
 	protected override void FOnCollisionStay2D(Collision2D collision) { }
 
 	protected virtual void LifeTimeSeqence() {
-		if (10 < Time.timeSinceLevelLoad - lifeClock) {
+		if (lifeTime < Time.timeSinceLevelLoad - lifeClock) {
 			Destroy(gameObject);
 		}
 	}
