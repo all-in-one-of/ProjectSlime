@@ -12,10 +12,13 @@ public class PlayerController : EntityBase {
 		Jump,
 	};
 
+	//public float[] damageTable = { 0, 0, 0, 0, 1, 1, 1, 2, 2, 2, 2 };
+	public int[] damageTable = { 0, 0, 0, 0, 1, 1, 1, 4, 4, 4 , 4};
 
 	public State state = State.Normal;
 	public Animator anim;
-	
+
+	public bool newDamage = false;
 	public int jumpGape;
 	public int PlayerIndex = 0;
 	public Vector2 velocityOut;

@@ -82,8 +82,10 @@ public class GameEngine : MonoBehaviour {
 	}
 
 	public void OnReborn(PlayerController value) {
+		int hpRecord = 0;
+
 		foreach (PlayerController unit in players) {
-			if (unit.gameObject != value && unit.hp > 2 && !unit.isDead) {
+			if (unit.gameObject != value && unit.hp > 2 && !unit.isDead && unit.hp > hpRecord) {
 				unit.Attack(2, true);
 				value.transform.position = unit.transform.position;
 				value.Attack(0, true);
