@@ -21,7 +21,11 @@ public class Ferr2D_PathEditor : Editor {
 	static Texture2D texReset;
 	static Texture2D texScale;
 
-    private void CapDotMinus        (int aControlID, Vector3 aPosition, Quaternion aRotation, float aSize) {Ferr.EditorTools.ImageCapBase(aControlID, aPosition, aRotation, aSize, texMinus);}
+
+	static int sizeX = 1;
+	static int sizeY = 1;
+
+	private void CapDotMinus        (int aControlID, Vector3 aPosition, Quaternion aRotation, float aSize) {Ferr.EditorTools.ImageCapBase(aControlID, aPosition, aRotation, aSize, texMinus);}
     private void CapDotMinusSelected(int aControlID, Vector3 aPosition, Quaternion aRotation, float aSize) {Ferr.EditorTools.ImageCapBase(aControlID, aPosition, aRotation, aSize, texMinusSelected);}
     private void CapDot             (int aControlID, Vector3 aPosition, Quaternion aRotation, float aSize) {Ferr.EditorTools.ImageCapBase(aControlID, aPosition, aRotation, aSize, texDot);}
     private void CapDotSnap         (int aControlID, Vector3 aPosition, Quaternion aRotation, float aSize) {Ferr.EditorTools.ImageCapBase(aControlID, aPosition, aRotation, aSize, texDotSnap);}
@@ -104,6 +108,7 @@ public class Ferr2D_PathEditor : Editor {
 		}
 	}
 	public override void OnInspectorGUI() {
+		EditorTools.TitleField("地板編輯工具");
 		Undo.RecordObject(target, "Modified Path");
 		
 		Ferr2D_Path path = (Ferr2D_Path)target;
@@ -119,15 +124,15 @@ public class Ferr2D_PathEditor : Editor {
 			}
 		}
 		
-		path.closed = EditorGUILayout.Toggle ("Closed", path.closed);
+		path.closed = EditorGUILayout.Toggle ("封閉地面", path.closed);
 		if (path)
 			
         // display the path verts list info
-			showVerts   = EditorGUILayout.Foldout(showVerts, "Path Vertices");
+			showVerts   = EditorGUILayout.Foldout(showVerts, "頂點座標");
 		EditorGUI.indentLevel = 2;
 		if (showVerts)
 		{
-			int size = EditorGUILayout.IntField("Count: ", path.pathVerts.Count);
+			int size = EditorGUILayout.IntField("數量: ", path.pathVerts.Count);
 			while (path.pathVerts.Count > size) path.pathVerts.RemoveAt(path.pathVerts.Count - 1);
 			while (path.pathVerts.Count < size) path.pathVerts.Add     (new Vector2(0, 0));
 		}
@@ -141,9 +146,10 @@ public class Ferr2D_PathEditor : Editor {
 				EditorGUILayout.FloatField(path.pathVerts[i].y));
 			EditorGUILayout.EndHorizontal();
 		}
-		
-        // button for updating the origin of the object
-		if (GUILayout.Button("Center Position")) path.ReCenter();
+
+		// button for updating the origin of the object
+				
+		if (GUILayout.Button("座標重置")) path.ReCenter();
 		
 		bool updateClosed = false;
 		Ferr2DT_PathTerrain terrain = path.GetComponent<Ferr2DT_PathTerrain>();
@@ -162,6 +168,35 @@ public class Ferr2D_PathEditor : Editor {
 			path.UpdateDependants(false);
 			EditorUtility.SetDirty(target);
 		}
+		
+		sizeX = EditorTools.IntField(sizeX, "寬");
+		sizeY = EditorTools.IntField(sizeY, "長");
+		
+		if (GUILayout.Button("地板格式化")) {
+			path.pathVerts = new List<Vector2>();
+			path.pathVerts.Add(new Vector2(sizeX, sizeY) * 0.5F);
+			path.pathVerts.Add(new Vector2(sizeX, -sizeY) * 0.5F);
+			path.pathVerts.Add(new Vector2(-sizeX, -sizeY) * 0.5F);
+			path.pathVerts.Add(new Vector2(-sizeX, sizeY) * 0.5F);
+			UpdateDependentsSmart(path, false, false);
+			EditorUtility.SetDirty(target);
+			prevChanged = true;
+
+			BoxCollider2D box2D = path.GetComponent<BoxCollider2D>();
+			if (box2D) {
+				path.GetComponent<BoxCollider2D>().size = new Vector2(sizeX, sizeY);
+				EditorUtility.SetDirty(path.GetComponent<BoxCollider2D>());
+			}
+		}
+
+		if (GUILayout.Button("進階地板設定")) {
+			GroundBase groundBase = path.GetComponent<GroundBase>();
+			if (!groundBase) {
+				path.gameObject.AddComponent<GroundBase>();
+			}
+		}
+
+		EditorTools.Mig();
 	}
 	
 	private void    UpdateDependentsSmart(Ferr2D_Path aPath, bool aForce, bool aFullUpdate) {

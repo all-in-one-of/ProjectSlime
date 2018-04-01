@@ -695,6 +695,9 @@ public class Ferr2DT_PathTerrain : MonoBehaviour, Ferr2D_IPath {
 		}
 		UnityEngine.Random.seed = tSeed;
 	}
+
+	const float shift = 0.2f;
+
 	private void SlicedQuad(List<Vector2> aSegment, int aVert, float aStart, float aEnd, int aCuts, bool aSmoothed, bool aClosed, Ferr2DT_SegmentDescription aDesc, float aStartScale, float aEndScale) {
         Vector2[] pos    = new Vector2[aCuts];
 		Vector2[] norm   = new Vector2[aCuts];
@@ -735,9 +738,15 @@ public class Ferr2DT_PathTerrain : MonoBehaviour, Ferr2D_IPath {
 
 			Vector3 pos1 = pos [i  ];
 			Vector3 n1   = norm[i  ];
-			int   v1 = DMesh.AddVertex(pos1.x + n1.x * (d*scales[i] + yOff), pos1.y + n1.y * (d*scales[i] + yOff), -slantAmount + aDesc.zOffset, Mathf.Lerp(body.x, body.xMax, percent), fill == Ferr2DT_FillMode.InvertedClosed ? body.yMax : body.y   );
-			int   v2 = DMesh.AddVertex(pos1.x - n1.x * (d*scales[i] - yOff), pos1.y - n1.y * (d*scales[i] - yOff),  slantAmount + aDesc.zOffset, Mathf.Lerp(body.x, body.xMax, percent), fill == Ferr2DT_FillMode.InvertedClosed ? body.y    : body.yMax);
-			int   v3 = splitMiddle ? DMesh.AddVertex(pos1.x + n1.x * yOff, pos1.y + n1.y * yOff, aDesc.zOffset, Mathf.Lerp(body.x, body.xMax, percent), Mathf.Lerp(body.y,body.yMax,0.5f)) : -1;
+
+			//int   v1 = DMesh.AddVertex(pos1.x + n1.x * (d*scales[i] + yOff), pos1.y + n1.y * (d*scales[i] + yOff), -slantAmount + aDesc.zOffset, Mathf.Lerp(body.x, body.xMax, percent), fill == Ferr2DT_FillMode.InvertedClosed ? body.yMax : body.y   );
+			//int   v2 = DMesh.AddVertex(pos1.x - n1.x * (d*scales[i] - yOff), pos1.y - n1.y * (d*scales[i] - yOff),  slantAmount + aDesc.zOffset, Mathf.Lerp(body.x, body.xMax, percent), fill == Ferr2DT_FillMode.InvertedClosed ? body.y    : body.yMax);
+			int   v1 = DMesh.AddVertex(pos1.x + n1.x * (d*scales[i] + yOff * shift), pos1.y + n1.y * (d*scales[i] + yOff * shift), -slantAmount + aDesc.zOffset, Mathf.Lerp(body.x, body.xMax, percent), fill == Ferr2DT_FillMode.InvertedClosed ? body.yMax : body.y   );
+			int   v2 = DMesh.AddVertex(pos1.x - n1.x * (d*scales[i] - yOff * shift), pos1.y - n1.y * (d*scales[i] - yOff * shift),  slantAmount + aDesc.zOffset, Mathf.Lerp(body.x, body.xMax, percent), fill == Ferr2DT_FillMode.InvertedClosed ? body.y    : body.yMax);
+			
+
+
+			int v3 = splitMiddle ? DMesh.AddVertex(pos1.x + n1.x * yOff, pos1.y + n1.y * yOff, aDesc.zOffset, Mathf.Lerp(body.x, body.xMax, percent), Mathf.Lerp(body.y,body.yMax,0.5f)) : -1;
 
 			if (i != 0) {
 				if (!splitMiddle) {
@@ -790,14 +799,14 @@ public class Ferr2DT_PathTerrain : MonoBehaviour, Ferr2D_IPath {
             maxU = t;
         }
 
-        int v1  =           DMesh.AddVertex(pos + dir * width + norm * (scale + yOff), -slantAmount + aDesc.zOffset, new Vector2(minU, minV));
-        int v2  =           DMesh.AddVertex(pos +               norm * (scale + yOff), -slantAmount + aDesc.zOffset, new Vector2(maxU, minV));
+        int v1  =           DMesh.AddVertex(pos + dir * width + norm * (scale + yOff * shift), -slantAmount + aDesc.zOffset, new Vector2(minU, minV));
+        int v2  =           DMesh.AddVertex(pos +               norm * (scale + yOff * shift), -slantAmount + aDesc.zOffset, new Vector2(maxU, minV));
 
         int v15 = splitMiddle ? DMesh.AddVertex(pos + dir * width +        (norm  * yOff),  aDesc.zOffset,           new Vector2(minU, cap.y + (cap.height / 2))) : -1;
         int v25 = splitMiddle ? DMesh.AddVertex(pos               +        (norm  * yOff),  aDesc.zOffset,           new Vector2(maxU, cap.y + (cap.height / 2))) : -1;
 
-        int v3  =           DMesh.AddVertex(pos -               norm * (scale - yOff),  slantAmount + aDesc.zOffset, new Vector2(maxU, maxV));
-        int v4  =           DMesh.AddVertex(pos + dir * width - norm * (scale - yOff),  slantAmount + aDesc.zOffset, new Vector2(minU, maxV));
+        int v3  =           DMesh.AddVertex(pos -               norm * (scale - yOff * shift),  slantAmount + aDesc.zOffset, new Vector2(maxU, maxV));
+        int v4  =           DMesh.AddVertex(pos + dir * width - norm * (scale - yOff * shift),  slantAmount + aDesc.zOffset, new Vector2(minU, maxV));
 
         if (splitMiddle && aDir < 0) {
             DMesh.AddFace(v1,  v2,  v25, v15);
