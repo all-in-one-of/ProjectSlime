@@ -161,7 +161,7 @@ MonoBehaviour:
   jumpForce: 0
   bullet: {fileID: 1974477046238388, guid: bd3df764a3f6e21449119a7bfa452886, type: 2}
   bulletSpeed: 8
-  bulletLife: 5
+  bulletLife: 3
   aiGape: {x: 2, y: 4}
 --- !u!114 &114364628494522250
 MonoBehaviour:
