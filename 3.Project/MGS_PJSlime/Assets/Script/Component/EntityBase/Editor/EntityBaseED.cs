@@ -75,3 +75,21 @@ public class ProjectileBaseED : Editor {
 		EditorTools.Mig();
 	}
 }
+
+//[CustomEditor(typeof(PlayerController))]
+public class PlayerControllerED : Editor {
+	PlayerController script;
+
+	public void OnEnable() {
+		script = (PlayerController)target;
+	}
+
+	public override void OnInspectorGUI() {
+		EditorTools.TitleField("玩家物件");
+		script.hp = EditorTools.IntField(script.hp, "生命值");
+		script.eatAble = EditorTools.BoolField(script.eatAble, "可食用");
+
+		EditorTools.Space();
+		EditorTools.Mig();
+	}
+}

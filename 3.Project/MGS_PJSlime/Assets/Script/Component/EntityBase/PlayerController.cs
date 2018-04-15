@@ -268,7 +268,7 @@ public class PlayerController : EntityBase {
 			RpcState("Jump");
 		}
 
-		if (state == State.Jump && Time.timeSinceLevelLoad - jumpTimer < 0.25f ) {
+		if (state == State.Jump && Time.timeSinceLevelLoad - jumpTimer < GameEngine.direct.jumpDuraion) {
 			rb.velocity = new Vector2(rb.velocity.x, GameEngine.direct.jumpYForce * ((jumpGape - size) / jumpGape));
 		}
 	}

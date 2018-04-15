@@ -23,6 +23,7 @@ public class GameEngine : MonoBehaviour {
 	public float jumpXDec = 10;
 
 	public float jumpYForce = 8;
+	public float jumpDuraion = 0.5f;
 	public float jumpYDec = 10;
 
 	public float iceXAcc = 10;
