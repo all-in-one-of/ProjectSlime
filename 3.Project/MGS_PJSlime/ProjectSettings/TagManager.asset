@@ -11,6 +11,7 @@ TagManager:
   - Dead
   - Scene
   - CheckPoint
+  - Water
   layers:
   - Default
   - TransparentFX
@@ -50,4 +51,7 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Front
+    uniqueID: 3243624455
     locked: 0
