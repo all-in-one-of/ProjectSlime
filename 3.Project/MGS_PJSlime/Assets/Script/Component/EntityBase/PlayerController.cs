@@ -20,7 +20,6 @@ public class PlayerController : EntityBase {
 	public Animator anim;
 
 	public bool newDamage = false;
-	public int jumpGape;
 	public int PlayerIndex = 0;
 	public Vector2 velocityOut;
 	public Vector2 velocitSim;
@@ -223,10 +222,9 @@ public class PlayerController : EntityBase {
 	}
 
 	[Command]
-	public void CmdRegist(int PlayerIndex, int hp, int jumpGape) {
+	public void CmdRegist(int PlayerIndex, int hp) {
 		this.PlayerIndex = PlayerIndex;
 		this.hp = hp;
-		this.jumpGape = jumpGape;
 		GameEngine.direct.OnRegist(this);
 		SetSize();
 	}
@@ -300,7 +298,7 @@ public class PlayerController : EntityBase {
 				jumpAudio.Play();
 				state = State.Jump;
 				RpcState("Jump");
-				rb.velocity = new Vector2(rb.velocity.x, GameEngine.direct.waterYForce * ((jumpGape - size) / jumpGape));				
+				rb.velocity = new Vector2(rb.velocity.x, GameEngine.direct.waterYForce );				
 			}
 			
 		} else {
@@ -309,7 +307,7 @@ public class PlayerController : EntityBase {
 				jumpAudio.Play();
 				state = State.Jump;
 				RpcState("Jump");
-				rb.velocity = new Vector2(rb.velocity.x, GameEngine.direct.jumpYForce * ((jumpGape - size) / jumpGape));
+				rb.velocity = new Vector2(rb.velocity.x, GameEngine.direct.jumpYForce * (( GameEngine.direct.jumpGape - size) /  GameEngine.direct.jumpGape));
 			}
 		}
 	}
@@ -317,7 +315,7 @@ public class PlayerController : EntityBase {
 	[Command]
 	public void CmdJumpForce() {
 		if (state == State.Jump && Time.timeSinceLevelLoad - jumpTimer < GameEngine.direct.jumpDuraion) {
-			rb.velocity = new Vector2(rb.velocity.x, GameEngine.direct.jumpYForce * ((jumpGape - size) / jumpGape));
+			rb.velocity = new Vector2(rb.velocity.x, GameEngine.direct.jumpYForce * (( GameEngine.direct.jumpGape - size) /  GameEngine.direct.jumpGape));
 		}
 	}
 
@@ -565,7 +563,7 @@ public class PlayerController : EntityBase {
 	private void OnTriggerExit2D(Collider2D collider) {
 		if (Network.isServer && collider.tag == "Water") {
 			isInWater = null;
-			rb.velocity = new Vector2(rb.velocity.x, 1.25f * GameEngine.direct.waterYForce * ((jumpGape - size) / jumpGape));
+			rb.velocity = new Vector2(rb.velocity.x, 1.25f * GameEngine.direct.waterYForce );
 		}
 	}
 }

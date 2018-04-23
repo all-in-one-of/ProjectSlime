@@ -18,6 +18,8 @@ public class GameEngine : MonoBehaviour {
 	public float walkXAcc = 10;
 	public float walkXDec = 10;
 
+	public int jumpGape = 48;
+
 	public float jumpXSpeed = 8;
 	public float jumpXAcc = 10;
 	public float jumpXDec = 10;

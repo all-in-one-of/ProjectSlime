@@ -40,10 +40,10 @@ public class PrototypeSystem : NetworkBehaviour {
 			newObj.GetComponentInChildren<SpriteRenderer>().material = mt[a];
 
 			if (a == 0) {
-				newObj.GetComponent<PlayerController>().CmdRegist(a, hostIntSize, jumpGape);
+				newObj.GetComponent<PlayerController>().CmdRegist(a, hostIntSize);
 				GameEngine.direct.Focus(newObj.GetComponent<PlayerController>());
 			} else {
-				newObj.GetComponent<PlayerController>().CmdRegist(a, intSize, jumpGape);
+				newObj.GetComponent<PlayerController>().CmdRegist(a, intSize);
 			}
 
 			a++;

@@ -35,6 +35,7 @@ public class GameEngineED : Editor {
 
 		EditorTools.Space();
 		EditorTools.LabelField("-跳躍參數-");
+		script.jumpGape		= EditorTools.IntField(script.jumpGape		, "跳躍基數");
 		script.jumpXSpeed	= EditorTools.FloatField(script.jumpXSpeed	, "移動速度(m/s)");
 		script.jumpXAcc		= EditorTools.FloatField(script.jumpXAcc	, "加速度(m/s)");
 		script.jumpXDec		= EditorTools.FloatField(script.jumpXDec	, "減速度(m/s)");
