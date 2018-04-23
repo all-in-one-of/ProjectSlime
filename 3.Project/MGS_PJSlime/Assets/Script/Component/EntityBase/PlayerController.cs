@@ -565,6 +565,7 @@ public class PlayerController : EntityBase {
 	private void OnTriggerExit2D(Collider2D collider) {
 		if (Network.isServer && collider.tag == "Water") {
 			isInWater = null;
+			rb.velocity = new Vector2(rb.velocity.x, 1.25f * GameEngine.direct.waterYForce * ((jumpGape - size) / jumpGape));
 		}
 	}
 }
