@@ -26,6 +26,7 @@ public class PlayerController : EntityBase {
 	public Vector2 velocitSim;
 	public Vector2 deVelocity;
 
+	public Transform isInWater;
 	public SpriteRenderer sprite;
 	public Dictionary<Collider2D, int> touching = new Dictionary<Collider2D, int>();
 	public Transform eating = null;
@@ -37,6 +38,9 @@ public class PlayerController : EntityBase {
 	public float size = 0;
 
 	private float jumpTimer;
+	private float swimTimer;
+
+	private bool jumpPreCommand = false;
 
 	protected override void FStart() {
 		rb = GetComponent<Rigidbody2D>();
@@ -47,16 +51,28 @@ public class PlayerController : EntityBase {
 			SetSize();
 		}
 	}
-	
+
+	/*
+	 if (Input.GetAxisRaw("Fire1") != 0) {
+					if (jumpPreCommand == false) {
+						// Call your event function here.
+						jumpPreCommand = true;
+					}
+				}
+				if (Input.GetAxisRaw("Fire1") == 0) {
+					jumpPreCommand = false;
+				}
+	*/
+
 	void Update () {
 		if ((Network.isClient || Network.isServer)) {
 			
 			float horizonDirection = 0;
 			bool downCommand = false;
 			bool jumpCommand = false;
+			bool jumpNowCommand = false;
 			bool eatCommand = false;
 			bool skipper = false;
-
 
 			if (PlayerIndex == 0) {
 				if (isDead) {
@@ -67,8 +83,17 @@ public class PlayerController : EntityBase {
 				}
 				horizonDirection = (Input.GetAxisRaw("LeftHorizon") > 0 ? 1 : 0) + (Input.GetAxisRaw("LeftHorizon") < 0 ? -1 : 0);
 				downCommand = Input.GetKey(KeyCode.Q);
-				jumpCommand = Input.GetKey(KeyCode.Space);
+				jumpCommand = Input.GetKey(KeyCode.Space);				
 				eatCommand = Input.GetKeyDown(KeyCode.E);
+				if (Input.GetKey(KeyCode.Space)) {
+					if (jumpPreCommand == false) {
+						jumpNowCommand = true;
+						jumpPreCommand = true;
+					}
+				}
+				if (!Input.GetKey(KeyCode.Space)) {
+					jumpPreCommand = false;
+				}
 
 			} else if (PlayerIndex == 1) {
 				if (isDead) {
@@ -117,8 +142,11 @@ public class PlayerController : EntityBase {
 				skipper = true;
 			}
 
-			if (jumpCommand && !skipper) {
+			if (jumpNowCommand && !skipper) {
 				CmdJump();
+
+			} else if (jumpCommand && !skipper) {
+				CmdJumpForce();
 			}
 
 			if (horizonDirection != 0 && !skipper) {
@@ -174,7 +202,12 @@ public class PlayerController : EntityBase {
 				velocitSim.x = 0;
 			}
 
-			velocitSim.y = rb.velocity.y - GameEngine.direct.jumpYDec * Time.deltaTime ;
+			if (isInWater) {
+				velocitSim.y = rb.velocity.y - GameEngine.direct.waterYDec * Time.deltaTime;
+			} else {
+				velocitSim.y = rb.velocity.y - GameEngine.direct.jumpYDec * Time.deltaTime;
+			}
+			
 			rb.velocity = velocitSim;
 		}
 	}
@@ -260,14 +293,29 @@ public class PlayerController : EntityBase {
 	}
 
 	[Command]
-	public void CmdJump() {		
-		if (state == State.None) {
-			jumpTimer = Time.timeSinceLevelLoad;
-			jumpAudio.Play();
-			state = State.Jump;
-			RpcState("Jump");
+	public void CmdJump() {	
+		if (isInWater) {
+			if (Time.timeSinceLevelLoad - swimTimer >= GameEngine.direct.waterColdDown) {
+				swimTimer = Time.timeSinceLevelLoad;
+				jumpAudio.Play();
+				state = State.Jump;
+				RpcState("Jump");
+				rb.velocity = new Vector2(rb.velocity.x, GameEngine.direct.waterYForce * ((jumpGape - size) / jumpGape));				
+			}
+			
+		} else {
+			if (state == State.None) {
+				jumpTimer = Time.timeSinceLevelLoad;
+				jumpAudio.Play();
+				state = State.Jump;
+				RpcState("Jump");
+				rb.velocity = new Vector2(rb.velocity.x, GameEngine.direct.jumpYForce * ((jumpGape - size) / jumpGape));
+			}
 		}
+	}
 
+	[Command]
+	public void CmdJumpForce() {
 		if (state == State.Jump && Time.timeSinceLevelLoad - jumpTimer < GameEngine.direct.jumpDuraion) {
 			rb.velocity = new Vector2(rb.velocity.x, GameEngine.direct.jumpYForce * ((jumpGape - size) / jumpGape));
 		}
@@ -408,21 +456,6 @@ public class PlayerController : EntityBase {
 				if (Mathf.Abs(xe + ixe) >= 6) {
 					collision.gameObject.GetComponent<PlayerController>().velocityOut.x = xv * Mathf.Abs(xe + ixe) * 0.5f;
 				}
-
-				/*
-				if (xv == ixv) {
-					Debug.Log(name + "[1]:" + name + "/" + xe + "撞" + collision.gameObject.name + "/" + ixe);
-
-					if (Mathf.Abs(xe + ixe) >= 6) {
-						collision.gameObject.GetComponent<PlayerController>().velocityOut.x = xv * Mathf.Abs(xe + ixe) * 0.5f;
-					}
-				} else {
-					Debug.Log(name + "[2]:" + name + "/" + xe + "撞" + collision.gameObject.name + "/" + ixe);
-
-					if (Mathf.Abs(xe + ixe) >= 6) {
-						collision.gameObject.GetComponent<PlayerController>().velocityOut.x = xv * Mathf.Abs(xe + ixe) * 0.5f;
-					}
-				}*/
 			}
 		}
 	}
@@ -524,8 +557,14 @@ public class PlayerController : EntityBase {
 	}
 
 	private void OnTriggerEnter2D(Collider2D collider) {
-		if (Network.isServer && collider.tag == "CheckPoint") {
-			GameEngine.RegistCheckPoint(collider.gameObject.name);
+		if (Network.isServer && collider.tag == "Water") {
+			isInWater = collider.transform;
+		}
+	}
+
+	private void OnTriggerExit2D(Collider2D collider) {
+		if (Network.isServer && collider.tag == "Water") {
+			isInWater = null;
 		}
 	}
 }

@@ -26,6 +26,13 @@ public class GameEngine : MonoBehaviour {
 	public float jumpDuraion = 0.5f;
 	public float jumpYDec = 10;
 
+	public float waterXSpeed = 8;
+	public float waterXAcc = 10;
+	public float waterXDec = 10;
+	public float waterYForce = 2;	
+	public float waterColdDown = 0.25f;
+	public float waterYDec = 2.5f;
+
 	public float iceXAcc = 10;
 	public float iceXDec = 10;
 
@@ -84,6 +91,17 @@ public class GameEngine : MonoBehaviour {
 
 	public void OnReborn(PlayerController value) {
 		int hpRecord = 0;
+
+		if (mainPlayer.hp > 2 && !mainPlayer.isDead) {
+			mainPlayer.Attack(2, true);
+			value.transform.position = mainPlayer.transform.position;
+			value.Attack(0, true);
+			value.hp = 2;
+			value.Reborn();
+			ResetCamera();
+			playerUIs[value.PlayerIndex].SetActive(true);
+			return;
+		}
 
 		foreach (PlayerController unit in players) {
 			if (unit.gameObject != value && unit.hp > 2 && !unit.isDead && unit.hp > hpRecord) {
