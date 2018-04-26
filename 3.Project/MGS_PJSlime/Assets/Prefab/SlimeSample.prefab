@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 82897157115222302}
   - component: {fileID: 82163722152346290}
   - component: {fileID: 82144837825678236}
+  - component: {fileID: 58339733611555088}
   m_Layer: 9
   m_Name: SlimeSample
   m_TagString: Slime
@@ -57,7 +58,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1523133011794390}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.63, y: -1.66, z: 0}
+  m_LocalPosition: {x: -45.678673, y: 11.60137, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 4820792280983420}
@@ -96,7 +97,22 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 0
+--- !u!58 &58339733611555088
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1523133011794390}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.58
 --- !u!61 &61663242805614346
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -109,7 +125,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.08133626, y: -0.05744338}
+  m_Offset: {x: 0, y: -0.110000014}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -120,7 +136,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.2441435, y: 1.7795444}
+  m_Size: {x: 1.7831917, y: 3.03}
   m_EdgeRadius: 0
 --- !u!82 &82144837825678236
 AudioSource:
@@ -424,22 +440,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isInvincible: 0
   eatAble: 1
+  isDead: 0
   invincibleTimer: 0
-  attack: 1
+  attack: 0
   hp: 2
+  damageTable: 0000000000000000000000000000000001000000010000000100000004000000040000000400000004000000
   state: 1
   anim: {fileID: 95711770884029156}
-  jumpGape: 0
-  isDead: 0
-  eatSkill: 1
+  newDamage: 0
   PlayerIndex: 0
-  velocitA: {x: 0, y: 0}
+  velocityOut: {x: 0, y: 0}
+  velocitSim: {x: 0, y: 0}
   deVelocity: {x: 0, y: 0}
+  isInWater: {fileID: 0}
   sprite: {fileID: 212185036657135504}
   eating: {fileID: 0}
   bornAudio: {fileID: 82897157115222302}
   jumpAudio: {fileID: 82144837825678236}
   eatAudio: {fileID: 82163722152346290}
+  size: 0
 --- !u!212 &212185036657135504
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -472,9 +491,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -858221419
-  m_SortingLayer: 1
+  m_SortingLayer: -1
   m_SortingOrder: 400
-  m_Sprite: {fileID: 21300000, guid: d5086158e144a874eb9fe822008de316, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 53f7b0d5a8ec5bc4d9085d89a78933a3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

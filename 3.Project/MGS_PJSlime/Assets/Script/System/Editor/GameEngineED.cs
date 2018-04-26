@@ -51,6 +51,7 @@ public class GameEngineED : Editor {
 		script.waterYForce   = EditorTools.FloatField(script.waterYForce, "跳躍速度(m/s)");
 		script.waterColdDown = EditorTools.FloatField(script.waterColdDown, "跳躍冷卻(s)");
 		script.waterYDec	 = EditorTools.FloatField(script.waterYDec, "落下減速度(m/s)");
+		script.waterYSpeed	= EditorTools.FloatField(script.waterYSpeed, "落下速度(m/s)");
 
 		EditorTools.Space();
 		EditorTools.LabelField("-冰上參數-");

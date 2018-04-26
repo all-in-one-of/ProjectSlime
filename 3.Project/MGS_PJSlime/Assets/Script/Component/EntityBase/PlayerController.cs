@@ -5,7 +5,7 @@ using UnityEngine.Networking;
 
 
 public class PlayerController : EntityBase {	
-	private static float BasicSize = 0.5f;
+	private static float BasicSize = 0.3f;
 
 	public enum State {
 		None,
@@ -103,8 +103,17 @@ public class PlayerController : EntityBase {
 				}
 				horizonDirection = (Input.GetAxisRaw("RightHorizon") > 0 ? 1 : 0) + (Input.GetAxisRaw("RightHorizon") < 0 ? -1 : 0);
 				downCommand = Input.GetKey(KeyCode.Slash);
-				jumpCommand = Input.GetKey(KeyCode.Comma);
-				eatCommand = Input.GetKeyDown(KeyCode.Period);
+				jumpCommand = Input.GetKey(KeyCode.Period);
+				eatCommand = Input.GetKeyDown(KeyCode.Comma);
+				if (Input.GetKey(KeyCode.Period)) {
+					if (jumpPreCommand == false) {
+						jumpNowCommand = true;
+						jumpPreCommand = true;
+					}
+				}
+				if (!Input.GetKey(KeyCode.Period)) {
+					jumpPreCommand = false;
+				}
 
 			} else if (PlayerIndex == 2) {
 				if (isDead) {
@@ -117,6 +126,15 @@ public class PlayerController : EntityBase {
 				downCommand = Input.GetAxisRaw("LVPanel") > 0;
 				jumpCommand = Input.GetAxisRaw("LVPanel") < 0;
 				eatCommand = Input.GetAxisRaw("LHPanel") > 0;
+				if (Input.GetAxisRaw("LVPanel") < 0) {
+					if (jumpPreCommand == false) {
+						jumpNowCommand = true;
+						jumpPreCommand = true;
+					}
+				}
+				if (Input.GetAxisRaw("LVPanel") == 0) {
+					jumpPreCommand = false;
+				}
 
 			} else if (PlayerIndex == 3) {
 				if (isDead) {
@@ -129,6 +147,15 @@ public class PlayerController : EntityBase {
 				downCommand = Input.GetAxisRaw("PS4RightVerticalPanel") < 0;
 				jumpCommand = Input.GetAxisRaw("PS4RightVerticalPanel") > 0;
 				eatCommand = Input.GetAxisRaw("PS4RightHorizonPanel") > 0;
+				if (Input.GetAxisRaw("PS4RightVerticalPanel") > 0) {
+					if (jumpPreCommand == false) {
+						jumpNowCommand = true;
+						jumpPreCommand = true;
+					}
+				}
+				if (Input.GetAxisRaw("PS4RightVerticalPanel") == 0) {
+					jumpPreCommand = false;
+				}
 			}
 
 			if (eatCommand && !skipper) {
@@ -164,11 +191,6 @@ public class PlayerController : EntityBase {
 		}
 
 		if (Network.isServer) {
-			if (touching.Count == 0 && state == State.None) {
-				state = State.Fall;
-				RpcState("Jump");
-			}
-
 			if (isInvincible) {
 				invincibleTimer += Time.deltaTime;
 				
@@ -203,6 +225,9 @@ public class PlayerController : EntityBase {
 
 			if (isInWater) {
 				velocitSim.y = rb.velocity.y - GameEngine.direct.waterYDec * Time.deltaTime;
+				if (velocitSim.y <= -GameEngine.direct.waterYSpeed) {
+					velocitSim.y = -GameEngine.direct.waterYSpeed;
+				}
 			} else {
 				velocitSim.y = rb.velocity.y - GameEngine.direct.jumpYDec * Time.deltaTime;
 			}
@@ -263,7 +288,7 @@ public class PlayerController : EntityBase {
 		//if (state != State.Jump) {
 			bool eatCheck = false;
 			foreach (Transform unit in GameEngine.direct.units) {
-				if (Vector2.Distance(transform.position, unit.position) <= size * 0.25f + 3) {
+				if (Vector2.Distance(transform.position, unit.position) <= SizeFormula(size) + 3) {
 					eatCheck = true;
 					break;
 				}
@@ -350,9 +375,19 @@ public class PlayerController : EntityBase {
 		} else  {//空中移動
 			if (direction != 0) {
 				Facing(direction);
-				velocitSim.x = Accelerator(velocitSim.x, direction * GameEngine.direct.jumpXAcc, direction * GameEngine.direct.jumpXSpeed);
+				if (isInWater) {
+					velocitSim.x = Accelerator(velocitSim.x, direction * GameEngine.direct.waterXAcc, direction * GameEngine.direct.waterXSpeed);
+				} else {
+					velocitSim.x = Accelerator(velocitSim.x, direction * GameEngine.direct.jumpXAcc, direction * GameEngine.direct.jumpXSpeed);
+				}
 			}				
 		}
+	}
+
+	[Command]
+	public void CmdLand() {
+		RpcState("Idle");
+		state = State.None;
 	}
 
 	[Command]
@@ -409,9 +444,10 @@ public class PlayerController : EntityBase {
 		velocitSim = Vector2.zero;
 	}
 
-	public void Reborn() {
+	public void Reborn(int size = 2) {
 		bornAudio.Play();
 		rb.simulated = true;
+		hp = 2;
 		SetSize();
 		isDead = false;
 		state = State.Fall;
@@ -425,41 +461,16 @@ public class PlayerController : EntityBase {
 			if (isDead) {
 				return;
 			}
+
+			if (touching.Count == 0 && state == State.None) {
+				state = State.Fall;
+				RpcState("Jump");
+			}
 		}
 	}
 
 	protected override void FOnCollisionEnter2D(Collision2D collision) {
 		if (isDead) {
-			return;
-		}
-
-		if (collision.transform.tag == "End") {
-			GameEngine.direct.OnVictory();
-
-		} else if (collision.transform.tag == "Dead" || collision.transform.tag == "Scene") {
-			OnDead();
-
-		} else if (collision.transform.tag == "Slime") {
-			PlayerController ipc = collision.gameObject.GetComponent<PlayerController>();
-
-			float xv = velocitSim.x >= 0 ? 1 : -1;
-			float ixv = ipc.velocitSim.x >= 0 ? 1 : -1;
-
-			float xe = velocitSim.x + xv * size;
-			float ixe = ipc.velocitSim.x + ixv * ipc.size;
-
-			if (Mathf.Abs(xe) > Mathf.Abs(ixe) && velocitSim.x != 0) {
-				Debug.Log(name + "[1]:" + name + "/" + xe + "撞" + collision.gameObject.name + "/" + ixe);
-
-				if (Mathf.Abs(xe + ixe) >= 6) {
-					collision.gameObject.GetComponent<PlayerController>().velocityOut.x = xv * Mathf.Abs(xe + ixe) * 0.5f;
-				}
-			}
-		}
-	}
-
-	protected override void FOnCollisionStay2D(Collision2D collision) {
-		if (isDead ) {
 			return;
 		}
 
@@ -485,15 +496,76 @@ public class PlayerController : EntityBase {
 		} else if (pointOfContact == new Vector2(0, 1)) {
 			TouchSide(collision, 0);
 		}
+
+		if (collision.transform.tag == "End") {
+			GameEngine.direct.OnVictory();
+
+		} else if (collision.transform.tag == "Dead" || collision.transform.tag == "Scene") {
+			OnDead();
+
+		} else if (collision.transform.tag == "Slime") {
+			PlayerController ipc = collision.gameObject.GetComponent<PlayerController>();
+
+			float xv = velocitSim.x >= 0 ? 1 : -1;
+			float ixv = ipc.velocitSim.x >= 0 ? 1 : -1;
+
+			float xe = velocitSim.x * 0.75f + xv * size;
+			float ixe = ipc.velocitSim.x * 0.75f + ixv * ipc.size;
+
+			if (Mathf.Abs(xe) > Mathf.Abs(ixe) && velocitSim.x != 0) {
+				Debug.Log(name + "[1]:" + name + "/" + xe + "撞" + collision.gameObject.name + "/" + ixe);
+
+				if (Mathf.Abs(xe + ixe) >= 6) {
+					collision.gameObject.GetComponent<PlayerController>().velocityOut.x = xv * Mathf.Abs(xe + ixe) * 0.5f;
+				}
+			}
+
+			if (pointOfContact == new Vector2(0, 1)) {
+				CmdLand();
+			}
+
+		} else if (state != State.None && collision.transform.tag == "Water") {
+			velocitSim.y *= 0.2f;
+
+		} else if (state != State.None && collision.transform.tag == "Ground") {
+			CmdLand();
+
+		} else if (collision.transform.tag == "Ceil") {
+
+		}
 	}
 
-	private void TouchSide(Collision2D collision, int side) {
-		if (side == 0 && !touching.ContainsValue(0)) {
-			RpcState("Idle");
-			//rb.velocity = Vector2.zero;
-			state = State.None;
+	/*
+	protected override void FOnCollisionStay2D(Collision2D collision) {
+		if (isDead ) {
+			return;
 		}
 
+		if (collision.contacts.Length == 0) {
+			return;
+		}
+		
+		Vector2 pointOfContact = collision.contacts[0].normal;
+
+		//Left
+		if (pointOfContact == new Vector2(-1, 0)) {
+			TouchSide(collision, 2);
+
+			//Right	
+		} else if (pointOfContact == new Vector2(1, 0)) {
+			TouchSide(collision, 3);
+
+			//Bottom
+		} else if (pointOfContact == new Vector2(0, -1)) {
+			TouchSide(collision, 1);
+
+			//Top
+		} else if (pointOfContact == new Vector2(0, 1)) {
+			TouchSide(collision, 0);
+		}
+	}*/
+	
+	private void TouchSide(Collision2D collision, int side) {
 		if (!touching.ContainsKey(collision.collider)) {
 			touching.Add(collision.collider, side);
 		} else {
@@ -504,7 +576,7 @@ public class PlayerController : EntityBase {
 	protected void Eat() {
 		eatAudio.Play();
 		foreach (Transform unit in GameEngine.direct.units) {
-			if (Vector2.Distance(transform.position, unit.position) <= (BasicSize + size * 0.125f) + 2) {
+			if (Vector2.Distance(transform.position, unit.position) <= SizeFormula(size) + 3) {
 				eating = unit;
 				unit.GetComponent<EntityBase>().OnDead();
 				hp++;
@@ -516,7 +588,7 @@ public class PlayerController : EntityBase {
 	
 	protected void SetSize() {
 		size = hp;
-		float tempsize = (BasicSize + size * 0.125f) * (transform.localScale.x != 0 ?(transform.localScale.x / Mathf.Abs(transform.localScale.x)) : 1);
+		float tempsize = SizeFormula(size) * (transform.localScale.x != 0 ?(transform.localScale.x / Mathf.Abs(transform.localScale.x)) : 1);
 		transform.localScale = new Vector3(tempsize, Mathf.Abs(tempsize), 1);
 		GameEngine.direct.ResetCamera();		
 	}
@@ -563,7 +635,11 @@ public class PlayerController : EntityBase {
 	private void OnTriggerExit2D(Collider2D collider) {
 		if (Network.isServer && collider.tag == "Water") {
 			isInWater = null;
-			rb.velocity = new Vector2(rb.velocity.x, 1.25f * GameEngine.direct.waterYForce );
+			rb.velocity = new Vector2(rb.velocity.x, 3 * GameEngine.direct.waterYForce );
 		}
+	}
+
+	private float SizeFormula(float value) {
+		return (BasicSize + value * 0.15f);
 	}
 }

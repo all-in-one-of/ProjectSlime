@@ -29,6 +29,7 @@ public class GameEngine : MonoBehaviour {
 	public float jumpYDec = 10;
 
 	public float waterXSpeed = 8;
+	public float waterYSpeed = 6;
 	public float waterXAcc = 10;
 	public float waterXDec = 10;
 	public float waterYForce = 2;	
