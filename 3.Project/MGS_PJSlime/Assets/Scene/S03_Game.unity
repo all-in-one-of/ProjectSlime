@@ -13231,8 +13231,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 841313762}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 770, y: 433, z: 0}
-  m_LocalScale: {x: 1.925, y: 1.925, z: 1.925}
+  m_LocalPosition: {x: 335, y: 188.5, z: 0}
+  m_LocalScale: {x: 0.8375, y: 0.8375, z: 0.8375}
   m_Children:
   - {fileID: 935281245}
   - {fileID: 724540538}
@@ -14597,7 +14597,9 @@ MonoBehaviour:
   invincibleTimer: 0
   attack: 0
   hp: 1
+  face: 1
   moveAI: 0
+  agressiveAI: 0
   jumpAI: 0
   shootAI: 0
   moveShift: 5
@@ -22742,6 +22744,8 @@ MonoBehaviour:
   - {fileID: 814425651}
   - {fileID: 661387233}
   - {fileID: 1926773753}
+  audioManager: {fileID: 0}
+  startPoint: {fileID: 0}
   walkXSpeed: 12
   walkXAcc: 100
   walkXDec: 50
@@ -23944,7 +23948,9 @@ MonoBehaviour:
   invincibleTimer: 0
   attack: 0
   hp: 1
+  face: 1
   moveAI: 0
+  agressiveAI: 0
   jumpAI: 0
   shootAI: 0
   moveShift: 5
@@ -24257,7 +24263,9 @@ MonoBehaviour:
   invincibleTimer: 0
   attack: 0
   hp: 1
+  face: 1
   moveAI: 0
+  agressiveAI: 0
   jumpAI: 0
   shootAI: 0
   moveShift: 5
