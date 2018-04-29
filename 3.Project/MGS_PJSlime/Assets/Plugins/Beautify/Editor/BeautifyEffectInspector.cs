@@ -71,6 +71,7 @@ namespace BeautifyEffect {
 
 
 								void OnEnable () {
+
 												titleColor = EditorGUIUtility.isProSkin ? new Color (0.52f, 0.66f, 0.9f) : new Color (0.12f, 0.16f, 0.4f);
 												_headerTexture = Resources.Load<Texture2D> ("beautifyHeader");
 												_effect = (Beautify)target;
@@ -362,8 +363,8 @@ namespace BeautifyEffect {
 																EditorGUILayout.HelpBox ("Beautify disabled.", MessageType.Info);
 												}
 												EditorGUILayout.Separator ();
-
-												EditorGUILayout.BeginHorizontal ();
+			_effect.layerName = EditorGUILayout.TextField(_effect.layerName);
+			EditorGUILayout.BeginHorizontal ();
 												DrawLabel ("General Settings");
 												EditorGUILayout.EndHorizontal ();
 
@@ -683,12 +684,13 @@ namespace BeautifyEffect {
 																DrawLabel ("Lens & Lighting Effects");
 
 																EditorGUILayout.BeginHorizontal ();
-																EditorGUILayout.BeginHorizontal (GUILayout.Width (121));
-																labelStyle = _bloom.boolValue ? sectionHeaderBoldStyle : sectionHeaderNormalStyle;
-																expandBloomSection = EditorGUILayout.Foldout (expandBloomSection, new GUIContent ("Bloom", "Produces fringes of light extending from the borders of bright areas, contributing to the illusion of an extremely bright light overwhelming the camera or eye capturing the scene."), labelStyle);
-																EditorGUILayout.EndHorizontal ();
+																
 																if (testFeatureEnabled (isBloomEnabled)) {
-																				EditorGUILayout.PropertyField (_bloom, GUIContent.none);
+					EditorGUILayout.BeginHorizontal(GUILayout.Width(121));
+					labelStyle = _bloom.boolValue ? sectionHeaderBoldStyle : sectionHeaderNormalStyle;
+					expandBloomSection = EditorGUILayout.Foldout(expandBloomSection, new GUIContent("Bloom", "Produces fringes of light extending from the borders of bright areas, contributing to the illusion of an extremely bright light overwhelming the camera or eye capturing the scene."), labelStyle);
+					EditorGUILayout.EndHorizontal();
+					EditorGUILayout.PropertyField (_bloom, GUIContent.none);
 																				if (expandBloomSection) {
 																								if (_bloom.boolValue) {
 																												GUILayout.Label (new GUIContent ("Debug", "Enable to see flares buffer."));
@@ -806,12 +808,13 @@ namespace BeautifyEffect {
 																}
 
 																EditorGUILayout.BeginHorizontal ();
-																EditorGUILayout.BeginHorizontal (GUILayout.Width (120));
-																labelStyle = _anamorphicFlares.boolValue ? sectionHeaderBoldStyle : sectionHeaderNormalStyle;
-																expandAFSection = EditorGUILayout.Foldout (expandAFSection, new GUIContent ("Anamorphic F.", "Also known as JJ Abrams flares, adds spectacular light streaks to your scene."), labelStyle);
-																EditorGUILayout.EndHorizontal ();
+																
 																if (testFeatureEnabled (isBloomEnabled)) {
-																				EditorGUILayout.PropertyField (_anamorphicFlares, GUIContent.none);
+					EditorGUILayout.BeginHorizontal(GUILayout.Width(120));
+					labelStyle = _anamorphicFlares.boolValue ? sectionHeaderBoldStyle : sectionHeaderNormalStyle;
+					expandAFSection = EditorGUILayout.Foldout(expandAFSection, new GUIContent("Anamorphic F.", "Also known as JJ Abrams flares, adds spectacular light streaks to your scene."), labelStyle);
+					EditorGUILayout.EndHorizontal();
+					EditorGUILayout.PropertyField (_anamorphicFlares, GUIContent.none);
 																				if (expandAFSection) {
 																								if (_anamorphicFlares.boolValue) {
 																												GUILayout.Label (new GUIContent ("Debug", "Enable to see flares buffer."));
@@ -847,12 +850,13 @@ namespace BeautifyEffect {
 																}
 
 																EditorGUILayout.BeginHorizontal ();
-																EditorGUILayout.BeginHorizontal (GUILayout.Width (120));
-																labelStyle = _sunFlares.boolValue ? sectionHeaderBoldStyle : sectionHeaderNormalStyle;
-																expandSFSection = EditorGUILayout.Foldout (expandSFSection, new GUIContent ("Sun Flares", "Adds lens flares caused by bright Sun light."), labelStyle);
-																EditorGUILayout.EndHorizontal ();
+																
 																if (testFeatureEnabled (isBloomEnabled)) {
-																				_sunFlares.boolValue = EditorGUILayout.Toggle (_sunFlares.boolValue);
+					EditorGUILayout.BeginHorizontal(GUILayout.Width(120));
+					labelStyle = _sunFlares.boolValue ? sectionHeaderBoldStyle : sectionHeaderNormalStyle;
+					expandSFSection = EditorGUILayout.Foldout(expandSFSection, new GUIContent("Sun Flares", "Adds lens flares caused by bright Sun light."), labelStyle);
+					EditorGUILayout.EndHorizontal();
+					_sunFlares.boolValue = EditorGUILayout.Toggle (_sunFlares.boolValue);
 																				if (expandSFSection) {
 																								if (_sunFlares.boolValue) {
 																												GUILayout.Label (new GUIContent ("Debug", "Enable to see flares buffer."));
@@ -937,12 +941,13 @@ namespace BeautifyEffect {
 																}
 
 																EditorGUILayout.BeginHorizontal ();
-																EditorGUILayout.BeginHorizontal (GUILayout.Width (120));
-																labelStyle = _lensDirt.boolValue ? sectionHeaderBoldStyle : sectionHeaderNormalStyle;
-																expandDirtSection = EditorGUILayout.Foldout (expandDirtSection, new GUIContent ("Lens Dirt", "Enables lens dirt effect which intensifies when looking to a light (uses the nearest light to camera). You can assign other dirt textures directly to the shader material with name 'Beautify'."), labelStyle);
-																EditorGUILayout.EndHorizontal ();
+																
 																if (testFeatureEnabled (isLensDirtEnabled)) {
-																				_lensDirt.boolValue = EditorGUILayout.Toggle (_lensDirt.boolValue);
+					EditorGUILayout.BeginHorizontal(GUILayout.Width(120));
+					labelStyle = _lensDirt.boolValue ? sectionHeaderBoldStyle : sectionHeaderNormalStyle;
+					expandDirtSection = EditorGUILayout.Foldout(expandDirtSection, new GUIContent("Lens Dirt", "Enables lens dirt effect which intensifies when looking to a light (uses the nearest light to camera). You can assign other dirt textures directly to the shader material with name 'Beautify'."), labelStyle);
+					EditorGUILayout.EndHorizontal();
+					_lensDirt.boolValue = EditorGUILayout.Toggle (_lensDirt.boolValue);
 																				if (expandDirtSection) {
 																								EditorGUILayout.EndHorizontal ();
 																								EditorGUILayout.BeginHorizontal ();
@@ -974,12 +979,13 @@ namespace BeautifyEffect {
 																}
 
 																EditorGUILayout.BeginHorizontal ();
-																EditorGUILayout.BeginHorizontal (GUILayout.Width (120));
-																labelStyle = _depthOfField.boolValue ? sectionHeaderBoldStyle : sectionHeaderNormalStyle;
-																expandDoFSection = EditorGUILayout.Foldout (expandDoFSection, new GUIContent ("Depth of Field", "Blurs the image based on distance to focus point."), labelStyle);
-																EditorGUILayout.EndHorizontal ();
+																
 																if (testFeatureEnabled (isDoFEnabled)) {
-																				_depthOfField.boolValue = EditorGUILayout.Toggle (_depthOfField.boolValue);
+					EditorGUILayout.BeginHorizontal(GUILayout.Width(120));
+					labelStyle = _depthOfField.boolValue ? sectionHeaderBoldStyle : sectionHeaderNormalStyle;
+					expandDoFSection = EditorGUILayout.Foldout(expandDoFSection, new GUIContent("Depth of Field", "Blurs the image based on distance to focus point."), labelStyle);
+					EditorGUILayout.EndHorizontal();
+					_depthOfField.boolValue = EditorGUILayout.Toggle (_depthOfField.boolValue);
 																				if (expandDoFSection) {
 																								if (_depthOfField.boolValue) {
 																												GUILayout.Label (new GUIContent ("Debug", "Enable to see depth of field focus area."));
@@ -1017,9 +1023,10 @@ namespace BeautifyEffect {
 																								EditorGUILayout.EndHorizontal ();
 
 																								EditorGUILayout.BeginHorizontal ();
-																								GUILayout.Label (new GUIContent ("   Exclusion Mask", "Select which layers will always remain in focus."), GUILayout.Width (120));
 																								if (testFeatureEnabled (isDoFTransp)) {
-																												EditorGUILayout.PropertyField (_depthOfFieldExclusionLayerMask, GUIContent.none);
+							GUILayout.Label(new GUIContent("   Exclusion Mask", "Select which layers will always remain in focus."), GUILayout.Width(120));
+
+							EditorGUILayout.PropertyField (_depthOfFieldExclusionLayerMask, GUIContent.none);
 																												if (_depthOfFieldExclusionLayerMask.intValue != 0) {
 																																EditorGUILayout.EndHorizontal ();
 																																EditorGUILayout.PropertyField (_depthOfFieldExclusionBias, new GUIContent ("       Depth Bias", "Depth offset for the exclusion mask computation."));
@@ -1033,9 +1040,10 @@ namespace BeautifyEffect {
 																								}
 
 																								EditorGUILayout.BeginHorizontal ();
-																								GUILayout.Label (new GUIContent ("   Transparency", "Enable transparency support."), GUILayout.Width (120));
 																								if (testFeatureEnabled (isDoFTransp)) {
-																												if (_depthOfFieldExclusionLayerMask.intValue != 0) {
+							GUILayout.Label(new GUIContent("   Transparency", "Enable transparency support."), GUILayout.Width(120));
+
+							if (_depthOfFieldExclusionLayerMask.intValue != 0) {
 																																GUI.enabled = false;
 																																EditorGUILayout.Toggle (true);
 																																GUI.enabled = true;
@@ -1065,12 +1073,13 @@ namespace BeautifyEffect {
 																}
 
 																EditorGUILayout.BeginHorizontal ();
-																EditorGUILayout.BeginHorizontal (GUILayout.Width (120));
-																labelStyle = _eyeAdaptation.boolValue ? sectionHeaderBoldStyle : sectionHeaderNormalStyle;
-																expandEASection = EditorGUILayout.Foldout (expandEASection, new GUIContent ("Eye Adaptation", "Enables eye adaptation effect. Simulates retina response to quick luminance changes in the scene."), labelStyle);
-																EditorGUILayout.EndHorizontal ();
+																
 																if (testFeatureEnabled (isEyeAdaptationEnabled)) {
-																				EditorGUILayout.PropertyField (_eyeAdaptation, GUIContent.none);
+					EditorGUILayout.BeginHorizontal(GUILayout.Width(120));
+					labelStyle = _eyeAdaptation.boolValue ? sectionHeaderBoldStyle : sectionHeaderNormalStyle;
+					expandEASection = EditorGUILayout.Foldout(expandEASection, new GUIContent("Eye Adaptation", "Enables eye adaptation effect. Simulates retina response to quick luminance changes in the scene."), labelStyle);
+					EditorGUILayout.EndHorizontal();
+					EditorGUILayout.PropertyField (_eyeAdaptation, GUIContent.none);
 																				EditorGUILayout.EndHorizontal ();
 																				if (expandEASection) {
 																								EditorGUILayout.PropertyField (_eyeAdaptationMinExposure, new GUIContent ("   Min Exposure"));
@@ -1089,12 +1098,13 @@ namespace BeautifyEffect {
 																				}
 																}
 																EditorGUILayout.BeginHorizontal ();
-																EditorGUILayout.BeginHorizontal (GUILayout.Width (120));
-																labelStyle = _purkinje.boolValue ? sectionHeaderBoldStyle : sectionHeaderNormalStyle;
-																expandPurkinjeSection = EditorGUILayout.Foldout (expandPurkinjeSection, new GUIContent ("Purkinje", "Simulates achromatic vision plus spectrum shift to blue in the dark."), labelStyle);
-																EditorGUILayout.EndHorizontal ();
+																
 																if (testFeatureEnabled (isPurkinjeEnabled)) {
-																				EditorGUILayout.PropertyField (_purkinje, GUIContent.none);
+					EditorGUILayout.BeginHorizontal(GUILayout.Width(120));
+					labelStyle = _purkinje.boolValue ? sectionHeaderBoldStyle : sectionHeaderNormalStyle;
+					expandPurkinjeSection = EditorGUILayout.Foldout(expandPurkinjeSection, new GUIContent("Purkinje", "Simulates achromatic vision plus spectrum shift to blue in the dark."), labelStyle);
+					EditorGUILayout.EndHorizontal();
+					EditorGUILayout.PropertyField (_purkinje, GUIContent.none);
 																				EditorGUILayout.EndHorizontal ();
 																				if (expandPurkinjeSection) {
 																								EditorGUILayout.PropertyField (_purkinjeAmount, new GUIContent ("   Shift Amount", "Spectrum shift to blue. A value of zero will not shift colors and stay in grayscale."));
@@ -1149,12 +1159,13 @@ namespace BeautifyEffect {
 																}
 
 																EditorGUILayout.BeginHorizontal ();
-																EditorGUILayout.BeginHorizontal (GUILayout.Width (120));
-																labelStyle = _vignetting.boolValue ? sectionHeaderBoldStyle : sectionHeaderNormalStyle;
-																expandVignettingSection = EditorGUILayout.Foldout (expandVignettingSection, new GUIContent ("Vignetting", "Enables colored vignetting effect. Color alpha specifies intensity of effect."), labelStyle);
-																EditorGUILayout.EndHorizontal ();
+																
 																if (testFeatureEnabled (isVignettingEnabled)) {
-																				EditorGUILayout.PropertyField (_vignetting, GUIContent.none);
+					EditorGUILayout.BeginHorizontal(GUILayout.Width(120));
+					labelStyle = _vignetting.boolValue ? sectionHeaderBoldStyle : sectionHeaderNormalStyle;
+					expandVignettingSection = EditorGUILayout.Foldout(expandVignettingSection, new GUIContent("Vignetting", "Enables colored vignetting effect. Color alpha specifies intensity of effect."), labelStyle);
+					EditorGUILayout.EndHorizontal();
+					EditorGUILayout.PropertyField (_vignetting, GUIContent.none);
 																				EditorGUILayout.EndHorizontal ();
 																				if (expandVignettingSection) {
 																								EditorGUILayout.PropertyField (_vignettingColor, new GUIContent ("   Color", "The color for the vignetting effect. Alpha specifies intensity of effect."));
@@ -1172,12 +1183,13 @@ namespace BeautifyEffect {
 																}
 
 																EditorGUILayout.BeginHorizontal ();
-																EditorGUILayout.BeginHorizontal (GUILayout.Width (120));
-																labelStyle = _frame.boolValue ? sectionHeaderBoldStyle : sectionHeaderNormalStyle;
-																expandFrameSection = EditorGUILayout.Foldout (expandFrameSection, new GUIContent ("Frame", "Enables colored frame effect. Color alpha specifies intensity of effect."), labelStyle);
-																EditorGUILayout.EndHorizontal ();
+																
 																if (testFeatureEnabled (isFrameEnabled)) {
-																				EditorGUILayout.PropertyField (_frame, GUIContent.none);
+					EditorGUILayout.BeginHorizontal(GUILayout.Width(120));
+					labelStyle = _frame.boolValue ? sectionHeaderBoldStyle : sectionHeaderNormalStyle;
+					expandFrameSection = EditorGUILayout.Foldout(expandFrameSection, new GUIContent("Frame", "Enables colored frame effect. Color alpha specifies intensity of effect."), labelStyle);
+					EditorGUILayout.EndHorizontal();
+					EditorGUILayout.PropertyField (_frame, GUIContent.none);
 																				EditorGUILayout.EndHorizontal ();
 																				if (expandFrameSection) {
 																								EditorGUILayout.PropertyField (_frameColor, new GUIContent ("   Color", "The color for the frame effect. Alpha specifies intensity of effect."));
@@ -1194,12 +1206,13 @@ namespace BeautifyEffect {
 																}
 
 																EditorGUILayout.BeginHorizontal ();
-																EditorGUILayout.BeginHorizontal (GUILayout.Width (120));
-																labelStyle = _outline.boolValue ? sectionHeaderBoldStyle : sectionHeaderNormalStyle;
-																expandOutlineSection = EditorGUILayout.Foldout (expandOutlineSection, new GUIContent ("Outline", "Enables outline (edge detection) effect. Color alpha specifies edge detection threshold (reference values: 0.8 for depth, 0.35 for Sobel)."), labelStyle);
-																EditorGUILayout.EndHorizontal ();
+																
 																if (testFeatureEnabled (isOutlineEnabled)) {
-																				EditorGUILayout.PropertyField (_outline, GUIContent.none);
+					EditorGUILayout.BeginHorizontal(GUILayout.Width(120));
+					labelStyle = _outline.boolValue ? sectionHeaderBoldStyle : sectionHeaderNormalStyle;
+					expandOutlineSection = EditorGUILayout.Foldout(expandOutlineSection, new GUIContent("Outline", "Enables outline (edge detection) effect. Color alpha specifies edge detection threshold (reference values: 0.8 for depth, 0.35 for Sobel)."), labelStyle);
+					EditorGUILayout.EndHorizontal();
+					EditorGUILayout.PropertyField (_outline, GUIContent.none);
 																				EditorGUILayout.EndHorizontal ();
 																				if (expandOutlineSection) {
 																								EditorGUILayout.PropertyField (_outlineColor, new GUIContent ("   Color", "The color for the outline. Alpha specifies edge detection threshold."));
@@ -1212,12 +1225,13 @@ namespace BeautifyEffect {
 																}
 
 																EditorGUILayout.BeginHorizontal ();
-																EditorGUILayout.BeginHorizontal (GUILayout.Width (120));
-																labelStyle = _sepia.boolValue ? sectionHeaderBoldStyle : sectionHeaderNormalStyle;
-																expandSepiaSection = EditorGUILayout.Foldout (expandSepiaSection, new GUIContent ("Sepia", "Enables sepia color effect."), labelStyle);
-																EditorGUILayout.EndHorizontal ();
+																
 																if (testFeatureEnabled (isSepiaEnabled)) {
-																				EditorGUILayout.PropertyField (_sepia, GUIContent.none);
+					EditorGUILayout.BeginHorizontal(GUILayout.Width(120));
+					labelStyle = _sepia.boolValue ? sectionHeaderBoldStyle : sectionHeaderNormalStyle;
+					expandSepiaSection = EditorGUILayout.Foldout(expandSepiaSection, new GUIContent("Sepia", "Enables sepia color effect."), labelStyle);
+					EditorGUILayout.EndHorizontal();
+					EditorGUILayout.PropertyField (_sepia, GUIContent.none);
 																				EditorGUILayout.EndHorizontal ();
 																				if (expandSepiaSection) {
 																								EditorGUILayout.PropertyField (_sepiaIntensity, new GUIContent ("   Intensity"));
@@ -1228,25 +1242,29 @@ namespace BeautifyEffect {
 
 																EditorGUILayout.BeginHorizontal ();
 																labelStyle = _nightVision.boolValue ? labelBoldStyle : labelNormalStyle;
-																GUILayout.Label (new GUIContent ("Night Vision", "Enables night vision effect. Color alpha controls intensity. For a better result, enable Vignetting and set its color to (0,0,0,32)."), labelStyle, GUILayout.Width (120));
-																if (testFeatureEnabled (isNightVisionEnabled)) {
+				if (testFeatureEnabled(isNightVisionEnabled)) {
+					GUILayout.Label (new GUIContent ("Night Vision", "Enables night vision effect. Color alpha controls intensity. For a better result, enable Vignetting and set its color to (0,0,0,32)."), labelStyle, GUILayout.Width (120));
+																
 																				EditorGUILayout.PropertyField (_nightVision, GUIContent.none);
 																				if (_nightVision.boolValue) {
 																								GUILayout.Label (new GUIContent ("Color", "The color for the night vision effect. Alpha controls intensity."), GUILayout.Width (40));
 																								EditorGUILayout.PropertyField (_nightVisionColor, GUIContent.none);
 																				}
-																}
+																
 																EditorGUILayout.EndHorizontal ();
+				}
 
-																EditorGUILayout.BeginHorizontal ();
+				EditorGUILayout.BeginHorizontal ();
 																labelStyle = _thermalVision.boolValue ? labelBoldStyle : labelNormalStyle;
-																GUILayout.Label (new GUIContent ("Thermal Vision", "Enables thermal vision effect."), labelStyle, GUILayout.Width (120));
-																if (testFeatureEnabled (isThermalVisionEnabled)) {
+				if (testFeatureEnabled(isThermalVisionEnabled)) {
+					GUILayout.Label (new GUIContent ("Thermal Vision", "Enables thermal vision effect."), labelStyle, GUILayout.Width (120));
+																
 																				EditorGUILayout.PropertyField (_thermalVision, GUIContent.none);
-																}
+																
 																EditorGUILayout.EndHorizontal ();
+				}
 
-																EditorGUILayout.BeginHorizontal ();
+				EditorGUILayout.BeginHorizontal ();
 																EditorGUILayout.BeginHorizontal (GUILayout.Width (120));
 																labelStyle = _blur.boolValue ? sectionHeaderBoldStyle : sectionHeaderNormalStyle;
 																expandBlurSection = EditorGUILayout.Foldout (expandBlurSection, new GUIContent ("Blur", "Enables final blur effect."), labelStyle);
@@ -1575,7 +1593,7 @@ namespace BeautifyEffect {
 
 								bool testFeatureEnabled (bool value) {
 												if (!value) {
-																GUILayout.Label ("(feature disabled in build options)");
+																//GUILayout.Label ("(feature disabled in build options)");
 																return false;
 												}
 												return true;

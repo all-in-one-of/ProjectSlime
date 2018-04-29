@@ -617,10 +617,14 @@ public class PlayerController : EntityBase {
 	}
 
 	private void OnTriggerEnter2D(Collider2D collider) {
-		if (Network.isServer && collider.tag == "Water") {
-			isInWater = collider.transform;
-			velocitSim *= 0.2f;
-		} 
+		if (Network.isServer ) {
+			if (Network.isServer && collider.tag == "Water") {
+				isInWater = collider.transform;
+				velocitSim *= 0.2f;
+			} else if (collider.tag == "CheckPoint") {
+				GameEngine.RegistCheckPoint(collider.gameObject.name);
+			}
+		}
 	}
 
 	private void OnTriggerExit2D(Collider2D collider) {

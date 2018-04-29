@@ -2289,11 +2289,12 @@ namespace BeautifyEffect {
 								public const string SKW_PURKINJE = "BEAUTIFY_PURKINJE";
 								public const string SKW_BLOOM_USE_DEPTH = "BEAUTIFY_BLOOM_USE_DEPTH";
 								public const string SKW_BLOOM_USE_LAYER = "BEAUTIFY_BLOOM_USE_LAYER";
+		public string layerName;
 
-								Material bMatDesktop, bMatMobile, bMatBasic;
+		Material bMatDesktop, bMatMobile, bMatBasic;
 
 								[SerializeField]
-        Material bMat;
+		Material bMat;
 								Camera currentCamera;
 								Vector3 camPrevForward, camPrevPos;
 								float currSens;

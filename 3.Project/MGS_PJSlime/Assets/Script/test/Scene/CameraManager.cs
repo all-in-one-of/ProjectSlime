@@ -36,10 +36,10 @@ public class CameraManager : MonoBehaviour {
 			hintSpeed = 5;
 		}
 
-		nowCamera.position = Vector3.Lerp(nowCamera.position, new Vector3(GameEngine.mainPlayer.transform.position.x, GameEngine.mainPlayer.transform.position.y + 5, mainCamera.transform.position.z), Time.deltaTime * mainSpeed);
+		nowCamera.position = Vector3.Lerp(nowCamera.position, new Vector3(GameEngine.mainPlayer.transform.position.x, GameEngine.mainPlayer.transform.position.y + 5, nowCamera.transform.position.z), Time.deltaTime * mainSpeed);
 		targetHint.position = Vector3.Lerp(targetHint.position, new Vector3(GameEngine.mainPlayer.transform.position.x, GameEngine.mainPlayer.transform.position.y, targetHint.transform.position.z), Time.deltaTime * hintSpeed);
 		hintSprite.size = new Vector2(GameEngine.mainPlayer.transform.localScale.x * 2.5f, GameEngine.mainPlayer.transform.localScale.x * 2.5f);
 
-		GameEngine.direct.KillBorder(mainCamera.transform.position);
+		GameEngine.direct.KillBorder(nowCamera.transform.position);
 	}
 }

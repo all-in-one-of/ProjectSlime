@@ -14,7 +14,7 @@ public class SceneController : MonoBehaviour {
 
 	private void Update() {
 		if (GameEngine.mainPlayer) {
-			image.anchoredPosition = new Vector3(CameraManager.nowCamera.transform.position.x * -shift.x + origin.x, CameraManager.nowCamera.transform.position.y * -shift.y + origin.y, transform.position.z);
+			image.anchoredPosition = new Vector2(CameraManager.nowCamera.transform.position.x * -shift.x + origin.x, CameraManager.nowCamera.transform.position.y * -shift.y + origin.y);
 		}
 	}
 }
