@@ -327,7 +327,7 @@ public class PlayerController : EntityBase {
 			}
 			
 		} else {
-			if (state == State.None) {
+			if (state == State.None && rb.velocity.y == 0) {
 				jumpTimer = Time.timeSinceLevelLoad;
 				jumpAudio.Play();
 				state = State.Jump;
@@ -428,7 +428,7 @@ public class PlayerController : EntityBase {
 		if (!isInvincible || firstOrder) {
 			isInvincible = true;
 			hp = hp - damage;
-			if (hp == 0) {
+			if (hp <= 0) {
 				OnDead();
 			} else {
 				SetSize();
@@ -524,10 +524,7 @@ public class PlayerController : EntityBase {
 				CmdLand();
 			}
 
-		} else if (state != State.None && collision.transform.tag == "Water") {
-			velocitSim.y *= 0.2f;
-
-		} else if (state != State.None && collision.transform.tag == "Ground") {
+		} else if (state != State.None /*&& collision.transform.tag == "Ground"*/ ) {
 			CmdLand();
 
 		} else if (collision.transform.tag == "Ceil") {
@@ -629,7 +626,8 @@ public class PlayerController : EntityBase {
 	private void OnTriggerEnter2D(Collider2D collider) {
 		if (Network.isServer && collider.tag == "Water") {
 			isInWater = collider.transform;
-		}
+			velocitSim *= 0.2f;
+		} 
 	}
 
 	private void OnTriggerExit2D(Collider2D collider) {
