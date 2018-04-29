@@ -22,7 +22,11 @@ public class TriggerBase : NetworkBehaviour {
 	protected bool triggering = false;
 	protected float clock = 0;
 	
-	void Update() {
+	protected void Update() {
+		OnUpdate();
+	}
+
+	protected virtual void OnUpdate() {
 		if (triggerType == TriggerType.once) {
 			if (triggering && Time.timeSinceLevelLoad - clock > resetTime) {
 				ResetTrigger();
@@ -30,11 +34,19 @@ public class TriggerBase : NetworkBehaviour {
 		}
 	}
 
-	public void RegistGear(GearBase Object) {
-		onceObject.Add(Object);
+	protected void OnTriggerEnter2D(Collider2D collider) {
+		TriggerEnter(collider);
+	}
+	
+	protected void OnTriggerStay2D(Collider2D collider) {
+		TriggerStay(collider);
 	}
 
-	protected void OnTriggerEnter2D(Collider2D collider) {
+	protected void OnTriggerExit2D(Collider2D collider) {
+		TriggerExit(collider);
+	}
+
+	protected virtual void TriggerEnter(Collider2D collider) {
 		if (triggerType == TriggerType.once) {
 			if (!triggering) {
 				if (weightMode) {
@@ -61,7 +73,7 @@ public class TriggerBase : NetworkBehaviour {
 		}
 	}
 
-	protected void OnTriggerStay2D(Collider2D collider) {
+	protected virtual void TriggerStay(Collider2D collider) {
 		if (triggerType == TriggerType.continuous) {
 			if (weightMode) {
 				if (!nowTouching.Contains(collider) && collider.GetComponent<PlayerController>()) {
@@ -75,10 +87,14 @@ public class TriggerBase : NetworkBehaviour {
 		}
 	}
 
-	protected void OnTriggerExit2D(Collider2D collider) {
+	protected virtual void TriggerExit(Collider2D collider) {
 		if (triggerType == TriggerType.continuous) {
 			nowTouching.Remove(collider);
 		}
+	}
+
+	public void RegistGear(GearBase Object) {
+		onceObject.Add(Object);
 	}
 
 	public void ResetTrigger() {

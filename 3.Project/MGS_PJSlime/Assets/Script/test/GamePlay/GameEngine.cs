@@ -14,6 +14,8 @@ public class GameEngine : MonoBehaviour {
 	public List<PlayerController> players = new List<PlayerController>();
 	public List<GameObject> playerUIs = new List<GameObject>();
 
+	public GameObject audioManager;
+
 	public float walkXSpeed = 8;
 	public float walkXAcc = 10;
 	public float walkXDec = 10;
@@ -41,6 +43,7 @@ public class GameEngine : MonoBehaviour {
 
 	private void Start() {
 		direct = this;
+		GameObject.Instantiate(audioManager);
 	}
 
 	private void Update() {

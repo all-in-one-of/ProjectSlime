@@ -97,7 +97,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &58339733611555088
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -444,6 +444,7 @@ MonoBehaviour:
   invincibleTimer: 0
   attack: 0
   hp: 2
+  face: 1
   damageTable: 0000000000000000000000000000000001000000010000000100000004000000040000000400000004000000
   state: 1
   anim: {fileID: 95711770884029156}

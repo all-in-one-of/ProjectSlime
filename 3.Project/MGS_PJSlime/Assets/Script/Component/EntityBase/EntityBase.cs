@@ -72,6 +72,7 @@ public class EntityBase : NetworkBehaviour {
 	}
 
 	public virtual void OnDead() {
+		isDead = true;
 		bc.enabled = false;
 		rb.simulated = false;
 		if (an) {

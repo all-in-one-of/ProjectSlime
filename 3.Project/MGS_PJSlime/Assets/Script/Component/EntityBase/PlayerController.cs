@@ -96,7 +96,7 @@ public class PlayerController : EntityBase {
 
 			} else if (PlayerIndex == 1) {
 				if (isDead) {
-					if (Input.GetKeyDown(KeyCode.Period)) {
+					if (Input.GetKeyDown(KeyCode.Comma)) {
 						GameEngine.direct.OnReborn(this);
 					}
 					return;
@@ -159,7 +159,7 @@ public class PlayerController : EntityBase {
 			}
 
 			if (eatCommand && !skipper) {
-				CmdDigestive();
+				CmdEat();
 				skipper = true;
 			}
 
@@ -250,6 +250,7 @@ public class PlayerController : EntityBase {
 	public void CmdRegist(int PlayerIndex, int hp) {
 		this.PlayerIndex = PlayerIndex;
 		this.hp = hp;
+
 		GameEngine.direct.OnRegist(this);
 		SetSize();
 	}
@@ -280,7 +281,7 @@ public class PlayerController : EntityBase {
 	}
 
 	[Command]
-	public void CmdDigestive() {
+	public void CmdEat() {
 		if (anim.GetCurrentAnimatorStateInfo(0).IsTag("Eat")) {
 			return;
 		}
@@ -302,19 +303,7 @@ public class PlayerController : EntityBase {
 			Eat();
 		//}
 	}
-
-	[Command]
-	public void CmdEat() {
-		if (anim.GetCurrentAnimatorStateInfo(0).IsTag("Eat")) {
-			return;
-		}
-
-		if (state != State.Jump) {
-			RpcState("EatHorizon");
-			Eat();
-		} 
-	}
-
+	
 	[Command]
 	public void CmdJump() {	
 		if (isInWater) {
@@ -573,12 +562,16 @@ public class PlayerController : EntityBase {
 	protected void Eat() {
 		eatAudio.Play();
 		foreach (Transform unit in GameEngine.direct.units) {
-			if (Vector2.Distance(transform.position, unit.position) <= SizeFormula(size) + 3) {
-				eating = unit;
-				unit.GetComponent<EntityBase>().OnDead();
-				hp++;
-				SetSize();
-				return;
+			if (Vector2.Distance(transform.position, unit.position) <= SizeFormula(size) + 3 ) {
+				if (unit.GetComponent<EntityBase>()) {
+					if (!unit.GetComponent<EntityBase>().isDead) {
+						eating = unit;
+						unit.GetComponent<EntityBase>().OnDead();
+						hp++;
+						SetSize();
+						return;
+					}
+				}
 			}
 		}
 	}
