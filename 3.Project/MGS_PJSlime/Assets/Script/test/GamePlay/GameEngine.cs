@@ -15,7 +15,7 @@ public class GameEngine : MonoBehaviour {
 	public List<GameObject> playerUIs = new List<GameObject>();
 
 	public GameObject audioManager;
-	public GameObject startPoint;
+	public Transform startPoint;
 
 	public float walkXSpeed = 8;
 	public float walkXAcc = 10;

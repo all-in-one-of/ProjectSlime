@@ -14,6 +14,7 @@ public class CameraManager : MonoBehaviour {
 
 	private void Start() {
 		GameObject temp = GameObject.Instantiate(mainCamera);
+		temp.transform.SetParent(transform);
 		nowCamera = temp.transform;
 	}
 
