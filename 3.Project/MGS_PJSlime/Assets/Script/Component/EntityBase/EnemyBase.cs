@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyBase : EntityBase {
 	public bool moveAI;
+	public bool agressiveAI;
 	public bool jumpAI;
 	public bool shootAI;
 
@@ -18,7 +19,6 @@ public class EnemyBase : EntityBase {
 	public  Vector2 aiGape = new Vector2(2,4);
 	private float movePos;
 	private float aiClock;
-	private float nowSpeed;
 
 	protected override void FStart() {
 		base.FStart();
@@ -32,28 +32,42 @@ public class EnemyBase : EntityBase {
 			return;
 		}
 		AISeqence();
-		rb.velocity = new Vector2(nowSpeed, rb.velocity.y);
+		if (agressiveAI || moveAI) {
+			rb.velocity = new Vector2(face * moveSpeed, rb.velocity.y);
+		}
 	}
 	
 	protected virtual void AISeqence() {
 		if (aiClock < Time.timeSinceLevelLoad) {
+			if (agressiveAI) {
+				if (GameEngine.mainPlayer) {
+					if (GameEngine.mainPlayer.transform.position.x > transform.position.x) {
+						face = 1;
+					} else {
+						face = -1;
+					}
+				}
+
+			} else if (moveAI) {
+				if (transform.position.x < movePos - moveShift) {
+					face = 1;
+
+				} else if (transform.position.x > movePos + moveShift) {
+					face = -1;
+
+				} else {
+					face = Random.Range(0, 2) == 0 ? 1 : -1;
+				}
+			}
+
+
 			if (jumpAI) {
 				if (Random.Range(0, 2) == 0) {
 					rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
 				}
 			}
 
-			if (moveAI) {
-				if (transform.position.x < movePos - moveShift) {
-					nowSpeed = moveSpeed;
-
-				} else if (transform.position.x > movePos + moveShift) {
-					nowSpeed = -moveSpeed;
-
-				} else {
-					nowSpeed = Random.Range(0, 2) == 0 ? moveSpeed : -moveSpeed;
-				}
-			}
+			
 
 			if (shootAI) {
 				if (Random.Range(0, 2) == 0) {

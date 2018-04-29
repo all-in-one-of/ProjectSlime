@@ -99,7 +99,6 @@ public class GameEngine : MonoBehaviour {
 			mainPlayer.Attack(2, true);
 			value.transform.position = mainPlayer.transform.position;
 			value.Attack(0, true);
-			value.hp = 2;
 			value.Reborn();
 			ResetCamera();
 			playerUIs[value.PlayerIndex].SetActive(true);
@@ -111,7 +110,6 @@ public class GameEngine : MonoBehaviour {
 				unit.Attack(2, true);
 				value.transform.position = unit.transform.position;
 				value.Attack(0, true);
-				value.hp = 2;
 				value.Reborn();
 				ResetCamera();
 				playerUIs[value.PlayerIndex].SetActive(true);

@@ -242,7 +242,7 @@ public class PlayerController : EntityBase {
 	}
 		
 	[ClientRpc]
-	public void RpcState(string state) {
+	public void RpcState(string state) { 
 		anim.Play(state);
 	}
 

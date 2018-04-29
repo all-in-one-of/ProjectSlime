@@ -10,7 +10,7 @@ public class EntityBase : NetworkBehaviour {
 	public float invincibleTimer;
 	public int attack = 1;
 	public int hp = 3;
-
+	public int face = 1;
 
 	protected Animator an;
 	protected Rigidbody2D rb;

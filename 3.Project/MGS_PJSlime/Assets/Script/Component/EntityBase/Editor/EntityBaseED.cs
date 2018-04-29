@@ -42,9 +42,11 @@ public class EnemyBaseED : Editor {
 		script.aiGape.y = EditorTools.FloatField(script.aiGape.y, "最慢動作(s)");
 		
 
-		script.moveAI	= EditorTools.BoolField(script.moveAI	, "移動AI");
-		script.jumpAI	= EditorTools.BoolField(script.jumpAI	, "跳躍AI");
-		script.shootAI	= EditorTools.BoolField(script.shootAI	, "射擊AI");
+		script.moveAI		= EditorTools.BoolField(script.moveAI	, "移動AI");
+		script.agressiveAI = EditorTools.BoolField(script.agressiveAI, "侵略性AI");
+
+		script.jumpAI		= EditorTools.BoolField(script.jumpAI	, "跳躍AI");
+		script.shootAI		= EditorTools.BoolField(script.shootAI	, "射擊AI");
 
 		script.moveShift	= EditorTools.FloatField(script.moveShift, "移動範圍(m)");
 		script.moveSpeed	= EditorTools.FloatField(script.moveSpeed, "移動速度(m/s)");			
