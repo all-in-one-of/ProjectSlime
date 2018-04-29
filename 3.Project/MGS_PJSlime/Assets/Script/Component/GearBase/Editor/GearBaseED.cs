@@ -75,7 +75,31 @@ public class SpawnerBaseED : Editor {
 	}
 
 	public override void OnInspectorGUI() {
-		EditorTools.TitleField("生怪機關");
+		if (script.triggerType == GearBase.TriggerType.once || script.triggerType == GearBase.TriggerType.continuous) {
+			EditorTools.TitleField("生怪機關 - 壓力模式");
+			script.triggerType = (GearBase.TriggerType)EditorTools.EnumField(script.triggerType, "機關模式");
+
+			var serializedObject3 = new SerializedObject(target);
+			var property3 = serializedObject3.FindProperty("triggers");
+			serializedObject3.Update();
+			EditorGUILayout.PropertyField(property3, true);
+			serializedObject3.ApplyModifiedProperties();
+
+		} else if (script.triggerType == GearBase.TriggerType.button || script.triggerType == GearBase.TriggerType.oncebutton) {
+			EditorTools.TitleField("生怪機關 - 按鈕模式");
+			script.triggerType = (GearBase.TriggerType)EditorTools.EnumField(script.triggerType, "機關模式");
+
+			var serializedObject3 = new SerializedObject(target);
+			var property3 = serializedObject3.FindProperty("triggers");
+			serializedObject3.Update();
+			EditorGUILayout.PropertyField(property3, true);
+			serializedObject3.ApplyModifiedProperties();
+
+		} else {
+			EditorTools.TitleField("生怪機關 - 自動模式");
+			script.triggerType = (GearBase.TriggerType)EditorTools.EnumField(script.triggerType, "機關模式");
+		}
+
 		EditorGUILayout.LabelField("生成單位");
 		var serializedObject = new SerializedObject(target);
 		var property = serializedObject.FindProperty("spawnObject");

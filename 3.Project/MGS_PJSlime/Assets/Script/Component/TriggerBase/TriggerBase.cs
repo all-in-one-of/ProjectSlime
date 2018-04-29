@@ -63,6 +63,7 @@ public class TriggerBase : NetworkBehaviour {
 				clock = Time.timeSinceLevelLoad;
 
 				foreach (GearBase gear in onceObject) {
+					Debug.Log(gear);
 					if (enforceMode) {
 						gear.BaseTrigger();
 					} else {

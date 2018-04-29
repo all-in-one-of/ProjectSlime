@@ -17,6 +17,10 @@ public class SpawnerBase : GearBase {
 
 	protected override void FStart() {
 		spawnedObject = new GameObject[limit];
+
+		if (triggerType != TriggerType.always) {
+			active = false;
+		}
 	}
 
 	void Update() {
