@@ -197,7 +197,7 @@ MonoBehaviour:
   bullet: {fileID: 0}
   bulletSpeed: 0
   bulletLife: 10
-  aiGape: {x: 2, y: 4}
+  aiGape: {x: 1, y: 5}
 --- !u!212 &212253709005066906
 SpriteRenderer:
   m_ObjectHideFlags: 1
