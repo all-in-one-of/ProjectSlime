@@ -316,7 +316,7 @@ public class PlayerController : EntityBase {
 			}
 			
 		} else {
-			if (state == State.None && rb.velocity.y == 0) {
+			if (state == State.None ) {
 				jumpTimer = Time.timeSinceLevelLoad;
 				jumpAudio.Play();
 				state = State.Jump;

@@ -5,6 +5,7 @@ using UnityEngine.Networking;
 
 public class EntityBase : NetworkBehaviour {
 	public bool isInvincible = false;
+	public bool isUndead = false;
 	public bool eatAble = true;
 	public bool isDead = false;
 	public float invincibleTimer;
@@ -49,7 +50,7 @@ public class EntityBase : NetworkBehaviour {
 	}
 
 	protected virtual void FOnCollisionEnter2D(Collision2D collision) {
-		if (collision.transform.tag == "Dead" || collision.transform.tag == "Scene") {
+		if (collision.transform.tag == "Dead" && !isUndead) {
 			OnDead();
 		}
 	}

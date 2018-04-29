@@ -35,6 +35,7 @@ public class EnemyBaseED : Editor {
 		script.attack	= EditorTools.IntField(script.attack	, "傷害");
 		script.hp		= EditorTools.IntField(script.hp		, "生命值");
 		script.eatAble	= EditorTools.BoolField(script.eatAble	, "可食用");
+		script.isUndead = EditorTools.BoolField(script.isUndead	, "抗岩漿");
 
 		EditorTools.Space();
 
