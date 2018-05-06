@@ -106,13 +106,13 @@ public class SpawnerBaseED : Editor {
 		serializedObject.Update();
 		EditorGUILayout.PropertyField(property, true);
 		serializedObject.ApplyModifiedProperties();
-		
+
+		script.toAlways		= EditorTools.BoolField(script.toAlways, "永久啟動");
 		script.spawnOffset	= EditorTools.Vector2Field(script.spawnOffset, "生成範圍(m)");
 		script.limit		= EditorTools.IntField(script.limit, "生成上限");
 		script.acGape.x		= EditorTools.FloatField(script.acGape.x, "最快生成(s)");
 		script.acGape.y		= EditorTools.FloatField(script.acGape.y, "最慢生成(s)");
-		
-		
+				
 		EditorTools.Mig();
 	}
 }

@@ -16,10 +16,12 @@ public abstract class GearBase : NetworkBehaviour {
 
 	public abstract bool BaseTrigger();
 	public abstract bool Trigger();
-	
+	public bool toAlways = false;
+
 	public TriggerType triggerType;
 	public List<TriggerBase> triggers = new List<TriggerBase>();	
 	protected bool active = true;
+
 
 	void Start() {
 		foreach (TriggerBase trigger in triggers) {

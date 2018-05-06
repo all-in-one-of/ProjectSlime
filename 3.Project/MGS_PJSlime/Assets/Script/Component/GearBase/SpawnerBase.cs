@@ -40,6 +40,11 @@ public class SpawnerBase : GearBase {
 	}
 
 	public override bool Trigger() {
+		if (toAlways) {
+			triggerType = TriggerType.always;
+			active = true;
+		}
+
 		if (limit > 0) {
 			for (int i = 0; i < spawnedObject.Length; i++) {
 				if (spawnedObject[i] == null) {
