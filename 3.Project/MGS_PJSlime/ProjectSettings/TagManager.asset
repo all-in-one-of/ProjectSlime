@@ -12,6 +12,7 @@ TagManager:
   - Scene
   - CheckPoint
   - Water
+  - Ceil
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Ground
   - Player
   - 
   - 
