@@ -35,15 +35,21 @@ public class TriggerBase : NetworkBehaviour {
 	}
 
 	protected void OnTriggerEnter2D(Collider2D collider) {
-		TriggerEnter(collider);
+		if (collider.tag != "Enemy") {
+			TriggerEnter(collider);
+		}
 	}
 	
 	protected void OnTriggerStay2D(Collider2D collider) {
-		TriggerStay(collider);
+		if (collider.tag != "Enemy") {
+			TriggerStay(collider);
+		}
 	}
 
 	protected void OnTriggerExit2D(Collider2D collider) {
-		TriggerExit(collider);
+		if (collider.tag != "Enemy") {
+			TriggerExit(collider);
+		}
 	}
 
 	protected virtual void TriggerEnter(Collider2D collider) {

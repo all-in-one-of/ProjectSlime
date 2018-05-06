@@ -41,10 +41,18 @@ public class EnemyBase : EntityBase {
 		if (aiClock < Time.timeSinceLevelLoad) {
 			if (agressiveAI) {
 				if (GameEngine.mainPlayer) {
-					if (GameEngine.mainPlayer.transform.position.x > transform.position.x) {
+					if (transform.position.x < movePos - moveShift) {
 						face = 1;
-					} else {
+
+					} else if (transform.position.x > movePos + moveShift) {
 						face = -1;
+
+					} else {
+						if (GameEngine.mainPlayer.transform.position.x > transform.position.x) {
+							face = 1;
+						} else {
+							face = -1;
+						}
 					}
 				}
 
