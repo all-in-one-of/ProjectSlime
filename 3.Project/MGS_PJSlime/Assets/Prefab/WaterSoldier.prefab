@@ -150,22 +150,22 @@ MonoBehaviour:
   m_SceneId:
     m_Value: 0
   m_AssetId:
-    i0: 171
-    i1: 67
-    i2: 192
-    i3: 45
-    i4: 113
-    i5: 245
-    i6: 146
-    i7: 36
-    i8: 233
-    i9: 221
-    i10: 135
-    i11: 186
-    i12: 255
-    i13: 244
-    i14: 227
-    i15: 221
+    i0: 146
+    i1: 218
+    i2: 69
+    i3: 204
+    i4: 157
+    i5: 19
+    i6: 13
+    i7: 84
+    i8: 56
+    i9: 59
+    i10: 218
+    i11: 40
+    i12: 227
+    i13: 248
+    i14: 192
+    i15: 117
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
 --- !u!114 &114976808394555340
@@ -191,7 +191,7 @@ MonoBehaviour:
   agressiveAI: 1
   jumpAI: 1
   shootAI: 0
-  moveShift: 10
+  moveShift: 150
   moveSpeed: 10
   jumpForce: 80
   bullet: {fileID: 0}
