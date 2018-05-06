@@ -434,6 +434,8 @@ public class PlayerController : EntityBase {
 	}
 
 	public void Reborn(int size = 2) {
+		isInWater = null;
+		touching = new Dictionary<Collider2D, int>();
 		bornAudio.Play();
 		rb.simulated = true;
 		hp = 2;
