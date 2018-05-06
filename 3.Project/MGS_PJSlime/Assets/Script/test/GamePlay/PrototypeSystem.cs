@@ -8,7 +8,6 @@ using UnityEngine.EventSystems;
 public class PrototypeSystem : NetworkBehaviour {
 	public static PrototypeSystem direct;
 	public GameObject player;
-	public GameObject[] obj;
 	public Material[] mt;
 	public int a = 0;
 	public int clock;
@@ -24,11 +23,7 @@ public class PrototypeSystem : NetworkBehaviour {
 	
 	void OnServerInitialized() {
 		SpawnPlayer();
-	}
-
-	public void SpawnPlayer(EventSystem set) {
-		SpawnPlayer();
-		set.SetSelectedGameObject(gameObject);
+		CameraManager.nowCamera.transform.position = new Vector3(GameEngine.mainPlayer.transform.position.x , GameEngine.mainPlayer.transform.position.y , CameraManager.nowCamera.transform.position.z);
 	}
 
 	public void SpawnPlayer() {
@@ -47,11 +42,10 @@ public class PrototypeSystem : NetworkBehaviour {
 			}
 
 			a++;
-
 		}
 	}
 
-	public void Pause(EventSystem set) {
+	public void Pause() {
 		Time.timeScale = Time.timeScale == 0 ? 1 : 0;
 	}
 

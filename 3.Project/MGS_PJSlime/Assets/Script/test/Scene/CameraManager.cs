@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraManager : MonoBehaviour {
+	public static CameraManager direct;
 	public static Transform nowCamera;
 
 	public GameObject mainCamera;
@@ -13,9 +14,17 @@ public class CameraManager : MonoBehaviour {
 	public float minSpeed;
 
 	private void Start() {
-		GameObject temp = GameObject.Instantiate(mainCamera);
+		direct = this;
+	}
+
+	public void Init() {
+		GameObject temp = Instantiate(mainCamera);
 		temp.transform.SetParent(transform);
 		nowCamera = temp.transform;
+
+		foreach (Transform ui in temp.transform) {
+			GameEngine.direct.playerUIs.Add(ui.gameObject);
+		}		
 	}
 
 	private void Update() {

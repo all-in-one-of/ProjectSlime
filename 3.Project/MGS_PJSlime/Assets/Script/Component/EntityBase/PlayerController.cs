@@ -504,7 +504,7 @@ public class PlayerController : EntityBase {
 			float ixe = ipc.velocitSim.x * 0.75f + ixv * ipc.size;
 
 			if (Mathf.Abs(xe) > Mathf.Abs(ixe) && velocitSim.x != 0) {
-				Debug.Log(name + "[1]:" + name + "/" + xe + "撞" + collision.gameObject.name + "/" + ixe);
+				//Debug.Log(name + "[1]:" + name + "/" + xe + "撞" + collision.gameObject.name + "/" + ixe);
 
 				if (Mathf.Abs(xe + ixe) >= 6) {
 					collision.gameObject.GetComponent<PlayerController>().velocityOut.x = xv * Mathf.Abs(xe + ixe) * 0.5f;

@@ -5,9 +5,11 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class SkyTalker : MonoBehaviour {
+	public static SkyTalker direct;
 	public static NetworkManager networkManager;
 
 	void Start() {
+		direct = this;
 		FStart();
 	}
 
@@ -77,7 +79,7 @@ public class SkyTalker : MonoBehaviour {
 	}*/
 	
 		
-	public void ResetScene(EventSystem set) {
+	public void ResetScene() {
 		networkManager.StopHost();
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}

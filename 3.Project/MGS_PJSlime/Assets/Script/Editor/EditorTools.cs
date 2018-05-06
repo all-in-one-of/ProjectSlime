@@ -280,11 +280,11 @@ public class EditorTools {
 			EditorGUILayout.LabelField(info, STD_WidthS);
 		}
 		if (!string.IsNullOrEmpty(ps)) {			
-			value = EditorGUILayout.ObjectField(value , type, false, STD_WidthM);
+			value = EditorGUILayout.ObjectField(value , type, true, STD_WidthM);
 			EditorGUILayout.LabelField(ps);
 
 		} else {
-			value = EditorGUILayout.ObjectField(value, type, false);
+			value = EditorGUILayout.ObjectField(value, type, true);
 		}
 		EditorGUILayout.EndHorizontal();
 		return value;

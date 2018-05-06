@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class GameEngine : MonoBehaviour {
 	public static GameEngine direct;
+	public static int stageCountDown = 240;
 	private static string checkPoint = "";
 
 	public Transform units;
@@ -15,6 +16,7 @@ public class GameEngine : MonoBehaviour {
 	public List<GameObject> playerUIs = new List<GameObject>();
 
 	public GameObject audioManager;
+	public GameObject uiManager;
 	public Transform startPoint;
 
 	public float walkXSpeed = 8;
@@ -44,12 +46,23 @@ public class GameEngine : MonoBehaviour {
 
 	private void Start() {
 		direct = this;
-		GameObject.Instantiate(audioManager);
+
+		//Initiate Manger
+		Instantiate(audioManager);
+		Instantiate(uiManager);
+
+		//Init
+		CameraManager.direct.Init();
 	}
 
 	private void Update() {
 		if (!connecting) {
 			Network.InitializeServer(1, 7777);
+		} else {
+			UIManager.direct.timer.text = ((int)(stageCountDown - Time.timeSinceLevelLoad)).ToString();
+			if (stageCountDown - Time.timeSinceLevelLoad < 0) {
+				SkyTalker.direct.ResetScene();
+			}
 		}
 	}
 

@@ -14,6 +14,7 @@ public class GameEngineED : Editor {
 	public override void OnInspectorGUI() {
 		EditorTools.TitleField("遊戲引擎-Set");
 		script.audioManager = (GameObject)EditorTools.ObjectField(script.audioManager, typeof(GameObject) , "AudioManager" );
+		script.uiManager = (GameObject)EditorTools.ObjectField(script.uiManager, typeof(GameObject), "UIManager");
 		script.startPoint	= (Transform)EditorTools.ObjectField(script.startPoint, typeof(Transform), "StartPoint");
 
 		EditorTools.TitleField("遊戲引擎");
