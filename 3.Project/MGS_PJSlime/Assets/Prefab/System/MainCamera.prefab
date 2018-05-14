@@ -423,7 +423,7 @@ MonoBehaviour:
   _ditherDepth: 0
   _sharpenMinDepth: 0
   _sharpenMaxDepth: 0.999
-  _sharpen: 1
+  _sharpen: 7
   _sharpenDepthThreshold: 0.035
   _tintColor: {r: 1, g: 1, b: 1, a: 0}
   _sharpenRelaxation: 0.065
