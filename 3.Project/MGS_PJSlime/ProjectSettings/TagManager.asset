@@ -24,11 +24,11 @@ TagManager:
   - 
   - Ground
   - Player
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Aritfact
+  - Enemy
+  - Object
+  - Boss
+  - Allied
   - 
   - 
   - 
