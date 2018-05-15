@@ -15,6 +15,7 @@ public class GameEngine : MonoBehaviour {
 	public List<PlayerController> players = new List<PlayerController>();
 	public List<GameObject> playerUIs = new List<GameObject>();
 
+	public GameObject cameraManager;
 	public GameObject audioManager;
 	public GameObject uiManager;
 	public Transform startPoint;
@@ -22,6 +23,8 @@ public class GameEngine : MonoBehaviour {
 	public float walkXSpeed = 8;
 	public float walkXAcc = 10;
 	public float walkXDec = 10;
+
+	public int bonus = 0;
 
 	public int jumpGape = 48;
 
@@ -48,11 +51,15 @@ public class GameEngine : MonoBehaviour {
 		direct = this;
 
 		//Initiate Manger
+		GameObject cm = Instantiate(cameraManager);
 		Instantiate(audioManager);
 		Instantiate(uiManager);
 
-		//Init
-		CameraManager.direct.Init();
+		//Init - SYS
+		cm.GetComponent<CameraManager>().Init();
+
+		//Init - UI
+		AddBonus(0);
 	}
 
 	private void Update() {
@@ -146,6 +153,11 @@ public class GameEngine : MonoBehaviour {
 				}
 			}
 		}
+	}
+
+	public void AddBonus(int value) {
+		bonus += value;
+		UIManager.direct.counter.text = bonus.ToString();
 	}
 
 	public static void RegistCheckPoint(string obj) {

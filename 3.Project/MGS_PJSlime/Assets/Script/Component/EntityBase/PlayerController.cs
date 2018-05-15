@@ -433,7 +433,7 @@ public class PlayerController : EntityBase {
 		velocitSim = Vector2.zero;
 	}
 
-	public void Reborn(int size = 2) {
+	public void Reborn() {
 		isInWater = null;
 		touching = new Dictionary<Collider2D, int>();
 		bornAudio.Play();
@@ -565,10 +565,12 @@ public class PlayerController : EntityBase {
 		eatAudio.Play();
 		foreach (Transform unit in GameEngine.direct.units) {
 			if (Vector2.Distance(transform.position, unit.position) <= SizeFormula(size) + 3 ) {
-				if (unit.GetComponent<EntityBase>()) {
-					if (!unit.GetComponent<EntityBase>().isDead) {
+				EntityBase enemy = unit.GetComponent<EntityBase>();
+				if (enemy) {
+					if (!enemy.isDead) {
+						GameEngine.direct.AddBonus(enemy.bonus);
 						eating = unit;
-						unit.GetComponent<EntityBase>().OnDead();
+						enemy.OnDead();
 						hp++;
 						SetSize();
 						return;

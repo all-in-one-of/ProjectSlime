@@ -9,6 +9,8 @@ public class EntityBase : NetworkBehaviour {
 	public bool eatAble = true;
 	public bool isDead = false;
 	public float invincibleTimer;
+
+	public int bonus = 0;
 	public int attack = 1;
 	public int hp = 3;
 	public int face = 1;

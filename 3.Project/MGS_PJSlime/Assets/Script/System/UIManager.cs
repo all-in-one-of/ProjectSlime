@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour {
 	public static UIManager direct;
 	public EventSystem uiTrigger;
 	public Text timer;
+	public Text counter;
 
 	public void Start() {
 		direct = this;

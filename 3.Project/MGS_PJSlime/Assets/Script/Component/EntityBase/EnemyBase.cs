@@ -7,7 +7,7 @@ public class EnemyBase : EntityBase {
 	public bool agressiveAI;
 	public bool jumpAI;
 	public bool shootAI;
-
+	
 	public float moveShift;
 	public float moveSpeed;
 	public float jumpForce;
