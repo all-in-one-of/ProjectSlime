@@ -5,6 +5,10 @@ using UnityEngine;
 public class ProjectileBase : EntityBase {
 	public float nowSpeed;
 	public float lifeTime = 10;
+	public bool isCruise = false;
+	public float cruiseRate = 0.5f;
+
+	private float constSpeed;
 	private float lifeClock;
 	private bool active;
 
@@ -21,11 +25,13 @@ public class ProjectileBase : EntityBase {
 		}
 	}
 
-	public void FireProjectile(float speed , float life) {
+	public void FireProjectile(float speed , float life ) {
 		lifeClock = Time.timeSinceLevelLoad;
 		lifeTime = life;
+		constSpeed = Mathf.Abs(speed);
 		nowSpeed = speed;
 		active = true;
+		rb.velocity = new Vector2(nowSpeed, rb.velocity.y);
 	}
 
 	protected override void FFixedUpdate() {
@@ -39,7 +45,11 @@ public class ProjectileBase : EntityBase {
 
 		LifeTimeSeqence();
 
-		rb.velocity = new Vector2(nowSpeed, rb.velocity.y);
+		if (!isCruise) {
+			rb.velocity = new Vector2(nowSpeed, rb.velocity.y);
+		} else {
+			rb.velocity = ((rb.velocity.normalized * (1 - cruiseRate) + ((Vector2)(GameEngine.mainPlayer.transform.position - transform.position)).normalized) * cruiseRate) * constSpeed;
+		}		
 	}
 
 	protected void FOnTriggerEnter2D(Collider2D collision) {

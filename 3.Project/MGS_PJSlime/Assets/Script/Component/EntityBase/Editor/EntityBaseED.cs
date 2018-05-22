@@ -71,9 +71,11 @@ public class ProjectileBaseED : Editor {
 
 	public override void OnInspectorGUI() {
 		EditorTools.TitleField("子彈物件");
-		script.attack	= EditorTools.IntField(script.attack	, "傷害");
-		script.hp		= EditorTools.IntField(script.hp		, "生命值");
-		script.eatAble	= EditorTools.BoolField(script.eatAble	, "可食用");
+		script.attack		= EditorTools.IntField(script.attack	, "傷害");
+		script.hp			= EditorTools.IntField(script.hp		, "生命值");
+		script.eatAble		= EditorTools.BoolField(script.eatAble	, "可食用");
+		script.isCruise		= EditorTools.BoolField(script.isCruise , "追蹤模式");
+		script.cruiseRate	= EditorTools.FloatField(script.cruiseRate , "追蹤率");
 
 		EditorTools.Space();
 		EditorTools.Mig();
