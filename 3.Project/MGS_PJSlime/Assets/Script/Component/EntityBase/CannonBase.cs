@@ -35,6 +35,7 @@ public class CannonBase : EntityBase {
 	protected virtual void AISeqence() {
 		if (aiClock < Time.timeSinceLevelLoad) {
 			GameObject newBullet = PrototypeSystem.direct.SpawnUnit(bullets[cannonIndex], new Vector2(transform.position.x + 1, transform.position.y));
+			newBullet.transform.SetParent(GameEngine.direct.units);
 			newBullet.GetComponent<ProjectileBase>().FireProjectile(new Vector2(angles[cannonIndex].x, angles[cannonIndex].y).normalized);
 			aiClock = Random.Range(aiGape.x, aiGape.y) + Time.timeSinceLevelLoad;
 		}
