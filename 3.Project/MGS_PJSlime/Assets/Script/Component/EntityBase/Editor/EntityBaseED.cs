@@ -74,6 +74,8 @@ public class ProjectileBaseED : Editor {
 		script.eatAble		= EditorTools.BoolField(script.eatAble	, "可食用");
 		script.isCruise		= EditorTools.BoolField(script.isCruise , "追蹤模式");
 		script.cruiseRate	= EditorTools.FloatField(script.cruiseRate , "追蹤率");
+		script.constLifeTime	= EditorTools.FloatField(script.constLifeTime, "持續時間");
+		script.constSpeed		= EditorTools.FloatField(script.constSpeed, "飛行速度");
 
 		EditorTools.Space();
 		EditorTools.Mig();

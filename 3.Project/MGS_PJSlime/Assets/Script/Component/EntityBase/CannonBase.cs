@@ -30,16 +30,8 @@ public class CannonBase : EntityBase {
 
 	protected virtual void AISeqence() {
 		if (aiClock < Time.timeSinceLevelLoad) {
-			if (Random.Range(0, 2) == 0) {
-				if (Random.Range(0, 2) == 0) {
-					GameObject newBullet = PrototypeSystem.direct.SpawnUnit(bullets[cannonIndex], new Vector2(transform.position.x - 1, transform.position.y));
-					newBullet.GetComponent<ProjectileBase>().FireProjectile(new Vector2(-angles[cannonIndex].x, angles[cannonIndex].y));
-				} else {
-					GameObject newBullet = PrototypeSystem.direct.SpawnUnit(bullets[cannonIndex], new Vector2(transform.position.x + 1, transform.position.y));
-					newBullet.GetComponent<ProjectileBase>().FireProjectile(new Vector2(angles[cannonIndex].x , angles[cannonIndex].y));
-				}
-			}
-
+			GameObject newBullet = PrototypeSystem.direct.SpawnUnit(bullets[cannonIndex], new Vector2(transform.position.x + 1, transform.position.y));
+			newBullet.GetComponent<ProjectileBase>().FireProjectile(new Vector2(angles[cannonIndex].x, angles[cannonIndex].y).normalized);
 			aiClock = Random.Range(aiGape.x, aiGape.y) + Time.timeSinceLevelLoad;
 		}
 
@@ -48,7 +40,7 @@ public class CannonBase : EntityBase {
 			transform.position = originPos + poss[cannonIndex];
 
 			aiClock		= Random.Range(aiGape.x, aiGape.y) + Time.timeSinceLevelLoad;
-			aiClockMove = Random.Range(aiGape.x, aiGape.y) + Time.timeSinceLevelLoad;
+			aiClockMove = Random.Range(aiGapeMove.x, aiGapeMove.y) + Time.timeSinceLevelLoad;
 		}
 	}
 }
