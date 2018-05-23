@@ -31,7 +31,6 @@ public class ProjectileBase : EntityBase {
 		lifeClock = Time.timeSinceLevelLoad;
 		lifeTime = constLifeTime;
 		nowVector = vector;
-		rb.velocity = nowVector * constSpeed;
 	}
 
 	public void FireProjectile(Vector2 vector, float life ) {

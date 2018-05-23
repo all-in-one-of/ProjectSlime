@@ -41,6 +41,8 @@ public class CannonBase : EntityBase {
 
 			aiClock		= Random.Range(aiGape.x, aiGape.y) + Time.timeSinceLevelLoad;
 			aiClockMove = Random.Range(aiGapeMove.x, aiGapeMove.y) + Time.timeSinceLevelLoad;
+
+			Debug.Log(aiClockMove);
 		}
 	}
 }
