@@ -10,6 +10,7 @@ public class EntityBase : NetworkBehaviour {
 	public bool isDead = false;
 	public float invincibleTimer;
 
+
 	public int bonus = 0;
 	public int attack = 1;
 	public int hp = 3;

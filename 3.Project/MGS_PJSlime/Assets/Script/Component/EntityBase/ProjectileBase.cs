@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ProjectileBase : EntityBase {
-	public float nowSpeed;
-	public float lifeTime = 10;
+	public float constLifeTime = 10;
+	public float constSpeed = 5;
 	public bool isCruise = false;
 	public float cruiseRate = 0.5f;
 
-	private float constSpeed;
+	private Vector2 nowVector;
+	private float lifeTime = 5;
 	private float lifeClock;
 	private bool active;
 
@@ -25,13 +26,17 @@ public class ProjectileBase : EntityBase {
 		}
 	}
 
-	public void FireProjectile(float speed , float life ) {
-		lifeClock = Time.timeSinceLevelLoad;
-		lifeTime = life;
-		constSpeed = Mathf.Abs(speed);
-		nowSpeed = speed;
+	public void FireProjectile(Vector2 vector) {
 		active = true;
-		rb.velocity = new Vector2(nowSpeed, rb.velocity.y);
+		lifeClock = Time.timeSinceLevelLoad;
+		lifeTime = constLifeTime;
+		nowVector = vector;
+		rb.velocity = nowVector * constSpeed;
+	}
+
+	public void FireProjectile(Vector2 vector, float life ) {
+		constLifeTime = life;
+		FireProjectile(vector);		
 	}
 
 	protected override void FFixedUpdate() {
@@ -46,7 +51,7 @@ public class ProjectileBase : EntityBase {
 		LifeTimeSeqence();
 
 		if (!isCruise) {
-			rb.velocity = new Vector2(nowSpeed, rb.velocity.y);
+			rb.velocity = nowVector * constSpeed;
 		} else {
 			rb.velocity = ((rb.velocity.normalized * (1 - cruiseRate) + ((Vector2)(GameEngine.mainPlayer.transform.position - transform.position)).normalized) * cruiseRate) * constSpeed;
 		}		
