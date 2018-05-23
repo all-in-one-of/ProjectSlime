@@ -8,9 +8,13 @@ public class CannonBase : EntityBase {
 	public List<Vector2> angles;
 	public List<GameObject> bullets;
 	public bool isRandom;
-		
+	public bool isBonus;
+	public float bonusRate = 0.5f;
+
 	public Vector2 aiGape = new Vector2(2, 2);
 	public Vector2 aiGapeMove = new Vector2(4, 6);
+	public PatrolBase bonus;
+
 	private Vector2 originPos;
 
 	private float aiClock;
@@ -39,10 +43,13 @@ public class CannonBase : EntityBase {
 			cannonIndex = cannonIndex + 1 < bullets.Count ? cannonIndex + 1 : 0;
 			transform.position = originPos + poss[cannonIndex];
 
-			aiClock		= Random.Range(aiGape.x, aiGape.y) + Time.timeSinceLevelLoad;
-			aiClockMove = Random.Range(aiGapeMove.x, aiGapeMove.y) + Time.timeSinceLevelLoad;
-
-			Debug.Log(aiClockMove);
+			if (isBonus) {
+				aiClock = Random.Range(aiGape.x, aiGape.y) * (1 - bonus.GetCompleteRate() * bonusRate) + Time.timeSinceLevelLoad;
+				aiClockMove = Random.Range(aiGapeMove.x, aiGapeMove.y) * (1 - bonus.GetCompleteRate() * bonusRate) + Time.timeSinceLevelLoad;
+			} else {
+				aiClock = Random.Range(aiGape.x, aiGape.y) + Time.timeSinceLevelLoad;
+				aiClockMove = Random.Range(aiGapeMove.x, aiGapeMove.y) + Time.timeSinceLevelLoad;
+			}
 		}
 	}
 }

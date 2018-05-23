@@ -105,4 +105,9 @@ public class PatrolBase : GearBase {
 			carryobj.Remove(collision.transform);
 		}
 	}
+
+	public float GetCompleteRate() {
+		Debug.Log(Vector2.Distance(pa, transform.position) / distance);
+		return Vector2.Distance(pa, transform.position) / distance;
+	}
 }
