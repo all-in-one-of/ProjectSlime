@@ -42,7 +42,7 @@ public class AroundPatrolBaseED : Editor {
 		script.positive = EditorTools.BoolField(script.positive, "正極狀態");
 
 		script.startAngle = EditorTools.FloatField(script.startAngle, "初始角度");
-		script.aroundSpeed = EditorTools.FloatField(script.aroundSpeed, "移動速度(m/s)");
+		script.aroundSpeed = EditorTools.FloatField(script.aroundSpeed, "旋轉速度(a/s)");
 		script.aroundRadius = EditorTools.FloatField(script.aroundRadius, "半徑(s)");
 		
 		EditorTools.Mig();
