@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AroundPatrolBase : GearBase {
-	public Vector2 pivot;
+	public Vector3 pivot;
 	public float aroundRadius = 5;
 	public float aroundSpeed = 10;
 	public bool accMode = true;
@@ -24,7 +24,7 @@ public class AroundPatrolBase : GearBase {
 		angled += ((positive ? aroundSpeed : -aroundSpeed) * Time.deltaTime) % 360;//累加已经转过的角度
 		float posX = aroundRadius * Mathf.Sin(angled * Mathf.Deg2Rad);//计算x位置
 		float posY = aroundRadius * Mathf.Cos(angled * Mathf.Deg2Rad);//计算y位置
-		transform.position = new Vector2(posX, posY) + pivot;//更新位置
+		transform.position = new Vector3(posX, posY , pivot.z) + pivot;//更新位置
 
 		if (triggerType != TriggerType.always) {
 			active = false;
@@ -35,13 +35,13 @@ public class AroundPatrolBase : GearBase {
 		if (!unTriggerable) {
 			if (active || (triggerType == TriggerType.continuous && IsTriggering())) {
 
-				Vector2 shift = transform.position;
+				Vector3 shift = transform.position;
 
 				angled += ((positive ? aroundSpeed : -aroundSpeed) * Time.deltaTime) % 360;//累加已经转过的角度
 				float posX = aroundRadius * Mathf.Sin(angled * Mathf.Deg2Rad);//计算x位置
 				float posY = aroundRadius * Mathf.Cos(angled * Mathf.Deg2Rad);//计算y位置
-				shift = new Vector2(posX, posY) + pivot - shift;
-				transform.position = new Vector2(posX, posY) + pivot;//更新位置
+				shift = new Vector3(posX, posY , pivot.z) + pivot - shift;
+				transform.position = new Vector3(posX, posY , pivot.z) + pivot;//更新位置
 				CarryObj(shift);				
 			}
 		}
