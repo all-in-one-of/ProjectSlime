@@ -214,7 +214,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1903119312859346}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -204.4, y: -42.3, z: -10}
+  m_LocalPosition: {x: -110.9, y: -31, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4967866603527628}
@@ -483,7 +483,7 @@ MonoBehaviour:
   _ditherDepth: 0
   _sharpenMinDepth: 0
   _sharpenMaxDepth: 0.999
-  _sharpen: 7
+  _sharpen: 5
   _sharpenDepthThreshold: 0.035
   _tintColor: {r: 1, g: 1, b: 1, a: 0}
   _sharpenRelaxation: 0.065

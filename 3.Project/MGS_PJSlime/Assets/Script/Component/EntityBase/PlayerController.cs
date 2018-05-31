@@ -444,7 +444,15 @@ public class PlayerController : EntityBase {
 		state = State.Fall;
 		touching = new Dictionary<Collider2D, int>();
 	}
-	
+
+	public void EndCollision(Collision2D collision) {
+		touching.Remove(collision.collider);
+	}
+
+	public void EndCollider(Collider2D collider) {
+		touching.Remove(collider);
+	}
+
 	protected void OnCollisionExit2D(Collision2D collision) {
 		if (Network.isServer) {
 			touching.Remove(collision.collider);
@@ -522,6 +530,8 @@ public class PlayerController : EntityBase {
 
 		}
 	}
+
+
 
 	/*
 	protected override void FOnCollisionStay2D(Collision2D collision) {

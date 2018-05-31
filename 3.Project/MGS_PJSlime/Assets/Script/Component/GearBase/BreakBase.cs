@@ -5,6 +5,7 @@ using UnityEngine;
 public class BreakBase : GearBase {
 	public float breakTime = 2;
 	public float resetTime = 6;
+	public Collider2D c2d;
 
 	protected bool breaking = false;
 	protected float clock = 0;
@@ -12,6 +13,7 @@ public class BreakBase : GearBase {
 
 	protected override void FStart() {
 		originSize = transform.localScale;
+		c2d = gameObject.GetComponent<Collider2D>();
 	}
 
 
@@ -49,6 +51,10 @@ public class BreakBase : GearBase {
 	
 	public void Break() {
 		transform.localScale = Vector2.zero;
+
+		foreach (PlayerController pc in GameEngine.direct.players) {
+			pc.EndCollider(c2d);
+		}		
 	}
 
 	public void ResetBreak() {

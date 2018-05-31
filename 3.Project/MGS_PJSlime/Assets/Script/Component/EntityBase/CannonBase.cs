@@ -13,7 +13,7 @@ public class CannonBase : EntityBase {
 
 	public Vector2 aiGape = new Vector2(2, 2);
 	public Vector2 aiGapeMove = new Vector2(4, 6);
-	public PatrolBase bonus;
+	public PatrolBase bonusPatrol;
 
 	private Vector2 originPos;
 
@@ -45,8 +45,8 @@ public class CannonBase : EntityBase {
 			transform.position = originPos + poss[cannonIndex];
 
 			if (isBonus) {
-				aiClock = Random.Range(aiGape.x, aiGape.y) * (1 - bonus.GetCompleteRate() * bonusRate) + Time.timeSinceLevelLoad;
-				aiClockMove = Random.Range(aiGapeMove.x, aiGapeMove.y) * (1 - bonus.GetCompleteRate() * bonusRate) + Time.timeSinceLevelLoad;
+				aiClock = Random.Range(aiGape.x, aiGape.y) * (1 - bonusPatrol.GetCompleteRate() * bonusRate) + Time.timeSinceLevelLoad;
+				aiClockMove = Random.Range(aiGapeMove.x, aiGapeMove.y) * (1 - bonusPatrol.GetCompleteRate() * bonusRate) + Time.timeSinceLevelLoad;
 			} else {
 				aiClock = Random.Range(aiGape.x, aiGape.y) + Time.timeSinceLevelLoad;
 				aiClockMove = Random.Range(aiGapeMove.x, aiGapeMove.y) + Time.timeSinceLevelLoad;
