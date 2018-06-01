@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 114235996049834310}
   - component: {fileID: 114022810492639898}
   m_Layer: 0
-  m_Name: HBullet
+  m_Name: L2_boss_Bullet
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -131,16 +131,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isInvincible: 0
   isUndead: 0
-  eatAble: 1
+  eatAble: 0
   isDead: 0
   invincibleTimer: 0
   bonus: 0
-  attack: 0
+  attack: 2
   hp: 1
   face: 1
-  constLifeTime: 10
+  constLifeTime: 8
   constSpeed: 5
-  isCruise: 0
+  isCruise: 1
   cruiseRate: 0.5
 --- !u!114 &114235996049834310
 MonoBehaviour:
@@ -156,22 +156,22 @@ MonoBehaviour:
   m_SceneId:
     m_Value: 0
   m_AssetId:
-    i0: 77
-    i1: 164
+    i0: 4
+    i1: 205
     i2: 168
-    i3: 216
-    i4: 81
-    i5: 103
-    i6: 24
-    i7: 196
-    i8: 153
-    i9: 162
-    i10: 90
-    i11: 210
-    i12: 73
-    i13: 58
-    i14: 249
-    i15: 43
+    i3: 116
+    i4: 97
+    i5: 237
+    i6: 231
+    i7: 100
+    i8: 169
+    i9: 98
+    i10: 6
+    i11: 205
+    i12: 186
+    i13: 178
+    i14: 94
+    i15: 199
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
 --- !u!212 &212199826072553564
@@ -209,7 +209,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 654fcdec33e3d4a4bb5183aa1549e4ee, type: 3}
-  m_Color: {r: 0.048821356, g: 0.9485294, b: 0.16671404, a: 1}
+  m_Color: {r: 0.875, g: 0.045036756, b: 0.045036756, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

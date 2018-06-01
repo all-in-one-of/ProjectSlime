@@ -130,12 +130,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInvincible: 0
+  isUndead: 0
   eatAble: 0
   isDead: 0
   invincibleTimer: 0
+  bonus: 0
   attack: 2
   hp: 1
-  nowSpeed: 0
+  face: 1
+  constLifeTime: 5
+  constSpeed: 5
+  isCruise: 0
+  cruiseRate: 0.5
 --- !u!114 &114235996049834310
 MonoBehaviour:
   m_ObjectHideFlags: 1
