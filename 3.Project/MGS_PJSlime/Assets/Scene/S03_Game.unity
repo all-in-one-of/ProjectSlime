@@ -3296,7 +3296,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 396809066}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -244.2, y: -45.8, z: 0}
+  m_LocalPosition: {x: 9.7, y: 24.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1572433604}
@@ -10334,12 +10334,12 @@ MonoBehaviour:
   - {x: 0, y: -1}
   - {x: 0, y: -1}
   bullets:
-  - {fileID: 1974477046238388, guid: bd3df764a3f6e21449119a7bfa452886, type: 2}
-  - {fileID: 1974477046238388, guid: bd3df764a3f6e21449119a7bfa452886, type: 2}
-  - {fileID: 1974477046238388, guid: bd3df764a3f6e21449119a7bfa452886, type: 2}
-  - {fileID: 1974477046238388, guid: bd3df764a3f6e21449119a7bfa452886, type: 2}
-  - {fileID: 1974477046238388, guid: bd3df764a3f6e21449119a7bfa452886, type: 2}
-  - {fileID: 1974477046238388, guid: bd3df764a3f6e21449119a7bfa452886, type: 2}
+  - {fileID: 1974477046238388, guid: 04cda87461ede764a96206cdbab25ec7, type: 2}
+  - {fileID: 1974477046238388, guid: 04cda87461ede764a96206cdbab25ec7, type: 2}
+  - {fileID: 1974477046238388, guid: 4da4a8d8516718c499a25ad2493af92b, type: 2}
+  - {fileID: 1974477046238388, guid: 04cda87461ede764a96206cdbab25ec7, type: 2}
+  - {fileID: 1974477046238388, guid: 4da4a8d8516718c499a25ad2493af92b, type: 2}
+  - {fileID: 1974477046238388, guid: 04cda87461ede764a96206cdbab25ec7, type: 2}
   isRandom: 1
   isBonus: 1
   bonusRate: 0.3
@@ -12424,7 +12424,7 @@ MonoBehaviour:
   onceTime: 14
   accMode: 1
   carryMode: 0
-  positive: 0
+  positive: 1
   pa: {x: 0, y: 0}
   pb: {x: 0, y: 0}
 --- !u!114 &1438077117
@@ -12534,7 +12534,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1438077114}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2c2f2594b781b52459490ad7064b93a9, type: 3}
   m_Name: 
@@ -12548,7 +12548,7 @@ MonoBehaviour:
   onceTime: 14
   accMode: 1
   carryMode: 0
-  positive: 1
+  positive: 0
   pa: {x: 0, y: 0}
   pb: {x: 0, y: 0}
 --- !u!1 &1452397079
