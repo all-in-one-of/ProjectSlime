@@ -526,7 +526,7 @@ MonoBehaviour:
   _bloomBoost5: 0
   _bloomAntiflicker: 0
   _bloomUltra: 0
-  _bloomThreshold: 0.85
+  _bloomThreshold: 0.95
   _bloomCustomize: 0
   _bloomDebug: 0
   _bloomWeight0: 0.5
