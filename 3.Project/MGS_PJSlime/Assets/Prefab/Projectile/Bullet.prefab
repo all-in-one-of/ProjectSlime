@@ -135,7 +135,7 @@ MonoBehaviour:
   isDead: 0
   invincibleTimer: 0
   bonus: 0
-  attack: 2
+  attack: 1
   hp: 1
   face: 1
   constLifeTime: 5
