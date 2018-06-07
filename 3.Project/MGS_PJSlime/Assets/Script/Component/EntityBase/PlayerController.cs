@@ -322,6 +322,10 @@ public class PlayerController : EntityBase {
 				state = State.Jump;
 				RpcState("Jump");
 				rb.velocity = new Vector2(rb.velocity.x, GameEngine.direct.jumpYForce * (( GameEngine.direct.jumpGape - size) /  GameEngine.direct.jumpGape));
+
+				if (this == GameEngine.mainPlayer) {
+					CameraManager.direct.Bump();
+				}
 			}
 		}
 	}

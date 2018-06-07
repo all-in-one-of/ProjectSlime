@@ -526,7 +526,7 @@ MonoBehaviour:
   _bloomBoost5: 0
   _bloomAntiflicker: 0
   _bloomUltra: 0
-  _bloomThreshold: 0.95
+  _bloomThreshold: 0.8
   _bloomCustomize: 0
   _bloomDebug: 0
   _bloomWeight0: 0.5
@@ -660,10 +660,62 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
-  mainCamera: {fileID: 4102403718826658}
+  focusCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0.011727267
+      outSlope: 0.011727267
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 2
+      value: 1.5
+      inSlope: 1.0004642
+      outSlope: 1.0004642
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 10
+      value: 4
+      inSlope: 0.00000089704923
+      outSlope: 0.00000089704923
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  mainCamera: {fileID: 20993162492998050}
   targetHint: {fileID: 4524284976358486}
   hintSprite: {fileID: 212898252808755596}
+  focusPSpeed: 10
+  focusNSpeed: 1
+  preFocusSpeed: 0
   yOffset: 5
+  bumpCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.5
+      value: 4
+      inSlope: 3.7838006
+      outSlope: 3.7838006
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 4.8
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  bumpTimer: 0
 --- !u!124 &124839332343853692
 Behaviour:
   m_ObjectHideFlags: 1
