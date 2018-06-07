@@ -687,8 +687,8 @@ MonoBehaviour:
   mainCamera: {fileID: 20993162492998050}
   targetHint: {fileID: 4524284976358486}
   hintSprite: {fileID: 212898252808755596}
-  focusPSpeed: 10
-  focusNSpeed: 1
+  focusPSpeed: 0.02
+  focusNSpeed: 0.02
   preFocusSpeed: 0
   yOffset: 5
   bumpCurve:
@@ -697,24 +697,25 @@ MonoBehaviour:
     - serializedVersion: 2
       time: 0
       value: 0
-      inSlope: 2
-      outSlope: 2
+      inSlope: 14.308837
+      outSlope: 14.308837
       tangentMode: 0
     - serializedVersion: 2
-      time: 0.5
-      value: 4
-      inSlope: 3.7838006
-      outSlope: 3.7838006
+      time: 0.14231727
+      value: 2.1073449
+      inSlope: 11.191603
+      outSlope: 11.191603
       tangentMode: 0
     - serializedVersion: 2
-      time: 1
-      value: 4.8
-      inSlope: 0
-      outSlope: 0
+      time: 2
+      value: 0
+      inSlope: 0.12486932
+      outSlope: 0.12486932
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+  bumpTime: 2
   bumpTimer: 0
 --- !u!124 &124839332343853692
 Behaviour:

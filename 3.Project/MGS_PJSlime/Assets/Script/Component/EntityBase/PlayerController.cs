@@ -601,6 +601,12 @@ public class PlayerController : EntityBase {
 		GameEngine.direct.ResetCamera();		
 	}
 
+	/*
+	public float GetSpeed() {
+		Debug.Log(new Vector2(2, 2).SqrMagnitude());
+		return rb.velocity.SqrMagnitude();
+	}*/
+
 	public bool IsSlideing() {
 		foreach (Collider2D collider in touching.Keys) {
 			if (collider.name == "Ice") {
