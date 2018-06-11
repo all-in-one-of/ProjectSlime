@@ -67,7 +67,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1222184263987072}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.4, y: 11.28, z: 0}
+  m_LocalPosition: {x: 199, y: -54.2, z: 10}
   m_LocalScale: {x: 2.5, y: 2.5, z: 1}
   m_Children:
   - {fileID: 4044978163999774}
@@ -88,7 +88,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 10
+  m_GravityScale: 0.5
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -148,17 +148,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInvincible: 0
+  isUndead: 0
   eatAble: 1
   isDead: 0
   invincibleTimer: 0
+  bonus: 2
   attack: 1
   hp: 2
-  moveAI: 1
-  aiClock: 0
-  movePos: 0
-  moveShift: 3
-  moveSpeed: 3
-  nowSpeed: 0
+  face: 1
+  moveAI: 0
+  agressiveAI: 0
+  jumpAI: 1
+  shootAI: 0
+  moveShift: 0
+  moveSpeed: 0
+  jumpForce: 9
+  bullet: {fileID: 1974477046238388, guid: bd3df764a3f6e21449119a7bfa452886, type: 2}
+  aiGape: {x: 2, y: 4}
 --- !u!114 &114377937996577804
 MonoBehaviour:
   m_ObjectHideFlags: 1
