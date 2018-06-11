@@ -21,6 +21,7 @@ public class CameraManager : MonoBehaviour {
 	public AnimationCurve bumpCurve;
 	public float bumpTime = 1;
 	public float bumpTimer = 0;
+	public float bumpBuffer = 0.5f;
 
 
 	private void Start() {
@@ -70,7 +71,7 @@ public class CameraManager : MonoBehaviour {
 			if (16 + targetBump > mainCamera.orthographicSize) {
 				mainCamera.orthographicSize = Mathf.Lerp(mainCamera.orthographicSize, 16 + targetBump,  focusPSpeed);
 			} else {
-				mainCamera.orthographicSize = Mathf.Lerp(mainCamera.orthographicSize, 16 + targetBump * 0.5f, focusPSpeed);
+				mainCamera.orthographicSize = Mathf.Lerp(mainCamera.orthographicSize, 16 + targetBump * bumpBuffer, focusNSpeed);
 			}
 			bumpTimer = bumpTimer - Time.deltaTime;
 		} else {
