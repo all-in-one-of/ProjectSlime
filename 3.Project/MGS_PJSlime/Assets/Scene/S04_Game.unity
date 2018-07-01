@@ -230,8 +230,6 @@ MonoBehaviour:
   moveSpeed: 0
   jumpForce: 0
   bullet: {fileID: 1974477046238388, guid: bd3df764a3f6e21449119a7bfa452886, type: 2}
-  bulletSpeed: 0
-  bulletLife: 0
   aiGape: {x: 2, y: 4}
 --- !u!114 &26790876
 MonoBehaviour:
@@ -1101,7 +1099,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 91128324}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -43.47, y: -15.22, z: -1.4139}
+  m_LocalPosition: {x: -45, y: -15, z: -1.4139}
   m_LocalScale: {x: 0.829825, y: 1.04558, z: 2.6554499}
   m_Children: []
   m_Father: {fileID: 428515888}
@@ -1735,7 +1733,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 114607811}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -40.71, y: -13.65, z: -1.4139}
+  m_LocalPosition: {x: -40, y: -14, z: -1.4139}
   m_LocalScale: {x: 0.829825, y: 1.04558, z: 2.6554499}
   m_Children: []
   m_Father: {fileID: 428515888}
@@ -4204,6 +4202,7 @@ MonoBehaviour:
   triggers: []
   breakTime: 2
   resetTime: 6
+  c2d: {fileID: 0}
 --- !u!114 &330642292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5700,6 +5699,7 @@ MonoBehaviour:
   triggers: []
   breakTime: 2
   resetTime: 6
+  c2d: {fileID: 0}
 --- !u!114 &539284744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11509,6 +11509,7 @@ MonoBehaviour:
   triggers: []
   breakTime: 2
   resetTime: 6
+  c2d: {fileID: 0}
 --- !u!114 &1055392949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16331,6 +16332,7 @@ MonoBehaviour:
   triggers: []
   breakTime: 2
   resetTime: 6
+  c2d: {fileID: 0}
 --- !u!114 &1550365051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16497,7 +16499,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1555465818}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -35.3, y: -15.91, z: -1.4139}
+  m_LocalPosition: {x: -34.5, y: -15, z: -1.4139}
   m_LocalScale: {x: 0.829825, y: 1.04558, z: 2.6554499}
   m_Children: []
   m_Father: {fileID: 428515888}
@@ -18297,8 +18299,6 @@ MonoBehaviour:
   moveSpeed: 0
   jumpForce: 0
   bullet: {fileID: 1974477046238388, guid: bd3df764a3f6e21449119a7bfa452886, type: 2}
-  bulletSpeed: 0
-  bulletLife: 0
   aiGape: {x: 2, y: 4}
 --- !u!61 &1774193670
 BoxCollider2D:
@@ -19008,7 +19008,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1837256869}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -46.32, y: -16.79, z: -1.4139}
+  m_LocalPosition: {x: -47.5, y: -16.5, z: -1.4139}
   m_LocalScale: {x: 0.829825, y: 1.04558, z: 2.6554499}
   m_Children: []
   m_Father: {fileID: 428515888}
@@ -21235,8 +21235,6 @@ MonoBehaviour:
   moveSpeed: 0
   jumpForce: 0
   bullet: {fileID: 1974477046238388, guid: bd3df764a3f6e21449119a7bfa452886, type: 2}
-  bulletSpeed: 0
-  bulletLife: 0
   aiGape: {x: 2, y: 4}
 --- !u!114 &2045367517
 MonoBehaviour:
