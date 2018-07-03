@@ -17,6 +17,7 @@ public class GameEngine : MonoBehaviour {
 
 	public GameObject cameraManager;
 	public GameObject audioManager;
+	public GameObject scoreManager;
 	public GameObject uiManager;
 	public Transform startPoint;
 
@@ -143,12 +144,14 @@ public class GameEngine : MonoBehaviour {
 	}
 
 	public void KillBorder(Vector2 cameraPos) {
+		float cameraScale = CameraManager.direct.mainCamera.orthographicSize * 0.0625f;
+
 		for (int i = 0; i < players.Count; i++) {
 			if (players[i] != mainPlayer ) {
-				if (Mathf.Abs(players[i].transform.position.x - cameraPos.x) > 30) {
+				if (Mathf.Abs(players[i].transform.position.x - cameraPos.x) > 28.8f * cameraScale) {
 					players[i].OnDead();
 				}
-				if (Mathf.Abs(players[i].transform.position.y - cameraPos.y) > 17) {
+				if (Mathf.Abs(players[i].transform.position.y - cameraPos.y) > 16.2f * cameraScale) {
 					players[i].OnDead();
 				}
 			}

@@ -12,14 +12,19 @@ public class GameEngineED : Editor {
 	}
 
 	public override void OnInspectorGUI() {
-		EditorTools.TitleField("遊戲引擎-Set");
+		EditorTools.TitleField("<<Prefab>>");
 		script.cameraManager = (GameObject)EditorTools.ObjectField(script.cameraManager, typeof(GameObject), "CameraManager");
 		script.audioManager = (GameObject)EditorTools.ObjectField(script.audioManager, typeof(GameObject) , "AudioManager" );
 		script.uiManager = (GameObject)EditorTools.ObjectField(script.uiManager, typeof(GameObject), "UIManager");
+		script.scoreManager = (GameObject)EditorTools.ObjectField(script.scoreManager, typeof(GameObject), "ScoreManager");
+		EditorTools.Space();
+
+		EditorTools.TitleField("<<Init>>");
 		script.startPoint	= (Transform)EditorTools.ObjectField(script.startPoint, typeof(Transform), "StartPoint");
+		script.units = (Transform)EditorTools.ObjectField(script.units, typeof(Transform), "UnitSet");
+		EditorTools.Space();
 
-		EditorTools.TitleField("遊戲引擎");
-
+		EditorTools.TitleField("<<PlayerSet>>");
 		var serializedObject = new SerializedObject(target);
 		var property = serializedObject.FindProperty("players");
 		serializedObject.Update();
@@ -33,6 +38,7 @@ public class GameEngineED : Editor {
 		serializedObject.ApplyModifiedProperties();
 		
 		EditorTools.Space();
+		EditorTools.TitleField("<<ArenaSet>>");
 
 		EditorTools.LabelField("-地面參數-");
 		script.walkXSpeed	= EditorTools.FloatField(script.walkXSpeed	, "移動速度(m/s)");
