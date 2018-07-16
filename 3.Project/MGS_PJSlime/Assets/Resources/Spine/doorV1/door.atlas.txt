@@ -1,0 +1,48 @@
+
+door.png
+size: 1024,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+base
+  rotate: true
+  xy: 2, 73
+  size: 415, 529
+  orig: 415, 529
+  offset: 0, 0
+  index: -1
+circle1
+  rotate: false
+  xy: 533, 79
+  size: 57, 57
+  orig: 57, 57
+  offset: 0, 0
+  index: -1
+circle2
+  rotate: false
+  xy: 533, 79
+  size: 57, 57
+  orig: 57, 57
+  offset: 0, 0
+  index: -1
+door1
+  rotate: false
+  xy: 533, 138
+  size: 193, 350
+  orig: 193, 350
+  offset: 0, 0
+  index: -1
+door2
+  rotate: false
+  xy: 728, 138
+  size: 193, 350
+  orig: 193, 350
+  offset: 0, 0
+  index: -1
+line
+  rotate: false
+  xy: 2, 2
+  size: 201, 69
+  orig: 201, 69
+  offset: 0, 0
+  index: -1

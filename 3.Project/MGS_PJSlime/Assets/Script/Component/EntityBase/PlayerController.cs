@@ -20,7 +20,7 @@ public class PlayerController : EntityBase {
 	public Animator anim;
 
 	public bool newDamage = false;
-	public int PlayerIndex = 0;
+	public int playerID = 0;
 	public Vector2 velocityOut;
 	public Vector2 velocitSim;
 	public Vector2 deVelocity;
@@ -73,7 +73,7 @@ public class PlayerController : EntityBase {
 			bool eatCommand = false;
 			bool skipper = false;
 
-			if (PlayerIndex == 0) {
+			if (playerID == 0) {
 				if (isDead) {
 					if (Input.GetKeyDown(KeyCode.E)) {
 						GameEngine.direct.OnReborn(this);
@@ -94,7 +94,7 @@ public class PlayerController : EntityBase {
 					jumpPreCommand = false;
 				}
 
-			} else if (PlayerIndex == 1) {
+			} else if (playerID == 1) {
 				if (isDead) {
 					if (Input.GetKeyDown(KeyCode.Comma)) {
 						GameEngine.direct.OnReborn(this);
@@ -115,7 +115,7 @@ public class PlayerController : EntityBase {
 					jumpPreCommand = false;
 				}
 
-			} else if (PlayerIndex == 2) {
+			} else if (playerID == 2) {
 				if (isDead) {
 					if (Input.GetAxisRaw("LHPanel") > 0) {
 						GameEngine.direct.OnReborn(this);
@@ -136,7 +136,7 @@ public class PlayerController : EntityBase {
 					jumpPreCommand = false;
 				}
 
-			} else if (PlayerIndex == 3) {
+			} else if (playerID == 3) {
 				if (isDead) {
 					if (Input.GetAxisRaw("PS4RightHorizonPanel") > 0) {
 						GameEngine.direct.OnReborn(this);
@@ -247,8 +247,8 @@ public class PlayerController : EntityBase {
 	}
 
 	[Command]
-	public void CmdRegist(int PlayerIndex, int hp) {
-		this.PlayerIndex = PlayerIndex;
+	public void CmdRegist(int playerID, int hp) {
+		this.playerID = playerID;
 		this.hp = hp;
 
 		GameEngine.direct.OnRegist(this);
@@ -265,6 +265,7 @@ public class PlayerController : EntityBase {
 			Facing(direction);
 
 			if (!anim.GetCurrentAnimatorStateInfo(0).IsTag("Crouch") && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Jump")) {
+				ScoreSystem.AddRecord(playerID, 3, 1);
 				RpcState("Crouch");
 			}
 
@@ -308,6 +309,7 @@ public class PlayerController : EntityBase {
 	public void CmdJump() {	
 		if (isInWater) {
 			if (Time.timeSinceLevelLoad - swimTimer >= GameEngine.direct.waterColdDown) {
+				ScoreSystem.AddRecord(playerID, 4, 1);
 				swimTimer = Time.timeSinceLevelLoad;
 				jumpAudio.Play();
 				state = State.Jump;
@@ -317,6 +319,7 @@ public class PlayerController : EntityBase {
 			
 		} else {
 			if (state == State.None ) {
+				ScoreSystem.AddRecord(playerID, 2, 1);
 				jumpTimer = Time.timeSinceLevelLoad;
 				jumpAudio.Play();
 				state = State.Jump;
@@ -438,6 +441,7 @@ public class PlayerController : EntityBase {
 	}
 
 	public void Reborn() {
+		ScoreSystem.AddRecord(playerID, 7, 1);
 		isInWater = null;
 		touching = new Dictionary<Collider2D, int>();
 		bornAudio.Play();
@@ -501,9 +505,11 @@ public class PlayerController : EntityBase {
 		}
 
 		if (collision.transform.tag == "End") {
+			ScoreSystem.CaculateRecord();
 			GameEngine.direct.OnVictory();
 
-		} else if (collision.transform.tag == "Dead" || collision.transform.tag == "Scene") {
+		} else if (collision.transform.tag == "Dead") {
+			ScoreSystem.AddRecord(playerID, 1, 1);
 			OnDead();
 
 		} else if (collision.transform.tag == "Slime") {
@@ -577,20 +583,23 @@ public class PlayerController : EntityBase {
 
 	protected void Eat() {
 		eatAudio.Play();
-		foreach (Transform unit in GameEngine.direct.units) {
-			if (Vector2.Distance(transform.position, unit.position) <= SizeFormula(size) + 3 ) {
-				EntityBase enemy = unit.GetComponent<EntityBase>();
-				if (enemy) {
-					if (!enemy.isDead) {
-						GameEngine.direct.AddBonus(enemy.bonus);
-						eating = unit;
-						enemy.OnDead();
-						hp++;
-						SetSize();
-						return;
-					}
-				}
+		EntityBase target = GameEngine.direct.GetUnitInRange(SizeFormula(size) + 3, transform.position);
+		if (target) {
+			if (target.GetComponent<ProjectileBase>()) {
+				ScoreSystem.AddRecord(playerID, 5, 1);
+
+			} else if (target.GetComponent<EnemyBase>()) {
+				ScoreSystem.AddRecord(playerID, 6, 1);
 			}
+
+			ScoreSystem.AddScore(target.bonus);
+			eating = target.transform;
+			target.OnDead();
+			hp++;
+			SetSize();
+			return;
+		} else {
+			ScoreSystem.AddRecord(playerID , 0 , 1);
 		}
 	}
 	

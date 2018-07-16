@@ -9,6 +9,11 @@ public class UIManager : MonoBehaviour {
 	public EventSystem uiTrigger;
 	public Text timer;
 	public Text counter;
+	public Transform recordObject;
+	public List<Material> recordPlayer = new List<Material>();
+	public List<Text> recordShower = new List<Text>();
+	public List<Text> recordShower2 = new List<Text>();
+	public List<Image> recordShower3 = new List<Image>();
 
 	public void Start() {
 		direct = this;

@@ -57,10 +57,10 @@ public class GameEngine : MonoBehaviour {
 		Instantiate(uiManager);
 
 		//Init - SYS
+		new ScoreSystem();
 		cm.GetComponent<CameraManager>().Init();
 
 		//Init - UI
-		AddBonus(0);
 	}
 
 	private void Update() {
@@ -104,17 +104,20 @@ public class GameEngine : MonoBehaviour {
 				}
 			}
 		}
-		mainPlayer = temp;
+		if (temp && mainPlayer != temp) {
+			mainPlayer = temp;
+			ScoreSystem.AddRecord(temp.playerID, 9, 1);
+		}
 	}
 
 	public void OnRegist(PlayerController value) {
 		players.Add(value);
-		playerUIs[value.PlayerIndex].SetActive(true);
+		playerUIs[value.playerID].SetActive(true);
 	}
 
 	public void OnDead(PlayerController value) {
 		ResetCamera();
-		playerUIs[value.PlayerIndex].SetActive(false);
+		playerUIs[value.playerID].SetActive(false);
 	}
 
 	public void OnReborn(PlayerController value) {
@@ -126,18 +129,19 @@ public class GameEngine : MonoBehaviour {
 			value.Attack(0, true);
 			value.Reborn();
 			ResetCamera();
-			playerUIs[value.PlayerIndex].SetActive(true);
+			playerUIs[value.playerID].SetActive(true);
 			return;
 		}
 
 		foreach (PlayerController unit in players) {
 			if (unit.gameObject != value && unit.hp > 2 && !unit.isDead && unit.hp > hpRecord) {
 				unit.Attack(2, true);
+				ScoreSystem.AddRecord(unit.playerID, 8, 1);
 				value.transform.position = unit.transform.position;
 				value.Attack(0, true);
 				value.Reborn();
 				ResetCamera();
-				playerUIs[value.PlayerIndex].SetActive(true);
+				playerUIs[value.playerID].SetActive(true);
 				return;
 			}
 		}
@@ -158,11 +162,6 @@ public class GameEngine : MonoBehaviour {
 		}
 	}
 
-	public void AddBonus(int value) {
-		bonus += value;
-		UIManager.direct.counter.text = bonus.ToString();
-	}
-
 	public static void RegistCheckPoint(string obj) {
 		checkPoint = obj;
 	}
@@ -175,4 +174,15 @@ public class GameEngine : MonoBehaviour {
 		return checkPoint;
 	}
 
+	public EntityBase GetUnitInRange(float range , Vector2 pos) {
+		foreach (Transform unit in units) {
+			if (Vector2.Distance(pos, unit.position) <= range) {
+				EntityBase enemy = unit.GetComponent<EntityBase>();
+				if (enemy && !enemy.isDead) {
+					return enemy;
+				}
+			}
+		}
+		return null;
+	}
 }
