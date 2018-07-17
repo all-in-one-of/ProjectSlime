@@ -1,0 +1,41 @@
+
+lantern.png
+size: 128,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+base
+  rotate: false
+  xy: 2, 40
+  size: 64, 76
+  orig: 64, 76
+  offset: 0, 0
+  index: -1
+eyes_black
+  rotate: false
+  xy: 68, 95
+  size: 22, 21
+  orig: 22, 21
+  offset: 0, 0
+  index: -1
+eyes_white
+  rotate: false
+  xy: 2, 2
+  size: 36, 36
+  orig: 36, 36
+  offset: 0, 0
+  index: -1
+red_left
+  rotate: false
+  xy: 40, 26
+  size: 13, 12
+  orig: 13, 12
+  offset: 0, 0
+  index: -1
+red_right
+  rotate: false
+  xy: 40, 26
+  size: 13, 12
+  orig: 13, 12
+  offset: 0, 0
+  index: -1

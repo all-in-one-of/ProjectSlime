@@ -4,12 +4,21 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using Spine.Unity;
 
 public class TriggerBase : NetworkBehaviour {
+	protected SkeletonAnimation sk;
+
 	public enum TriggerType {
 		continuous,
 		once,
 	}
+
+	[SpineAnimation]
+	public string idleAnim;
+
+	[SpineAnimation]
+	public string actAnim;
 
 	public TriggerType triggerType;
 	public float resetTime = 6;
@@ -21,7 +30,12 @@ public class TriggerBase : NetworkBehaviour {
 	protected List<Collider2D> nowTouching = new List<Collider2D>();
 	protected bool triggering = false;
 	protected float clock = 0;
-	
+
+	protected void Start() {
+		sk = GetComponent<SkeletonAnimation>();
+		sk.state.SetAnimation(0, idleAnim, false);
+	}
+
 	protected void Update() {
 		OnUpdate();
 	}
@@ -68,6 +82,10 @@ public class TriggerBase : NetworkBehaviour {
 				triggering = true;
 				clock = Time.timeSinceLevelLoad;
 
+				if (sk) {
+					sk.state.SetAnimation(0, actAnim, false);
+				}
+
 				foreach (GearBase gear in onceObject) {
 					if (enforceMode) {
 						gear.BaseTrigger();
@@ -105,6 +123,9 @@ public class TriggerBase : NetworkBehaviour {
 
 	public void ResetTrigger() {
 		triggering = false;
+		if (sk) {
+			sk.state.SetAnimation(0, idleAnim, false);
+		}
 	}
 
 	public bool IsTriggering() {
