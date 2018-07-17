@@ -34,12 +34,12 @@ public class SpawnerBase : GearBase {
 		}
 	}
 
-	public override bool BaseTrigger() {
+	public override bool BaseTrigger(bool postive = true) {
 		SpawnObject();
 		return true;
 	}
 
-	public override bool Trigger() {
+	public override bool Trigger(bool postive = true) {
 		if (toAlways) {
 			triggerType = TriggerType.always;
 			active = true;

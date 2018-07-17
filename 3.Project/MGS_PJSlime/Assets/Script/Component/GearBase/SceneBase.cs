@@ -14,12 +14,12 @@ public class SceneBase : GearBase {
 		}
 	}
 
-	public override bool BaseTrigger() {
+	public override bool BaseTrigger(bool postive = true) {
 		Application.LoadLevel(name);
 		return true;
 	}
 
-	public override bool Trigger() {
+	public override bool Trigger(bool postive = true) {
 		return BaseTrigger();
 	}
 }

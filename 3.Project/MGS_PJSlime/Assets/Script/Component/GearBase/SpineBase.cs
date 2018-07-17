@@ -37,7 +37,7 @@ public class SpineBase : GearBase {
 		}
 	}
 
-	public override bool BaseTrigger() {
+	public override bool BaseTrigger(bool postive = true) {
 		if (!coldDowning) {
 			if (!acting) {
 				acting = true;
@@ -57,7 +57,7 @@ public class SpineBase : GearBase {
 		return false;
 	}
 
-	public override bool Trigger() {
+	public override bool Trigger(bool postive = true) {
 		return BaseTrigger();
 	}
 	

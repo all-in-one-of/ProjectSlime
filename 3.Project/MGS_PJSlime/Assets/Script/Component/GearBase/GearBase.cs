@@ -14,12 +14,13 @@ public abstract class GearBase : NetworkBehaviour {
 		oncebutton,
 	}
 
-	public abstract bool BaseTrigger();
-	public abstract bool Trigger();
+	public abstract bool BaseTrigger(bool postive = true);
+	public abstract bool Trigger(bool postive = true);
 	public bool toAlways = false;
 
 	public TriggerType triggerType;
-	public List<TriggerBase> triggers = new List<TriggerBase>();	
+	public List<TriggerBase> triggers = new List<TriggerBase>();
+	public List<TriggerBase> detriggers = new List<TriggerBase>();
 	protected bool active = true;
 
 

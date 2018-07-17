@@ -21,6 +21,7 @@ public class TriggerBaseED : Editor {
 			EditorTools.TitleField("觸發機關 - 按鈕模式");
 			script.triggerType = (TriggerBase.TriggerType)EditorTools.EnumField(script.triggerType, "觸發模式");
 			script.resetTime = EditorTools.FloatField(script.resetTime, "按鈕冷卻時間(s)");
+			script.triggerOnce = EditorTools.BoolField(script.triggerOnce, "僅限一次");
 		}
 		
 		script.weightMode = EditorTools.BoolField(script.weightMode, "壓力需求");

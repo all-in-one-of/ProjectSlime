@@ -24,6 +24,7 @@ public class TriggerBase : NetworkBehaviour {
 	public float resetTime = 6;
 	public bool enforceMode = false;
 	public bool weightMode = false;
+	public bool triggerOnce = false;
 	public int triggerWeight = 6;
 
 	protected List<GearBase> onceObject = new List<GearBase>();
@@ -33,7 +34,9 @@ public class TriggerBase : NetworkBehaviour {
 
 	protected void Start() {
 		sk = GetComponent<SkeletonAnimation>();
-		sk.state.SetAnimation(0, idleAnim, false);
+		if (sk) {
+			sk.state.SetAnimation(0, idleAnim, false);
+		}
 	}
 
 	protected void Update() {
@@ -93,6 +96,10 @@ public class TriggerBase : NetworkBehaviour {
 						gear.Trigger();
 					}
 				}
+			}
+
+			if (triggerOnce) {
+				Destroy(gameObject);
 			}
 		}
 	}

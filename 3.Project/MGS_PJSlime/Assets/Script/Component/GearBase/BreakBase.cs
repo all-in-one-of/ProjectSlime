@@ -32,7 +32,7 @@ public class BreakBase : GearBase {
 		}
 	}
 
-	public override bool BaseTrigger() {
+	public override bool BaseTrigger(bool postive = true) {
 		if (!breaking) {
 			breaking = true;
 			clock = Time.timeSinceLevelLoad;
@@ -45,7 +45,7 @@ public class BreakBase : GearBase {
 		return false;
 	}
 
-	public override bool Trigger() {		
+	public override bool Trigger(bool postive = true) {		
 		return BaseTrigger();
 	}
 	

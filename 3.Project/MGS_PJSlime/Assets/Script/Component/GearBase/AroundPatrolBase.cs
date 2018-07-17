@@ -52,11 +52,11 @@ public class AroundPatrolBase : GearBase {
 		}
 	}
 
-	public override bool BaseTrigger() {
+	public override bool BaseTrigger(bool postive = true) {
 		return true;
 	}
 
-	public override bool Trigger() {
+	public override bool Trigger(bool postive = true) {
 		if (triggerType == TriggerType.button) {
 			if (firstTrigger) {
 				positive = !positive;
