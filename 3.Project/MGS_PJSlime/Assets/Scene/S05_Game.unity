@@ -273,6 +273,7 @@ MonoBehaviour:
   toAlways: 0
   triggerType: 0
   triggers: []
+  detriggers: []
   vector: {x: 0, y: -2}
   onceTime: 2
   accMode: 1
@@ -2056,6 +2057,7 @@ MonoBehaviour:
   toAlways: 1
   triggerType: 0
   triggers: []
+  detriggers: []
   vector: {x: 1, y: 4}
   onceTime: 4
   accMode: 1
@@ -3125,6 +3127,7 @@ MonoBehaviour:
   toAlways: 1
   triggerType: 0
   triggers: []
+  detriggers: []
   vector: {x: 4, y: 3.5}
   onceTime: 4
   accMode: 1
@@ -6731,6 +6734,7 @@ MonoBehaviour:
   toAlways: 1
   triggerType: 0
   triggers: []
+  detriggers: []
   vector: {x: 2, y: 0}
   onceTime: 5
   accMode: 1
@@ -7794,6 +7798,7 @@ MonoBehaviour:
   toAlways: 1
   triggerType: 0
   triggers: []
+  detriggers: []
   vector: {x: 4, y: 0}
   onceTime: 5
   accMode: 1
@@ -8225,6 +8230,7 @@ MonoBehaviour:
   triggerType: 3
   triggers:
   - {fileID: 490769056}
+  detriggers: []
   spawnObject:
   - {fileID: 1634725205279740, guid: 92da45cc9d130d54383bda28e3f8c075, type: 2}
   spawnOffset: {x: 1, y: 1}
@@ -8333,6 +8339,7 @@ MonoBehaviour:
   toAlways: 1
   triggerType: 0
   triggers: []
+  detriggers: []
   vector: {x: 0, y: 4}
   onceTime: 4
   accMode: 1
@@ -8746,6 +8753,7 @@ MonoBehaviour:
   toAlways: 1
   triggerType: 0
   triggers: []
+  detriggers: []
   vector: {x: -1, y: 4}
   onceTime: 3
   accMode: 1
@@ -9145,6 +9153,7 @@ MonoBehaviour:
   toAlways: 0
   triggerType: 0
   triggers: []
+  detriggers: []
   spawnObject:
   - {fileID: 1026908276139460, guid: b9b5d6ededd6efd45a17849dc5cc20bf, type: 2}
   - {fileID: 1222184263987072, guid: 51c62c7314a73ae4ba92b6871bda7b23, type: 2}
@@ -9347,6 +9356,7 @@ MonoBehaviour:
   toAlways: 1
   triggerType: 0
   triggers: []
+  detriggers: []
   vector: {x: 2, y: 2.5}
   onceTime: 4
   accMode: 1
@@ -10471,6 +10481,7 @@ MonoBehaviour:
   toAlways: 0
   triggerType: 0
   triggers: []
+  detriggers: []
   spawnObject:
   - {fileID: 1222184263987072, guid: 51c62c7314a73ae4ba92b6871bda7b23, type: 2}
   spawnOffset: {x: 10, y: 0}
@@ -13183,6 +13194,7 @@ MonoBehaviour:
   toAlways: 1
   triggerType: 0
   triggers: []
+  detriggers: []
   vector: {x: 8, y: 0}
   onceTime: 5
   accMode: 1
@@ -13385,6 +13397,7 @@ MonoBehaviour:
   toAlways: 1
   triggerType: 0
   triggers: []
+  detriggers: []
   vector: {x: 4, y: 3}
   onceTime: 4.5
   accMode: 1
@@ -13511,7 +13524,6 @@ MonoBehaviour:
   walkXSpeed: 12
   walkXAcc: 100
   walkXDec: 50
-  bonus: 0
   jumpGape: 48
   jumpXSpeed: 12
   jumpXAcc: 45
@@ -15069,6 +15081,7 @@ MonoBehaviour:
   triggerType: 3
   triggers:
   - {fileID: 490769056}
+  detriggers: []
   spawnObject:
   - {fileID: 1634725205279740, guid: 92da45cc9d130d54383bda28e3f8c075, type: 2}
   spawnOffset: {x: 1, y: 1}
@@ -16229,6 +16242,7 @@ MonoBehaviour:
   toAlways: 1
   triggerType: 0
   triggers: []
+  detriggers: []
   vector: {x: 6, y: 5}
   onceTime: 4.5
   accMode: 1
@@ -17464,6 +17478,7 @@ MonoBehaviour:
   toAlways: 1
   triggerType: 0
   triggers: []
+  detriggers: []
   vector: {x: 0, y: 0}
   onceTime: 5
   accMode: 1
@@ -17923,6 +17938,7 @@ MonoBehaviour:
   toAlways: 1
   triggerType: 0
   triggers: []
+  detriggers: []
   vector: {x: -6, y: 5}
   onceTime: 4.5
   accMode: 1
@@ -18139,6 +18155,7 @@ MonoBehaviour:
   toAlways: 0
   triggerType: 0
   triggers: []
+  detriggers: []
   vector: {x: 0, y: -2}
   onceTime: 2
   accMode: 1
@@ -18746,6 +18763,7 @@ MonoBehaviour:
   triggerType: 1
   triggers:
   - {fileID: 63991765}
+  detriggers: []
   spawnObject:
   - {fileID: 1634725205279740, guid: 788881fbb2f023745a181ddc07f1878f, type: 2}
   spawnOffset: {x: 1, y: 1}
@@ -19428,6 +19446,7 @@ MonoBehaviour:
   toAlways: 1
   triggerType: 0
   triggers: []
+  detriggers: []
   vector: {x: -8, y: 7}
   onceTime: 4.5
   accMode: 1
@@ -19689,6 +19708,7 @@ MonoBehaviour:
   toAlways: 1
   triggerType: 0
   triggers: []
+  detriggers: []
   vector: {x: 1, y: 2}
   onceTime: 4
   accMode: 1
@@ -20065,6 +20085,7 @@ MonoBehaviour:
   toAlways: 0
   triggerType: 0
   triggers: []
+  detriggers: []
   breakTime: 2
   resetTime: 6
   c2d: {fileID: 0}
@@ -21226,6 +21247,7 @@ MonoBehaviour:
   toAlways: 1
   triggerType: 0
   triggers: []
+  detriggers: []
   vector: {x: -4, y: 3}
   onceTime: 4.5
   accMode: 1
@@ -21919,6 +21941,7 @@ MonoBehaviour:
   toAlways: 1
   triggerType: 0
   triggers: []
+  detriggers: []
   vector: {x: 6, y: 0}
   onceTime: 5
   accMode: 1
@@ -22174,6 +22197,7 @@ MonoBehaviour:
   toAlways: 0
   triggerType: 0
   triggers: []
+  detriggers: []
   vector: {x: 0, y: -2}
   onceTime: 2
   accMode: 1
@@ -22495,6 +22519,7 @@ MonoBehaviour:
   toAlways: 1
   triggerType: 0
   triggers: []
+  detriggers: []
   vector: {x: 0.5, y: 1.5}
   onceTime: 4
   accMode: 1
@@ -22756,6 +22781,7 @@ MonoBehaviour:
   toAlways: 0
   triggerType: 0
   triggers: []
+  detriggers: []
   vector: {x: -4, y: 0}
   onceTime: 30
   accMode: 1

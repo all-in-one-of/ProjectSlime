@@ -13,12 +13,29 @@ public class EntityBaseED : Editor {
 
 	public override void OnInspectorGUI() {
 		EditorTools.TitleField("實體物件");
-		script.attack = EditorTools.IntField(script.attack		, "傷害");
-		script.hp = EditorTools.IntField(script.hp				, "生命值");
-		script.eatAble = EditorTools.BoolField(script.eatAble	, "可食用");
+
+		BaseED(script);
 
 		EditorTools.Space();
 		EditorTools.Mig();
+	}
+
+	public static void BaseED(EntityBase value) {
+		value.attack	= EditorTools.IntField(value.attack, "傷害");
+		value.hp		= EditorTools.IntField(value.hp, "生命值");
+		value.eatAble	= EditorTools.BoolField(value.eatAble, "可食用");
+		value.eatBuffer = EditorTools.BoolField(value.eatBuffer, "食用加成");
+
+		if (value.eatBuffer) {
+			EditorTools.LabelField("<<食用Buffer>>");
+			value.buffer.walkXSpeed = EditorTools.FloatField(value.buffer.walkXSpeed, "移動速度");
+			value.buffer.waterXSpeed = EditorTools.FloatField(value.buffer.waterXSpeed, "水中移動速度");
+			value.buffer.jumpYForce = EditorTools.FloatField(value.buffer.jumpYForce, "跳躍力");
+			value.buffer.waterYForce = EditorTools.FloatField(value.buffer.waterYForce, "水中跳躍力");
+			value.buffer.iceXAcc = EditorTools.FloatField(value.buffer.iceXAcc, "滑冰加速度");
+			value.buffer.iceXDec = EditorTools.FloatField(value.buffer.iceXDec, "滑冰減速度");
+			EditorTools.Space();
+		}
 	}
 }
 
@@ -32,10 +49,8 @@ public class EnemyBaseED : Editor {
 
 	public override void OnInspectorGUI() {
 		EditorTools.TitleField("單位物件");
-		script.attack	= EditorTools.IntField(script.attack	, "傷害");
-		script.hp		= EditorTools.IntField(script.hp		, "生命值");
+		EntityBaseED.BaseED(script);
 		script.bonus	= EditorTools.IntField(script.bonus		, "分數");
-		script.eatAble	= EditorTools.BoolField(script.eatAble	, "可食用");
 		script.isUndead = EditorTools.BoolField(script.isUndead	, "抗岩漿");
 
 		EditorTools.Space();
@@ -69,9 +84,7 @@ public class ProjectileBaseED : Editor {
 
 	public override void OnInspectorGUI() {
 		EditorTools.TitleField("子彈物件");
-		script.attack		= EditorTools.IntField(script.attack	, "傷害");
-		script.hp			= EditorTools.IntField(script.hp		, "生命值");
-		script.eatAble		= EditorTools.BoolField(script.eatAble	, "可食用");
+		EntityBaseED.BaseED(script);
 		script.isCruise		= EditorTools.BoolField(script.isCruise , "追蹤模式");
 		script.cruiseRate	= EditorTools.FloatField(script.cruiseRate , "追蹤率");
 		script.constLifeTime	= EditorTools.FloatField(script.constLifeTime, "持續時間");
@@ -92,10 +105,11 @@ public class PlayerControllerED : Editor {
 
 	public override void OnInspectorGUI() {
 		EditorTools.TitleField("玩家物件");
-		script.hp = EditorTools.IntField(script.hp, "生命值");
-		script.eatAble = EditorTools.BoolField(script.eatAble, "可食用");
+		EntityBaseED.BaseED(script);
 
 		EditorTools.Space();
 		EditorTools.Mig();
 	}
 }
+
+

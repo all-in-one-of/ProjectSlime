@@ -245,6 +245,7 @@ MonoBehaviour:
   toAlways: 0
   triggerType: 0
   triggers: []
+  detriggers: []
   vector: {x: 0, y: -2}
   onceTime: 2
   accMode: 1
@@ -614,6 +615,7 @@ MonoBehaviour:
   toAlways: 0
   triggerType: 0
   triggers: []
+  detriggers: []
   vector: {x: 4, y: 0}
   onceTime: 5
   accMode: 1
@@ -1550,6 +1552,7 @@ MonoBehaviour:
   toAlways: 0
   triggerType: 0
   triggers: []
+  detriggers: []
   vector: {x: 25, y: 0}
   onceTime: 2
   accMode: 1
@@ -2199,6 +2202,7 @@ MonoBehaviour:
   toAlways: 0
   triggerType: 0
   triggers: []
+  detriggers: []
   vector: {x: 0, y: -15}
   onceTime: 2
   accMode: 1
@@ -2577,6 +2581,7 @@ MonoBehaviour:
   toAlways: 0
   triggerType: 0
   triggers: []
+  detriggers: []
   vector: {x: 0, y: 15}
   onceTime: 1.5
   accMode: 1
@@ -3856,6 +3861,7 @@ MonoBehaviour:
   toAlways: 0
   triggerType: 0
   triggers: []
+  detriggers: []
   vector: {x: 0, y: 15}
   onceTime: 2
   accMode: 1
@@ -4200,6 +4206,7 @@ MonoBehaviour:
   toAlways: 0
   triggerType: 0
   triggers: []
+  detriggers: []
   breakTime: 2
   resetTime: 6
   c2d: {fileID: 0}
@@ -4649,6 +4656,7 @@ MonoBehaviour:
   toAlways: 0
   triggerType: 0
   triggers: []
+  detriggers: []
   name: S03_Develope
 --- !u!114 &371440333
 MonoBehaviour:
@@ -5542,6 +5550,7 @@ MonoBehaviour:
   toAlways: 0
   triggerType: 0
   triggers: []
+  detriggers: []
   vector: {x: -10, y: 0}
   onceTime: 14
   accMode: 1
@@ -5697,6 +5706,7 @@ MonoBehaviour:
   toAlways: 0
   triggerType: 0
   triggers: []
+  detriggers: []
   breakTime: 2
   resetTime: 6
   c2d: {fileID: 0}
@@ -6597,6 +6607,7 @@ MonoBehaviour:
   toAlways: 0
   triggerType: 0
   triggers: []
+  detriggers: []
   vector: {x: -4, y: 0}
   onceTime: 30
   accMode: 1
@@ -7484,6 +7495,7 @@ MonoBehaviour:
   toAlways: 0
   triggerType: 0
   triggers: []
+  detriggers: []
   vector: {x: 0, y: -15}
   onceTime: 2
   accMode: 1
@@ -7721,6 +7733,7 @@ MonoBehaviour:
   toAlways: 0
   triggerType: 0
   triggers: []
+  detriggers: []
   vector: {x: 0, y: -7.5}
   onceTime: 4
   accMode: 1
@@ -7874,6 +7887,7 @@ MonoBehaviour:
   triggerType: 3
   triggers:
   - {fileID: 490769056}
+  detriggers: []
   spawnObject:
   - {fileID: 1634725205279740, guid: 92da45cc9d130d54383bda28e3f8c075, type: 2}
   spawnOffset: {x: 1, y: 1}
@@ -8206,7 +8220,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5fd3337618533544a86c76bc56ee2e83, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8226,7 +8240,7 @@ SpriteRenderer:
   m_SortingLayerID: -858221419
   m_SortingLayer: -1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a45e12ab4a5abda43a0a597a65cb6049, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f5d285f83e1246945a7ad140dbad18fa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -8454,6 +8468,7 @@ MonoBehaviour:
   toAlways: 0
   triggerType: 0
   triggers: []
+  detriggers: []
   vector: {x: 0, y: -15}
   onceTime: 3
   accMode: 1
@@ -8689,6 +8704,7 @@ MonoBehaviour:
   toAlways: 0
   triggerType: 0
   triggers: []
+  detriggers: []
   spawnObject:
   - {fileID: 1026908276139460, guid: b9b5d6ededd6efd45a17849dc5cc20bf, type: 2}
   - {fileID: 1222184263987072, guid: 51c62c7314a73ae4ba92b6871bda7b23, type: 2}
@@ -8759,7 +8775,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5fd3337618533544a86c76bc56ee2e83, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8779,7 +8795,7 @@ SpriteRenderer:
   m_SortingLayerID: -858221419
   m_SortingLayer: -1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2488d3ec46a717d4ebf84a8c25bdb161, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c8ca2597c4da03c42b56f0f731e497a7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -8796,7 +8812,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 774803728}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 576.6, y: -25, z: 45.58}
+  m_LocalPosition: {x: 566.3, y: -25, z: 45.58}
   m_LocalScale: {x: 3.12, y: 3.12, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -9084,6 +9100,7 @@ MonoBehaviour:
   toAlways: 0
   triggerType: 0
   triggers: []
+  detriggers: []
   vector: {x: -15, y: 0}
   onceTime: 2.5
   accMode: 1
@@ -9597,6 +9614,7 @@ MonoBehaviour:
   toAlways: 0
   triggerType: 0
   triggers: []
+  detriggers: []
   spawnObject:
   - {fileID: 1222184263987072, guid: 51c62c7314a73ae4ba92b6871bda7b23, type: 2}
   spawnOffset: {x: 10, y: 0}
@@ -9784,7 +9802,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5fd3337618533544a86c76bc56ee2e83, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9804,7 +9822,7 @@ SpriteRenderer:
   m_SortingLayerID: -858221419
   m_SortingLayer: -1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: fb913f67a12416645a8399b3a32f9bc4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c7752be0e0c63b74dbbbb2510b6efa9c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -9877,6 +9895,7 @@ MonoBehaviour:
   toAlways: 0
   triggerType: 0
   triggers: []
+  detriggers: []
   vector: {x: 0, y: -15}
   onceTime: 2.5
   accMode: 1
@@ -11033,6 +11052,7 @@ MonoBehaviour:
   toAlways: 0
   triggerType: 0
   triggers: []
+  detriggers: []
   vector: {x: 0, y: 10}
   onceTime: 1
   accMode: 1
@@ -11517,7 +11537,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5fd3337618533544a86c76bc56ee2e83, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11537,7 +11557,7 @@ SpriteRenderer:
   m_SortingLayerID: -858221419
   m_SortingLayer: -1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3252a4dd9f0cb50419123cbeec002232, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8870887769d0adc49adfa5b1c5f36494, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -11744,6 +11764,7 @@ MonoBehaviour:
   toAlways: 0
   triggerType: 0
   triggers: []
+  detriggers: []
   breakTime: 2
   resetTime: 6
   c2d: {fileID: 0}
@@ -12018,6 +12039,7 @@ MonoBehaviour:
   toAlways: 0
   triggerType: 0
   triggers: []
+  detriggers: []
   vector: {x: 0, y: 15}
   onceTime: 2
   accMode: 1
@@ -12451,6 +12473,7 @@ MonoBehaviour:
   toAlways: 0
   triggerType: 0
   triggers: []
+  detriggers: []
   vector: {x: 0, y: 7.5}
   onceTime: 4
   accMode: 1
@@ -12691,7 +12714,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5fd3337618533544a86c76bc56ee2e83, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12711,7 +12734,7 @@ SpriteRenderer:
   m_SortingLayerID: -858221419
   m_SortingLayer: -1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c8d8e7e9ca34d3e4a826cee787375143, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d58ea9a90bf11cb468d05304b8341436, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -13283,6 +13306,7 @@ MonoBehaviour:
   toAlways: 0
   triggerType: 0
   triggers: []
+  detriggers: []
   vector: {x: 10, y: 0}
   onceTime: 14
   accMode: 1
@@ -13483,6 +13507,7 @@ MonoBehaviour:
   toAlways: 0
   triggerType: 0
   triggers: []
+  detriggers: []
   vector: {x: 0, y: 15}
   onceTime: 1
   accMode: 1
@@ -14938,6 +14963,7 @@ MonoBehaviour:
   triggerType: 3
   triggers:
   - {fileID: 490769056}
+  detriggers: []
   spawnObject:
   - {fileID: 1634725205279740, guid: 92da45cc9d130d54383bda28e3f8c075, type: 2}
   spawnOffset: {x: 1, y: 1}
@@ -15471,6 +15497,7 @@ MonoBehaviour:
   triggerType: 4
   triggers:
   - {fileID: 63991765}
+  detriggers: []
   vector: {x: 2.5, y: 0}
   onceTime: 50
   accMode: 1
@@ -16413,6 +16440,7 @@ MonoBehaviour:
   toAlways: 0
   triggerType: 0
   triggers: []
+  detriggers: []
   vector: {x: 0, y: 10}
   onceTime: 2
   accMode: 1
@@ -16568,6 +16596,7 @@ MonoBehaviour:
   toAlways: 0
   triggerType: 0
   triggers: []
+  detriggers: []
   breakTime: 2
   resetTime: 6
   c2d: {fileID: 0}
@@ -17274,6 +17303,7 @@ MonoBehaviour:
   toAlways: 0
   triggerType: 0
   triggers: []
+  detriggers: []
   vector: {x: -4, y: 0}
   onceTime: 5
   accMode: 1
@@ -17835,6 +17865,7 @@ MonoBehaviour:
   toAlways: 0
   triggerType: 0
   triggers: []
+  detriggers: []
   vector: {x: -4, y: 0}
   onceTime: 30
   accMode: 1
@@ -17989,6 +18020,7 @@ MonoBehaviour:
   toAlways: 0
   triggerType: 0
   triggers: []
+  detriggers: []
   vector: {x: 25, y: 0}
   onceTime: 2
   accMode: 1
@@ -18628,6 +18660,7 @@ MonoBehaviour:
   triggerType: 1
   triggers:
   - {fileID: 63991765}
+  detriggers: []
   spawnObject:
   - {fileID: 1634725205279740, guid: 788881fbb2f023745a181ddc07f1878f, type: 2}
   spawnOffset: {x: 1, y: 1}
@@ -18715,6 +18748,7 @@ MonoBehaviour:
   toAlways: 0
   triggerType: 0
   triggers: []
+  detriggers: []
   vector: {x: 0, y: 15}
   onceTime: 2
   accMode: 1
@@ -19451,6 +19485,7 @@ MonoBehaviour:
   toAlways: 0
   triggerType: 0
   triggers: []
+  detriggers: []
   vector: {x: -8, y: 0}
   onceTime: 5
   accMode: 1
@@ -20106,7 +20141,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5fd3337618533544a86c76bc56ee2e83, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -20126,7 +20161,7 @@ SpriteRenderer:
   m_SortingLayerID: -858221419
   m_SortingLayer: -1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f83ff6b360494e64e90d7ff877134d12, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7b4063eb9ddc0314089d3c163e6595ce, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -20349,6 +20384,7 @@ MonoBehaviour:
   toAlways: 0
   triggerType: 0
   triggers: []
+  detriggers: []
   vector: {x: -4, y: 0}
   onceTime: 30
   accMode: 1
@@ -20641,6 +20677,7 @@ MonoBehaviour:
   toAlways: 0
   triggerType: 0
   triggers: []
+  detriggers: []
   vector: {x: 0, y: 7}
   onceTime: 5
   accMode: 1
@@ -21220,6 +21257,7 @@ MonoBehaviour:
   toAlways: 0
   triggerType: 0
   triggers: []
+  detriggers: []
   vector: {x: 8, y: 0}
   onceTime: 5
   accMode: 1
@@ -21375,6 +21413,7 @@ MonoBehaviour:
   triggerType: 1
   triggers:
   - {fileID: 1272199667}
+  detriggers: []
   vector: {x: 5, y: 0}
   onceTime: 51.5
   accMode: 1
@@ -21511,6 +21550,7 @@ MonoBehaviour:
   toAlways: 0
   triggerType: 0
   triggers: []
+  detriggers: []
   vector: {x: 0, y: -2}
   onceTime: 2
   accMode: 1
@@ -21928,7 +21968,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5fd3337618533544a86c76bc56ee2e83, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -21948,7 +21988,7 @@ SpriteRenderer:
   m_SortingLayerID: -858221419
   m_SortingLayer: -1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 995f6c75551955746a2b3c81a51ba537, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3e649fb6e767c784dae9717dbacb97ae, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -22216,6 +22256,7 @@ MonoBehaviour:
   toAlways: 0
   triggerType: 0
   triggers: []
+  detriggers: []
   vector: {x: 0, y: 8}
   onceTime: 2
   accMode: 1
@@ -22374,6 +22415,7 @@ MonoBehaviour:
   toAlways: 0
   triggerType: 0
   triggers: []
+  detriggers: []
   vector: {x: 0, y: -15}
   onceTime: 1
   accMode: 1
@@ -22616,6 +22658,7 @@ MonoBehaviour:
   toAlways: 0
   triggerType: 0
   triggers: []
+  detriggers: []
   vector: {x: 0, y: 10}
   onceTime: 2.5
   accMode: 1

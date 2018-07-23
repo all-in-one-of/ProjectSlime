@@ -7,11 +7,16 @@ public class GameEngine : MonoBehaviour {
 	public static GameEngine direct;
 	public static int stageCountDown = 240;
 	private static string checkPoint = "";
-
-	public Transform units;
+	
 	public bool connecting;
 
+	//test
+	public bool preTester = false;
+	public GameObject testScene;
+
 	public static PlayerController mainPlayer;
+	public static StageData nowStage;
+
 	public List<PlayerController> players = new List<PlayerController>();
 	public List<GameObject> playerUIs = new List<GameObject>();
 
@@ -19,14 +24,11 @@ public class GameEngine : MonoBehaviour {
 	public GameObject audioManager;
 	public GameObject scoreManager;
 	public GameObject uiManager;
-	public Transform startPoint;
 
-	public float walkXSpeed = 8;
-	public float walkXAcc = 10;
-	public float walkXDec = 10;
-
-	public int bonus = 0;
-
+	public float walkXSpeed = 8;	
+	public float walkXAcc = 10;		
+	public float walkXDec = 10;		
+	
 	public int jumpGape = 48;
 
 	public float jumpXSpeed = 8;
@@ -47,9 +49,10 @@ public class GameEngine : MonoBehaviour {
 
 	public float iceXAcc = 10;
 	public float iceXDec = 10;
-
+	
 	private void Start() {
 		direct = this;
+		DontDestroyOnLoad(this);
 
 		//Initiate Manger
 		GameObject cm = Instantiate(cameraManager);
@@ -60,7 +63,19 @@ public class GameEngine : MonoBehaviour {
 		new ScoreSystem();
 		cm.GetComponent<CameraManager>().Init();
 
+		//Init - Stage
+		if (testScene) {
+			LoadStage(testScene);
+		} else {
+
+		}
+		
 		//Init - UI
+	}
+
+	public void LoadStage(GameObject value) {
+		GameObject newStage = Instantiate(value);
+		nowStage = newStage.GetComponent<StageData>();
 	}
 
 	private void Update() {
@@ -175,7 +190,17 @@ public class GameEngine : MonoBehaviour {
 	}
 
 	public EntityBase GetUnitInRange(float range , Vector2 pos) {
-		foreach (Transform unit in units) {
+
+		foreach (Transform unit in nowStage.unitSet) {
+			if (Mathf.Abs(transform.position.x - unit.transform.position.x) < range) {
+				if (Mathf.Abs(transform.position.y - unit.transform.position.y) < range * 0.1f) {
+					EntityBase enemy = unit.GetComponent<EntityBase>();
+					if (enemy && !enemy.isDead) {
+						return enemy;
+					}
+				}
+			}
+
 			if (Vector2.Distance(pos, unit.position) <= range) {
 				EntityBase enemy = unit.GetComponent<EntityBase>();
 				if (enemy && !enemy.isDead) {
@@ -183,6 +208,16 @@ public class GameEngine : MonoBehaviour {
 				}
 			}
 		}
+
+		/*
+		foreach (Transform unit in units) {
+			if (Vector2.Distance(pos, unit.position) <= range) {
+				EntityBase enemy = unit.GetComponent<EntityBase>();
+				if (enemy && !enemy.isDead) {
+					return enemy;
+				}
+			}
+		}*/
 		return null;
 	}
 }

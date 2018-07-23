@@ -4,9 +4,12 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 public class EntityBase : NetworkBehaviour {
+	public BufferEffect buffer = new BufferEffect();
+
 	public bool isInvincible = false;
 	public bool isUndead = false;
 	public bool eatAble = true;
+	public bool eatBuffer = false;
 	public bool isDead = false;
 	public float invincibleTimer;
 
@@ -20,6 +23,7 @@ public class EntityBase : NetworkBehaviour {
 	protected Rigidbody2D rb;
 	protected BoxCollider2D bc;
 
+	
 	void Start() {
 		FStart();
 	}

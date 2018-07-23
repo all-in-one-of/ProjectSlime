@@ -20,13 +20,17 @@ public class UIManager : MonoBehaviour {
 	}
 
 	public void Join() {
-		PrototypeSystem.direct.SpawnPlayer();
-		uiTrigger.SetSelectedGameObject(gameObject);
+		if (PrototypeSystem.direct) {
+			PrototypeSystem.direct.SpawnPlayer();
+			uiTrigger.SetSelectedGameObject(gameObject);
+		}		
 	}
 
 	public void Pause() {
-		PrototypeSystem.direct.Pause();
-		uiTrigger.SetSelectedGameObject(gameObject);
+		if (PrototypeSystem.direct) {
+			PrototypeSystem.direct.Pause();
+			uiTrigger.SetSelectedGameObject(gameObject);
+		}			
 	}
 
 	public void Restart() {
