@@ -64,7 +64,7 @@ public class GameEngine : MonoBehaviour {
 		cm.GetComponent<CameraManager>().Init();
 
 		//Init - Stage
-		if (testScene) {
+		if (preTester && testScene) {
 			LoadStage(testScene);
 		} else {
 

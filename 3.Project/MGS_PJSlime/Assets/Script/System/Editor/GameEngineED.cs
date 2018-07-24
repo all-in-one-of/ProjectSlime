@@ -11,7 +11,8 @@ public class GameEngineED : Editor {
 		script = (GameEngine)target;
 	}
 
-	public override void OnInspectorGUI() {
+	public override void OnInspectorGUI() {	
+
 		EditorTools.TitleField("<<Prefab>>");
 		script.cameraManager = (GameObject)EditorTools.ObjectField(script.cameraManager, typeof(GameObject), "CameraManager");
 		script.audioManager = (GameObject)EditorTools.ObjectField(script.audioManager, typeof(GameObject) , "AudioManager" );
@@ -20,6 +21,13 @@ public class GameEngineED : Editor {
 		EditorTools.Space();
 
 		EditorTools.TitleField("<<Init>>");
+		script.preTester = EditorTools.BoolField(script.preTester, "測試場景");
+		if (script.preTester) {
+			EditorTools.LabelField("(Assets\\Resources\\Stage)" , "<<TestStage>>");
+			script.testScene = (GameObject)EditorTools.ObjectField(script.testScene, typeof(GameObject), "目標場景");
+			EditorTools.Space();
+		}		
+
 		EditorTools.Space();
 
 		EditorTools.TitleField("<<PlayerSet>>");
