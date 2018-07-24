@@ -12,13 +12,16 @@ public class GameEngine : MonoBehaviour {
 
 	//test
 	public bool preTester = false;
-	public GameObject testScene;
+	public GameObject testStage;
 
 	public static PlayerController mainPlayer;
 	public static StageData nowStage;
 
 	public List<PlayerController> players = new List<PlayerController>();
 	public List<GameObject> playerUIs = new List<GameObject>();
+
+
+	public List<GameObject> stageList = new List<GameObject>();
 
 	public GameObject cameraManager;
 	public GameObject audioManager;
@@ -64,8 +67,8 @@ public class GameEngine : MonoBehaviour {
 		cm.GetComponent<CameraManager>().Init();
 
 		//Init - Stage
-		if (preTester && testScene) {
-			LoadStage(testScene);
+		if (preTester && testStage) {
+			LoadStage(testStage);
 		} else {
 
 		}

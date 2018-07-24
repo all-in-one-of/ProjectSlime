@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEditor;
 using System;
+using System;
 
 [CustomEditor(typeof(GameEngine))]
 public class GameEngineED : Editor {
@@ -11,8 +12,10 @@ public class GameEngineED : Editor {
 		script = (GameEngine)target;
 	}
 
-	public override void OnInspectorGUI() {	
-
+	public override void OnInspectorGUI() {
+		SerializedObject serializedObject;
+		SerializedProperty property;
+		
 		EditorTools.TitleField("<<Prefab>>");
 		script.cameraManager = (GameObject)EditorTools.ObjectField(script.cameraManager, typeof(GameObject), "CameraManager");
 		script.audioManager = (GameObject)EditorTools.ObjectField(script.audioManager, typeof(GameObject) , "AudioManager" );
@@ -23,16 +26,23 @@ public class GameEngineED : Editor {
 		EditorTools.TitleField("<<Init>>");
 		script.preTester = EditorTools.BoolField(script.preTester, "測試場景");
 		if (script.preTester) {
-			EditorTools.LabelField("(Assets\\Resources\\Stage)" , "<<TestStage>>");
-			script.testScene = (GameObject)EditorTools.ObjectField(script.testScene, typeof(GameObject), "目標場景");
-			EditorTools.Space();
-		}		
+			EditorTools.LabelField("(Assets\\Resources\\Stage)", "<<TestStage>>");
+			script.testStage = (GameObject)EditorTools.ObjectField(script.testStage, typeof(GameObject), "目標場景");
+
+		} else {
+			EditorTools.LabelField("(Assets\\Resources\\Stage)", "<<StageList>>");
+			serializedObject = new SerializedObject(target);
+			property = serializedObject.FindProperty("stageList");
+			serializedObject.Update();
+			EditorGUILayout.PropertyField(property, true);
+			serializedObject.ApplyModifiedProperties();
+		}
 
 		EditorTools.Space();
 
 		EditorTools.TitleField("<<PlayerSet>>");
-		var serializedObject = new SerializedObject(target);
-		var property = serializedObject.FindProperty("players");
+		serializedObject = new SerializedObject(target);
+		property = serializedObject.FindProperty("players");
 		serializedObject.Update();
 		EditorGUILayout.PropertyField(property, true);
 		serializedObject.ApplyModifiedProperties();
