@@ -376,7 +376,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   connecting: 0
   preTester: 0
-  testScene: {fileID: 1945061982297576, guid: 12e80d78ff22a634aab2f72c8cc10ba2, type: 2}
+  testScene: {fileID: 1561832114416774, guid: b8d93f5f641cb2e469d5b09ecb0e886a, type: 2}
   players: []
   playerUIs: []
   cameraManager: {fileID: 1732961849303570, guid: b8278ee36efd6c74aa13c703f582849b,
