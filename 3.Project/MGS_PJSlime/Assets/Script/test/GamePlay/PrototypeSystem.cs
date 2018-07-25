@@ -23,9 +23,9 @@ public class PrototypeSystem : NetworkBehaviour {
 	
 	void OnServerInitialized() {
 		SpawnPlayer();
-		CameraManager.nowCamera.transform.position = new Vector3(GameEngine.mainPlayer.transform.position.x , GameEngine.mainPlayer.transform.position.y , CameraManager.nowCamera.transform.position.z);
+		CameraManager.nowCamera.transform.position = new Vector3(GameEngine.mainPlayer.transform.position.x, GameEngine.mainPlayer.transform.position.y, CameraManager.nowCamera.transform.position.z);
 	}
-
+	
 	public void SpawnPlayer() {
 		if (a < 4) {
 			Vector2 spawnPoint = GameEngine.GetCheckPoint() != "" ? GameObject.Find(GameEngine.GetCheckPoint()).transform.position : transform.position;
@@ -37,6 +37,7 @@ public class PrototypeSystem : NetworkBehaviour {
 			if (a == 0) {
 				newObj.GetComponent<PlayerController>().CmdRegist(a, hostIntSize);
 				GameEngine.direct.Focus(newObj.GetComponent<PlayerController>());
+				GameEngine.direct.StartStage();	
 			} else {
 				newObj.GetComponent<PlayerController>().CmdRegist(a, intSize);
 			}

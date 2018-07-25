@@ -33,7 +33,7 @@ public class PlayerController : EntityBase {
 	public AudioSource bornAudio;
 	public AudioSource jumpAudio;
 	public AudioSource eatAudio;
-	protected Buffer buffer = new Buffer();
+	protected Buffer nowBuffer = new Buffer();
 
 	public float size = 0;
 
@@ -506,7 +506,6 @@ public class PlayerController : EntityBase {
 		}
 
 		if (collision.transform.tag == "End") {
-			ScoreSystem.CaculateRecord();
 			GameEngine.direct.OnVictory();
 
 		} else if (collision.transform.tag == "Dead") {
@@ -587,7 +586,7 @@ public class PlayerController : EntityBase {
 		EntityBase target = GameEngine.direct.GetUnitInRange(SizeFormula(size) + 3, transform.position);
 		if (target) {
 			if (target.eatBuffer && target.buffer != null) {
-				buffer.AddEffect(target.buffer);
+				nowBuffer.AddEffect(target.buffer);
 			}
 
 			if (target.GetComponent<ProjectileBase>()) {

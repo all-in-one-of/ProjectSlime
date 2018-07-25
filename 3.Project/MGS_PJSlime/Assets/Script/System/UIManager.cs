@@ -15,8 +15,9 @@ public class UIManager : MonoBehaviour {
 	public List<Text> recordShower2 = new List<Text>();
 	public List<Image> recordShower3 = new List<Image>();
 
-	public void Start() {
+	void Start() {
 		direct = this;
+		DontDestroyOnLoad(this);
 	}
 
 	public void Join() {

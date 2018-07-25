@@ -22,10 +22,10 @@ public class CameraManager : MonoBehaviour {
 	public float bumpTime = 1;
 	public float bumpTimer = 0;
 	public float bumpBuffer = 0.5f;
-
-
-	private void Start() {
+	
+	void Start() {
 		direct = this;
+		DontDestroyOnLoad(this);
 	}
 
 	public void Init() {
@@ -33,7 +33,7 @@ public class CameraManager : MonoBehaviour {
 
 		foreach (Transform ui in nowCamera.transform) {
 			GameEngine.direct.playerUIs.Add(ui.gameObject);
-		}		
+		}
 	}
 
 	private void Update() {
@@ -45,8 +45,7 @@ public class CameraManager : MonoBehaviour {
 
 		float mainSpeed = speedCurve.Evaluate(Vector2.Distance(nowCamera.position, (Vector2)GameEngine.mainPlayer.transform.position + new Vector2(0, yOffset)));
 		float hintSpeed = -Vector2.Distance(targetHint.position, GameEngine.mainPlayer.transform.position) * 5 + 50;
-		
-		
+				
 		if (hintSpeed < 5) {
 			hintSpeed = 5;
 		}
@@ -63,8 +62,7 @@ public class CameraManager : MonoBehaviour {
 			mainCamera.orthographicSize = Mathf.Lerp(mainCamera.orthographicSize, 16 + focusCurve.Evaluate(mainSpeed), Time.deltaTime * focusNSpeed);
 		}
 		preFocusSpeed = focusSpeed;*/
-
-
+		
 		if (bumpTimer > 0) {
 			float targetBump = bumpCurve.Evaluate(bumpTime - bumpTimer);
 			
@@ -74,8 +72,8 @@ public class CameraManager : MonoBehaviour {
 				mainCamera.orthographicSize = Mathf.Lerp(mainCamera.orthographicSize, 16 + targetBump * bumpBuffer, focusNSpeed);
 			}
 			bumpTimer = bumpTimer - Time.deltaTime;
-		} else {
 
+		} else {
 			mainCamera.orthographicSize = Mathf.Lerp(mainCamera.orthographicSize, 16 ,  focusNSpeed);
 		}
 

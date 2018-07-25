@@ -7,8 +7,12 @@ public class AudioManager : MonoBehaviour {
 	public AudioSource mainBgmSource;
 	public AudioClip mainBgm;
 
-	private void Start() {
+	void Start() {
 		direct = this;
+		DontDestroyOnLoad(this);
+	}
+
+	public void Init() {
 		PlayMusic(mainBgm);
 	}
 

@@ -20,7 +20,6 @@ public class GameEngineED : Editor {
 		script.cameraManager = (GameObject)EditorTools.ObjectField(script.cameraManager, typeof(GameObject), "CameraManager");
 		script.audioManager = (GameObject)EditorTools.ObjectField(script.audioManager, typeof(GameObject) , "AudioManager" );
 		script.uiManager = (GameObject)EditorTools.ObjectField(script.uiManager, typeof(GameObject), "UIManager");
-		script.scoreManager = (GameObject)EditorTools.ObjectField(script.scoreManager, typeof(GameObject), "ScoreManager");
 		EditorTools.Space();
 
 		EditorTools.TitleField("<<Init>>");

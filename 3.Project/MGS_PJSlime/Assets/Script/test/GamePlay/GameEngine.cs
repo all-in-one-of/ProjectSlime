@@ -7,7 +7,16 @@ public class GameEngine : MonoBehaviour {
 	public static GameEngine direct;
 	public static int stageCountDown = 240;
 	private static string checkPoint = "";
-	
+
+	public enum Status {
+		Bullpen,
+		Stage,
+		Garden,
+
+		Loading
+	}
+
+	public Status status = Status.Loading;
 	public bool connecting;
 
 	//test
@@ -25,7 +34,6 @@ public class GameEngine : MonoBehaviour {
 
 	public GameObject cameraManager;
 	public GameObject audioManager;
-	public GameObject scoreManager;
 	public GameObject uiManager;
 
 	public float walkXSpeed = 8;	
@@ -53,18 +61,40 @@ public class GameEngine : MonoBehaviour {
 	public float iceXAcc = 10;
 	public float iceXDec = 10;
 	
-	private void Start() {
-		direct = this;
-		DontDestroyOnLoad(this);
+	void Start() {
+		if (direct == null) {
+			playerUIs = new List<GameObject>();
 
-		//Initiate Manger
-		GameObject cm = Instantiate(cameraManager);
-		Instantiate(audioManager);
-		Instantiate(uiManager);
+			direct = this;
+			DontDestroyOnLoad(this);
 
-		//Init - SYS
-		new ScoreSystem();
-		cm.GetComponent<CameraManager>().Init();
+			//Initiate Manger
+			GameObject temp;
+			temp = Instantiate(cameraManager);
+			CameraManager.direct = temp.GetComponent<CameraManager>();
+
+			temp = Instantiate(audioManager);
+			AudioManager.direct = temp.GetComponent<AudioManager>();
+
+			Instantiate(uiManager);
+
+			//Init - SYS
+			new ScoreSystem();
+			Init();
+
+		} else {
+			direct.Init();
+			Destroy(gameObject);
+		}
+	}
+
+	public void Init() {
+		//Init - Value
+		mainPlayer = null;
+		players = new List<PlayerController>();
+		playerUIs = new List<GameObject>();
+
+		StartStage();
 
 		//Init - Stage
 		if (preTester && testStage) {
@@ -72,24 +102,38 @@ public class GameEngine : MonoBehaviour {
 		} else {
 
 		}
-		
+
 		//Init - UI
+
+		
+
+		//Init - Finish
+		status = Status.Stage;
+		connecting = false;
+	}
+
+	public void StartStage() {
+		CameraManager.direct.Init();
+		AudioManager.direct.Init();
 	}
 
 	public void LoadStage(GameObject value) {
 		GameObject newStage = Instantiate(value);
 		nowStage = newStage.GetComponent<StageData>();
 	}
-
+	
 	private void Update() {
-		if (!connecting) {
-			Network.InitializeServer(1, 7777);
-		} else {
-			UIManager.direct.timer.text = ((int)(stageCountDown - Time.timeSinceLevelLoad)).ToString();
-			if (stageCountDown - Time.timeSinceLevelLoad < 0) {
-				SkyTalker.direct.ResetScene();
+		if (status == Status.Stage) {
+			if (!connecting) {
+				Network.InitializeServer(1, 7777 , true);
+				//PrototypeSystem.direct.Init();
+			} else {
+				UIManager.direct.timer.text = ((int)(stageCountDown - Time.timeSinceLevelLoad)).ToString();
+				if (stageCountDown - Time.timeSinceLevelLoad < 0) {
+					SkyTalker.direct.ResetScene();
+				}
 			}
-		}
+		}		
 	}
 
 	public void OnConnected(NetworkMessage netMsg) {
@@ -106,7 +150,9 @@ public class GameEngine : MonoBehaviour {
 	}
 
 	public void OnVictory() {
-
+		status = Status.Garden;
+		SceneSwitcher.direct.SwitchScene("S03_Garden");
+		ScoreSystem.CaculateRecord();
 	}
 	
 	public void ResetCamera() {
@@ -222,5 +268,5 @@ public class GameEngine : MonoBehaviour {
 			}
 		}*/
 		return null;
-	}
+	}	
 }
