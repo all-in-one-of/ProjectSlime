@@ -37,7 +37,6 @@ public class PrototypeSystem : NetworkBehaviour {
 			if (a == 0) {
 				newObj.GetComponent<PlayerController>().CmdRegist(a, hostIntSize);
 				GameEngine.direct.Focus(newObj.GetComponent<PlayerController>());
-				GameEngine.direct.StartStage();	
 			} else {
 				newObj.GetComponent<PlayerController>().CmdRegist(a, intSize);
 			}

@@ -40,7 +40,6 @@ public class CameraManager : MonoBehaviour {
 		if (!GameEngine.mainPlayer) {
 			return;
 		}
-
 		//float cSpeed = GameEngine.mainPlayer.GetSpeed();
 
 		float mainSpeed = speedCurve.Evaluate(Vector2.Distance(nowCamera.position, (Vector2)GameEngine.mainPlayer.transform.position + new Vector2(0, yOffset)));

@@ -28,13 +28,18 @@ public class GameEngine : MonoBehaviour {
 
 	public List<PlayerController> players = new List<PlayerController>();
 	public List<GameObject> playerUIs = new List<GameObject>();
-
+	public Buffer[] playerBuffer = {
+		new Buffer(),
+		new Buffer(),
+		new Buffer(),
+		new Buffer()};
 
 	public List<GameObject> stageList = new List<GameObject>();
 
 	public GameObject cameraManager;
 	public GameObject audioManager;
 	public GameObject uiManager;
+	public GameObject gardenStage;
 
 	public float walkXSpeed = 8;	
 	public float walkXAcc = 10;		
@@ -60,63 +65,56 @@ public class GameEngine : MonoBehaviour {
 
 	public float iceXAcc = 10;
 	public float iceXDec = 10;
-	
+
+	private int stageIndex = 0;
+
 	void Start() {
-		if (direct == null) {
-			playerUIs = new List<GameObject>();
+		direct = this;
+		DontDestroyOnLoad(this);
 
-			direct = this;
-			DontDestroyOnLoad(this);
+		//Initiate Manger
+		GameObject temp;
+		temp = Instantiate(cameraManager);
+		CameraManager.direct = temp.GetComponent<CameraManager>();
 
-			//Initiate Manger
-			GameObject temp;
-			temp = Instantiate(cameraManager);
-			CameraManager.direct = temp.GetComponent<CameraManager>();
+		temp = Instantiate(audioManager);
+		AudioManager.direct = temp.GetComponent<AudioManager>();
 
-			temp = Instantiate(audioManager);
-			AudioManager.direct = temp.GetComponent<AudioManager>();
+		temp = Instantiate(uiManager);
+		UIManager.direct = temp.GetComponent<UIManager>();
 
-			Instantiate(uiManager);
-
-			//Init - SYS
-			new ScoreSystem();
-			Init();
-
-		} else {
-			direct.Init();
-			Destroy(gameObject);
-		}
+		//Init - SYS
+		new ScoreSystem();
+		Init();
 	}
 
-	public void Init() {
+	public void Init( Status nextStatus = Status.Stage) {
 		//Init - Value
 		mainPlayer = null;
 		players = new List<PlayerController>();
 		playerUIs = new List<GameObject>();
 
-		StartStage();
-
-		//Init - Stage
-		if (preTester && testStage) {
-			LoadStage(testStage);
-		} else {
-
-		}
-
-		//Init - UI
-
-		
-
-		//Init - Finish
-		status = Status.Stage;
-		connecting = false;
-	}
-
-	public void StartStage() {
+		//Init - System
 		CameraManager.direct.Init();
 		AudioManager.direct.Init();
-	}
 
+		//Init - Stage
+		if (nextStatus == Status.Stage) {
+			if (preTester && testStage) {
+				LoadStage(testStage);
+			} else {
+				LoadStage(stageList[stageIndex]);
+			}
+		} else {
+			LoadStage(gardenStage);
+		}
+		
+		//Init - Finish
+		status = nextStatus;
+		connecting = false;
+	}
+	
+	//讀取場景
 	public void LoadStage(GameObject value) {
 		GameObject newStage = Instantiate(value);
 		nowStage = newStage.GetComponent<StageData>();
@@ -125,7 +123,7 @@ public class GameEngine : MonoBehaviour {
 	private void Update() {
 		if (status == Status.Stage) {
 			if (!connecting) {
-				Network.InitializeServer(1, 7777 , true);
+				Network.InitializeServer(1, 7777, true);
 				//PrototypeSystem.direct.Init();
 			} else {
 				UIManager.direct.timer.text = ((int)(stageCountDown - Time.timeSinceLevelLoad)).ToString();
@@ -133,7 +131,12 @@ public class GameEngine : MonoBehaviour {
 					SkyTalker.direct.ResetScene();
 				}
 			}
-		}		
+		} else if (status == Status.Garden) {
+			if (!connecting) {
+				Network.InitializeServer(1, 7777, true);
+				//PrototypeSystem.direct.Init();
+			}
+		}
 	}
 
 	public void OnConnected(NetworkMessage netMsg) {
@@ -150,9 +153,23 @@ public class GameEngine : MonoBehaviour {
 	}
 
 	public void OnVictory() {
-		status = Status.Garden;
 		SceneSwitcher.direct.SwitchScene("S03_Garden");
 		ScoreSystem.CaculateRecord();
+	}
+
+	public void OnGardened() {
+		bool nextStage = true;
+
+		foreach (PlayerController unit in players) {
+			if (unit.eatSkill) {
+				nextStage = false;
+			}
+		}
+
+		if (nextStage) {
+			stageIndex = stageIndex + 1 >= stageList.Count ? 0 : stageIndex + 1;
+			SceneSwitcher.direct.SwitchScene("S03_Bullpen");
+		}
 	}
 	
 	public void ResetCamera() {

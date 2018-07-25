@@ -129,11 +129,11 @@ public class ScoreSystem {
 			}
 		}
 
-		UIManager.direct.recordObject.gameObject.SetActive(true);
+		UIManager.direct.OnScore();
 
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < recordResult.Count; i++) {
 			string show = "OAO??";
-			string descript = "加油好ㄇ";
+			string descript = "再加油點好ㄇ";
 
 			//0 lostHit	
 			//1 lava 3
@@ -146,50 +146,54 @@ public class ScoreSystem {
 			//8 reborned 4
 			//9 camera 4
 
-			switch (recordResult[i].actionID) {
-				case 0:
-					show = "大舌頭";
-					descript = "舔空氣" + recordResult[i].record + "次";
-					break;
-				case 1:
-					show = "自虐傾向";
-					descript = "撞牆" + recordResult[i].record + "次";
-					break;
-				case 2:
-					show = "過動兒";
-					descript = "跳躍" + recordResult[i].record + "次";
-					break;
-				case 3:
-					show = "舞林高手";
-					descript = "深呼吸" + recordResult[i].record + "次";
-					break;
-				case 4:
-					show = "游泳健將";
-					descript = "水中跳躍" + recordResult[i].record + "次";
-					break;
-				case 5:
-					show = "吃壞肚子";
-					descript = "吃雜物" + recordResult[i].record + "次";
-					break;
-				case 6:
-					show = "食人族";//你餓了嗎
-					descript = "吃人" + recordResult[i].record + "次";
-					break;
-				case 7:
-					show = "不死鳥";//邪惡不死鳥
-					descript = "復活" + recordResult[i].record + "次";
-					break;
-				case 8:
-					show = "工具人";
-					descript = "被復活" + recordResult[i].record + "次";
-					break;
-				case 9:
-					show = "萬眾矚目";
-					descript = "搶走鏡頭" + recordResult[i].record + "次";
-					break;
-				default:
-					break;
-			}
+			if (recordResult[i] != null) {
+				switch (recordResult[i].actionID) {
+					case 0:
+						show = "大舌頭";
+						descript = "舔空氣" + recordResult[i].record + "次";
+						break;
+					case 1:
+						show = "自虐傾向";
+						descript = "撞牆" + recordResult[i].record + "次";
+						break;
+					case 2:
+						show = "過動兒";
+						descript = "跳躍" + recordResult[i].record + "次";
+						break;
+					case 3:
+						show = "舞林高手";
+						descript = "深呼吸" + recordResult[i].record + "次";
+						break;
+					case 4:
+						show = "游泳健將";
+						descript = "水中跳躍" + recordResult[i].record + "次";
+						break;
+					case 5:
+						show = "吃壞肚子";
+						descript = "吃雜物" + recordResult[i].record + "次";
+						break;
+					case 6:
+						show = "食人族";//你餓了嗎
+						descript = "吃人" + recordResult[i].record + "次";
+						break;
+					case 7:
+						show = "不死鳥";//邪惡不死鳥
+						descript = "復活" + recordResult[i].record + "次";
+						break;
+					case 8:
+						show = "工具人";
+						descript = "被復活" + recordResult[i].record + "次";
+						break;
+					case 9:
+						show = "萬眾矚目";
+						descript = "搶走鏡頭" + recordResult[i].record + "次";
+						break;
+					default:
+						break;
+				}
+			} else {
+				Debug.LogError("BufferErr");
+			}	
 
 			UIManager.direct.recordShower[i].text = show;
 			UIManager.direct.recordShower2[i].text = descript;

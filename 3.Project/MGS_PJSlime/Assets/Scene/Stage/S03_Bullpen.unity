@@ -185,7 +185,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1219845825
 GameObject:
@@ -330,125 +330,46 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1572433603
+--- !u!1 &1488799796
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 1572433604}
-  - component: {fileID: 1572433607}
-  - component: {fileID: 1572433606}
-  - component: {fileID: 1572433605}
+  - component: {fileID: 1488799798}
+  - component: {fileID: 1488799797}
   m_Layer: 0
-  m_Name: GameManager - Iliad
+  m_Name: StageHoster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1572433604
+--- !u!114 &1488799797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1488799796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99aec5daa023b9e46acd76755022ba44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEngine: {fileID: 1311638238111046, guid: 303334f589dbc6145be4505c82ef9793, type: 2}
+--- !u!4 &1488799798
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1572433603}
+  m_GameObject: {fileID: 1488799796}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 89.738655, y: -79.49632, z: 25.5625}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1572433605
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1572433603}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1207dcf0331c0548887bd12eb6db0bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  status: 3
-  connecting: 0
-  preTester: 1
-  testStage: {fileID: 1945061982297576, guid: 12e80d78ff22a634aab2f72c8cc10ba2, type: 2}
-  players: []
-  playerUIs: []
-  stageList:
-  - {fileID: 1945061982297576, guid: 12e80d78ff22a634aab2f72c8cc10ba2, type: 2}
-  - {fileID: 1561832114416774, guid: b8d93f5f641cb2e469d5b09ecb0e886a, type: 2}
-  - {fileID: 1512764308168070, guid: ad3f4ad7b96036942821716d249d9254, type: 2}
-  cameraManager: {fileID: 1732961849303570, guid: b8278ee36efd6c74aa13c703f582849b,
-    type: 2}
-  audioManager: {fileID: 1959445894480242, guid: f6f407debd301de4f9b59f8edcb73fad,
-    type: 2}
-  uiManager: {fileID: 1184188543418308, guid: 43764cb8e1806a24fb6daa9a987e21fe, type: 2}
-  walkXSpeed: 12
-  walkXAcc: 100
-  walkXDec: 50
-  jumpGape: 48
-  jumpXSpeed: 12
-  jumpXAcc: 45
-  jumpXDec: 40
-  jumpYForce: 25
-  jumpDuraion: 0.25
-  jumpYDec: 60
-  waterXSpeed: 8
-  waterYSpeed: 6
-  waterXAcc: 10
-  waterXDec: 10
-  waterYForce: 2
-  waterColdDown: 0.25
-  waterYDec: 2.5
-  iceXAcc: 25
-  iceXDec: 5
---- !u!114 &1572433606
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1572433603}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bd11fd029923c14a9d4ea979dd1e691, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  allPlayer: []
---- !u!114 &1572433607
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1572433603}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 0
-    i1: 0
-    i2: 0
-    i3: 0
-    i4: 0
-    i5: 0
-    i6: 0
-    i7: 0
-    i8: 0
-    i9: 0
-    i10: 0
-    i11: 0
-    i12: 0
-    i13: 0
-    i14: 0
-    i15: 0
-  m_ServerOnly: 1
-  m_LocalPlayerAuthority: 0

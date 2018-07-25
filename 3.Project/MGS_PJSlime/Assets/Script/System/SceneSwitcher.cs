@@ -18,7 +18,11 @@ public class SceneSwitcher : MonoBehaviour {
 	protected string NextScene;
 
 	void Start() {
-		direct = this;
+		if (direct == null) {
+			direct = this;
+		}
+
+		//SceneManager.sceneLoaded += LoadEvent;
 	}
 
 
@@ -29,10 +33,19 @@ public class SceneSwitcher : MonoBehaviour {
 		//progressSlider.value = 0f;
 
 		//doneLoadingScene = false;
-
-		StartCoroutine(LoadNextLevelAsync());
+		//SceneManager.sceneLoaded += LoadEvent;
+		//SkyTalker.direct.StopHost();
+		SceneManager.LoadScene(value , LoadSceneMode.Single);
+		//StartCoroutine(LoadNextLevelAsync());
 	}
-	
+
+	public void LoadEvent(Scene scene, LoadSceneMode mode) {
+		if (GameEngine.direct) {
+			GameEngine.direct.gameObject.SetActive(true);
+		}
+	}
+
+
 	/*
 	bool doneLoadingScene = false;	
 	void Update() {

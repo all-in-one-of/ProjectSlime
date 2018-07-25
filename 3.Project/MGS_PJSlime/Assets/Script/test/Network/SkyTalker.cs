@@ -81,6 +81,10 @@ public class SkyTalker : MonoBehaviour {
 		
 	public void ResetScene() {
 		networkManager.StopHost();
-		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+		SceneManager.LoadScene("S03_Garden");
+	}
+
+	public void StopHost() {
+		networkManager.StopHost();
 	}
 }

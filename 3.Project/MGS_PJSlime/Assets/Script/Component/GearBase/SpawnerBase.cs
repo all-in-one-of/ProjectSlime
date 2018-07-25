@@ -24,7 +24,7 @@ public class SpawnerBase : GearBase {
 	}
 
 	void Update() {
-		if (isServer && GameEngine.direct.connecting ) {
+		if (GameEngine.direct.connecting ) {
 			if (active || (triggerType == TriggerType.continuous && IsTriggering())) {
 				if (triggerType == TriggerType.continuous && !IsTriggering()) {
 					return;
