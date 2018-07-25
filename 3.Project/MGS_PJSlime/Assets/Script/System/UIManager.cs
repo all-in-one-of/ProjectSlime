@@ -42,6 +42,10 @@ public class UIManager : MonoBehaviour {
 		uiTrigger.SetSelectedGameObject(gameObject);
 	}
 
+	public void OnStage() {
+		bullpenObject.gameObject.SetActive(true);
+	}
+
 	public void EndScore() {
 		gardenObject.gameObject.SetActive(false);
 		GameEngine.direct.Init(GameEngine.Status.Garden);

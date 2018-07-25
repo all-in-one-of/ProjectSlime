@@ -105,6 +105,8 @@ public class GameEngine : MonoBehaviour {
 			} else {
 				LoadStage(stageList[stageIndex]);
 			}
+
+			UIManager.direct.OnStage();
 		} else {
 			LoadStage(gardenStage);
 		}

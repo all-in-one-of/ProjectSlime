@@ -10,12 +10,9 @@ public class SkyTalker : MonoBehaviour {
 
 	void Start() {
 		direct = this;
-		FStart();
-	}
-
-	protected void FStart() {
 		networkManager = GetComponent<NetworkManager>();
 		networkManager.StartHost();
+		DontDestroyOnLoad(gameObject);
 	}
 
 	/*
@@ -80,8 +77,8 @@ public class SkyTalker : MonoBehaviour {
 	
 		
 	public void ResetScene() {
-		networkManager.StopHost();
-		SceneManager.LoadScene("S03_Garden");
+		//networkManager.StopHost();
+		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 
 	public void StopHost() {
