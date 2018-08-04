@@ -11,23 +11,6 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1523133011794390}
   m_IsPrefabParent: 1
---- !u!1 &1051832483103172
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4820792280983420}
-  - component: {fileID: 212185036657135504}
-  - component: {fileID: 95711770884029156}
-  m_Layer: 0
-  m_Name: S_Slime
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1523133011794390
 GameObject:
   m_ObjectHideFlags: 0
@@ -44,6 +27,9 @@ GameObject:
   - component: {fileID: 82163722152346290}
   - component: {fileID: 82144837825678236}
   - component: {fileID: 58339733611555088}
+  - component: {fileID: 33865489815357708}
+  - component: {fileID: 23436764862767170}
+  - component: {fileID: 114830840445734270}
   m_Layer: 9
   m_Name: SlimeSample
   m_TagString: Slime
@@ -60,24 +46,51 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -45.678673, y: 11.60137, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
-  m_Children:
-  - {fileID: 4820792280983420}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4820792280983420
-Transform:
+--- !u!23 &23436764862767170
+MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1051832483103172}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4158261384272788}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 1523133011794390}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: d8ccd9bead5ba3e4caa54c0e843a13d3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &33865489815357708
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1523133011794390}
+  m_Mesh: {fileID: 0}
 --- !u!50 &50972945920249176
 Rigidbody2D:
   serializedVersion: 4
@@ -378,23 +391,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!95 &95711770884029156
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1051832483103172}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b2e19917f5b505c48a6e47ed2cacdb25, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114095685609689310
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -438,70 +434,66 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab7a96ab6cdc2b14aa7d27da68b8f4c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buffer:
+    walkXSpeed: 0
+    jumpYForce: 0
+    waterXSpeed: 0
+    waterYForce: 0
+    iceXAcc: 0
+    iceXDec: 0
   isInvincible: 0
   isUndead: 0
   eatAble: 1
+  eatBuffer: 0
   isDead: 0
   invincibleTimer: 0
+  bonus: 0
   attack: 0
   hp: 2
-  face: 1
+  facing: 1
   damageTable: 0000000000000000000000000000000001000000010000000100000004000000040000000400000004000000
   state: 1
-  anim: {fileID: 95711770884029156}
+  anim: {fileID: 0}
   newDamage: 0
-  PlayerIndex: 0
+  playerID: 0
   velocityOut: {x: 0, y: 0}
   velocitSim: {x: 0, y: 0}
   deVelocity: {x: 0, y: 0}
   isInWater: {fileID: 0}
-  sprite: {fileID: 212185036657135504}
+  sprite: {fileID: 0}
   eating: {fileID: 0}
   bornAudio: {fileID: 82897157115222302}
   jumpAudio: {fileID: 82144837825678236}
   eatAudio: {fileID: 82163722152346290}
+  eatSkill: 1
   size: 0
---- !u!212 &212185036657135504
-SpriteRenderer:
+--- !u!114 &114830840445734270
+MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1051832483103172}
+  m_GameObject: {fileID: 1523133011794390}
   m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_Materials:
-  - {fileID: 2100000, guid: 5fd3337618533544a86c76bc56ee2e83, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -858221419
-  m_SortingLayer: -1
-  m_SortingOrder: 400
-  m_Sprite: {fileID: 21300000, guid: 53f7b0d5a8ec5bc4d9085d89a78933a3, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1.65, y: 1.19}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skeletonDataAsset: {fileID: 11400000, guid: a5aac33357b46434992e872c3089cc06, type: 2}
+  initialSkinName: default
+  initialFlipX: 0
+  initialFlipY: 0
+  separatorSlotNames: []
+  zSpacing: 0
+  useClipping: 1
+  immutableTriangles: 0
+  pmaVertexColors: 1
+  clearStateOnDisable: 0
+  tintBlack: 0
+  singleSubmesh: 0
+  addNormals: 0
+  calculateTangents: 0
+  logErrors: 0
+  disableRenderingOnOverride: 1
+  _animationName: Walk
+  loop: 1
+  timeScale: 1

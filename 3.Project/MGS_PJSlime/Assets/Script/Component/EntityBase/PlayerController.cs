@@ -16,7 +16,7 @@ public class PlayerController : EntityBase {
 	//public float[] damageTable = { 0, 0, 0, 0, 1, 1, 1, 2, 2, 2, 2 };
 	public int[] damageTable = { 0, 0, 0, 0, 1, 1, 1, 4, 4, 4 , 4};
 
-	public State state = State.None;
+	public State acState = State.None;
 	public Animator anim;
 
 	public bool newDamage = false;
@@ -43,27 +43,9 @@ public class PlayerController : EntityBase {
 	private bool jumpPreCommand = false;
 
 	protected override void FStart() {
-		rb = GetComponent<Rigidbody2D>();
-		bc = GetComponent<BoxCollider2D>();
-
-		if (Network.isServer) {
-			rb.simulated = true;
-			SetSize();
-		}
+		SetSize();
 	}
-
-	/*
-	 if (Input.GetAxisRaw("Fire1") != 0) {
-					if (jumpPreCommand == false) {
-						// Call your event function here.
-						jumpPreCommand = true;
-					}
-				}
-				if (Input.GetAxisRaw("Fire1") == 0) {
-					jumpPreCommand = false;
-				}
-	*/
-
+	
 	void Update () {
 		if ((Network.isClient || Network.isServer)) {
 			
@@ -206,7 +188,7 @@ public class PlayerController : EntityBase {
 				}
 			}
 
-			RpcApplyTransform(transform.position , transform.localScale);
+			ApplyTransform(transform.position , transform.localScale);
 		}		
 	}
 
@@ -238,12 +220,12 @@ public class PlayerController : EntityBase {
 	}
 
 	[ClientRpc]
-	public void RpcApplyTransform(Vector2 position, Vector2 localScale) {
+	public void ApplyTransform(Vector2 position, Vector2 localScale) {
 		transform.position = position;
 	}
 		
 	[ClientRpc]
-	public void RpcState(string state) { 
+	public void ApplyState(string state) { 
 		anim.Play(state);
 	}
 
@@ -262,12 +244,12 @@ public class PlayerController : EntityBase {
 			return;
 		}
 
-		if (state != State.Jump) {//地面發呆
-			Facing(direction);
+		if (acState != State.Jump) {//地面發呆
+			//Face(direction == 1);
 
 			if (!anim.GetCurrentAnimatorStateInfo(0).IsTag("Crouch") && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Jump")) {
 				ScoreSystem.AddRecord(playerID, 3, 1);
-				RpcState("Crouch");
+				ApplyState("Crouch");
 			}
 
 			if (rb.velocity.x != 0) {
@@ -291,16 +273,16 @@ public class PlayerController : EntityBase {
 		//if (state != State.Jump) {
 			bool eatCheck = false;
 			foreach (Transform unit in GameEngine.nowStage.unitSet) {
-				if (Vector2.Distance(transform.position, unit.position) <= SizeFormula(size) + 3) {
+				if (Vector2.Distance(transform.position, unit.position) <= GetSizeFormula(size) + 3) {
 					eatCheck = true;
 					break;
 				}
 			}
 
 			if (eatCheck) {
-				RpcState("Digestive");
+				ApplyState("Digestive");
 			} else {
-				RpcState("EatHorizon");
+				ApplyState("EatHorizon");
 			}
 			Eat();
 		//}
@@ -313,18 +295,18 @@ public class PlayerController : EntityBase {
 				ScoreSystem.AddRecord(playerID, 4, 1);
 				swimTimer = Time.timeSinceLevelLoad;
 				jumpAudio.Play();
-				state = State.Jump;
-				RpcState("Jump");
+				acState = State.Jump;
+				ApplyState("Jump");
 				rb.velocity = new Vector2(rb.velocity.x, (GameEngine.direct.waterYForce + GameEngine.direct.playerBuffer[playerID].waterYForce));				
 			}
 			
 		} else {
-			if (state == State.None ) {
+			if (acState == State.None ) {
 				ScoreSystem.AddRecord(playerID, 2, 1);
 				jumpTimer = Time.timeSinceLevelLoad;
 				jumpAudio.Play();
-				state = State.Jump;
-				RpcState("Jump");
+				acState = State.Jump;
+				ApplyState("Jump");
 				rb.velocity = new Vector2(rb.velocity.x, (GameEngine.direct.jumpYForce + GameEngine.direct.playerBuffer[playerID].jumpYForce) * (( GameEngine.direct.jumpGape - size) /  GameEngine.direct.jumpGape));
 
 				if (this == GameEngine.mainPlayer) {
@@ -336,31 +318,24 @@ public class PlayerController : EntityBase {
 
 	[Command]
 	public void CmdJumpForce() {
-		if (state == State.Jump && Time.timeSinceLevelLoad - jumpTimer < GameEngine.direct.jumpDuraion) {
+		if (acState == State.Jump && Time.timeSinceLevelLoad - jumpTimer < GameEngine.direct.jumpDuraion) {
 			rb.velocity = new Vector2(rb.velocity.x, (GameEngine.direct.jumpYForce + GameEngine.direct.playerBuffer[playerID].jumpYForce) * (( GameEngine.direct.jumpGape - size) /  GameEngine.direct.jumpGape));
 		}
 	}
-
-	protected void Facing(float direction) {
-		if (direction != 0) {
-			transform.localScale = new Vector3(direction * Mathf.Abs(transform.localScale.x), transform.localScale.y, 1);
-		}
-	}
-
+	
 	[Command]
 	public void CmdMove(float direction) {		
 		if ((direction == 1 && touching.ContainsValue(2)) || (direction == -1 && touching.ContainsValue(3))) {
 			direction = 0;
 		}
 
-		if (state != State.Jump) {//地面發呆
+		if (acState != State.Jump) {//地面發呆
 			if (direction != 0) {				
 				if (!anim.GetCurrentAnimatorStateInfo(0).IsTag("Walk")) {
-					RpcState("Walk");
+					ApplyState("Walk");
 				}
 
-				Facing(direction);
-
+				Face(direction == 1);
 				if (!IsSlideing()) {
 					velocitSim.x = Accelerator(velocitSim.x, direction * GameEngine.direct.walkXAcc, direction * (GameEngine.direct.walkXSpeed + GameEngine.direct.playerBuffer[playerID].walkXSpeed));
 				} else {
@@ -371,7 +346,7 @@ public class PlayerController : EntityBase {
 			CmdIdle();
 		} else  {//空中移動
 			if (direction != 0) {
-				Facing(direction);
+				Face(direction == 1);
 				if (isInWater) {
 					velocitSim.x = Accelerator(velocitSim.x, direction * GameEngine.direct.waterXAcc, direction * (GameEngine.direct.waterXSpeed + GameEngine.direct.playerBuffer[playerID].waterXSpeed));
 				} else {
@@ -383,14 +358,14 @@ public class PlayerController : EntityBase {
 
 	[Command]
 	public void CmdLand() {
-		RpcState("Idle");
-		state = State.None;
+		ApplyState("Idle");
+		acState = State.None;
 	}
 
 	[Command]
 	public void CmdIdle() {
 		if (anim.GetCurrentAnimatorStateInfo(0).IsTag("Eat")) {
-			if (state != State.Jump) {
+			if (acState != State.Jump) {
 				if (rb.velocity.x != 0) {
 					if (!IsSlideing()) {
 						velocitSim.x = Decelerator(velocitSim.x, GameEngine.direct.walkXDec, 0);
@@ -404,9 +379,9 @@ public class PlayerController : EntityBase {
 			return;
 		}
 
-		if (state != State.Jump) {//地面發呆
+		if (acState != State.Jump) {//地面發呆
 			if (!anim.GetCurrentAnimatorStateInfo(0).IsTag("Idle")) {
-				RpcState("Idle");
+				ApplyState("Idle");
 			}
 
 			if (rb.velocity.x != 0) {
@@ -450,7 +425,7 @@ public class PlayerController : EntityBase {
 		hp = 2;
 		SetSize();
 		isDead = false;
-		state = State.Fall;
+		acState = State.Fall;
 		touching = new Dictionary<Collider2D, int>();
 	}
 
@@ -470,9 +445,9 @@ public class PlayerController : EntityBase {
 				return;
 			}
 
-			if (touching.Count == 0 && state == State.None) {
-				state = State.Fall;
-				RpcState("Jump");
+			if (touching.Count == 0 && acState == State.None) {
+				acState = State.Fall;
+				ApplyState("Jump");
 			}
 		}
 	}
@@ -533,7 +508,7 @@ public class PlayerController : EntityBase {
 				CmdLand();
 			}
 
-		} else if (state != State.None /*&& collision.transform.tag == "Ground"*/ ) {
+		} else if (acState != State.None /*&& collision.transform.tag == "Ground"*/ ) {
 			CmdLand();
 
 		} else if (collision.transform.tag == "Ceil") {
@@ -583,7 +558,7 @@ public class PlayerController : EntityBase {
 
 	protected void Eat() {
 		eatAudio.Play();
-		EntityBase target = GameEngine.direct.GetUnitInRange(SizeFormula(size) + 3, transform.position);
+		EntityBase target = GameEngine.direct.GetUnitInRange(GetSizeFormula(size) + 3, transform.position);
 		if (target && target.eatAble) {
 			if (target.eatBuffer && target.buffer != null) {
 				GameEngine.direct.playerBuffer[playerID].AddEffect(target.buffer);
@@ -617,8 +592,8 @@ public class PlayerController : EntityBase {
 	
 	protected void SetSize() {
 		size = hp;
-		float tempsize = SizeFormula(size) * (transform.localScale.x != 0 ?(transform.localScale.x / Mathf.Abs(transform.localScale.x)) : 1);
-		transform.localScale = new Vector3(tempsize, Mathf.Abs(tempsize), 1);
+		float tempsize = GetSizeFormula(size) ;
+		transform.localScale = new Vector3(tempsize, tempsize, 1);
 		GameEngine.direct.ResetCamera();		
 	}
 
@@ -679,7 +654,7 @@ public class PlayerController : EntityBase {
 		}
 	}
 
-	private float SizeFormula(float value) {
-		return (BasicSize + value * 0.15f);
+	private float GetSizeFormula(float sizeValue) {
+		return (BasicSize + sizeValue * 0.15f);
 	}
 }

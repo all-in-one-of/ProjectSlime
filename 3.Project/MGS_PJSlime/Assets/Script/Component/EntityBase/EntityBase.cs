@@ -6,6 +6,8 @@ using UnityEngine.Networking;
 
 public class EntityBase : NetworkBehaviour {
 	protected SkeletonAnimation skam;
+	protected string state = "";
+
 	public BufferEffect buffer = new BufferEffect();
 
 	public bool isInvincible = false;
@@ -27,7 +29,14 @@ public class EntityBase : NetworkBehaviour {
 
 	
 	void Start() {
-		FStart();
+		if (Network.isServer) {
+			an = GetComponentInChildren<Animator>();
+			rb = GetComponent<Rigidbody2D>();
+			bc = GetComponent<BoxCollider2D>();
+			skam = GetComponent<SkeletonAnimation>();
+			rb.simulated = true;
+			FStart();
+		}		
 	}
 	
 	void FixedUpdate() {
@@ -36,15 +45,7 @@ public class EntityBase : NetworkBehaviour {
 		}
 	}
 
-	protected virtual void FStart() {
-		an = GetComponentInChildren<Animator>();
-		rb = GetComponent<Rigidbody2D>();
-		bc = GetComponent<BoxCollider2D>();
-
-		if (Network.isServer) {
-			rb.simulated = true;
-		}
-	}
+	protected virtual void FStart() { }
 
 	protected virtual void FFixedUpdate() {
 		
@@ -93,5 +94,11 @@ public class EntityBase : NetworkBehaviour {
 
 	private void temp() {
 		Destroy(gameObject);
+	}
+	
+
+	public void Face(bool right) {
+		facing = right ? 1 : -1;
+		transform.rotation = Quaternion.Euler(0, right ? 0 : 180, 0);
 	}
 }
