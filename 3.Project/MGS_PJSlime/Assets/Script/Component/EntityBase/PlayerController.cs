@@ -13,11 +13,10 @@ public class PlayerController : EntityBase {
 		Fall,
 	};
 
-	//public float[] damageTable = { 0, 0, 0, 0, 1, 1, 1, 2, 2, 2, 2 };
+
 	public int[] damageTable = { 0, 0, 0, 0, 1, 1, 1, 4, 4, 4 , 4};
 
 	public State acState = State.None;
-	public Animator anim;
 
 	public bool newDamage = false;
 	public int playerID = 0;
@@ -179,16 +178,16 @@ public class PlayerController : EntityBase {
 				
 				if (invincibleTimer < 2f) {
 					float remainder = invincibleTimer % 0.2f;
-					sprite.color = remainder > 0.1f ? Color.white : new Color(1 , 1 , 1 , 0.4f);
+					skam.skeleton.a = remainder > 0.1f ? 1 : 0.4f;
 
 				} else {
 					invincibleTimer = 0;
-					sprite.color = Color.white;
+					skam.skeleton.a = 1;
 					isInvincible = false;
 				}
 			}
 
-			ApplyTransform(transform.position , transform.localScale);
+			RpcTransform(transform.position , transform.localScale);
 		}		
 	}
 
@@ -220,13 +219,13 @@ public class PlayerController : EntityBase {
 	}
 
 	[ClientRpc]
-	public void ApplyTransform(Vector2 position, Vector2 localScale) {
+	public void RpcTransform(Vector2 position, Vector2 localScale) {
 		transform.position = position;
 	}
 		
 	[ClientRpc]
-	public void ApplyState(string state) { 
-		anim.Play(state);
+	public void RpcState(string state) { 
+		skam.state.SetAnimation(0, state, false);
 	}
 
 	[Command]
@@ -240,16 +239,16 @@ public class PlayerController : EntityBase {
 
 	[Command]
 	public void CmdCrouch(float direction) {
-		if (anim.GetCurrentAnimatorStateInfo(0).IsTag("Eat")) {
+		if (state == "Eat") {
 			return;
 		}
 
 		if (acState != State.Jump) {//地面發呆
 			//Face(direction == 1);
 
-			if (!anim.GetCurrentAnimatorStateInfo(0).IsTag("Crouch") && !anim.GetCurrentAnimatorStateInfo(0).IsTag("Jump")) {
+			if (state != "Crouch" && state != "Jump") {
 				ScoreSystem.AddRecord(playerID, 3, 1);
-				ApplyState("Crouch");
+				RpcState("Crouch");
 			}
 
 			if (rb.velocity.x != 0) {
@@ -266,26 +265,12 @@ public class PlayerController : EntityBase {
 
 	[Command]
 	public void CmdEat() {
-		if (anim.GetCurrentAnimatorStateInfo(0).IsTag("Eat")) {
+		if (state == "Eat") {
 			return;
 		}
-
-		//if (state != State.Jump) {
-			bool eatCheck = false;
-			foreach (Transform unit in GameEngine.nowStage.unitSet) {
-				if (Vector2.Distance(transform.position, unit.position) <= GetSizeFormula(size) + 3) {
-					eatCheck = true;
-					break;
-				}
-			}
-
-			if (eatCheck) {
-				ApplyState("Digestive");
-			} else {
-				ApplyState("EatHorizon");
-			}
-			Eat();
-		//}
+		
+		RpcState("Eat");
+		Eat();
 	}
 	
 	[Command]
@@ -296,7 +281,7 @@ public class PlayerController : EntityBase {
 				swimTimer = Time.timeSinceLevelLoad;
 				jumpAudio.Play();
 				acState = State.Jump;
-				ApplyState("Jump");
+				RpcState("Jump");
 				rb.velocity = new Vector2(rb.velocity.x, (GameEngine.direct.waterYForce + GameEngine.direct.playerBuffer[playerID].waterYForce));				
 			}
 			
@@ -306,7 +291,7 @@ public class PlayerController : EntityBase {
 				jumpTimer = Time.timeSinceLevelLoad;
 				jumpAudio.Play();
 				acState = State.Jump;
-				ApplyState("Jump");
+				RpcState("Jump");
 				rb.velocity = new Vector2(rb.velocity.x, (GameEngine.direct.jumpYForce + GameEngine.direct.playerBuffer[playerID].jumpYForce) * (( GameEngine.direct.jumpGape - size) /  GameEngine.direct.jumpGape));
 
 				if (this == GameEngine.mainPlayer) {
@@ -331,8 +316,8 @@ public class PlayerController : EntityBase {
 
 		if (acState != State.Jump) {//地面發呆
 			if (direction != 0) {				
-				if (!anim.GetCurrentAnimatorStateInfo(0).IsTag("Walk")) {
-					ApplyState("Walk");
+				if (state != "Walk") {
+					RpcState("Walk");
 				}
 
 				Face(direction == 1);
@@ -358,13 +343,13 @@ public class PlayerController : EntityBase {
 
 	[Command]
 	public void CmdLand() {
-		ApplyState("Idle");
+		RpcState("Idle");
 		acState = State.None;
 	}
 
 	[Command]
 	public void CmdIdle() {
-		if (anim.GetCurrentAnimatorStateInfo(0).IsTag("Eat")) {
+		if (state == "Eat") {
 			if (acState != State.Jump) {
 				if (rb.velocity.x != 0) {
 					if (!IsSlideing()) {
@@ -380,8 +365,8 @@ public class PlayerController : EntityBase {
 		}
 
 		if (acState != State.Jump) {//地面發呆
-			if (!anim.GetCurrentAnimatorStateInfo(0).IsTag("Idle")) {
-				ApplyState("Idle");
+			if (state != "") {
+				RpcState("Idle");
 			}
 
 			if (rb.velocity.x != 0) {
@@ -447,7 +432,7 @@ public class PlayerController : EntityBase {
 
 			if (touching.Count == 0 && acState == State.None) {
 				acState = State.Fall;
-				ApplyState("Jump");
+				RpcState("Jump");
 			}
 		}
 	}

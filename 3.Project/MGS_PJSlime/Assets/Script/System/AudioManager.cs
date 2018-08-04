@@ -15,7 +15,7 @@ public class AudioManager : MonoBehaviour {
 	public void Init() {
 		PlayMusic(mainBgm);
 	}
-
+	 
 	public void PlayMusic(AudioClip music) {
 		mainBgmSource.clip = music;
 		mainBgmSource.Play();
