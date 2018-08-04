@@ -85,8 +85,8 @@ MonoBehaviour:
   playerUIs: []
   stageList:
   - {fileID: 1945061982297576, guid: 12e80d78ff22a634aab2f72c8cc10ba2, type: 2}
+  - {fileID: 1063481176537888, guid: 95cd4c459d82f7f43955b24f9f900141, type: 2}
   - {fileID: 1561832114416774, guid: b8d93f5f641cb2e469d5b09ecb0e886a, type: 2}
-  - {fileID: 1512764308168070, guid: ad3f4ad7b96036942821716d249d9254, type: 2}
   cameraManager: {fileID: 1732961849303570, guid: b8278ee36efd6c74aa13c703f582849b,
     type: 2}
   audioManager: {fileID: 1959445894480242, guid: f6f407debd301de4f9b59f8edcb73fad,
@@ -106,8 +106,8 @@ MonoBehaviour:
   jumpYDec: 60
   waterXSpeed: 8
   waterYSpeed: 6
-  waterXAcc: 10
-  waterXDec: 10
+  waterXAcc: 23
+  waterXDec: 20
   waterYForce: 2
   waterColdDown: 0.25
   waterYDec: 2.5

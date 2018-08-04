@@ -1,9 +1,11 @@
-﻿using System.Collections;
+﻿using Spine.Unity;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
 public class EntityBase : NetworkBehaviour {
+	protected SkeletonAnimation skam;
 	public BufferEffect buffer = new BufferEffect();
 
 	public bool isInvincible = false;
@@ -17,7 +19,7 @@ public class EntityBase : NetworkBehaviour {
 	public int bonus = 0;
 	public int attack = 1;
 	public int hp = 3;
-	public int face = 1;
+	public int facing = 1;
 
 	protected Animator an;
 	protected Rigidbody2D rb;
