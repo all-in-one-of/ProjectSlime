@@ -326,23 +326,32 @@ public class PlayerController : EntityBase {
 	}
 	
 	[Command]
-	public void CmdJump() {	
+	public void CmdJump() {
 		if (isInWater) {
 			if (Time.timeSinceLevelLoad - swimTimer >= GameEngine.direct.waterColdDown) {
 				ScoreSystem.AddRecord(playerID, 4, 1);
 				swimTimer = Time.timeSinceLevelLoad;
 				jumpAudio.Play();
 				SetState("Jump");
-				rb.velocity = new Vector2(rb.velocity.x, (GameEngine.direct.waterYForce + GameEngine.direct.playerBuffer[playerID].waterYForce));				
+				rb.velocity = new Vector2(rb.velocity.x, (GameEngine.direct.waterYForce + GameEngine.direct.playerBuffer[playerID].waterYForce));
 			}
-			
+
 		} else if (onGround) {
 			ScoreSystem.AddRecord(playerID, 2, 1);
 			jumpTimer = Time.timeSinceLevelLoad;
 			jumpAudio.Play();
 			SetState("Jump");
 			rb.velocity = new Vector2(rb.velocity.x, (GameEngine.direct.jumpYForce + GameEngine.direct.playerBuffer[playerID].jumpYForce) * ((GameEngine.direct.jumpGape - size) / GameEngine.direct.jumpGape));
-
+			jumpCounter++;
+			if (this == GameEngine.mainPlayer) {
+				CameraManager.direct.Bump();
+			}
+		} else if (jumpCounter < 2) {
+			jumpTimer = Time.timeSinceLevelLoad;
+			jumpAudio.Play();
+			SetState("Jump");
+			rb.velocity = new Vector2(rb.velocity.x, (GameEngine.direct.jumpYForce + GameEngine.direct.playerBuffer[playerID].jumpYForce) * ((GameEngine.direct.jumpGape - size) / GameEngine.direct.jumpGape) );
+			jumpCounter++;
 			if (this == GameEngine.mainPlayer) {
 				CameraManager.direct.Bump();
 			}
@@ -351,7 +360,7 @@ public class PlayerController : EntityBase {
 
 	[Command]
 	public void CmdJumpForce() {
-		if (!onGround && Time.timeSinceLevelLoad - jumpTimer < GameEngine.direct.jumpDuraion) {
+		if (!onGround && Time.timeSinceLevelLoad - jumpTimer < GameEngine.direct.jumpDuraion && jumpCounter < 2) {
 			rb.velocity = new Vector2(rb.velocity.x, (GameEngine.direct.jumpYForce + GameEngine.direct.playerBuffer[playerID].jumpYForce) * (( GameEngine.direct.jumpGape - size) /  GameEngine.direct.jumpGape));
 		}
 	}
@@ -388,6 +397,7 @@ public class PlayerController : EntityBase {
 	[Command]
 	public void CmdLand() {
 		SetState("Idle" , true , false , true);
+		jumpCounter = 0;
 	}
 
 	[Command]
