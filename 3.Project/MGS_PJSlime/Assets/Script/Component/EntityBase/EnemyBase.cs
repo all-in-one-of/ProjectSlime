@@ -35,8 +35,13 @@ public class EnemyBase : EntityBase {
 		}
 		AISeqence();
 		if (agressiveAI || moveAI) {
-			rb.velocity = new Vector2(facing * moveSpeed, rb.velocity.y);
+			if (state == "") {
+				rb.velocity = new Vector2(facing * moveSpeed, rb.velocity.y);
+			} else {
+				rb.velocity = new Vector2(0, rb.velocity.y);
+			}
 		}
+		
 	}
 	
 	protected virtual void AISeqence() {

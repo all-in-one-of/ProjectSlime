@@ -34,6 +34,7 @@ public class PlayerController : EntityBase {
 
 	private bool jumpPreCommand = false;
 	private int jumpCounter = 0;
+	private string stateOver = "";
 	
 	//判斷撞到甚麼
 	private Vector2 bcWidth;
@@ -55,6 +56,7 @@ public class PlayerController : EntityBase {
 
 		bcWidth = new Vector2(bc.size.x * 0.5f, 0);
 		bcHeight = new Vector2(0, bc.size.y * 0.5f);
+
 	}
 	
 	void Update () {
@@ -206,6 +208,8 @@ public class PlayerController : EntityBase {
 	protected override void FFixedUpdate() {
 		if (!isDead) {
 			//更新碰撞狀態
+			bool preGround = onGround;
+
 			//onCeil = Physics2D.OverlapBox((Vector2)transform.position + ceilOffset * transform.localScale.x + new Vector2(0, DETECTOFFSET), bcWidth * transform.localScale.x, 0, LANDLAYER);
 			onGround = Physics2D.OverlapBox((Vector2)transform.position + groundOffset * transform.localScale.x - new Vector2(0, DETECTOFFSET), bcWidth * transform.localScale.x , 0, LANDLAYER);
 
@@ -213,6 +217,10 @@ public class PlayerController : EntityBase {
 				onFace = Physics2D.OverlapBox((Vector2)transform.position + faceOffset * transform.localScale.x + new Vector2(DETECTOFFSET, 0), bcHeight * transform.localScale.x, 0, LANDLAYER);
 			} else {
 				onFace = Physics2D.OverlapBox((Vector2)transform.position + new Vector2(-faceOffset.x , faceOffset.y) * transform.localScale.x - new Vector2(DETECTOFFSET, 0), bcHeight * transform.localScale.x, 0, LANDLAYER);
+			}
+
+			if (!preGround && onGround) {
+				CmdLand();
 			}
 
 
@@ -238,9 +246,14 @@ public class PlayerController : EntityBase {
 		}
 	}
 
-	public void SetState(string animValue, bool loopValue = false, bool baseValue = false) {
+	public void SetState(string animValue, bool loopValue = false, bool returnValue = false, bool baseValue = false) {
 		state = baseValue ? "" : animValue;
-		RpcState(animValue, loopValue);
+		RpcState(animValue, loopValue, returnValue, 0);
+	}
+
+	public void SetOverState(string animValue, bool loopValue = false, bool returnValue = false, bool baseValue = false) {
+		stateOver = baseValue ? "" : animValue;
+		RpcState(animValue, loopValue, returnValue, 1);
 	}
 
 	[ClientRpc]
@@ -249,10 +262,23 @@ public class PlayerController : EntityBase {
 	}
 		
 	[ClientRpc]
-	public void RpcState(string animValue, bool loopValue) { 
-		skam.state.SetAnimation(0, animValue, loopValue);
-	} 
-	
+	public void RpcState(string animValue, bool loopValue , bool returnValue , int trackValue) { 
+		Spine.TrackEntry entry = skam.state.SetAnimation(trackValue, animValue, loopValue);
+		Debug.Log(animValue + trackValue);
+		if (returnValue) {
+			if (trackValue == 1) {
+				skam.state.AddEmptyAnimation(trackValue, 0, 0f);
+				entry.End += delegate {
+					stateOver = "";
+				};
+			} else {
+				skam.state.AddAnimation(trackValue, "Idle", true, 0f);
+				entry.End += delegate {
+					state = "";
+				};
+			}
+		}
+	} 	
 
 	[Command]
 	public void CmdRegist(int playerID, int hp) {
@@ -291,11 +317,11 @@ public class PlayerController : EntityBase {
 
 	[Command]
 	public void CmdEat() {
-		if (state == "Eat") {
+		if (stateOver == "Eat") {
 			return;
 		}
-		
-		SetState("Eat");
+
+		SetOverState("Eat" , false , true);
 		Eat();
 	}
 	
@@ -310,17 +336,15 @@ public class PlayerController : EntityBase {
 				rb.velocity = new Vector2(rb.velocity.x, (GameEngine.direct.waterYForce + GameEngine.direct.playerBuffer[playerID].waterYForce));				
 			}
 			
-		} else {
-			if (onGround) {
-				ScoreSystem.AddRecord(playerID, 2, 1);
-				jumpTimer = Time.timeSinceLevelLoad;
-				jumpAudio.Play();
-				SetState("Jump");
-				rb.velocity = new Vector2(rb.velocity.x, (GameEngine.direct.jumpYForce + GameEngine.direct.playerBuffer[playerID].jumpYForce) * (( GameEngine.direct.jumpGape - size) /  GameEngine.direct.jumpGape));
+		} else if (onGround) {
+			ScoreSystem.AddRecord(playerID, 2, 1);
+			jumpTimer = Time.timeSinceLevelLoad;
+			jumpAudio.Play();
+			SetState("Jump");
+			rb.velocity = new Vector2(rb.velocity.x, (GameEngine.direct.jumpYForce + GameEngine.direct.playerBuffer[playerID].jumpYForce) * ((GameEngine.direct.jumpGape - size) / GameEngine.direct.jumpGape));
 
-				if (this == GameEngine.mainPlayer) {
-					CameraManager.direct.Bump();
-				}
+			if (this == GameEngine.mainPlayer) {
+				CameraManager.direct.Bump();
 			}
 		}
 	}
@@ -336,8 +360,8 @@ public class PlayerController : EntityBase {
 	public void CmdMove(float direction) {		
 		if (onGround) {//地面發呆
 			if (direction != 0) {				
-				if (state != "") {
-					SetState("Walk" , true , true);
+				if (state != "Walk" && state != "Jump") {
+					SetState("Walk" , true );
 				}
 
 				Face(direction == 1);
@@ -363,7 +387,7 @@ public class PlayerController : EntityBase {
 
 	[Command]
 	public void CmdLand() {
-		SetState("Idle");
+		SetState("Idle" , true , false , true);
 	}
 
 	[Command]
@@ -384,15 +408,15 @@ public class PlayerController : EntityBase {
 		}
 
 		if (onGround) {//地面發呆
-			if (state != "") {
-				SetState("Idle");
-			}
-
 			if (rb.velocity.x != 0) {
 				if (!IsSlideing()) {
 					velocitSim.x = Decelerator(velocitSim.x, GameEngine.direct.walkXDec, 0);
 				} else {
 					velocitSim.x = Decelerator(velocitSim.x, (GameEngine.direct.iceXDec + GameEngine.direct.playerBuffer[playerID].iceXDec), 0);
+				}
+			} else if (state == "Walk") {
+				if (state != "") {
+					SetState("Idle", true, false, true);
 				}
 			}
 		} else {//空中移動
@@ -450,9 +474,7 @@ public class PlayerController : EntityBase {
 		if (collision.contacts.Length == 0) {
 			return;
 		}
-
-		Vector2 pointOfContact = collision.contacts[0].normal;
-		
+				
 		if (collision.transform.tag == "End") {
 			GameEngine.direct.OnVictory();
 
@@ -476,15 +498,6 @@ public class PlayerController : EntityBase {
 					collision.gameObject.GetComponent<PlayerController>().velocityOut.x = xv * Mathf.Abs(xe + ixe) * 0.5f;
 				}
 			}
-
-			if (pointOfContact == new Vector2(0, 1)) {
-				CmdLand();
-			}
-
-		}/* else if (acState != State.None /*&& collision.transform.tag == "Ground" ) {
-			CmdLand();
-
-		} */else if (collision.transform.tag == "Ceil") {
 
 		}
 	}
