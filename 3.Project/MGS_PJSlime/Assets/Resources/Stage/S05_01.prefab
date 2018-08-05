@@ -16861,7 +16861,7 @@ MonoBehaviour:
   bonus: 2
   attack: 2
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 1
   agressiveAI: 0
   jumpAI: 1
@@ -16952,7 +16952,7 @@ MonoBehaviour:
   bonus: 0
   attack: 1
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 1
   agressiveAI: 1
   jumpAI: 1
@@ -17070,7 +17070,7 @@ MonoBehaviour:
   bonus: 0
   attack: 0
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 0
   agressiveAI: 0
   jumpAI: 0
@@ -17469,7 +17469,7 @@ MonoBehaviour:
   bonus: 2
   attack: 2
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 0
   agressiveAI: 0
   jumpAI: 1
@@ -17540,7 +17540,7 @@ MonoBehaviour:
   bonus: 0
   attack: 0
   hp: 1
-  face: 1
+  facing: 1
   moveAI: 0
   agressiveAI: 0
   jumpAI: 0
@@ -17577,7 +17577,7 @@ MonoBehaviour:
   bonus: 0
   attack: 1
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 1
   agressiveAI: 1
   jumpAI: 1
@@ -17614,7 +17614,7 @@ MonoBehaviour:
   bonus: 0
   attack: 0
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 0
   agressiveAI: 0
   jumpAI: 0
@@ -17651,7 +17651,7 @@ MonoBehaviour:
   bonus: 0
   attack: 0
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 0
   agressiveAI: 0
   jumpAI: 0
@@ -17688,7 +17688,7 @@ MonoBehaviour:
   bonus: 0
   attack: 0
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 0
   agressiveAI: 0
   jumpAI: 0
@@ -17806,7 +17806,7 @@ MonoBehaviour:
   bonus: 0
   attack: 0
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 0
   agressiveAI: 0
   jumpAI: 0
@@ -17995,7 +17995,7 @@ MonoBehaviour:
   bonus: 0
   attack: 1
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 1
   agressiveAI: 1
   jumpAI: 1
@@ -18604,7 +18604,7 @@ MonoBehaviour:
   bonus: 2
   attack: 2
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 0
   agressiveAI: 0
   jumpAI: 1
@@ -18673,7 +18673,7 @@ MonoBehaviour:
   bonus: 2
   attack: 2
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 0
   agressiveAI: 0
   jumpAI: 1
@@ -18791,7 +18791,7 @@ MonoBehaviour:
   bonus: 0
   attack: 0
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 0
   agressiveAI: 0
   jumpAI: 0
@@ -18957,7 +18957,7 @@ MonoBehaviour:
   bonus: 0
   attack: 1
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 1
   agressiveAI: 1
   jumpAI: 1
@@ -19466,7 +19466,7 @@ MonoBehaviour:
   bonus: 0
   attack: 0
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 0
   agressiveAI: 0
   jumpAI: 0
@@ -19736,7 +19736,7 @@ MonoBehaviour:
   bonus: 0
   attack: 0
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 0
   agressiveAI: 0
   jumpAI: 0
@@ -19773,7 +19773,7 @@ MonoBehaviour:
   bonus: 0
   attack: 1
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 1
   agressiveAI: 1
   jumpAI: 1
@@ -19877,7 +19877,7 @@ MonoBehaviour:
   bonus: 0
   attack: 1
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 1
   agressiveAI: 1
   jumpAI: 1
@@ -19946,7 +19946,7 @@ MonoBehaviour:
   bonus: 0
   attack: 1
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 1
   agressiveAI: 1
   jumpAI: 1
@@ -20247,7 +20247,7 @@ MonoBehaviour:
   bonus: 0
   attack: 0
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 0
   agressiveAI: 0
   jumpAI: 0
@@ -20428,7 +20428,7 @@ MonoBehaviour:
   bonus: 0
   attack: 0
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 0
   agressiveAI: 0
   jumpAI: 0
@@ -20465,7 +20465,7 @@ MonoBehaviour:
   bonus: 0
   attack: 0
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 0
   agressiveAI: 0
   jumpAI: 0
@@ -20502,7 +20502,7 @@ MonoBehaviour:
   bonus: 0
   attack: 0
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 0
   agressiveAI: 0
   jumpAI: 0
@@ -20674,7 +20674,7 @@ MonoBehaviour:
   bonus: 0
   attack: 0
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 0
   agressiveAI: 0
   jumpAI: 0
@@ -21014,7 +21014,7 @@ MonoBehaviour:
   bonus: 0
   attack: 1
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 1
   agressiveAI: 1
   jumpAI: 1
@@ -21051,7 +21051,7 @@ MonoBehaviour:
   bonus: 0
   attack: 1
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 1
   agressiveAI: 1
   jumpAI: 1
@@ -21326,7 +21326,7 @@ MonoBehaviour:
   bonus: 0
   attack: 0
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 0
   agressiveAI: 0
   jumpAI: 0
@@ -21363,7 +21363,7 @@ MonoBehaviour:
   bonus: 0
   attack: 0
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 0
   agressiveAI: 0
   jumpAI: 0
@@ -21646,7 +21646,7 @@ MonoBehaviour:
   bonus: 0
   attack: 1
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 1
   agressiveAI: 1
   jumpAI: 1
@@ -22018,7 +22018,7 @@ MonoBehaviour:
   bonus: 0
   attack: 0
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 0
   agressiveAI: 0
   jumpAI: 0
@@ -22141,7 +22141,7 @@ MonoBehaviour:
   bonus: 0
   attack: 0
   hp: 1
-  face: 1
+  facing: 1
   moveAI: 0
   agressiveAI: 0
   jumpAI: 0
@@ -22234,7 +22234,7 @@ MonoBehaviour:
   bonus: 0
   attack: 1
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 1
   agressiveAI: 1
   jumpAI: 1
@@ -22271,7 +22271,7 @@ MonoBehaviour:
   bonus: 0
   attack: 0
   hp: 1
-  face: 1
+  facing: 1
   moveAI: 0
   agressiveAI: 0
   jumpAI: 0
@@ -22434,7 +22434,7 @@ MonoBehaviour:
   bonus: 2
   attack: 2
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 1
   agressiveAI: 0
   jumpAI: 1
@@ -22471,7 +22471,7 @@ MonoBehaviour:
   bonus: 0
   attack: 1
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 1
   agressiveAI: 1
   jumpAI: 1
@@ -23027,7 +23027,7 @@ MonoBehaviour:
   bonus: 0
   attack: 1
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 1
   agressiveAI: 1
   jumpAI: 1
@@ -23081,7 +23081,7 @@ MonoBehaviour:
   bonus: 2
   attack: 2
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 1
   agressiveAI: 0
   jumpAI: 0
@@ -23338,7 +23338,7 @@ MonoBehaviour:
   bonus: 0
   attack: 0
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 0
   agressiveAI: 0
   jumpAI: 0
@@ -23536,7 +23536,7 @@ MonoBehaviour:
   bonus: 2
   attack: 2
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 1
   agressiveAI: 0
   jumpAI: 0
@@ -23813,7 +23813,7 @@ MonoBehaviour:
   bonus: 0
   attack: 0
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 0
   agressiveAI: 0
   jumpAI: 0
@@ -24149,7 +24149,7 @@ MonoBehaviour:
   bonus: 0
   attack: 0
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 0
   agressiveAI: 0
   jumpAI: 0
@@ -24274,7 +24274,7 @@ MonoBehaviour:
   bonus: 0
   attack: 0
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 0
   agressiveAI: 0
   jumpAI: 0
@@ -24311,7 +24311,7 @@ MonoBehaviour:
   bonus: 0
   attack: 1
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 1
   agressiveAI: 1
   jumpAI: 1
@@ -24536,7 +24536,7 @@ MonoBehaviour:
   bonus: 0
   attack: 0
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 0
   agressiveAI: 0
   jumpAI: 0
@@ -24573,7 +24573,7 @@ MonoBehaviour:
   bonus: 0
   attack: 1
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 1
   agressiveAI: 1
   jumpAI: 1
@@ -24793,7 +24793,7 @@ MonoBehaviour:
   bonus: 0
   attack: 0
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 0
   agressiveAI: 0
   jumpAI: 0
@@ -24915,7 +24915,7 @@ MonoBehaviour:
   bonus: 0
   attack: 0
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 0
   agressiveAI: 0
   jumpAI: 0
@@ -24952,7 +24952,7 @@ MonoBehaviour:
   bonus: 2
   attack: 2
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 0
   agressiveAI: 0
   jumpAI: 1
@@ -24989,7 +24989,7 @@ MonoBehaviour:
   bonus: 0
   attack: 0
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 0
   agressiveAI: 0
   jumpAI: 0
@@ -25284,7 +25284,7 @@ MonoBehaviour:
   bonus: 0
   attack: 1
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 1
   agressiveAI: 1
   jumpAI: 1
@@ -25353,7 +25353,7 @@ MonoBehaviour:
   bonus: 0
   attack: 0
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 0
   agressiveAI: 0
   jumpAI: 0
@@ -25439,7 +25439,7 @@ MonoBehaviour:
   bonus: 0
   attack: 0
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 0
   agressiveAI: 0
   jumpAI: 0
@@ -25532,7 +25532,7 @@ MonoBehaviour:
   bonus: 0
   attack: 0
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 0
   agressiveAI: 0
   jumpAI: 0
@@ -25743,7 +25743,7 @@ MonoBehaviour:
   bonus: 0
   attack: 1
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 1
   agressiveAI: 1
   jumpAI: 1
@@ -26087,7 +26087,7 @@ MonoBehaviour:
   bonus: 0
   attack: 0
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 0
   agressiveAI: 0
   jumpAI: 0
@@ -26156,7 +26156,7 @@ MonoBehaviour:
   bonus: 0
   attack: 0
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 0
   agressiveAI: 0
   jumpAI: 0
@@ -26193,7 +26193,7 @@ MonoBehaviour:
   bonus: 2
   attack: 2
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 0
   agressiveAI: 0
   jumpAI: 1
@@ -26230,7 +26230,7 @@ MonoBehaviour:
   bonus: 0
   attack: 1
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 1
   agressiveAI: 1
   jumpAI: 1
@@ -26355,7 +26355,7 @@ MonoBehaviour:
   bonus: 0
   attack: 0
   hp: 1
-  face: 1
+  facing: 1
   moveAI: 0
   agressiveAI: 0
   jumpAI: 0
@@ -26431,7 +26431,7 @@ MonoBehaviour:
   bonus: 0
   attack: 1
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 1
   agressiveAI: 1
   jumpAI: 1
@@ -26662,7 +26662,7 @@ MonoBehaviour:
   bonus: 2
   attack: 2
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 0
   agressiveAI: 0
   jumpAI: 1
@@ -26763,7 +26763,7 @@ MonoBehaviour:
   bonus: 0
   attack: 1
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 1
   agressiveAI: 1
   jumpAI: 1
