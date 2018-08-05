@@ -8,6 +8,7 @@ public class PlayerController : EntityBase {
 	private static float BasicSize = 0.3f;
 
 	private const int LANDLAYER = (1 << 8) | (1 << 11);
+	private const float DETECTOFFSET = 0.05f;
 
 	public int[] damageTable = { 0, 0, 0, 0, 1, 1, 1, 4, 4, 4 , 4};
 	
@@ -32,26 +33,23 @@ public class PlayerController : EntityBase {
 	private float swimTimer;
 
 	private bool jumpPreCommand = false;
-
+	private int jumpCounter = 0;
 	
-
-	private bool onGround;
-	private bool onCeil;
-	private bool onFace;
-
-	private Vector2 groundOffset;
-	private Vector2 ceilOffset;
-	private Vector2 faceOffset;
-	
-	private float constOffset = 0.05f;
+	//判斷撞到甚麼
 	private Vector2 bcWidth;
 	private Vector2 bcHeight;
+	private Vector2 groundOffset;
+	private Vector2 faceOffset;
+	//private Vector2 ceilOffset;
+	private bool onGround;
+	private bool onFace;
+	//private bool onCeil;	
 
 
 	protected override void FStart() {
 		SetSize();
 
-		ceilOffset = new Vector2(bc.offset.x, bc.offset.y + bc.size.y * 0.5f);
+		//ceilOffset = new Vector2(bc.offset.x, bc.offset.y + bc.size.y * 0.5f);
 		faceOffset = new Vector2(bc.offset.x + bc.size.x * 0.5f, bc.offset.y);
 		groundOffset = new Vector2(bc.offset.x, bc.offset.y - bc.size.y * 0.5f);
 
@@ -207,6 +205,17 @@ public class PlayerController : EntityBase {
 
 	protected override void FFixedUpdate() {
 		if (!isDead) {
+			//更新碰撞狀態
+			//onCeil = Physics2D.OverlapBox((Vector2)transform.position + ceilOffset * transform.localScale.x + new Vector2(0, DETECTOFFSET), bcWidth * transform.localScale.x, 0, LANDLAYER);
+			onGround = Physics2D.OverlapBox((Vector2)transform.position + groundOffset * transform.localScale.x - new Vector2(0, DETECTOFFSET), bcWidth * transform.localScale.x , 0, LANDLAYER);
+
+			if (facing == 1) {
+				onFace = Physics2D.OverlapBox((Vector2)transform.position + faceOffset * transform.localScale.x + new Vector2(DETECTOFFSET, 0), bcHeight * transform.localScale.x, 0, LANDLAYER);
+			} else {
+				onFace = Physics2D.OverlapBox((Vector2)transform.position + new Vector2(-faceOffset.x , faceOffset.y) * transform.localScale.x - new Vector2(DETECTOFFSET, 0), bcHeight * transform.localScale.x, 0, LANDLAYER);
+			}
+
+
 			if (velocityOut.x != 0) {
 				velocitSim.x = velocitSim.x + velocityOut.x;
 				velocityOut = Vector2.zero;
@@ -224,17 +233,14 @@ public class PlayerController : EntityBase {
 			} else {
 				velocitSim.y = rb.velocity.y - GameEngine.direct.jumpYDec * Time.deltaTime;
 			}
-			
-			rb.velocity = velocitSim;
-			onGround = Physics2D.OverlapBox((Vector2)transform.position + groundOffset * transform.localScale.x - new Vector2(0, constOffset), bcWidth * transform.localScale.x , 0, LANDLAYER);
-			onCeil = Physics2D.OverlapBox((Vector2)transform.position + ceilOffset * transform.localScale.x + new Vector2(0, constOffset), bcWidth * transform.localScale.x, 0, LANDLAYER);
 
-			if (facing == 1) {
-				onFace = Physics2D.OverlapBox((Vector2)transform.position + faceOffset * transform.localScale.x + new Vector2(constOffset, 0), bcHeight * transform.localScale.x, 0, LANDLAYER);
-			} else {
-				onFace = Physics2D.OverlapBox((Vector2)transform.position + new Vector2(-faceOffset.x , faceOffset.y) * transform.localScale.x - new Vector2(constOffset, 0), bcHeight * transform.localScale.x, 0, LANDLAYER);
-			}
+			rb.velocity = velocitSim;
 		}
+	}
+
+	public void SetState(string animValue, bool loopValue = false, bool baseValue = false) {
+		state = baseValue ? "" : animValue;
+		RpcState(animValue, loopValue);
 	}
 
 	[ClientRpc]
@@ -243,9 +249,10 @@ public class PlayerController : EntityBase {
 	}
 		
 	[ClientRpc]
-	public void RpcState(string state) { 
-		skam.state.SetAnimation(0, state, false);
-	}
+	public void RpcState(string animValue, bool loopValue) { 
+		skam.state.SetAnimation(0, animValue, loopValue);
+	} 
+	
 
 	[Command]
 	public void CmdRegist(int playerID, int hp) {
@@ -267,7 +274,7 @@ public class PlayerController : EntityBase {
 
 			if (state != "Crouch" && state != "Jump") {
 				ScoreSystem.AddRecord(playerID, 3, 1);
-				RpcState("Crouch");
+				SetState("Crouch");
 			}
 
 			if (rb.velocity.x != 0) {
@@ -288,7 +295,7 @@ public class PlayerController : EntityBase {
 			return;
 		}
 		
-		RpcState("Eat");
+		SetState("Eat");
 		Eat();
 	}
 	
@@ -299,7 +306,7 @@ public class PlayerController : EntityBase {
 				ScoreSystem.AddRecord(playerID, 4, 1);
 				swimTimer = Time.timeSinceLevelLoad;
 				jumpAudio.Play();
-				RpcState("Jump");
+				SetState("Jump");
 				rb.velocity = new Vector2(rb.velocity.x, (GameEngine.direct.waterYForce + GameEngine.direct.playerBuffer[playerID].waterYForce));				
 			}
 			
@@ -308,7 +315,7 @@ public class PlayerController : EntityBase {
 				ScoreSystem.AddRecord(playerID, 2, 1);
 				jumpTimer = Time.timeSinceLevelLoad;
 				jumpAudio.Play();
-				RpcState("Jump");
+				SetState("Jump");
 				rb.velocity = new Vector2(rb.velocity.x, (GameEngine.direct.jumpYForce + GameEngine.direct.playerBuffer[playerID].jumpYForce) * (( GameEngine.direct.jumpGape - size) /  GameEngine.direct.jumpGape));
 
 				if (this == GameEngine.mainPlayer) {
@@ -329,8 +336,8 @@ public class PlayerController : EntityBase {
 	public void CmdMove(float direction) {		
 		if (onGround) {//地面發呆
 			if (direction != 0) {				
-				if (state != "Walk") {
-					RpcState("Walk");
+				if (state != "") {
+					SetState("Walk" , true , true);
 				}
 
 				Face(direction == 1);
@@ -356,7 +363,7 @@ public class PlayerController : EntityBase {
 
 	[Command]
 	public void CmdLand() {
-		RpcState("Idle");
+		SetState("Idle");
 	}
 
 	[Command]
@@ -378,7 +385,7 @@ public class PlayerController : EntityBase {
 
 		if (onGround) {//地面發呆
 			if (state != "") {
-				RpcState("Idle");
+				SetState("Idle");
 			}
 
 			if (rb.velocity.x != 0) {
@@ -430,7 +437,7 @@ public class PlayerController : EntityBase {
 			}
 
 			if (onGround) {
-				RpcState("Jump");
+				SetState("Jump");
 			}
 		}
 	}
