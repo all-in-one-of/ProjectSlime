@@ -6,6 +6,9 @@ using UnityEngine.Networking;
 
 public class PlayerController : EntityBase {	
 	private static float BasicSize = 0.3f;
+
+	private const int LANDLAYER = (1 << 8) | (1 << 11);
+
 	public int[] damageTable = { 0, 0, 0, 0, 1, 1, 1, 4, 4, 4 , 4};
 	
 	public bool newDamage = false;
@@ -31,7 +34,6 @@ public class PlayerController : EntityBase {
 	private bool jumpPreCommand = false;
 
 	
-	public LayerMask whatIsGround;
 
 	private bool onGround;
 	private bool onCeil;
@@ -224,13 +226,13 @@ public class PlayerController : EntityBase {
 			}
 			
 			rb.velocity = velocitSim;
-			onGround = Physics2D.OverlapBox((Vector2)transform.position + groundOffset * transform.localScale.x - new Vector2(0, constOffset), bcWidth * transform.localScale.x , 0, whatIsGround);
-			onCeil = Physics2D.OverlapBox((Vector2)transform.position + ceilOffset * transform.localScale.x + new Vector2(0, constOffset), bcWidth * transform.localScale.x, 0, whatIsGround);
+			onGround = Physics2D.OverlapBox((Vector2)transform.position + groundOffset * transform.localScale.x - new Vector2(0, constOffset), bcWidth * transform.localScale.x , 0, LANDLAYER);
+			onCeil = Physics2D.OverlapBox((Vector2)transform.position + ceilOffset * transform.localScale.x + new Vector2(0, constOffset), bcWidth * transform.localScale.x, 0, LANDLAYER);
 
 			if (facing == 1) {
-				onFace = Physics2D.OverlapBox((Vector2)transform.position + faceOffset * transform.localScale.x + new Vector2(constOffset, 0), bcHeight * transform.localScale.x, 0, whatIsGround);
+				onFace = Physics2D.OverlapBox((Vector2)transform.position + faceOffset * transform.localScale.x + new Vector2(constOffset, 0), bcHeight * transform.localScale.x, 0, LANDLAYER);
 			} else {
-				onFace = Physics2D.OverlapBox((Vector2)transform.position + new Vector2(-faceOffset.x , faceOffset.y) * transform.localScale.x - new Vector2(constOffset, 0), bcHeight * transform.localScale.x, 0, whatIsGround);
+				onFace = Physics2D.OverlapBox((Vector2)transform.position + new Vector2(-faceOffset.x , faceOffset.y) * transform.localScale.x - new Vector2(constOffset, 0), bcHeight * transform.localScale.x, 0, LANDLAYER);
 			}
 		}
 	}
