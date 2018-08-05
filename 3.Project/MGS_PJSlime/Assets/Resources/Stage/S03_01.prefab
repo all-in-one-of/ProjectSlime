@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 61056743772424214}
   - component: {fileID: 50800458533148936}
   - component: {fileID: 212144162231951248}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -158,7 +158,7 @@ GameObject:
   - component: {fileID: 61059386435652716}
   - component: {fileID: 50546142815812910}
   - component: {fileID: 212217595581366598}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -351,7 +351,7 @@ GameObject:
   - component: {fileID: 61791533030773674}
   - component: {fileID: 50656776797212346}
   - component: {fileID: 212657860744966984}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -386,7 +386,7 @@ GameObject:
   - component: {fileID: 61292397363306446}
   - component: {fileID: 50177154784785404}
   - component: {fileID: 212341714802022108}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -526,7 +526,7 @@ GameObject:
   - component: {fileID: 61859763584228524}
   - component: {fileID: 50250408586474216}
   - component: {fileID: 212789379453446760}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -740,7 +740,7 @@ GameObject:
   - component: {fileID: 61071212044554400}
   - component: {fileID: 50926019401631010}
   - component: {fileID: 212060558060042894}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -857,7 +857,7 @@ GameObject:
   - component: {fileID: 61473621184120054}
   - component: {fileID: 50920389215782380}
   - component: {fileID: 212301172699979428}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -1285,7 +1285,7 @@ GameObject:
   - component: {fileID: 61466440796840220}
   - component: {fileID: 50605851730002610}
   - component: {fileID: 212763602993832606}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -1513,7 +1513,7 @@ GameObject:
   - component: {fileID: 61000683767366916}
   - component: {fileID: 50664020617596192}
   - component: {fileID: 212427646131615692}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -1567,7 +1567,7 @@ GameObject:
   - component: {fileID: 61277983680932686}
   - component: {fileID: 50287771965261776}
   - component: {fileID: 212344903055713874}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -1681,7 +1681,7 @@ GameObject:
   - component: {fileID: 61325789794993942}
   - component: {fileID: 50303564280471688}
   - component: {fileID: 212631577974275888}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -1787,7 +1787,7 @@ GameObject:
   - component: {fileID: 61502193540791318}
   - component: {fileID: 50947939985121130}
   - component: {fileID: 212218893978318010}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -1805,7 +1805,7 @@ GameObject:
   - component: {fileID: 61161835011116494}
   - component: {fileID: 50258602845557602}
   - component: {fileID: 212439056767240990}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -2025,7 +2025,7 @@ GameObject:
   - component: {fileID: 61115944457191646}
   - component: {fileID: 50682330376788506}
   - component: {fileID: 212787713420516198}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -2438,7 +2438,7 @@ GameObject:
   - component: {fileID: 61725870705169144}
   - component: {fileID: 50761894523527340}
   - component: {fileID: 212723905189356698}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -2488,7 +2488,7 @@ GameObject:
   - component: {fileID: 61060671482752614}
   - component: {fileID: 50570651151246616}
   - component: {fileID: 212719544309236602}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -2506,7 +2506,7 @@ GameObject:
   - component: {fileID: 61350244430015530}
   - component: {fileID: 50831085056081050}
   - component: {fileID: 212309364886201534}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -2541,7 +2541,7 @@ GameObject:
   - component: {fileID: 61242661448988962}
   - component: {fileID: 50476138599071456}
   - component: {fileID: 212514194919914502}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -2757,7 +2757,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4343142877369546}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3086,7 +3086,7 @@ GameObject:
   - component: {fileID: 61916143000471106}
   - component: {fileID: 50136182994444776}
   - component: {fileID: 212008794948989814}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -3867,7 +3867,7 @@ GameObject:
   - component: {fileID: 61304268616264504}
   - component: {fileID: 50264235311900572}
   - component: {fileID: 212981386540845658}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -3884,7 +3884,7 @@ GameObject:
   - component: {fileID: 4876544648939120}
   - component: {fileID: 61654837425107074}
   - component: {fileID: 50765218603488556}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -4147,7 +4147,7 @@ GameObject:
   - component: {fileID: 61142262985156122}
   - component: {fileID: 50005969652201090}
   - component: {fileID: 212375904105204820}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -7648,7 +7648,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1945061982297576}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -192.82744, y: -19.116783, z: -1.25}
+  m_LocalPosition: {x: -426.084, y: -71.610176, z: -1.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4775949840891534}

@@ -106,23 +106,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1268217630063672
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4376143766977520}
-  - component: {fileID: 50205818741465894}
-  - component: {fileID: 60809353501062928}
-  m_Layer: 0
-  m_Name: '[BoundingBox]tongue2_eat'
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1274273339710952
 GameObject:
   m_ObjectHideFlags: 1
@@ -612,8 +595,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1523133011794390}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -45.678673, y: 11.60137, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalPosition: {x: -45.816868, y: 13.265133, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4969504560269964}
   m_Father: {fileID: 0}
@@ -686,19 +669,6 @@ Transform:
   - {fileID: 4877011432940748}
   - {fileID: 4708497425199904}
   m_Father: {fileID: 4501748838529068}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4376143766977520
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1268217630063672}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4544949342469276}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4418875547832542
@@ -816,7 +786,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4328186114632180}
-  - {fileID: 4376143766977520}
   m_Father: {fileID: 4418875547832542}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1081,26 +1050,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1523133011794390}
   m_Mesh: {fileID: 0}
---- !u!50 &50205818741465894
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1268217630063672}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!50 &50972945920249176
 Rigidbody2D:
   serializedVersion: 4
@@ -1121,34 +1070,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!60 &60809353501062928
-PolygonCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1268217630063672}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -1.2492, y: 0.2823}
-      - {x: -0.16620001, y: -1.0814999}
-      - {x: 3.0607998, y: 1.3674}
-      - {x: 1.925, y: 2.8237}
 --- !u!61 &61663242805614346
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -1161,7 +1082,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.081726074, y: 1.5858164}
+  m_Offset: {x: 0, y: 1.6}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1172,7 +1093,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.9194031, y: 3.152588}
+  m_Size: {x: 2, y: 3}
   m_EdgeRadius: 0
 --- !u!82 &82144837825678236
 AudioSource:
@@ -1678,7 +1599,6 @@ MonoBehaviour:
   hp: 2
   facing: 1
   damageTable: 0000000000000000000000000000000001000000010000000100000004000000040000000400000004000000
-  acState: 0
   newDamage: 0
   playerID: 0
   velocityOut: {x: 0, y: 0}
@@ -1692,6 +1612,9 @@ MonoBehaviour:
   eatAudio: {fileID: 82163722152346290}
   eatSkill: 1
   size: 0
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!114 &114415526297980838
 MonoBehaviour:
   m_ObjectHideFlags: 1
