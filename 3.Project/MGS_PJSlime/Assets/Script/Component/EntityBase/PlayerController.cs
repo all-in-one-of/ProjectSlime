@@ -28,7 +28,7 @@ public class PlayerController : EntityBase {
 
 	public bool eatSkill = true;
 	public float size = 0;
-
+	
 	private float jumpTimer;
 	private float swimTimer;
 
@@ -273,6 +273,7 @@ public class PlayerController : EntityBase {
 				};
 			} else {
 				skam.state.AddAnimation(trackValue, "Idle", true, 0f);
+				skam.state.TimeScale = 1;
 				entry.End += delegate {
 					state = "";
 				};
@@ -346,11 +347,12 @@ public class PlayerController : EntityBase {
 			if (this == GameEngine.mainPlayer) {
 				CameraManager.direct.Bump();
 			}
-		} else if (jumpCounter < 2) {
+		} else if (jumpCounter < GameEngine.direct.jumpMaxCount/**/) {
 			jumpTimer = Time.timeSinceLevelLoad;
 			jumpAudio.Play();
-			SetState("Jump");
-			rb.velocity = new Vector2(rb.velocity.x, (GameEngine.direct.jumpYForce + GameEngine.direct.playerBuffer[playerID].jumpYForce) * ((GameEngine.direct.jumpGape - size) / GameEngine.direct.jumpGape) );
+			SetState("Jump2");
+			skam.state.TimeScale = 2;
+			rb.velocity = new Vector2(rb.velocity.x, (GameEngine.direct.jumpYForce + GameEngine.direct.playerBuffer[playerID].jumpYForce) * ((GameEngine.direct.jumpGape - size) / GameEngine.direct.jumpGape) * GameEngine.direct.jumpReduce);
 			jumpCounter++;
 			if (this == GameEngine.mainPlayer) {
 				CameraManager.direct.Bump();
@@ -397,6 +399,7 @@ public class PlayerController : EntityBase {
 	[Command]
 	public void CmdLand() {
 		SetState("Idle" , true , false , true);
+		skam.state.TimeScale = 1;
 		jumpCounter = 0;
 	}
 
@@ -427,6 +430,7 @@ public class PlayerController : EntityBase {
 			} else if (state == "Walk") {
 				if (state != "") {
 					SetState("Idle", true, false, true);
+					skam.state.TimeScale = 1;
 				}
 			}
 		} else {//空中移動

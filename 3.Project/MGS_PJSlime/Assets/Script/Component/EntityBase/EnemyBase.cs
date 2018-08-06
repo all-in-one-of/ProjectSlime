@@ -20,12 +20,10 @@ public class EnemyBase : EntityBase {
 	private float aiClock;
 	
 
-
-
 	protected override void FStart() {
 		movePos = transform.position.x;
 		if (skam) {
-			skam.state.SetAnimation(0, "walk", true);
+			skam.state.SetAnimation(0, "Walk", true);
 		}
 	}
 
@@ -77,7 +75,7 @@ public class EnemyBase : EntityBase {
 				if (jumpAI ) {
 					if (Random.Range(0, 2) == 0) {
 						rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-						SetAction("jump");
+						SetAction("Jump");
 					}
 				}
 
@@ -92,7 +90,7 @@ public class EnemyBase : EntityBase {
 							newBullet.transform.SetParent(GameEngine.nowStage.unitSet);
 							newBullet.GetComponent<ProjectileBase>().FireProjectile(new Vector2(1, 0));
 						}
-						SetAction("attack");
+						SetAction("Attack");
 					}
 				}
 			}
@@ -109,7 +107,7 @@ public class EnemyBase : EntityBase {
 		if (skam) {
 			state = actionValue;
 			Spine.TrackEntry entry = skam.state.SetAnimation(0, actionValue, false);
-			skam.state.AddAnimation(0, "walk", true, 0f);
+			skam.state.AddAnimation(0, "Walk", true, 0f);
 			entry.End += delegate {
 				state = "";
 			};

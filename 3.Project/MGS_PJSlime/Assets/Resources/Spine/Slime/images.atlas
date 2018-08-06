@@ -1,0 +1,83 @@
+
+images.png
+size: 1024,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+body
+  rotate: true
+  xy: 686, 254
+  size: 248, 282
+  orig: 248, 282
+  offset: 0, 0
+  index: -1
+cloth
+  rotate: false
+  xy: 2, 19
+  size: 197, 62
+  orig: 197, 62
+  offset: 0, 0
+  index: -1
+eyes_b
+  rotate: false
+  xy: 970, 434
+  size: 49, 68
+  orig: 49, 68
+  offset: 0, 0
+  index: -1
+eyes_f
+  rotate: false
+  xy: 201, 2
+  size: 97, 79
+  orig: 97, 79
+  offset: 0, 0
+  index: -1
+head
+  rotate: false
+  xy: 344, 232
+  size: 340, 270
+  orig: 340, 270
+  offset: 0, 0
+  index: -1
+leg_b
+  rotate: false
+  xy: 425, 182
+  size: 35, 48
+  orig: 35, 48
+  offset: 0, 0
+  index: -1
+leg_f
+  rotate: false
+  xy: 970, 385
+  size: 25, 47
+  orig: 25, 47
+  offset: 0, 0
+  index: -1
+mouth
+  rotate: true
+  xy: 344, 162
+  size: 68, 79
+  orig: 68, 79
+  offset: 0, 0
+  index: -1
+template
+  rotate: false
+  xy: 2, 152
+  size: 340, 350
+  orig: 340, 350
+  offset: 0, 0
+  index: -1
+tongue
+  rotate: false
+  xy: 300, 37
+  size: 70, 44
+  orig: 70, 44
+  offset: 0, 0
+  index: -1
+tongue2
+  rotate: false
+  xy: 2, 83
+  size: 376, 67
+  orig: 376, 67
+  offset: 0, 0
+  index: -1
