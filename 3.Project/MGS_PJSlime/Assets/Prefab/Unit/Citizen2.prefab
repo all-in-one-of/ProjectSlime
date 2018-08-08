@@ -163,7 +163,7 @@ MonoBehaviour:
   bonus: 2
   attack: 1
   hp: 2
-  face: 1
+  facing: 1
   moveAI: 0
   agressiveAI: 0
   jumpAI: 1
