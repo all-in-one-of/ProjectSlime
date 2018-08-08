@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 23979811682011016}
   - component: {fileID: 114977611957279270}
   m_Layer: 11
-  m_Name: Solider01_N
+  m_Name: Solider01 _W
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40,8 +40,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1647566600821196}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -213.93002, y: -34.07, z: 1.25}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalPosition: {x: -204.7, y: 17.600006, z: 11.25}
+  m_LocalScale: {x: 8, y: 8, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -151,7 +151,7 @@ MonoBehaviour:
     iceXAcc: 0
     iceXDec: 0
   isInvincible: 0
-  isUndead: 0
+  isUndead: 1
   eatAble: 1
   eatBuffer: 1
   isDead: 0
@@ -160,13 +160,13 @@ MonoBehaviour:
   attack: 1
   hp: 2
   facing: 1
-  moveAI: 1
-  agressiveAI: 0
-  jumpAI: 0
-  shootAI: 1
-  moveShift: 5
-  moveSpeed: 2
-  jumpForce: 5
+  moveAI: 0
+  agressiveAI: 1
+  jumpAI: 1
+  shootAI: 0
+  moveShift: 50
+  moveSpeed: 3
+  jumpForce: 10
   bullet: {fileID: 1974477046238388, guid: bd3df764a3f6e21449119a7bfa452886, type: 2}
   aiGape: {x: 2, y: 4}
 --- !u!114 &114449455491550526
@@ -183,22 +183,22 @@ MonoBehaviour:
   m_SceneId:
     m_Value: 0
   m_AssetId:
-    i0: 186
-    i1: 181
-    i2: 237
-    i3: 235
-    i4: 103
-    i5: 117
-    i6: 118
-    i7: 4
-    i8: 8
-    i9: 144
-    i10: 70
-    i11: 216
-    i12: 199
-    i13: 158
-    i14: 91
-    i15: 207
+    i0: 252
+    i1: 19
+    i2: 10
+    i3: 191
+    i4: 179
+    i5: 233
+    i6: 217
+    i7: 196
+    i8: 154
+    i9: 171
+    i10: 181
+    i11: 79
+    i12: 215
+    i13: 40
+    i14: 140
+    i15: 32
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
 --- !u!114 &114977611957279270

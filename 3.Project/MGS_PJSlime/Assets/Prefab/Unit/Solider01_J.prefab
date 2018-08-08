@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 23979811682011016}
   - component: {fileID: 114977611957279270}
   m_Layer: 11
-  m_Name: Solider01
+  m_Name: Solider01_J
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -160,10 +160,10 @@ MonoBehaviour:
   attack: 1
   hp: 2
   facing: 1
-  moveAI: 1
+  moveAI: 0
   agressiveAI: 0
-  jumpAI: 0
-  shootAI: 1
+  jumpAI: 1
+  shootAI: 0
   moveShift: 5
   moveSpeed: 2
   jumpForce: 5
@@ -183,22 +183,22 @@ MonoBehaviour:
   m_SceneId:
     m_Value: 0
   m_AssetId:
-    i0: 40
-    i1: 119
-    i2: 230
-    i3: 224
-    i4: 22
-    i5: 115
-    i6: 8
-    i7: 180
-    i8: 232
-    i9: 27
-    i10: 206
-    i11: 166
-    i12: 109
-    i13: 153
-    i14: 214
-    i15: 219
+    i0: 116
+    i1: 53
+    i2: 114
+    i3: 125
+    i4: 9
+    i5: 216
+    i6: 161
+    i7: 116
+    i8: 74
+    i9: 96
+    i10: 167
+    i11: 94
+    i12: 110
+    i13: 223
+    i14: 159
+    i15: 150
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
 --- !u!114 &114977611957279270
