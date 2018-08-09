@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: images_Material
+  m_Name: Slime_Material
   m_Shader: {fileID: 4800000, guid: 72829dc60d361ab4b894b61f52e0d0f7, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -25,7 +25,7 @@ Material:
     m_Floats:
     - PixelSnap: 0
     - _Cutoff: 0.1
-    - _Hue: 90
+    - _Hue: 0
     - _Sat: 1
     - _Val: 1
     m_Colors:

@@ -7,7 +7,7 @@ using UnityEngine.Networking;
 public class PlayerController : EntityBase {	
 	private static float BasicSize = 0.3f;
 
-	private const int LANDLAYER = (1 << 8) | (1 << 11);
+	private const int LANDLAYER = (1 << 8) | (1 << 9) | (1 << 11);
 	private const float DETECTOFFSET = 0.05f;
 
 	public int[] damageTable = { 0, 0, 0, 0, 1, 1, 1, 4, 4, 4 , 4};
@@ -42,10 +42,11 @@ public class PlayerController : EntityBase {
 	private Vector2 groundOffset;
 	private Vector2 faceOffset;
 	//private Vector2 ceilOffset;
-	private bool onGround;
-	private bool onFace;
+	private Collider2D onGround;
+	private Collider2D onFace;
 	//private bool onCeil;	
 
+	public bool Secret = false;
 
 	protected override void FStart() {
 		SetSize();
@@ -54,13 +55,22 @@ public class PlayerController : EntityBase {
 		faceOffset = new Vector2(bc.offset.x + bc.size.x * 0.5f, bc.offset.y);
 		groundOffset = new Vector2(bc.offset.x, bc.offset.y - bc.size.y * 0.5f);
 
-		bcWidth = new Vector2(bc.size.x * 0.5f, 0);
-		bcHeight = new Vector2(0, bc.size.y * 0.5f);
-
+		bcWidth = new Vector2(bc.size.x * 0.8f, 0);
+		bcHeight = new Vector2(0, bc.size.y * 0.8f);
+		//GetComponent<MeshRenderer>().materials[0] = GameEngine.direct.playerMaterial[playerID];
+		GameEngine.direct.playerMaterial[playerID].enableInstancing = true;
 	}
-	
+
+	public bool fuck;
+
 	void Update () {
+
 		if ((Network.isClient || Network.isServer)) {
+			if (!fuck) {
+				GetComponent<MeshRenderer>().material = GameEngine.direct.playerMaterial[playerID];
+				//fuck = true;
+			}
+
 			
 			float horizonDirection = 0;
 			bool downCommand = false;
@@ -209,7 +219,7 @@ public class PlayerController : EntityBase {
 		if (!isDead) {
 			//更新碰撞狀態
 			bool preGround = onGround;
-
+			
 			//onCeil = Physics2D.OverlapBox((Vector2)transform.position + ceilOffset * transform.localScale.x + new Vector2(0, DETECTOFFSET), bcWidth * transform.localScale.x, 0, LANDLAYER);
 			onGround = Physics2D.OverlapBox((Vector2)transform.position + groundOffset * transform.localScale.x - new Vector2(0, DETECTOFFSET), bcWidth * transform.localScale.x , 0, LANDLAYER);
 
@@ -264,7 +274,7 @@ public class PlayerController : EntityBase {
 	[ClientRpc]
 	public void RpcState(string animValue, bool loopValue , bool returnValue , int trackValue) { 
 		Spine.TrackEntry entry = skam.state.SetAnimation(trackValue, animValue, loopValue);
-		Debug.Log(animValue + trackValue);
+
 		if (returnValue) {
 			if (trackValue == 1) {
 				skam.state.AddEmptyAnimation(trackValue, 0, 0f);
@@ -350,8 +360,8 @@ public class PlayerController : EntityBase {
 		} else if (jumpCounter < GameEngine.direct.jumpMaxCount/**/) {
 			jumpTimer = Time.timeSinceLevelLoad;
 			jumpAudio.Play();
-			SetState("Jump2");
-			skam.state.TimeScale = 2;
+			SetState(Secret ? "Jump2" : "Jump");
+			skam.state.TimeScale = Secret ? 2 : 1;
 			rb.velocity = new Vector2(rb.velocity.x, (GameEngine.direct.jumpYForce + GameEngine.direct.playerBuffer[playerID].jumpYForce) * ((GameEngine.direct.jumpGape - size) / GameEngine.direct.jumpGape) * GameEngine.direct.jumpReduce);
 			jumpCounter++;
 			if (this == GameEngine.mainPlayer) {
@@ -559,13 +569,8 @@ public class PlayerController : EntityBase {
 	}
 
 
-	public bool IsSlideing() {/*
-		foreach (Collider2D collider in touching.Keys) {
-			if (collider.name == "Ice") {
-				return true;
-			}
-		}*/
-		return false;
+	public bool IsSlideing() {
+		return onGround && onGround.tag == "Ice";
 	}
 
 	public void EndCollision(Collision2D collision) {

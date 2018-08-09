@@ -8,7 +8,6 @@ using UnityEngine.EventSystems;
 public class PrototypeSystem : NetworkBehaviour {
 	public static PrototypeSystem direct;
 	public GameObject player;
-	public Material[] mt;
 	public int a = 0;
 	public int clock;
 
@@ -33,8 +32,6 @@ public class PrototypeSystem : NetworkBehaviour {
 			GameObject newObj = Network.Instantiate(player, new Vector3(spawnPoint.x + Random.Range(-5, 5), spawnPoint.y, 0), Quaternion.identity, 0) as GameObject;
 			NetworkServer.Spawn(newObj);
  
-			//newObj.GetComponentInChildren<SpriteRenderer>().material = mt[a];
-
 			if (a == 0) {
 				newObj.GetComponent<PlayerController>().CmdRegist(a, hostIntSize);
 				GameEngine.direct.Focus(newObj.GetComponent<PlayerController>());

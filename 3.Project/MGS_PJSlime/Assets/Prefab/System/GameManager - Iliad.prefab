@@ -81,6 +81,11 @@ MonoBehaviour:
   connecting: 0
   preTester: 0
   testStage: {fileID: 1945061982297576, guid: 12e80d78ff22a634aab2f72c8cc10ba2, type: 2}
+  playerMaterial:
+  - {fileID: 2100000, guid: 72329b0335e7c4643a9fd0dd3b38e0d6, type: 2}
+  - {fileID: 2100000, guid: 3da23c349a24ef54eac2033d0eb56c6d, type: 2}
+  - {fileID: 2100000, guid: e230df5236586e845978086c492a6ea8, type: 2}
+  - {fileID: 2100000, guid: 2ba070359cbc8f1409f490069d1b52e8, type: 2}
   players: []
   playerUIs: []
   stageList:
@@ -98,6 +103,8 @@ MonoBehaviour:
   walkXAcc: 100
   walkXDec: 50
   jumpGape: 48
+  jumpMaxCount: 2
+  jumpReduce: 1
   jumpXSpeed: 12
   jumpXAcc: 45
   jumpXDec: 40

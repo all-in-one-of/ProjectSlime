@@ -26,6 +26,8 @@ public class GameEngine : MonoBehaviour {
 	public static PlayerController mainPlayer;
 	public static StageData nowStage;
 
+	public Material[] playerMaterial;
+
 	public List<PlayerController> players = new List<PlayerController>();
 	public List<GameObject> playerUIs = new List<GameObject>();
 	public Buffer[] playerBuffer = {
