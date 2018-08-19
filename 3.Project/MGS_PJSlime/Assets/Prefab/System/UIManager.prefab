@@ -1792,19 +1792,19 @@ MonoBehaviour:
   - {fileID: 114679224438417036}
   - {fileID: 114472859584373482}
   bufferEffects:
-  - walkXSpeed: 0
-    jumpYForce: 0
+  - walkXSpeed: 3
+    jumpYForce: 3
     waterXSpeed: 0
     waterYForce: 0
     iceXAcc: 0
     iceXDec: 0
   - walkXSpeed: 0
-    jumpYForce: 0
+    jumpYForce: 6
     waterXSpeed: 0
     waterYForce: 0
     iceXAcc: 0
     iceXDec: 0
-  - walkXSpeed: 0
+  - walkXSpeed: 6
     jumpYForce: 0
     waterXSpeed: 0
     waterYForce: 0
