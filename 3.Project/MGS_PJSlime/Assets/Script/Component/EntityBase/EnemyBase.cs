@@ -83,11 +83,11 @@ public class EnemyBase : EntityBase {
 					if (Random.Range(0, 2) == 0) {
 						if (Random.Range(0, 2) == 0) {
 							GameObject newBullet = PrototypeSystem.direct.SpawnUnit(bullet, new Vector2(transform.position.x - 1, transform.position.y));
-							newBullet.transform.SetParent(GameEngine.nowStage.unitSet);
+							newBullet.transform.SetParent(GameEngine.nowStageData.unitSet);
 							newBullet.GetComponent<ProjectileBase>().FireProjectile(new Vector2(-1, 0));
 						} else {
 							GameObject newBullet = PrototypeSystem.direct.SpawnUnit(bullet, new Vector2(transform.position.x + 1, transform.position.y));
-							newBullet.transform.SetParent(GameEngine.nowStage.unitSet);
+							newBullet.transform.SetParent(GameEngine.nowStageData.unitSet);
 							newBullet.GetComponent<ProjectileBase>().FireProjectile(new Vector2(1, 0));
 						}
 						SetAction("Attack");

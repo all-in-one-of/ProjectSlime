@@ -78,7 +78,7 @@ public class SpawnerBase : GearBase {
 			if (spawnedObject[i] == null) {
 				spawnedObject[i] = Network.Instantiate(objectValue, new Vector3(transform.position.x + Random.Range(-spawnOffset.x, spawnOffset.x), transform.transform.position.y, +Random.Range(-spawnOffset.y, spawnOffset.y)), Quaternion.identity, 0) as GameObject;
 				NetworkServer.Spawn(spawnedObject[i]);
-				spawnedObject[i].transform.SetParent(GameEngine.nowStage.unitSet);
+				spawnedObject[i].transform.SetParent(GameEngine.nowStageData.unitSet);
 				spawnedObject[i].GetComponent<NetworkIdentity>().RebuildObservers(true);
 				if (triggerType == TriggerType.once) {
 					active = false;

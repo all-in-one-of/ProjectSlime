@@ -11,12 +11,16 @@ public class UIManager : MonoBehaviour {
 	public Text counter;
 
 	public Transform bullpenObject;
+	public Transform scoreObject;
 	public Transform gardenObject;
 
 	public List<Material> recordPlayer = new List<Material>();
 	public List<Text> recordShower = new List<Text>();
 	public List<Text> recordShower2 = new List<Text>();
 	public List<Image> recordShower3 = new List<Image>();
+
+	[SerializeField]
+	public List<BufferEffect> bufferEffects = new List<BufferEffect>();
 
 	void Start() {
 		direct = this;
@@ -43,16 +47,27 @@ public class UIManager : MonoBehaviour {
 	}
 
 	public void OnStage() {
-		bullpenObject.gameObject.SetActive(true);
+		//bullpenObject.gameObject.SetActive(true);
 	}
-
-	public void EndScore() {
-		gardenObject.gameObject.SetActive(false);
-		GameEngine.direct.Init(GameEngine.Status.Garden);
-	}
-
+	
+	//score
 	public void OnScore() {
+		Debug.Log("s");
+		scoreObject.gameObject.SetActive(true);
+		//bullpenObject.gameObject.SetActive(false);
+	}
+	public void EndScore() {
+		scoreObject.gameObject.SetActive(false);
+		OnGarden();
+	}
+
+	//garden
+	public void OnGarden() {
 		gardenObject.gameObject.SetActive(true);
-		bullpenObject.gameObject.SetActive(false);
+	}
+	public void EndGarden(int buffValue) {
+		gardenObject.gameObject.SetActive(false);
+		GameEngine.AddBufferEffect(bufferEffects[buffValue]);
+		GameEngine.direct.Init(GameEngine.Status.Garden);
 	}
 }

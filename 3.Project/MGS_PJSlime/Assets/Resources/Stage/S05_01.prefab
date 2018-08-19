@@ -17940,11 +17940,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1523133011794390, guid: 69d582db655bb0a438f80bc068cd8267, type: 2}
-  mt:
-  - {fileID: 2100000, guid: 5fd3337618533544a86c76bc56ee2e83, type: 2}
-  - {fileID: 2100000, guid: 80d8357e585b0ba4dbe9a66444aa0fcd, type: 2}
-  - {fileID: 2100000, guid: 9ece7ea14e1c2bd428b068ab115b1966, type: 2}
-  - {fileID: 2100000, guid: 5618c008df7875742856de4ed77f97e5, type: 2}
   a: 0
   clock: 100
   hostIntSize: 6

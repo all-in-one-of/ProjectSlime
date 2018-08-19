@@ -24,13 +24,15 @@ public class GameEngine : MonoBehaviour {
 	public GameObject testStage;
 
 	public static PlayerController mainPlayer;
-	public static StageData nowStage;
+
+	public static GameObject nowStage;
+	public static StageData nowStageData;
 
 	public Material[] playerMaterial;
 
 	public List<PlayerController> players = new List<PlayerController>();
 	public List<GameObject> playerUIs = new List<GameObject>();
-	public Buffer[] playerBuffer = {
+	private static Buffer[] playerBuffer = {
 		new Buffer(),
 		new Buffer(),
 		new Buffer(),
@@ -71,6 +73,8 @@ public class GameEngine : MonoBehaviour {
 	public float iceXDec = 10;
 
 	private int stageIndex = 0;
+	private bool gameStart = false;
+
 
 	void Start() {
 		direct = this;
@@ -92,6 +96,8 @@ public class GameEngine : MonoBehaviour {
 		Init();
 	}
 
+
+
 	public void Init( Status nextStatus = Status.Stage) {
 		//Init - Value
 		mainPlayer = null;
@@ -103,6 +109,14 @@ public class GameEngine : MonoBehaviour {
 		AudioManager.direct.Init();
 
 		//Init - Stage
+		if (preTester && testStage) {
+			LoadStage(testStage);
+		} else {
+			LoadStage(stageList[stageIndex]);
+		}
+
+		UIManager.direct.OnStage();
+		/*
 		if (nextStatus == Status.Stage) {
 			if (preTester && testStage) {
 				LoadStage(testStage);
@@ -113,17 +127,18 @@ public class GameEngine : MonoBehaviour {
 			UIManager.direct.OnStage();
 		} else {
 			LoadStage(gardenStage);
-		}
+		}*/
 		
 		//Init - Finish
 		status = nextStatus;
 		connecting = false;
+		gameStart = true;
 	}
 	
 	//讀取場景
 	public void LoadStage(GameObject value) {
-		GameObject newStage = Instantiate(value);
-		nowStage = newStage.GetComponent<StageData>();
+		nowStage = Instantiate(value);
+		nowStageData = nowStage.GetComponent<StageData>();
 	}
 	
 	private void Update() {
@@ -159,25 +174,26 @@ public class GameEngine : MonoBehaviour {
 	}
 
 	public void OnVictory() {
-		SceneSwitcher.direct.SwitchScene("S03_Garden");
-		ScoreSystem.CaculateRecord();
-	}
+		if (gameStart) {
+			gameStart = false;
 
-	public void OnGardened() {
-		bool nextStage = true;
-
-		foreach (PlayerController unit in players) {
-			if (unit.eatSkill) {
-				nextStage = false;
-			}
-		}
-
-		if (nextStage) {
 			stageIndex = stageIndex + 1 >= stageList.Count ? 0 : stageIndex + 1;
-			SceneSwitcher.direct.SwitchScene("S03_Bullpen");
-		}
+
+			ScoreSystem.CaculateRecord();
+			if (nowStage) {
+				Destroy(nowStage);
+			}
+
+			foreach (PlayerController pl in players) {
+				Destroy(pl.gameObject);
+			}
+
+			foreach (GameObject pl in playerUIs) {
+				pl.SetActive(false);
+			}
+		}	
 	}
-	
+		
 	public void ResetCamera() {
 		PlayerController temp = null;
 
@@ -263,7 +279,7 @@ public class GameEngine : MonoBehaviour {
 
 	public EntityBase GetUnitInRange(float range , Vector2 pos) {
 
-		foreach (Transform unit in nowStage.unitSet) {
+		foreach (Transform unit in nowStageData.unitSet) {
 			if (Mathf.Abs(transform.position.x - unit.transform.position.x) < range) {
 				if (Mathf.Abs(transform.position.y - unit.transform.position.y) < range * 0.1f) {
 					EntityBase enemy = unit.GetComponent<EntityBase>();
@@ -291,5 +307,19 @@ public class GameEngine : MonoBehaviour {
 			}
 		}*/
 		return null;
-	}	
+	}
+
+	public static Buffer GetBuffer(int index) {
+		return playerBuffer[index];
+	}
+
+	public static void AddBufferEffect(int index , BufferEffect buffValue) {
+		playerBuffer[index].AddEffect(buffValue);
+	}
+
+	public static void AddBufferEffect(BufferEffect buffValue) {
+		foreach (Buffer pcBuffer in playerBuffer) {
+			pcBuffer.AddEffect(buffValue);
+		}
+	}
 }

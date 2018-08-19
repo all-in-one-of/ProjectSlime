@@ -28,7 +28,9 @@ public class PlayerController : EntityBase {
 
 	public bool eatSkill = true;
 	public float size = 0;
-	
+
+	public float animSpeed = 1.6f;
+
 	private float jumpTimer;
 	private float swimTimer;
 
@@ -318,11 +320,11 @@ public class PlayerController : EntityBase {
 				if (!IsSlideing()) {
 					velocitSim.x = Decelerator(velocitSim.x, GameEngine.direct.walkXDec, 0);
 				} else {
-					velocitSim.x = Decelerator(velocitSim.x, (GameEngine.direct.iceXDec + GameEngine.direct.playerBuffer[playerID].iceXDec), 0);
+					velocitSim.x = Decelerator(velocitSim.x, (GameEngine.direct.iceXDec + GameEngine.GetBuffer(playerID).iceXDec), 0);
 				}
 			}
 		} else {//空中移動
-			velocitSim.x = Decelerator(velocitSim.x, (GameEngine.direct.iceXDec + GameEngine.direct.playerBuffer[playerID].iceXDec), 0);
+			velocitSim.x = Decelerator(velocitSim.x, (GameEngine.direct.iceXDec + GameEngine.GetBuffer(playerID).iceXDec), 0);
 		}
 	}
 
@@ -332,6 +334,7 @@ public class PlayerController : EntityBase {
 			return;
 		}
 
+		skam.state.TimeScale = animSpeed;
 		SetOverState("Eat" , false , true);
 		Eat();
 	}
@@ -344,7 +347,7 @@ public class PlayerController : EntityBase {
 				swimTimer = Time.timeSinceLevelLoad;
 				jumpAudio.Play();
 				SetState("Jump");
-				rb.velocity = new Vector2(rb.velocity.x, (GameEngine.direct.waterYForce + GameEngine.direct.playerBuffer[playerID].waterYForce));
+				rb.velocity = new Vector2(rb.velocity.x, (GameEngine.direct.waterYForce + GameEngine.GetBuffer(playerID).waterYForce));
 			}
 
 		} else if (onGround) {
@@ -352,7 +355,7 @@ public class PlayerController : EntityBase {
 			jumpTimer = Time.timeSinceLevelLoad;
 			jumpAudio.Play();
 			SetState("Jump");
-			rb.velocity = new Vector2(rb.velocity.x, (GameEngine.direct.jumpYForce + GameEngine.direct.playerBuffer[playerID].jumpYForce) * ((GameEngine.direct.jumpGape - size) / GameEngine.direct.jumpGape));
+			rb.velocity = new Vector2(rb.velocity.x, (GameEngine.direct.jumpYForce + GameEngine.GetBuffer(playerID).jumpYForce) * ((GameEngine.direct.jumpGape - size) / GameEngine.direct.jumpGape));
 			jumpCounter++;
 			if (this == GameEngine.mainPlayer) {
 				CameraManager.direct.Bump();
@@ -362,7 +365,7 @@ public class PlayerController : EntityBase {
 			jumpAudio.Play();
 			SetState(Secret ? "Jump2" : "Jump");
 			skam.state.TimeScale = Secret ? 2 : 1;
-			rb.velocity = new Vector2(rb.velocity.x, (GameEngine.direct.jumpYForce + GameEngine.direct.playerBuffer[playerID].jumpYForce) * ((GameEngine.direct.jumpGape - size) / GameEngine.direct.jumpGape) * GameEngine.direct.jumpReduce);
+			rb.velocity = new Vector2(rb.velocity.x, (GameEngine.direct.jumpYForce + GameEngine.GetBuffer(playerID).jumpYForce) * ((GameEngine.direct.jumpGape - size) / GameEngine.direct.jumpGape) * GameEngine.direct.jumpReduce);
 			jumpCounter++;
 			if (this == GameEngine.mainPlayer) {
 				CameraManager.direct.Bump();
@@ -373,7 +376,7 @@ public class PlayerController : EntityBase {
 	[Command]
 	public void CmdJumpForce() {
 		if (!onGround && Time.timeSinceLevelLoad - jumpTimer < GameEngine.direct.jumpDuraion && jumpCounter < 2) {
-			rb.velocity = new Vector2(rb.velocity.x, (GameEngine.direct.jumpYForce + GameEngine.direct.playerBuffer[playerID].jumpYForce) * (( GameEngine.direct.jumpGape - size) /  GameEngine.direct.jumpGape));
+			rb.velocity = new Vector2(rb.velocity.x, (GameEngine.direct.jumpYForce + GameEngine.GetBuffer(playerID).jumpYForce) * (( GameEngine.direct.jumpGape - size) /  GameEngine.direct.jumpGape));
 		}
 	}
 	
@@ -387,9 +390,9 @@ public class PlayerController : EntityBase {
 
 				Face(direction == 1);
 				if (!IsSlideing()) {
-					velocitSim.x = Accelerator(velocitSim.x, direction * GameEngine.direct.walkXAcc, direction * (GameEngine.direct.walkXSpeed + GameEngine.direct.playerBuffer[playerID].walkXSpeed));
+					velocitSim.x = Accelerator(velocitSim.x, direction * GameEngine.direct.walkXAcc, direction * (GameEngine.direct.walkXSpeed + GameEngine.GetBuffer(playerID).walkXSpeed));
 				} else {
-					velocitSim.x = Accelerator(velocitSim.x, direction * (GameEngine.direct.iceXAcc + GameEngine.direct.playerBuffer[playerID].iceXAcc), direction * (GameEngine.direct.walkXSpeed + GameEngine.direct.playerBuffer[playerID].walkXSpeed));
+					velocitSim.x = Accelerator(velocitSim.x, direction * (GameEngine.direct.iceXAcc + GameEngine.GetBuffer(playerID).iceXAcc), direction * (GameEngine.direct.walkXSpeed + GameEngine.GetBuffer(playerID).walkXSpeed));
 				}				
 				return;
 			}
@@ -398,7 +401,7 @@ public class PlayerController : EntityBase {
 			if (direction != 0) {
 				Face(direction == 1);
 				if (isInWater) {
-					velocitSim.x = Accelerator(velocitSim.x, direction * GameEngine.direct.waterXAcc, direction * (GameEngine.direct.waterXSpeed + GameEngine.direct.playerBuffer[playerID].waterXSpeed));
+					velocitSim.x = Accelerator(velocitSim.x, direction * GameEngine.direct.waterXAcc, direction * (GameEngine.direct.waterXSpeed + GameEngine.GetBuffer(playerID).waterXSpeed));
 				} else {
 					velocitSim.x = Accelerator(velocitSim.x, direction * GameEngine.direct.jumpXAcc, direction * GameEngine.direct.jumpXSpeed);
 				}
@@ -421,11 +424,11 @@ public class PlayerController : EntityBase {
 					if (!IsSlideing()) {
 						velocitSim.x = Decelerator(velocitSim.x, GameEngine.direct.walkXDec, 0);
 					} else {
-						velocitSim.x = Decelerator(velocitSim.x, (GameEngine.direct.iceXDec + GameEngine.direct.playerBuffer[playerID].iceXDec), 0);
+						velocitSim.x = Decelerator(velocitSim.x, (GameEngine.direct.iceXDec + GameEngine.GetBuffer(playerID).iceXDec), 0);
 					}
 				}
 			} else {//空中移動
-				velocitSim.x = Decelerator(velocitSim.x, (GameEngine.direct.iceXDec + GameEngine.direct.playerBuffer[playerID].iceXDec), 0);
+				velocitSim.x = Decelerator(velocitSim.x, (GameEngine.direct.iceXDec + GameEngine.GetBuffer(playerID).iceXDec), 0);
 			}
 			return;
 		}
@@ -435,7 +438,7 @@ public class PlayerController : EntityBase {
 				if (!IsSlideing()) {
 					velocitSim.x = Decelerator(velocitSim.x, GameEngine.direct.walkXDec, 0);
 				} else {
-					velocitSim.x = Decelerator(velocitSim.x, (GameEngine.direct.iceXDec + GameEngine.direct.playerBuffer[playerID].iceXDec), 0);
+					velocitSim.x = Decelerator(velocitSim.x, (GameEngine.direct.iceXDec + GameEngine.GetBuffer(playerID).iceXDec), 0);
 				}
 			} else if (state == "Walk") {
 				if (state != "") {
@@ -444,7 +447,7 @@ public class PlayerController : EntityBase {
 				}
 			}
 		} else {//空中移動
-			velocitSim.x = Decelerator(velocitSim.x, (GameEngine.direct.iceXDec + GameEngine.direct.playerBuffer[playerID].iceXDec), 0);
+			velocitSim.x = Decelerator(velocitSim.x, (GameEngine.direct.iceXDec + GameEngine.GetBuffer(playerID).iceXDec), 0);
 		}
 	}
 
@@ -516,8 +519,6 @@ public class PlayerController : EntityBase {
 			float ixe = ipc.velocitSim.x * 0.75f + ixv * ipc.size;
 
 			if (Mathf.Abs(xe) > Mathf.Abs(ixe) && velocitSim.x != 0) {
-				//Debug.Log(name + "[1]:" + name + "/" + xe + "撞" + collision.gameObject.name + "/" + ixe);
-
 				if (Mathf.Abs(xe + ixe) >= 6) {
 					collision.gameObject.GetComponent<PlayerController>().velocityOut.x = xv * Mathf.Abs(xe + ixe) * 0.5f;
 				}
@@ -532,25 +533,19 @@ public class PlayerController : EntityBase {
 		EntityBase target = GameEngine.direct.GetUnitInRange(GetSizeFormula(size) + 3, transform.position);
 		if (target && target.eatAble) {
 			if (target.eatBuffer && target.buffer != null) {
-				GameEngine.direct.playerBuffer[playerID].AddEffect(target.buffer);
+				GameEngine.AddBufferEffect( playerID, target.buffer);
 			}
-			
-			if (GameEngine.direct.status == GameEngine.Status.Garden) {
-				eatSkill = false;
-				GameEngine.direct.OnGardened();
 
-			} else {
-				if (target.GetComponent<ProjectileBase>()) {
-					ScoreSystem.AddRecord(playerID, 5, 1);
+			if (target.GetComponent<ProjectileBase>()) {
+				ScoreSystem.AddRecord(playerID, 5, 1);
 
-				} else if (target.GetComponent<EnemyBase>()) {
-					ScoreSystem.AddRecord(playerID, 6, 1);
-				}
-
-				hp++;
-				SetSize();
-				ScoreSystem.AddScore(target.bonus);
+			} else if (target.GetComponent<EnemyBase>()) {
+				ScoreSystem.AddRecord(playerID, 6, 1);
 			}
+
+			hp++;
+			SetSize();
+			ScoreSystem.AddScore(target.bonus);
 
 			eating = target.transform;
 			target.OnDead();
@@ -619,7 +614,7 @@ public class PlayerController : EntityBase {
 	private void OnTriggerExit2D(Collider2D collider) {
 		if (Network.isServer && collider.tag == "Water") {
 			isInWater = null;
-			rb.velocity = new Vector2(rb.velocity.x, 3 * (GameEngine.direct.waterYForce + GameEngine.direct.playerBuffer[playerID].waterYForce) );
+			rb.velocity = new Vector2(rb.velocity.x, 3 * (GameEngine.direct.waterYForce + GameEngine.GetBuffer(playerID).waterYForce) );
 		}
 	}
 

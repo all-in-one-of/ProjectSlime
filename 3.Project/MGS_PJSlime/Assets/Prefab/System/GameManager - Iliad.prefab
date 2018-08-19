@@ -80,7 +80,7 @@ MonoBehaviour:
   status: 3
   connecting: 0
   preTester: 0
-  testStage: {fileID: 1945061982297576, guid: 12e80d78ff22a634aab2f72c8cc10ba2, type: 2}
+  testStage: {fileID: 1063481176537888, guid: 95cd4c459d82f7f43955b24f9f900141, type: 2}
   playerMaterial:
   - {fileID: 2100000, guid: 72329b0335e7c4643a9fd0dd3b38e0d6, type: 2}
   - {fileID: 2100000, guid: 3da23c349a24ef54eac2033d0eb56c6d, type: 2}

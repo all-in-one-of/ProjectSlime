@@ -4164,7 +4164,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1409521000870122}
   m_LocalRotation: {x: 0, y: 0.9659259, z: -0, w: -0.25881898}
-  m_LocalPosition: {x: 25.11, y: 15.21, z: -136.95}
+  m_LocalPosition: {x: 25.11, y: 15.21, z: 0}
   m_LocalScale: {x: 1.7944314, y: 1.5, z: 1.1962912}
   m_Children:
   - {fileID: 4394219101275210}
@@ -6619,7 +6619,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1945061982297576}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -426.084, y: -71.610176, z: -1.25}
+  m_LocalPosition: {x: -426.084, y: -71.610176, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4775949840891534}
@@ -15927,9 +15927,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: c21f636c0806ac54c8d9c4119fe1b152, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
-  initialFlipX: 0
+  initialFlipX: 1
   initialFlipY: 0
   separatorSlotNames: []
   zSpacing: 0
@@ -15994,9 +15994,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: c21f636c0806ac54c8d9c4119fe1b152, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
-  initialFlipX: 0
+  initialFlipX: 1
   initialFlipY: 0
   separatorSlotNames: []
   zSpacing: 0
@@ -16157,9 +16157,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: c21f636c0806ac54c8d9c4119fe1b152, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
-  initialFlipX: 0
+  initialFlipX: 1
   initialFlipY: 0
   separatorSlotNames: []
   zSpacing: 0
@@ -16224,9 +16224,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: c21f636c0806ac54c8d9c4119fe1b152, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
-  initialFlipX: 0
+  initialFlipX: 1
   initialFlipY: 0
   separatorSlotNames: []
   zSpacing: 0
@@ -16859,9 +16859,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: c21f636c0806ac54c8d9c4119fe1b152, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
-  initialFlipX: 0
+  initialFlipX: 1
   initialFlipY: 0
   separatorSlotNames: []
   zSpacing: 0
@@ -16985,9 +16985,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: c21f636c0806ac54c8d9c4119fe1b152, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
-  initialFlipX: 0
+  initialFlipX: 1
   initialFlipY: 0
   separatorSlotNames: []
   zSpacing: 0
@@ -17015,9 +17015,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: c21f636c0806ac54c8d9c4119fe1b152, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
-  initialFlipX: 0
+  initialFlipX: 1
   initialFlipY: 0
   separatorSlotNames: []
   zSpacing: 0
@@ -17194,9 +17194,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: c21f636c0806ac54c8d9c4119fe1b152, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
-  initialFlipX: 0
+  initialFlipX: 1
   initialFlipY: 0
   separatorSlotNames: []
   zSpacing: 0
@@ -17325,9 +17325,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: c21f636c0806ac54c8d9c4119fe1b152, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
-  initialFlipX: 0
+  initialFlipX: 1
   initialFlipY: 0
   separatorSlotNames: []
   zSpacing: 0
@@ -17429,9 +17429,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: c21f636c0806ac54c8d9c4119fe1b152, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
-  initialFlipX: 0
+  initialFlipX: 1
   initialFlipY: 0
   separatorSlotNames: []
   zSpacing: 0
@@ -17459,9 +17459,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: c21f636c0806ac54c8d9c4119fe1b152, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
-  initialFlipX: 0
+  initialFlipX: 1
   initialFlipY: 0
   separatorSlotNames: []
   zSpacing: 0
@@ -17625,7 +17625,7 @@ MonoBehaviour:
   - {fileID: 114307106336044298}
   detriggers: []
   spawnObject:
-  - {fileID: 1647566600821196, guid: 2877e6e0167308b4e81bcea66d99d6db, type: 2}
+  - {fileID: 0}
   spawnOffset: {x: 8, y: 0}
   acGape: {x: 1, y: 2}
   limit: 20
@@ -17640,9 +17640,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: c21f636c0806ac54c8d9c4119fe1b152, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
-  initialFlipX: 0
+  initialFlipX: 1
   initialFlipY: 0
   separatorSlotNames: []
   zSpacing: 0
@@ -17758,9 +17758,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: c21f636c0806ac54c8d9c4119fe1b152, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
-  initialFlipX: 0
+  initialFlipX: 1
   initialFlipY: 0
   separatorSlotNames: []
   zSpacing: 0
@@ -17966,9 +17966,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: c21f636c0806ac54c8d9c4119fe1b152, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
-  initialFlipX: 0
+  initialFlipX: 1
   initialFlipY: 0
   separatorSlotNames: []
   zSpacing: 0
@@ -18116,9 +18116,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: c21f636c0806ac54c8d9c4119fe1b152, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
-  initialFlipX: 0
+  initialFlipX: 1
   initialFlipY: 0
   separatorSlotNames: []
   zSpacing: 0
@@ -18184,9 +18184,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: c21f636c0806ac54c8d9c4119fe1b152, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
-  initialFlipX: 0
+  initialFlipX: 1
   initialFlipY: 0
   separatorSlotNames: []
   zSpacing: 0
@@ -18278,9 +18278,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: c21f636c0806ac54c8d9c4119fe1b152, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
-  initialFlipX: 0
+  initialFlipX: 1
   initialFlipY: 0
   separatorSlotNames: []
   zSpacing: 0
@@ -18308,9 +18308,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: c21f636c0806ac54c8d9c4119fe1b152, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
-  initialFlipX: 0
+  initialFlipX: 1
   initialFlipY: 0
   separatorSlotNames: []
   zSpacing: 0
@@ -18601,9 +18601,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: c21f636c0806ac54c8d9c4119fe1b152, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
-  initialFlipX: 0
+  initialFlipX: 1
   initialFlipY: 0
   separatorSlotNames: []
   zSpacing: 0
@@ -18917,9 +18917,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: c21f636c0806ac54c8d9c4119fe1b152, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
-  initialFlipX: 0
+  initialFlipX: 1
   initialFlipY: 0
   separatorSlotNames: []
   zSpacing: 0
@@ -19173,11 +19173,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1523133011794390, guid: 69d582db655bb0a438f80bc068cd8267, type: 2}
-  mt:
-  - {fileID: 2100000, guid: 5fd3337618533544a86c76bc56ee2e83, type: 2}
-  - {fileID: 2100000, guid: 80d8357e585b0ba4dbe9a66444aa0fcd, type: 2}
-  - {fileID: 2100000, guid: 9ece7ea14e1c2bd428b068ab115b1966, type: 2}
-  - {fileID: 2100000, guid: 5618c008df7875742856de4ed77f97e5, type: 2}
   a: 0
   clock: 100
   hostIntSize: 6
@@ -19524,9 +19519,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: c21f636c0806ac54c8d9c4119fe1b152, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
-  initialFlipX: 0
+  initialFlipX: 1
   initialFlipY: 0
   separatorSlotNames: []
   zSpacing: 0
@@ -19592,9 +19587,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: c21f636c0806ac54c8d9c4119fe1b152, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
-  initialFlipX: 0
+  initialFlipX: 1
   initialFlipY: 0
   separatorSlotNames: []
   zSpacing: 0
@@ -19644,9 +19639,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: c21f636c0806ac54c8d9c4119fe1b152, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
-  initialFlipX: 0
+  initialFlipX: 1
   initialFlipY: 0
   separatorSlotNames: []
   zSpacing: 0
@@ -20128,9 +20123,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: c21f636c0806ac54c8d9c4119fe1b152, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
-  initialFlipX: 0
+  initialFlipX: 1
   initialFlipY: 0
   separatorSlotNames: []
   zSpacing: 0
@@ -20698,9 +20693,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: c21f636c0806ac54c8d9c4119fe1b152, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
-  initialFlipX: 0
+  initialFlipX: 1
   initialFlipY: 0
   separatorSlotNames: []
   zSpacing: 0
@@ -20728,9 +20723,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: c21f636c0806ac54c8d9c4119fe1b152, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
-  initialFlipX: 0
+  initialFlipX: 1
   initialFlipY: 0
   separatorSlotNames: []
   zSpacing: 0
@@ -21062,9 +21057,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: c21f636c0806ac54c8d9c4119fe1b152, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
-  initialFlipX: 0
+  initialFlipX: 1
   initialFlipY: 0
   separatorSlotNames: []
   zSpacing: 0
@@ -21248,7 +21243,7 @@ MonoBehaviour:
   triggers: []
   detriggers: []
   spawnObject:
-  - {fileID: 1647566600821196, guid: 2877e6e0167308b4e81bcea66d99d6db, type: 2}
+  - {fileID: 0}
   spawnOffset: {x: 10, y: 0}
   acGape: {x: 2, y: 4}
   limit: 3
@@ -21318,9 +21313,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: c21f636c0806ac54c8d9c4119fe1b152, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
-  initialFlipX: 0
+  initialFlipX: 1
   initialFlipY: 0
   separatorSlotNames: []
   zSpacing: 0
@@ -21444,9 +21439,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: c21f636c0806ac54c8d9c4119fe1b152, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
-  initialFlipX: 0
+  initialFlipX: 1
   initialFlipY: 0
   separatorSlotNames: []
   zSpacing: 0
@@ -21511,9 +21506,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: c21f636c0806ac54c8d9c4119fe1b152, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
-  initialFlipX: 0
+  initialFlipX: 1
   initialFlipY: 0
   separatorSlotNames: []
   zSpacing: 0
@@ -21708,9 +21703,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: c21f636c0806ac54c8d9c4119fe1b152, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
-  initialFlipX: 0
+  initialFlipX: 1
   initialFlipY: 0
   separatorSlotNames: []
   zSpacing: 0
@@ -21895,9 +21890,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: c21f636c0806ac54c8d9c4119fe1b152, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
-  initialFlipX: 0
+  initialFlipX: 1
   initialFlipY: 0
   separatorSlotNames: []
   zSpacing: 0
@@ -21957,9 +21952,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: c21f636c0806ac54c8d9c4119fe1b152, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
-  initialFlipX: 0
+  initialFlipX: 1
   initialFlipY: 0
   separatorSlotNames: []
   zSpacing: 0
@@ -22051,9 +22046,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: c21f636c0806ac54c8d9c4119fe1b152, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
-  initialFlipX: 0
+  initialFlipX: 1
   initialFlipY: 0
   separatorSlotNames: []
   zSpacing: 0
@@ -22113,9 +22108,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: c21f636c0806ac54c8d9c4119fe1b152, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
-  initialFlipX: 0
+  initialFlipX: 1
   initialFlipY: 0
   separatorSlotNames: []
   zSpacing: 0
@@ -22242,9 +22237,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: c21f636c0806ac54c8d9c4119fe1b152, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
-  initialFlipX: 0
+  initialFlipX: 1
   initialFlipY: 0
   separatorSlotNames: []
   zSpacing: 0
@@ -22272,9 +22267,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: c21f636c0806ac54c8d9c4119fe1b152, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
-  initialFlipX: 0
+  initialFlipX: 1
   initialFlipY: 0
   separatorSlotNames: []
   zSpacing: 0
@@ -22325,9 +22320,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: c21f636c0806ac54c8d9c4119fe1b152, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
-  initialFlipX: 0
+  initialFlipX: 1
   initialFlipY: 0
   separatorSlotNames: []
   zSpacing: 0
@@ -22355,9 +22350,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: c21f636c0806ac54c8d9c4119fe1b152, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
-  initialFlipX: 0
+  initialFlipX: 1
   initialFlipY: 0
   separatorSlotNames: []
   zSpacing: 0
@@ -22440,9 +22435,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: c21f636c0806ac54c8d9c4119fe1b152, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
-  initialFlipX: 0
+  initialFlipX: 1
   initialFlipY: 0
   separatorSlotNames: []
   zSpacing: 0
@@ -22727,9 +22722,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: c21f636c0806ac54c8d9c4119fe1b152, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
-  initialFlipX: 0
+  initialFlipX: 1
   initialFlipY: 0
   separatorSlotNames: []
   zSpacing: 0
@@ -22827,9 +22822,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: c21f636c0806ac54c8d9c4119fe1b152, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
-  initialFlipX: 0
+  initialFlipX: 1
   initialFlipY: 0
   separatorSlotNames: []
   zSpacing: 0

@@ -1612,7 +1612,8 @@ MonoBehaviour:
   eatAudio: {fileID: 82163722152346290}
   eatSkill: 1
   size: 0
-  Secret: 0
+  animSpeed: 2
+  Secret: 1
   fuck: 0
 --- !u!114 &114415526297980838
 MonoBehaviour:
