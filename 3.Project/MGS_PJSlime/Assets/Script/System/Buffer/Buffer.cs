@@ -31,10 +31,24 @@ public class Buffer {
 
 [System.Serializable]
 public class BufferEffect {
+	public int cost = 0;
 	public float walkXSpeed = 0;
 	public float jumpYForce = 0;
 	public float waterXSpeed = 0;
 	public float waterYForce = 0;
 	public float iceXAcc = 0;
 	public float iceXDec = 0;
+
+	public BufferEffect() {
+	}
+
+	public BufferEffect(BufferEffect oldValue ) {
+		this.cost = oldValue.cost;
+		this.walkXSpeed = oldValue.walkXSpeed;
+		this.jumpYForce = oldValue.jumpYForce;
+		this.waterXSpeed = oldValue.waterXSpeed;
+		this.waterYForce = oldValue.waterYForce;
+		this.iceXAcc = oldValue.iceXAcc;
+		this.iceXDec = oldValue.iceXDec;
+	}
 }

@@ -314,12 +314,12 @@ public class GameEngine : MonoBehaviour {
 	}
 
 	public static void AddBufferEffect(int index , BufferEffect buffValue) {
-		playerBuffer[index].AddEffect(buffValue);
+		playerBuffer[index].AddEffect(new BufferEffect(buffValue));
 	}
 
 	public static void AddBufferEffect(BufferEffect buffValue) {
 		foreach (Buffer pcBuffer in playerBuffer) {
-			pcBuffer.AddEffect(buffValue);
+			pcBuffer.AddEffect(new BufferEffect(buffValue));
 		}
 	}
 }

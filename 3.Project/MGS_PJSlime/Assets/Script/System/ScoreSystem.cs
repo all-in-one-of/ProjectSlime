@@ -37,9 +37,13 @@ public class ScoreSystem {
 	public static void RegistTable(int playerID) {
 		recordTables.Add(new List<Record>());
 	}
+	
+	public static int GetScore() {
+		return score;
+	}
 
-	public static void AddScore(int addScore) {
-		score += addScore;
+	public static void ModifyScore(int modifyScore) {
+		score += modifyScore;
 		UIManager.direct.counter.text = score.ToString();
 	}
 

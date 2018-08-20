@@ -66,8 +66,14 @@ public class UIManager : MonoBehaviour {
 		gardenObject.gameObject.SetActive(true);
 	}
 	public void EndGarden(int buffValue) {
+		if (ScoreSystem.GetScore() >= bufferEffects[buffValue].cost) {
+			ScoreSystem.ModifyScore(-bufferEffects[buffValue].cost);
+			EndGarden();
+		}
+	}
+
+	public void EndGarden() {
 		gardenObject.gameObject.SetActive(false);
-		GameEngine.AddBufferEffect(bufferEffects[buffValue]);
 		GameEngine.direct.Init(GameEngine.Status.Garden);
 	}
 }

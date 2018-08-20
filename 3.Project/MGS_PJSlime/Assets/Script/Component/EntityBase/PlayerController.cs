@@ -75,7 +75,7 @@ public class PlayerController : EntityBase {
 
 			
 			float horizonDirection = 0;
-			bool downCommand = false;
+			//bool downCommand = false;
 			bool jumpCommand = false;
 			bool jumpNowCommand = false;
 			bool eatCommand = false;
@@ -89,7 +89,7 @@ public class PlayerController : EntityBase {
 					return;
 				}
 				horizonDirection = (Input.GetAxisRaw("LeftHorizon") > 0 ? 1 : 0) + (Input.GetAxisRaw("LeftHorizon") < 0 ? -1 : 0);
-				downCommand = Input.GetKey(KeyCode.Q);
+				//downCommand = Input.GetKey(KeyCode.Q);
 				jumpCommand = Input.GetKey(KeyCode.Space);				
 				eatCommand = Input.GetKeyDown(KeyCode.E);
 				if (Input.GetKey(KeyCode.Space)) {
@@ -110,7 +110,7 @@ public class PlayerController : EntityBase {
 					return;
 				}
 				horizonDirection = (Input.GetAxisRaw("RightHorizon") > 0 ? 1 : 0) + (Input.GetAxisRaw("RightHorizon") < 0 ? -1 : 0);
-				downCommand = Input.GetKey(KeyCode.Slash);
+				//downCommand = Input.GetKey(KeyCode.Slash);
 				jumpCommand = Input.GetKey(KeyCode.Period);
 				eatCommand = Input.GetKeyDown(KeyCode.Comma);
 				if (Input.GetKey(KeyCode.Period)) {
@@ -131,7 +131,7 @@ public class PlayerController : EntityBase {
 					return;
 				}
 				horizonDirection = (Input.GetAxisRaw("PS4LeftHorizon") > 0 ? 1 : 0) + (Input.GetAxisRaw("PS4LeftHorizon") < 0 ? -1 : 0);
-				downCommand = Input.GetAxisRaw("LVPanel") > 0;
+				//downCommand = Input.GetAxisRaw("LVPanel") > 0;
 				jumpCommand = Input.GetAxisRaw("LVPanel") < 0;
 				eatCommand = Input.GetAxisRaw("LHPanel") > 0;
 				if (Input.GetAxisRaw("LVPanel") < 0) {
@@ -152,7 +152,7 @@ public class PlayerController : EntityBase {
 					return;
 				}
 				horizonDirection = (Input.GetAxisRaw("PS4RightHorizon") > 0 ? 1 : 0) + (Input.GetAxisRaw("PS4RightHorizon") < 0 ? -1 : 0);
-				downCommand = Input.GetAxisRaw("PS4RightVerticalPanel") < 0;
+				//downCommand = Input.GetAxisRaw("PS4RightVerticalPanel") < 0;
 				jumpCommand = Input.GetAxisRaw("PS4RightVerticalPanel") > 0;
 				eatCommand = Input.GetAxisRaw("PS4RightHorizonPanel") > 0;
 				if (Input.GetAxisRaw("PS4RightVerticalPanel") > 0) {
@@ -170,11 +170,11 @@ public class PlayerController : EntityBase {
 				CmdEat();
 				skipper = true;
 			}
-
+			/*
 			if (downCommand && !skipper) {
 				CmdCrouch(horizonDirection);
 				skipper = true;
-			}
+			}*/
 
 			if (jumpNowCommand && !skipper) {
 				CmdJump();
@@ -545,7 +545,7 @@ public class PlayerController : EntityBase {
 
 			hp++;
 			SetSize();
-			ScoreSystem.AddScore(target.bonus);
+			ScoreSystem.ModifyScore(target.bonus);
 
 			eating = target.transform;
 			target.OnDead();
