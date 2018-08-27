@@ -3188,7 +3188,7 @@ GameObject:
   - component: {fileID: 23659169278729180}
   - component: {fileID: 114562328730194608}
   m_Layer: 11
-  m_Name: Solider01 (39)
+  m_Name: Solider01 (42)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4285,7 +4285,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1679393981865940}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.45, y: -1.25, z: 0}
+  m_LocalPosition: {x: 11.5, y: -1.99, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4343142877369546}
@@ -5427,7 +5427,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1392437544074572}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.72, y: -0.61, z: 0}
+  m_LocalPosition: {x: 8.15, y: 0.52, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4343142877369546}
@@ -5666,7 +5666,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1806156701333962}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: -39.1, y: -14.8, z: 0}
+  m_LocalPosition: {x: -38.94, y: -14.52, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4253348742418494}
@@ -5910,7 +5910,7 @@ Transform:
   m_GameObject: {fileID: 1989765270230784}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 43.4, y: 15.9, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7333631, y: 0.7333633, z: 0.7333633}
   m_Children: []
   m_Father: {fileID: 4326832875480950}
   m_RootOrder: 5
@@ -5948,7 +5948,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1898095083444052}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.49, y: -3.86, z: 0}
+  m_LocalPosition: {x: 9.89, y: -5.09, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4343142877369546}
@@ -6170,7 +6170,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1520879576726924}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.49, y: -0.9, z: 0}
+  m_LocalPosition: {x: -8.31, y: -0.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4343142877369546}
@@ -6319,8 +6319,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1714693063853230}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.8600001, y: 24.87, z: -8.75}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 1}
+  m_LocalPosition: {x: 38.1, y: 23.7, z: -8.75}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4008232616029560}
   m_Father: {fileID: 4522248239663060}
@@ -6927,7 +6927,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1274201388045622}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -25.19, y: -4.13, z: 1.25}
+  m_LocalPosition: {x: 44.26, y: 15.57, z: 1.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4775949840891534}
@@ -17553,7 +17553,7 @@ MonoBehaviour:
   triggers:
   - {fileID: 0}
   detriggers: []
-  vector: {x: -8, y: 0}
+  vector: {x: -3, y: 0}
   onceTime: 1
   accMode: 0
   carryMode: 1
@@ -19294,7 +19294,7 @@ MonoBehaviour:
   - {fileID: 114624160328385032}
   - {fileID: 114563892178044462}
   detriggers: []
-  vector: {x: 0, y: -1.5}
+  vector: {x: 0, y: -0.75}
   onceTime: 14
   accMode: 1
   carryMode: 0
@@ -19509,8 +19509,8 @@ MonoBehaviour:
   triggers:
   - {fileID: 114079656817271388}
   detriggers: []
-  vector: {x: 5, y: 0}
-  onceTime: 15
+  vector: {x: 2.5, y: 0}
+  onceTime: 8
   accMode: 0
   carryMode: 1
   positive: 1
@@ -20000,7 +20000,7 @@ MonoBehaviour:
   triggers: []
   detriggers: []
   pivot: {x: 0, y: 0, z: 0}
-  aroundRadius: 6
+  aroundRadius: 3
   aroundSpeed: 30
   accMode: 1
   startAngle: 0
@@ -21206,8 +21206,8 @@ MonoBehaviour:
   triggers:
   - {fileID: 114537585552745174}
   detriggers: []
-  vector: {x: 5, y: 0}
-  onceTime: 4.3
+  vector: {x: 2.5, y: 0}
+  onceTime: 3.5
   accMode: 0
   carryMode: 1
   positive: 1
