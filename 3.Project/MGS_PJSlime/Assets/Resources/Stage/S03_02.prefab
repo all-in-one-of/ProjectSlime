@@ -10635,7 +10635,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1623451938772094}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.4, y: 24.4, z: 1.25}
+  m_LocalPosition: {x: -239.6, y: -48.6, z: 1.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4080807133637304}
@@ -18192,7 +18192,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.17091489, y: 0.542465}
+  m_Offset: {x: 0.1545771, y: 0.30393064}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -18203,7 +18203,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.8396993, y: 0.9247291}
+  m_Size: {x: 2.290627, y: 0.44766033}
   m_EdgeRadius: 0
 --- !u!61 &61160926935462936
 BoxCollider2D:
@@ -19092,7 +19092,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.17091489, y: 0.542465}
+  m_Offset: {x: 0.1545771, y: 0.30393064}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -19103,7 +19103,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.8396993, y: 0.9247291}
+  m_Size: {x: 2.290627, y: 0.44766033}
   m_EdgeRadius: 0
 --- !u!61 &61327185744012352
 BoxCollider2D:
@@ -19217,7 +19217,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.17091489, y: 0.542465}
+  m_Offset: {x: 0.1545771, y: 0.30393064}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -19228,7 +19228,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.8396993, y: 0.9247291}
+  m_Size: {x: 2.290627, y: 0.44766033}
   m_EdgeRadius: 0
 --- !u!61 &61349035924732548
 BoxCollider2D:
@@ -19892,7 +19892,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.17091489, y: 0.542465}
+  m_Offset: {x: 0.1545771, y: 0.30393064}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -19903,7 +19903,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.8396993, y: 0.9247291}
+  m_Size: {x: 2.290627, y: 0.44766033}
   m_EdgeRadius: 0
 --- !u!61 &61466473921985914
 BoxCollider2D:
@@ -20042,7 +20042,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.17091489, y: 0.542465}
+  m_Offset: {x: 0.1545771, y: 0.30393064}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -20053,7 +20053,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.8396993, y: 0.9247291}
+  m_Size: {x: 2.290627, y: 0.44766033}
   m_EdgeRadius: 0
 --- !u!61 &61503077024472484
 BoxCollider2D:
@@ -21142,7 +21142,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.17091489, y: 0.542465}
+  m_Offset: {x: 0.1545771, y: 0.30393064}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -21153,7 +21153,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.8396993, y: 0.9247291}
+  m_Size: {x: 2.290627, y: 0.44766033}
   m_EdgeRadius: 0
 --- !u!61 &61726398065259258
 BoxCollider2D:
@@ -22442,7 +22442,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.17091489, y: 0.542465}
+  m_Offset: {x: 0.1545771, y: 0.30393064}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -22453,7 +22453,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.8396993, y: 0.9247291}
+  m_Size: {x: 2.290627, y: 0.44766033}
   m_EdgeRadius: 0
 --- !u!61 &61932767945225252
 BoxCollider2D:
@@ -23136,6 +23136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -23192,6 +23193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -23315,6 +23317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -23448,6 +23451,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -23678,6 +23682,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -24149,6 +24154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -24410,6 +24416,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -24469,6 +24476,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -24506,6 +24514,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -24782,6 +24791,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -24934,6 +24944,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -25109,6 +25120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -25264,6 +25276,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -25323,6 +25336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -25360,6 +25374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -25461,6 +25476,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -25769,6 +25785,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -25861,6 +25878,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -25917,6 +25935,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -25973,6 +25992,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -26158,6 +26178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -26330,6 +26351,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -26782,6 +26804,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -26819,6 +26842,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -27390,6 +27414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -27511,6 +27536,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -27916,6 +27942,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -28188,6 +28215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -28482,6 +28510,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -28799,6 +28828,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -29127,6 +29157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -29264,6 +29295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -29683,6 +29715,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -29720,6 +29753,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -29841,6 +29875,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -30021,6 +30056,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -30126,7 +30162,7 @@ MonoBehaviour:
   triggers: []
   detriggers: []
   spawnObject:
-  - {fileID: 1647566600821196, guid: 2877e6e0167308b4e81bcea66d99d6db, type: 2}
+  - {fileID: 0}
   spawnOffset: {x: 3, y: 0}
   acGape: {x: 8, y: 8}
   limit: 5
@@ -30142,6 +30178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -30305,6 +30342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -30715,6 +30753,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -30752,6 +30791,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -30789,6 +30829,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -30959,6 +31000,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -31436,6 +31478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -31473,6 +31516,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -31510,6 +31554,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -32944,6 +32989,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -32981,6 +33027,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -33371,6 +33418,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -33994,6 +34042,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -35424,7 +35473,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bbe27d8354ad5b1438fa92d6e4549b0c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 898c1bb8522405d40928ce31f1324d93, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -36788,7 +36837,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bbe27d8354ad5b1438fa92d6e4549b0c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 898c1bb8522405d40928ce31f1324d93, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -37404,7 +37453,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bbe27d8354ad5b1438fa92d6e4549b0c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 898c1bb8522405d40928ce31f1324d93, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -37756,7 +37805,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bbe27d8354ad5b1438fa92d6e4549b0c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 898c1bb8522405d40928ce31f1324d93, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -38152,7 +38201,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bbe27d8354ad5b1438fa92d6e4549b0c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 898c1bb8522405d40928ce31f1324d93, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -38996,7 +39045,7 @@ SpriteRenderer:
   m_Size: {x: 4.5, y: 3.05}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!212 &212591353045017684
 SpriteRenderer:
@@ -39296,7 +39345,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bbe27d8354ad5b1438fa92d6e4549b0c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 898c1bb8522405d40928ce31f1324d93, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -40220,7 +40269,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bbe27d8354ad5b1438fa92d6e4549b0c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 898c1bb8522405d40928ce31f1324d93, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -40932,7 +40981,7 @@ SpriteRenderer:
   m_Size: {x: 4.5, y: 3.05}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!212 &212886845733194498
 SpriteRenderer:
@@ -41328,7 +41377,7 @@ SpriteRenderer:
   m_Size: {x: 4.5, y: 3.05}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!212 &212954452125493032
 SpriteRenderer:

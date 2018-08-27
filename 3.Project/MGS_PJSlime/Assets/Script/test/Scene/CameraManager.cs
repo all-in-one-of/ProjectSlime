@@ -65,15 +65,15 @@ public class CameraManager : MonoBehaviour {
 		if (bumpTimer > 0) {
 			float targetBump = bumpCurve.Evaluate(bumpTime - bumpTimer);
 			
-			if (16 + targetBump > mainCamera.orthographicSize) {
-				mainCamera.orthographicSize = Mathf.Lerp(mainCamera.orthographicSize, 16 + targetBump,  focusPSpeed);
+			if (4 + targetBump > mainCamera.orthographicSize) {
+				mainCamera.orthographicSize = Mathf.Lerp(mainCamera.orthographicSize, 4 + targetBump,  focusPSpeed);
 			} else {
-				mainCamera.orthographicSize = Mathf.Lerp(mainCamera.orthographicSize, 16 + targetBump * bumpBuffer, focusNSpeed);
+				mainCamera.orthographicSize = Mathf.Lerp(mainCamera.orthographicSize, 4 + targetBump * bumpBuffer, focusNSpeed);
 			}
 			bumpTimer = bumpTimer - Time.deltaTime;
 
 		} else {
-			mainCamera.orthographicSize = Mathf.Lerp(mainCamera.orthographicSize, 16 ,  focusNSpeed);
+			mainCamera.orthographicSize = Mathf.Lerp(mainCamera.orthographicSize, 4 ,  focusNSpeed);
 		}
 
 		hintSprite.size = new Vector2(GameEngine.mainPlayer.transform.localScale.x * 2.5f, GameEngine.mainPlayer.transform.localScale.x * 2.5f);

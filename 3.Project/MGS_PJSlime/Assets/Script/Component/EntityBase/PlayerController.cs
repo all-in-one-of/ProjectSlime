@@ -5,7 +5,7 @@ using UnityEngine.Networking;
 
 
 public class PlayerController : EntityBase {	
-	private static float BasicSize = 0.3f;
+	private static float BasicSize = 0.15f;
 
 	private const int LANDLAYER = (1 << 8) | (1 << 9) | (1 << 11);
 	private const float DETECTOFFSET = 0.05f;
@@ -285,7 +285,6 @@ public class PlayerController : EntityBase {
 				};
 			} else {
 				skam.state.AddAnimation(trackValue, "Idle", true, 0f);
-				skam.state.TimeScale = 1;
 				entry.End += delegate {
 					state = "";
 				};
@@ -334,8 +333,7 @@ public class PlayerController : EntityBase {
 			return;
 		}
 
-		skam.state.TimeScale = animSpeed;
-		SetOverState("Eat" , false , true);
+		SetOverState(state == "Jump" ? "Eat2" : "Eat" , false , true);
 		Eat();
 	}
 	
@@ -363,8 +361,7 @@ public class PlayerController : EntityBase {
 		} else if (jumpCounter < GameEngine.direct.jumpMaxCount/**/) {
 			jumpTimer = Time.timeSinceLevelLoad;
 			jumpAudio.Play();
-			SetState(Secret ? "Jump2" : "Jump");
-			skam.state.TimeScale = Secret ? 2 : 1;
+			SetState(Secret ? "Roll" : "Jump");
 			rb.velocity = new Vector2(rb.velocity.x, (GameEngine.direct.jumpYForce + GameEngine.GetBuffer(playerID).jumpYForce) * ((GameEngine.direct.jumpGape - size) / GameEngine.direct.jumpGape) * GameEngine.direct.jumpReduce);
 			jumpCounter++;
 			if (this == GameEngine.mainPlayer) {
@@ -412,7 +409,6 @@ public class PlayerController : EntityBase {
 	[Command]
 	public void CmdLand() {
 		SetState("Idle" , true , false , true);
-		skam.state.TimeScale = 1;
 		jumpCounter = 0;
 	}
 
@@ -443,7 +439,6 @@ public class PlayerController : EntityBase {
 			} else if (state == "Walk") {
 				if (state != "") {
 					SetState("Idle", true, false, true);
-					skam.state.TimeScale = 1;
 				}
 			}
 		} else {//空中移動
@@ -600,7 +595,7 @@ public class PlayerController : EntityBase {
 		return finalValue;
 	}
 
-	private void OnTriggerEnter2D(Collider2D collider) {
+	private void OnTriggerStay2D(Collider2D collider) {
 		if (Network.isServer ) {
 			if (Network.isServer && collider.tag == "Water") {
 				isInWater = collider.transform;
@@ -614,11 +609,11 @@ public class PlayerController : EntityBase {
 	private void OnTriggerExit2D(Collider2D collider) {
 		if (Network.isServer && collider.tag == "Water") {
 			isInWater = null;
-			rb.velocity = new Vector2(rb.velocity.x, 3 * (GameEngine.direct.waterYForce + GameEngine.GetBuffer(playerID).waterYForce) );
+			rb.velocity = new Vector2(rb.velocity.x, 3 * 5);
 		}
 	}
 
 	private float GetSizeFormula(float sizeValue) {
-		return (BasicSize + sizeValue * 0.15f);
+		return (BasicSize + sizeValue * 0.05f);
 	}
 }

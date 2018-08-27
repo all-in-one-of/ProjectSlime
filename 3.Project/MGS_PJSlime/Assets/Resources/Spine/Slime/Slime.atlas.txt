@@ -25,6 +25,20 @@ eyes_b
   orig: 49, 68
   offset: 0, 0
   index: -1
+eyes_blink_b
+  rotate: false
+  xy: 970, 383
+  size: 43, 49
+  orig: 43, 49
+  offset: 0, 0
+  index: -1
+eyes_blink_f
+  rotate: false
+  xy: 300, 19
+  size: 73, 62
+  orig: 73, 62
+  offset: 0, 0
+  index: -1
 eyes_f
   rotate: false
   xy: 201, 2
@@ -40,15 +54,15 @@ head
   offset: 0, 0
   index: -1
 leg_b
-  rotate: false
-  xy: 425, 182
+  rotate: true
+  xy: 497, 195
   size: 35, 48
   orig: 35, 48
   offset: 0, 0
   index: -1
 leg_f
   rotate: false
-  xy: 970, 385
+  xy: 970, 334
   size: 25, 47
   orig: 25, 47
   offset: 0, 0
@@ -69,7 +83,7 @@ template
   index: -1
 tongue
   rotate: false
-  xy: 300, 37
+  xy: 425, 186
   size: 70, 44
   orig: 70, 44
   offset: 0, 0

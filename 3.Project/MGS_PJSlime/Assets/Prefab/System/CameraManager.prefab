@@ -365,7 +365,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 16
+  orthographic size: 4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -690,7 +690,7 @@ MonoBehaviour:
   focusPSpeed: 0.02
   focusNSpeed: 0.02
   preFocusSpeed: 0
-  yOffset: 5
+  yOffset: 1.25
   bumpCurve:
     serializedVersion: 2
     m_Curve:

@@ -1,0 +1,13 @@
+
+G_Canoe.png
+size: 1024,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+ship
+  rotate: false
+  xy: 2, 2
+  size: 649, 259
+  orig: 649, 259
+  offset: 0, 0
+  index: -1

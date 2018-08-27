@@ -16846,6 +16846,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -16937,6 +16938,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -17055,6 +17057,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -17454,6 +17457,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -17525,6 +17529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -17562,6 +17567,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -17599,6 +17605,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -17636,6 +17643,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -17673,6 +17681,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -17791,6 +17800,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -17975,6 +17985,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -18584,6 +18595,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -18653,6 +18665,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -18771,6 +18784,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -18937,6 +18951,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -19446,6 +19461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -19716,6 +19732,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -19753,6 +19770,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -19857,6 +19875,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -19926,6 +19945,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -20227,6 +20247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -20408,6 +20429,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -20445,6 +20467,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -20482,6 +20505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -20654,6 +20678,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -20994,6 +21019,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -21031,6 +21057,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -21306,6 +21333,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -21343,6 +21371,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -21626,6 +21655,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -21998,6 +22028,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -22121,6 +22152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -22214,6 +22246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -22251,6 +22284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -22414,6 +22448,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -22451,6 +22486,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -23007,6 +23043,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -23061,6 +23098,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -23318,6 +23356,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -23516,6 +23555,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -23793,6 +23833,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -24129,6 +24170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -24254,6 +24296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -24291,6 +24334,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -24516,6 +24560,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -24553,6 +24598,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -24773,6 +24819,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -24895,6 +24942,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -24932,6 +24980,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -24969,6 +25018,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -25264,6 +25314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -25333,6 +25384,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -25419,6 +25471,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -25512,6 +25565,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -25723,6 +25777,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -26067,6 +26122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -26136,6 +26192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -26173,6 +26230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -26210,6 +26268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -26335,6 +26394,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -26411,6 +26471,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -26642,6 +26703,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -26743,6 +26805,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
