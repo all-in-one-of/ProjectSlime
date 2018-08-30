@@ -92,7 +92,7 @@ MonoBehaviour:
   - {fileID: 1945061982297576, guid: 12e80d78ff22a634aab2f72c8cc10ba2, type: 2}
   - {fileID: 1561832114416774, guid: b8d93f5f641cb2e469d5b09ecb0e886a, type: 2}
   - {fileID: 1063481176537888, guid: ba4cc0409c0f0bf47915a5bcea6b3288, type: 2}
-  - {fileID: 1561832114416774, guid: 0ce8ee286d8acf24cb54d7896665600f, type: 2}
+  - {fileID: 0}
   cameraManager: {fileID: 1732961849303570, guid: b8278ee36efd6c74aa13c703f582849b,
     type: 2}
   audioManager: {fileID: 1959445894480242, guid: f6f407debd301de4f9b59f8edcb73fad,
@@ -100,10 +100,10 @@ MonoBehaviour:
   uiManager: {fileID: 1184188543418308, guid: 43764cb8e1806a24fb6daa9a987e21fe, type: 2}
   gardenStage: {fileID: 1940803756852130, guid: d62166a549f43a542a5d07676bd46fe4,
     type: 2}
-  walkXSpeed: 12
-  walkXAcc: 100
-  walkXDec: 50
-  jumpGape: 48
+  walkXSpeed: 6
+  walkXAcc: 50
+  walkXDec: 25
+  jumpGape: 24
   jumpMaxCount: 2
   jumpReduce: 1
   jumpXSpeed: 12
