@@ -10636,7 +10636,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 23e3c294cd38b294e886265e3edddd37, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10670,7 +10670,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 23e3c294cd38b294e886265e3edddd37, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10704,7 +10704,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 23e3c294cd38b294e886265e3edddd37, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10738,7 +10738,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 23e3c294cd38b294e886265e3edddd37, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10772,7 +10772,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 23e3c294cd38b294e886265e3edddd37, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10908,7 +10908,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 23e3c294cd38b294e886265e3edddd37, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10942,7 +10942,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 23e3c294cd38b294e886265e3edddd37, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11010,7 +11010,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 23e3c294cd38b294e886265e3edddd37, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11044,7 +11044,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 23e3c294cd38b294e886265e3edddd37, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11078,7 +11078,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 23e3c294cd38b294e886265e3edddd37, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11112,7 +11112,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 23e3c294cd38b294e886265e3edddd37, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11146,7 +11146,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 23e3c294cd38b294e886265e3edddd37, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11180,7 +11180,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 23e3c294cd38b294e886265e3edddd37, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11214,7 +11214,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 23e3c294cd38b294e886265e3edddd37, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11248,7 +11248,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 23e3c294cd38b294e886265e3edddd37, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11384,7 +11384,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 23e3c294cd38b294e886265e3edddd37, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11452,7 +11452,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 23e3c294cd38b294e886265e3edddd37, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11486,7 +11486,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 23e3c294cd38b294e886265e3edddd37, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11520,7 +11520,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 23e3c294cd38b294e886265e3edddd37, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11554,7 +11554,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 23e3c294cd38b294e886265e3edddd37, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11588,7 +11588,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 23e3c294cd38b294e886265e3edddd37, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11622,7 +11622,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 23e3c294cd38b294e886265e3edddd37, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11656,7 +11656,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 23e3c294cd38b294e886265e3edddd37, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11690,7 +11690,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 23e3c294cd38b294e886265e3edddd37, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11724,7 +11724,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 23e3c294cd38b294e886265e3edddd37, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11792,7 +11792,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 23e3c294cd38b294e886265e3edddd37, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11826,7 +11826,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 23e3c294cd38b294e886265e3edddd37, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11894,7 +11894,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 23e3c294cd38b294e886265e3edddd37, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11928,7 +11928,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 23e3c294cd38b294e886265e3edddd37, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11962,7 +11962,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 23e3c294cd38b294e886265e3edddd37, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11996,7 +11996,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 23e3c294cd38b294e886265e3edddd37, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12030,7 +12030,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 23e3c294cd38b294e886265e3edddd37, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12064,7 +12064,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 23e3c294cd38b294e886265e3edddd37, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12098,7 +12098,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 23e3c294cd38b294e886265e3edddd37, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12200,7 +12200,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 23e3c294cd38b294e886265e3edddd37, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12234,7 +12234,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 23e3c294cd38b294e886265e3edddd37, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12268,7 +12268,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 23e3c294cd38b294e886265e3edddd37, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12302,7 +12302,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 23e3c294cd38b294e886265e3edddd37, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12336,7 +12336,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 23e3c294cd38b294e886265e3edddd37, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12370,7 +12370,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 23e3c294cd38b294e886265e3edddd37, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -22720,7 +22720,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 0}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
@@ -23321,7 +23321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 0}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
@@ -23391,9 +23391,9 @@ MonoBehaviour:
   attack: 1
   hp: 1
   facing: 1
-  moveAI: 0
+  moveAI: 1
   agressiveAI: 0
-  jumpAI: 1
+  jumpAI: 0
   shootAI: 1
   moveShift: 5
   moveSpeed: 2
@@ -23475,7 +23475,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 0}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
@@ -23601,7 +23601,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 0}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
@@ -23863,9 +23863,9 @@ MonoBehaviour:
   attack: 1
   hp: 1
   facing: 1
-  moveAI: 0
+  moveAI: 1
   agressiveAI: 0
-  jumpAI: 1
+  jumpAI: 0
   shootAI: 1
   moveShift: 5
   moveSpeed: 2
@@ -24125,9 +24125,9 @@ MonoBehaviour:
   attack: 1
   hp: 1
   facing: 1
-  moveAI: 0
+  moveAI: 1
   agressiveAI: 0
-  jumpAI: 1
+  jumpAI: 0
   shootAI: 1
   moveShift: 5
   moveSpeed: 2
@@ -24185,9 +24185,9 @@ MonoBehaviour:
   attack: 1
   hp: 1
   facing: 1
-  moveAI: 0
+  moveAI: 1
   agressiveAI: 0
-  jumpAI: 1
+  jumpAI: 0
   shootAI: 1
   moveShift: 5
   moveSpeed: 2
@@ -24223,9 +24223,9 @@ MonoBehaviour:
   attack: 1
   hp: 1
   facing: 1
-  moveAI: 0
+  moveAI: 1
   agressiveAI: 0
-  jumpAI: 1
+  jumpAI: 0
   shootAI: 1
   moveShift: 5
   moveSpeed: 2
@@ -24265,7 +24265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 0}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
@@ -24452,7 +24452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 0}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
@@ -24500,9 +24500,9 @@ MonoBehaviour:
   attack: 1
   hp: 1
   facing: 1
-  moveAI: 0
+  moveAI: 1
   agressiveAI: 0
-  jumpAI: 1
+  jumpAI: 0
   shootAI: 1
   moveShift: 5
   moveSpeed: 2
@@ -24673,7 +24673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 0}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
@@ -25083,9 +25083,9 @@ MonoBehaviour:
   attack: 1
   hp: 1
   facing: 1
-  moveAI: 0
+  moveAI: 1
   agressiveAI: 0
-  jumpAI: 1
+  jumpAI: 0
   shootAI: 1
   moveShift: 5
   moveSpeed: 2
@@ -25185,9 +25185,9 @@ MonoBehaviour:
   attack: 1
   hp: 1
   facing: 1
-  moveAI: 0
+  moveAI: 1
   agressiveAI: 0
-  jumpAI: 1
+  jumpAI: 0
   shootAI: 1
   moveShift: 5
   moveSpeed: 2
@@ -25587,9 +25587,9 @@ MonoBehaviour:
   attack: 1
   hp: 1
   facing: 1
-  moveAI: 0
+  moveAI: 1
   agressiveAI: 0
-  jumpAI: 1
+  jumpAI: 0
   shootAI: 1
   moveShift: 5
   moveSpeed: 2
@@ -25753,7 +25753,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 0}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
@@ -25920,7 +25920,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 0}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
@@ -26022,9 +26022,9 @@ MonoBehaviour:
   attack: 1
   hp: 1
   facing: 1
-  moveAI: 0
+  moveAI: 1
   agressiveAI: 0
-  jumpAI: 1
+  jumpAI: 0
   shootAI: 1
   moveShift: 5
   moveSpeed: 2
@@ -26341,7 +26341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 0}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
@@ -26513,7 +26513,7 @@ MonoBehaviour:
   attack: 1
   hp: 1
   facing: 1
-  moveAI: 0
+  moveAI: 1
   agressiveAI: 0
   jumpAI: 0
   shootAI: 1
@@ -26607,7 +26607,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 0}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
@@ -27014,7 +27014,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 0}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
@@ -27331,7 +27331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 0}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
@@ -27361,7 +27361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 0}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
@@ -27480,7 +27480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 0}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
@@ -27510,7 +27510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 0}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
@@ -27655,7 +27655,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 0}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
@@ -27886,9 +27886,9 @@ MonoBehaviour:
   attack: 1
   hp: 1
   facing: 1
-  moveAI: 0
+  moveAI: 1
   agressiveAI: 0
-  jumpAI: 1
+  jumpAI: 0
   shootAI: 1
   moveShift: 5
   moveSpeed: 2
@@ -28265,7 +28265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 0}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
@@ -28295,7 +28295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 0}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
@@ -28325,7 +28325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 0}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
@@ -28387,7 +28387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 0}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
@@ -28499,9 +28499,9 @@ MonoBehaviour:
   attack: 1
   hp: 1
   facing: 1
-  moveAI: 0
+  moveAI: 1
   agressiveAI: 0
-  jumpAI: 1
+  jumpAI: 0
   shootAI: 1
   moveShift: 5
   moveSpeed: 2
@@ -28828,9 +28828,9 @@ MonoBehaviour:
   attack: 1
   hp: 1
   facing: 1
-  moveAI: 0
+  moveAI: 1
   agressiveAI: 0
-  jumpAI: 1
+  jumpAI: 0
   shootAI: 1
   moveShift: 5
   moveSpeed: 2
@@ -29252,7 +29252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 0}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
@@ -29476,7 +29476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 0}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
@@ -29608,7 +29608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 0}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
@@ -29638,7 +29638,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 0}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
@@ -29807,7 +29807,7 @@ MonoBehaviour:
   attack: 1
   hp: 1
   facing: 1
-  moveAI: 0
+  moveAI: 1
   agressiveAI: 0
   jumpAI: 0
   shootAI: 1
@@ -29827,7 +29827,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 0}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
@@ -30382,9 +30382,9 @@ MonoBehaviour:
   attack: 1
   hp: 1
   facing: 1
-  moveAI: 0
+  moveAI: 1
   agressiveAI: 0
-  jumpAI: 1
+  jumpAI: 0
   shootAI: 1
   moveShift: 5
   moveSpeed: 2
@@ -30458,9 +30458,9 @@ MonoBehaviour:
   attack: 1
   hp: 1
   facing: 1
-  moveAI: 0
+  moveAI: 1
   agressiveAI: 0
-  jumpAI: 1
+  jumpAI: 0
   shootAI: 1
   moveShift: 5
   moveSpeed: 2
@@ -30478,7 +30478,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 0}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
@@ -30581,7 +30581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 0}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
@@ -30629,7 +30629,7 @@ MonoBehaviour:
   attack: 1
   hp: 1
   facing: 1
-  moveAI: 0
+  moveAI: 1
   agressiveAI: 0
   jumpAI: 0
   shootAI: 1
@@ -30681,7 +30681,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 0}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
@@ -30813,7 +30813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 0}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
@@ -31107,7 +31107,7 @@ MonoBehaviour:
   attack: 1
   hp: 1
   facing: 1
-  moveAI: 0
+  moveAI: 1
   agressiveAI: 0
   jumpAI: 0
   shootAI: 1
@@ -31145,9 +31145,9 @@ MonoBehaviour:
   attack: 1
   hp: 1
   facing: 1
-  moveAI: 0
+  moveAI: 1
   agressiveAI: 0
-  jumpAI: 1
+  jumpAI: 0
   shootAI: 1
   moveShift: 5
   moveSpeed: 2
@@ -31183,9 +31183,9 @@ MonoBehaviour:
   attack: 1
   hp: 1
   facing: 1
-  moveAI: 0
+  moveAI: 1
   agressiveAI: 0
-  jumpAI: 1
+  jumpAI: 0
   shootAI: 1
   moveShift: 5
   moveSpeed: 2
@@ -31555,7 +31555,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 0}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
@@ -32096,7 +32096,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 0}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
@@ -32644,7 +32644,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 0}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
@@ -32780,7 +32780,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 0}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
@@ -33035,7 +33035,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 0}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
@@ -33097,7 +33097,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 0}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
@@ -33127,7 +33127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 0}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
@@ -33181,7 +33181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 0}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
@@ -33327,7 +33327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 0}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
@@ -33527,7 +33527,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 0}
+  skeletonDataAsset: {fileID: 11400000, guid: de1ca98c637b41e409f335ef2d9e6704, type: 2}
   initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
@@ -33575,9 +33575,9 @@ MonoBehaviour:
   attack: 1
   hp: 1
   facing: 1
-  moveAI: 0
+  moveAI: 1
   agressiveAI: 0
-  jumpAI: 1
+  jumpAI: 0
   shootAI: 1
   moveShift: 5
   moveSpeed: 2
