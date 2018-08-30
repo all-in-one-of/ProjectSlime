@@ -1,0 +1,27 @@
+
+E_Flash.png
+size: 128,64
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+b1
+  rotate: false
+  xy: 46, 9
+  size: 35, 35
+  orig: 35, 35
+  offset: 0, 0
+  index: -1
+b2
+  rotate: false
+  xy: 2, 2
+  size: 42, 42
+  orig: 42, 42
+  offset: 0, 0
+  index: -1
+f
+  rotate: false
+  xy: 83, 11
+  size: 31, 33
+  orig: 31, 33
+  offset: 0, 0
+  index: -1

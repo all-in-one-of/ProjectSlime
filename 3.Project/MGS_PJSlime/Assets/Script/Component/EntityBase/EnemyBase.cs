@@ -22,7 +22,7 @@ public class EnemyBase : EntityBase {
 
 	protected override void FStart() {
 		movePos = transform.position.x;
-		if (skam) {
+		if (skam != null) {
 			skam.state.SetAnimation(0, "Walk", true);
 		}
 	}
