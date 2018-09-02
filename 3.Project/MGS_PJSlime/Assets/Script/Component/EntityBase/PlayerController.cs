@@ -72,8 +72,7 @@ public class PlayerController : EntityBase {
 				GetComponent<MeshRenderer>().material = GameEngine.direct.playerMaterial[playerID];
 				//fuck = true;
 			}
-
-			
+						
 			float horizonDirection = 0;
 			//bool downCommand = false;
 			bool jumpCommand = false;
@@ -353,7 +352,7 @@ public class PlayerController : EntityBase {
 			jumpTimer = Time.timeSinceLevelLoad;
 			jumpAudio.Play();
 			SetState("Jump");
-			rb.velocity = new Vector2(rb.velocity.x, (GameEngine.direct.jumpYForce + GameEngine.GetBuffer(playerID).jumpYForce) * ((GameEngine.direct.jumpGape - size) / GameEngine.direct.jumpGape));
+			rb.velocity = new Vector2(rb.velocity.x, (GameEngine.direct.jumpYForce + GameEngine.GetBuffer(playerID).jumpYForce) * (GameEngine.direct.jumpGape / GameEngine.direct.jumpGape));
 			jumpCounter++;
 			if (this == GameEngine.mainPlayer) {
 				CameraManager.direct.Bump();
@@ -362,7 +361,7 @@ public class PlayerController : EntityBase {
 			jumpTimer = Time.timeSinceLevelLoad;
 			jumpAudio.Play();
 			SetState(Secret ? "Roll" : "Jump");
-			rb.velocity = new Vector2(rb.velocity.x, (GameEngine.direct.jumpYForce + GameEngine.GetBuffer(playerID).jumpYForce) * ((GameEngine.direct.jumpGape - size) / GameEngine.direct.jumpGape) * GameEngine.direct.jumpReduce);
+			rb.velocity = new Vector2(rb.velocity.x, (GameEngine.direct.jumpYForce + GameEngine.GetBuffer(playerID).jumpYForce) * (GameEngine.direct.jumpGape / GameEngine.direct.jumpGape) * GameEngine.direct.jumpReduce);
 			jumpCounter++;
 			if (this == GameEngine.mainPlayer) {
 				CameraManager.direct.Bump();
@@ -373,7 +372,7 @@ public class PlayerController : EntityBase {
 	[Command]
 	public void CmdJumpForce() {
 		if (!onGround && Time.timeSinceLevelLoad - jumpTimer < GameEngine.direct.jumpDuraion && jumpCounter < 2) {
-			rb.velocity = new Vector2(rb.velocity.x, (GameEngine.direct.jumpYForce + GameEngine.GetBuffer(playerID).jumpYForce) * (( GameEngine.direct.jumpGape - size) /  GameEngine.direct.jumpGape));
+			rb.velocity = new Vector2(rb.velocity.x, (GameEngine.direct.jumpYForce + GameEngine.GetBuffer(playerID).jumpYForce) * (GameEngine.direct.jumpGape / GameEngine.direct.jumpGape));
 		}
 	}
 	
