@@ -278,17 +278,8 @@ public class GameEngine : MonoBehaviour {
 	}
 
 	public EntityBase GetUnitInRange(float range , Vector2 pos) {
-
+				
 		foreach (Transform unit in nowStageData.unitSet) {
-			if (Mathf.Abs(transform.position.x - unit.transform.position.x) < range) {
-				if (Mathf.Abs(transform.position.y - unit.transform.position.y) < range * 0.1f) {
-					EntityBase enemy = unit.GetComponent<EntityBase>();
-					if (enemy && !enemy.isDead) {
-						return enemy;
-					}
-				}
-			}
-
 			if (Vector2.Distance(pos, unit.position) <= range) {
 				EntityBase enemy = unit.GetComponent<EntityBase>();
 				if (enemy && !enemy.isDead) {
@@ -296,16 +287,6 @@ public class GameEngine : MonoBehaviour {
 				}
 			}
 		}
-
-		/*
-		foreach (Transform unit in units) {
-			if (Vector2.Distance(pos, unit.position) <= range) {
-				EntityBase enemy = unit.GetComponent<EntityBase>();
-				if (enemy && !enemy.isDead) {
-					return enemy;
-				}
-			}
-		}*/
 		return null;
 	}
 

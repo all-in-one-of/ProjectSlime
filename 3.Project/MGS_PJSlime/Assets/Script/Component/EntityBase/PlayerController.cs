@@ -524,7 +524,7 @@ public class PlayerController : EntityBase {
 
 	protected void Eat() {
 		eatAudio.Play();
-		EntityBase target = GameEngine.direct.GetUnitInRange(GetSizeFormula(size) + 3, transform.position);
+		EntityBase target = GameEngine.direct.GetUnitInRange(GetSizeFormula(size) + 1, transform.position);
 		if (target && target.eatAble) {
 			if (target.eatBuffer && target.buffer != null) {
 				GameEngine.AddBufferEffect( playerID, target.buffer);
