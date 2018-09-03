@@ -79,8 +79,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   status: 3
   connecting: 0
-  preTester: 0
-  testStage: {fileID: 1063481176537888, guid: 95cd4c459d82f7f43955b24f9f900141, type: 2}
+  preTester: 1
+  testStage: {fileID: 1945061982297576, guid: 12e80d78ff22a634aab2f72c8cc10ba2, type: 2}
   playerMaterial:
   - {fileID: 2100000, guid: 72329b0335e7c4643a9fd0dd3b38e0d6, type: 2}
   - {fileID: 2100000, guid: 3da23c349a24ef54eac2033d0eb56c6d, type: 2}
@@ -101,17 +101,17 @@ MonoBehaviour:
   gardenStage: {fileID: 1940803756852130, guid: d62166a549f43a542a5d07676bd46fe4,
     type: 2}
   walkXSpeed: 6
-  walkXAcc: 50
-  walkXDec: 25
-  jumpGape: 24
+  walkXAcc: 20
+  walkXDec: 10
+  jumpGape: 25
   jumpMaxCount: 2
   jumpReduce: 1
-  jumpXSpeed: 12
-  jumpXAcc: 45
-  jumpXDec: 40
-  jumpYForce: 25
+  jumpXSpeed: 6
+  jumpXAcc: 10
+  jumpXDec: 5
+  jumpYForce: 8
   jumpDuraion: 0.25
-  jumpYDec: 60
+  jumpYDec: 30
   waterXSpeed: 8
   waterYSpeed: 6
   waterXAcc: 23
