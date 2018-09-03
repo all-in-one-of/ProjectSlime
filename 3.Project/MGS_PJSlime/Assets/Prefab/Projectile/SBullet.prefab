@@ -129,17 +129,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79fa7253820c5cf4ba2c54278b814235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buffer:
+    cost: 0
+    walkXSpeed: 0
+    jumpYForce: 0
+    waterXSpeed: 0
+    waterYForce: 0
+    iceXAcc: 0
+    iceXDec: 0
   isInvincible: 0
   isUndead: 0
   eatAble: 0
+  eatBuffer: 0
   isDead: 0
   invincibleTimer: 0
   bonus: 0
   attack: 2
   hp: 1
-  face: 1
-  nowSpeed: 0
-  lifeTime: 10
+  facing: 1
+  constLifeTime: 10
+  constSpeed: 3
   isCruise: 1
   cruiseRate: 0.5
 --- !u!114 &114235996049834310

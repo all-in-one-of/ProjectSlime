@@ -148,7 +148,7 @@ MonoBehaviour:
   hp: 1
   facing: 1
   constLifeTime: 5
-  constSpeed: 5
+  constSpeed: 2.5
   isCruise: 0
   cruiseRate: 0.5
 --- !u!114 &114235996049834310
