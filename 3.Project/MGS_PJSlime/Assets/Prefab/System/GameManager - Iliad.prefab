@@ -79,13 +79,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   status: 3
   connecting: 0
-  preTester: 1
+  preTester: 0
   testStage: {fileID: 1945061982297576, guid: 12e80d78ff22a634aab2f72c8cc10ba2, type: 2}
   playerMaterial:
   - {fileID: 2100000, guid: 72329b0335e7c4643a9fd0dd3b38e0d6, type: 2}
-  - {fileID: 2100000, guid: 3da23c349a24ef54eac2033d0eb56c6d, type: 2}
-  - {fileID: 2100000, guid: e230df5236586e845978086c492a6ea8, type: 2}
-  - {fileID: 2100000, guid: 2ba070359cbc8f1409f490069d1b52e8, type: 2}
+  - {fileID: 2100000, guid: 49f9b6c781493764db7b9e348b8f4509, type: 2}
+  - {fileID: 2100000, guid: 0b315cbc1fa42d74195c8266b7500821, type: 2}
+  - {fileID: 2100000, guid: 0effe1d1e2c32ee489065861fff82d64, type: 2}
   players: []
   playerUIs: []
   stageList:
