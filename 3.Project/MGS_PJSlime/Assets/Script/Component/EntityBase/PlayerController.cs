@@ -613,6 +613,6 @@ public class PlayerController : EntityBase {
 	}
 
 	private float GetSizeFormula(float sizeValue) {
-		return (BasicSize + sizeValue * 0.05f);
+		return (BasicSize + sizeValue * 0.04f);
 	}
 }

@@ -4,5 +4,4 @@ using UnityEngine;
 
 public class StageData : MonoBehaviour {
 	public Transform unitSet;
-	public Transform PJTSet;
 }

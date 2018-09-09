@@ -19,7 +19,6 @@ public class EnemyBase : EntityBase {
 	private float movePos;
 	private float aiClock;
 	
-
 	protected override void FStart() {
 		movePos = transform.position.x;
 		if (skam != null) {

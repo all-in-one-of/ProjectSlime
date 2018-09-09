@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 public class PrototypeSystem : NetworkBehaviour {
 	public static PrototypeSystem direct;
 	public GameObject player;
-	public int a = 0;
+	private int a = 0;
 	public int clock;
 
 	public int hostIntSize; 
