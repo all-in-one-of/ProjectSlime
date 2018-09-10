@@ -17950,7 +17950,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1523133011794390, guid: 69d582db655bb0a438f80bc068cd8267, type: 2}
-  a: 0
   clock: 100
   hostIntSize: 6
   intSize: 2
@@ -25676,7 +25675,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitSet: {fileID: 4640051597341140}
-  PJTSet: {fileID: 4663883937546316}
 --- !u!114 &114851009610433394
 MonoBehaviour:
   m_ObjectHideFlags: 1
