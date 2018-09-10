@@ -11,6 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6b194f808b1af6499c93410e504af42, type: 3}
   m_Name: E_CityFlash_Atlas
   m_EditorClassIdentifier: 
-  atlasFile: {fileID: 4900000, guid: da5716ca37d01374aab73dce2a218a55, type: 3}
+  atlasFile: {fileID: 4900000, guid: d9aec22a9e04ffb429c333435684ab69, type: 3}
   materials:
   - {fileID: 2100000, guid: cf208808097696f4dbc9c39ba9091fa4, type: 2}
