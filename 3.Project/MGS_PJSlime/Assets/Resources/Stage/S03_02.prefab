@@ -1170,7 +1170,7 @@ GameObject:
   - component: {fileID: 212153797645692772}
   - component: {fileID: 61496226052475916}
   - component: {fileID: 50819852593724386}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: BigFire_Circle
   m_TagString: Dead
   m_Icon: {fileID: 0}
@@ -2521,7 +2521,7 @@ GameObject:
   - component: {fileID: 212389750073613820}
   - component: {fileID: 61725113930348466}
   - component: {fileID: 50066810370736234}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: BigFire_Circle
   m_TagString: Dead
   m_Icon: {fileID: 0}
@@ -2668,7 +2668,7 @@ GameObject:
   - component: {fileID: 212760510118778366}
   - component: {fileID: 61465643620601786}
   - component: {fileID: 50100817114896688}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: BigFire_Circle
   m_TagString: Dead
   m_Icon: {fileID: 0}
@@ -3373,7 +3373,7 @@ GameObject:
   - component: {fileID: 212610714687820796}
   - component: {fileID: 61348827941874034}
   - component: {fileID: 50859599528278160}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: BigFire_Circle
   m_TagString: Dead
   m_Icon: {fileID: 0}
@@ -3614,7 +3614,7 @@ GameObject:
   - component: {fileID: 61317281807214786}
   - component: {fileID: 50033235748734976}
   - component: {fileID: 114106998088828928}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: BigFire_Circle
   m_TagString: Dead
   m_Icon: {fileID: 0}
@@ -3855,7 +3855,7 @@ GameObject:
   - component: {fileID: 212345951118879998}
   - component: {fileID: 61931002084329638}
   - component: {fileID: 50987670562741032}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: BigFire_Circle
   m_TagString: Dead
   m_Icon: {fileID: 0}
