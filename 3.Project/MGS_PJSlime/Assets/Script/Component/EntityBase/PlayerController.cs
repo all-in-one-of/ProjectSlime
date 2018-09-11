@@ -18,7 +18,7 @@ public class PlayerController : EntityBase {
 	public Vector2 velocitSim;
 	public Vector2 deVelocity;
 
-	public Transform isInWater;
+	public List<Transform> nowTrigger;
 	public SpriteRenderer sprite;
 	public Transform eating = null;
 
@@ -244,7 +244,7 @@ public class PlayerController : EntityBase {
 				velocitSim.x = 0;
 			}
 
-			if (isInWater) {
+			if (OnTrigger("Water")) {
 				velocitSim.y = rb.velocity.y - GameEngine.direct.waterYDec * Time.deltaTime;
 				if (velocitSim.y <= -GameEngine.direct.waterYSpeed) {
 					velocitSim.y = -GameEngine.direct.waterYSpeed;
@@ -338,7 +338,7 @@ public class PlayerController : EntityBase {
 	
 	[Command]
 	public void CmdJump() {
-		if (isInWater) {
+		if (OnTrigger("Water")) {
 			if (Time.timeSinceLevelLoad - swimTimer >= GameEngine.direct.waterColdDown) {
 				ScoreSystem.AddRecord(playerID, 4, 1);
 				swimTimer = Time.timeSinceLevelLoad;
@@ -396,7 +396,7 @@ public class PlayerController : EntityBase {
 		} else  {//空中移動
 			if (direction != 0) {
 				Face(direction == 1);
-				if (isInWater) {
+				if (OnTrigger("Water")) {
 					velocitSim.x = Accelerator(velocitSim.x, direction * GameEngine.direct.waterXAcc, direction * (GameEngine.direct.waterXSpeed + GameEngine.GetBuffer(playerID).waterXSpeed));
 				} else {
 					velocitSim.x = Accelerator(velocitSim.x, direction * GameEngine.direct.jumpXAcc, direction * GameEngine.direct.jumpXSpeed);
@@ -467,7 +467,7 @@ public class PlayerController : EntityBase {
 
 	public void Reborn() {
 		ScoreSystem.AddRecord(playerID, 7, 1);
-		isInWater = null;
+		nowTrigger = new List<Transform>();
 		bornAudio.Play();
 		rb.simulated = true;
 		hp = 2;
@@ -596,8 +596,10 @@ public class PlayerController : EntityBase {
 
 	private void OnTriggerStay2D(Collider2D collider) {
 		if (Network.isServer ) {
-			if (Network.isServer && collider.tag == "Water") {
-				isInWater = collider.transform;
+			if(nowTrigger.Contains(collider.transform))
+
+			if (collider.tag == "Water") {
+				nowTrigger.Add(collider.transform);
 				velocitSim *= 0.2f;
 			} else if (collider.tag == "CheckPoint") {
 				GameEngine.RegistCheckPoint(collider.gameObject.name);
@@ -606,10 +608,31 @@ public class PlayerController : EntityBase {
 	}
 
 	private void OnTriggerExit2D(Collider2D collider) {
-		if (Network.isServer && collider.tag == "Water") {
-			isInWater = null;
-			rb.velocity = new Vector2(rb.velocity.x, 3 * 5);
+		if (Network.isServer) {
+			nowTrigger.Remove(collider.transform);
+
+			if (collider.tag == "Water" && !OnTrigger("Water")) {
+				rb.velocity = new Vector2(rb.velocity.x, 3 * 5);
+			}
 		}
+	}
+
+	private bool OnTrigger(Transform objTag) {
+		foreach (Transform obj in nowTrigger) {
+			if (obj == objTag) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	private bool OnTrigger(string objTag) {
+		foreach (Transform obj in nowTrigger) {
+			if (obj.tag == objTag) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	private float GetSizeFormula(float sizeValue) {
