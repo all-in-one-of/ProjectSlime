@@ -84,7 +84,9 @@ public class AroundPatrolBase : GearBase {
 
 	private void OnCollisionEnter2D(Collision2D collision) {
 		if (carryMode && !carryobj.Contains(collision.transform)) {
-			carryobj.Add(collision.transform);
+			if (collision.transform.tag == "Enemy" || collision.transform.tag == "Player") {
+				carryobj.Add(collision.transform);
+			}
 		}
 	}
 
