@@ -47,11 +47,26 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: BG
-    uniqueID: 3436745877
-    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Back
+    uniqueID: 3436745877
+    locked: 0
+  - name: Line
+    uniqueID: 548720293
+    locked: 0
+  - name: EF_3
+    uniqueID: 1177821709
+    locked: 0
+  - name: EF_2
+    uniqueID: 2661345279
+    locked: 0
+  - name: EF_1
+    uniqueID: 2633221487
+    locked: 0
+  - name: EF_0
+    uniqueID: 554641887
     locked: 0
   - name: Front
     uniqueID: 3243624455
