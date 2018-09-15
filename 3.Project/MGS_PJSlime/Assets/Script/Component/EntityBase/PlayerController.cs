@@ -362,6 +362,9 @@ public class PlayerController : EntityBase {
 			jumpAudio.Play();
 			SetState(Secret ? "Roll" : "Jump");
 			rb.velocity = new Vector2(rb.velocity.x, (GameEngine.direct.jumpYForce + GameEngine.GetBuffer(playerID).jumpYForce) * (GameEngine.direct.jumpGape / GameEngine.direct.jumpGape) * GameEngine.direct.jumpReduce);
+			if (jumpCounter == 0) {
+				jumpCounter++;
+			}
 			jumpCounter++;
 			if (this == GameEngine.mainPlayer) {
 				CameraManager.direct.Bump();

@@ -29,7 +29,7 @@ public class PrototypeSystem : NetworkBehaviour {
 		if (a < 4) {
 			Vector2 spawnPoint = GameEngine.GetCheckPoint() != "" ? GameObject.Find(GameEngine.GetCheckPoint()).transform.position : transform.position;
 
-			GameObject newObj = Network.Instantiate(player, new Vector3(spawnPoint.x + Random.Range(-5, 5), spawnPoint.y, 0), Quaternion.identity, 0) as GameObject;
+			GameObject newObj = Network.Instantiate(player, new Vector3(spawnPoint.x + Random.Range(-1, 1), spawnPoint.y, 0), Quaternion.identity, 0) as GameObject;
 			NetworkServer.Spawn(newObj);
  
 			if (a == 0) {
