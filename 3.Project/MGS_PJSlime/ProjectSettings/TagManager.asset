@@ -47,11 +47,11 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: Back
     uniqueID: 3436745877
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0
   - name: Line
     uniqueID: 548720293
