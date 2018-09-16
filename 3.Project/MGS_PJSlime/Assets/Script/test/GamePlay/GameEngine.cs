@@ -45,6 +45,13 @@ public class GameEngine : MonoBehaviour {
 	public GameObject uiManager;
 	public GameObject gardenStage;
 
+	public int broSize = 4;		//大哥生命
+	public int baseSize = 2;		//小弟生命
+
+	public int bornSize = 1;		//復活生命
+	public int bornReqSize = 2;   //復活需求
+	public int bornCost = 1;		//復活消耗
+	
 	public float walkXSpeed = 8;	
 	public float walkXAcc = 10;		
 	public float walkXDec = 10;		
@@ -224,29 +231,13 @@ public class GameEngine : MonoBehaviour {
 	}
 
 	public void OnReborn(PlayerController value) {
-		int hpRecord = 0;
-
-		if (mainPlayer.hp > 2 && !mainPlayer.isDead) {
-			mainPlayer.Attack(2, true);
+		if (mainPlayer.hp >= bornReqSize && !mainPlayer.isDead) {
+			mainPlayer.Attack(bornCost, true);
 			value.transform.position = mainPlayer.transform.position;
-			value.Attack(0, true);
+			value.Attack(0, true);  //immune
 			value.Reborn();
 			ResetCamera();
 			playerUIs[value.playerID].SetActive(true);
-			return;
-		}
-
-		foreach (PlayerController unit in players) {
-			if (unit.gameObject != value && unit.hp > 2 && !unit.isDead && unit.hp > hpRecord) {
-				unit.Attack(2, true);
-				ScoreSystem.AddRecord(unit.playerID, 8, 1);
-				value.transform.position = unit.transform.position;
-				value.Attack(0, true);
-				value.Reborn();
-				ResetCamera();
-				playerUIs[value.playerID].SetActive(true);
-				return;
-			}
 		}
 	}
 

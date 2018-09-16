@@ -8,14 +8,8 @@ using UnityEngine.EventSystems;
 public class PrototypeSystem : NetworkBehaviour {
 	public static PrototypeSystem direct;
 	public GameObject player;
-	private int a = 0;
-	public int clock;
-
-	public int hostIntSize; 
-	public int intSize;
-	public int jumpGape;
-	public bool order = false;
-
+	protected int playerCount = 0;
+	
 	private void Start() {
 		direct = this;
 	}
@@ -26,20 +20,20 @@ public class PrototypeSystem : NetworkBehaviour {
 	}
 	 
 	public void SpawnPlayer() {
-		if (a < 4) {
+		if (playerCount < 4) {
 			Vector2 spawnPoint = GameEngine.GetCheckPoint() != "" ? GameObject.Find(GameEngine.GetCheckPoint()).transform.position : transform.position;
 
 			GameObject newObj = Network.Instantiate(player, new Vector3(spawnPoint.x + Random.Range(-1, 1), spawnPoint.y, 0), Quaternion.identity, 0) as GameObject;
 			NetworkServer.Spawn(newObj);
  
-			if (a == 0) {
-				newObj.GetComponent<PlayerController>().CmdRegist(a, hostIntSize);
+			if (playerCount == 0) {
+				newObj.GetComponent<PlayerController>().CmdRegist(playerCount, GameEngine.direct.broSize);
 				GameEngine.direct.Focus(newObj.GetComponent<PlayerController>());
 			} else {
-				newObj.GetComponent<PlayerController>().CmdRegist(a, intSize);
+				newObj.GetComponent<PlayerController>().CmdRegist(playerCount, GameEngine.direct.baseSize);
 			}
 
-			a++;
+			playerCount++;
 		}
 	}
 

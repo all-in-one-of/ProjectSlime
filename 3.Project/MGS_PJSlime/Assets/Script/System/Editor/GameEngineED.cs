@@ -55,6 +55,13 @@ public class GameEngineED : Editor {
 		EditorTools.Space();
 		EditorTools.TitleField("<<ArenaSet>>");
 
+		EditorTools.LabelField("-生成參數-");
+		script.broSize		= EditorTools.IntField(script.broSize		, "大哥大小");
+		script.baseSize		= EditorTools.IntField(script.baseSize		, "一般大小");
+		script.bornSize		= EditorTools.IntField(script.bornSize		, "重生大小");
+		script.bornReqSize	= EditorTools.IntField(script.bornReqSize	, "重生需求量");
+		script.bornCost		= EditorTools.IntField(script.bornCost		, "重生消耗");
+
 		EditorTools.LabelField("-地面參數-");
 		script.walkXSpeed	= EditorTools.FloatField(script.walkXSpeed	, "移動速度(m/s)");
 		script.walkXAcc		= EditorTools.FloatField(script.walkXAcc	, "加速度(m/s)");

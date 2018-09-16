@@ -292,12 +292,11 @@ public class PlayerController : EntityBase {
 	} 	
 
 	[Command]
-	public void CmdRegist(int playerID, int hp) {
+	public void CmdRegist(int playerID, int hpValue) {
 		this.playerID = playerID;
-		this.hp = hp;
 
 		GameEngine.direct.OnRegist(this);
-		SetSize();
+		SetHP(hpValue);
 	}
 
 	[Command]
@@ -451,12 +450,7 @@ public class PlayerController : EntityBase {
 	public override void Attack(int damage, bool firstOrder = false) {
 		if (!isInvincible || firstOrder) {
 			isInvincible = true;
-			hp = hp - damage;
-			if (hp <= 0) {
-				OnDead();
-			} else {
-				SetSize();
-			}
+			SetHP(hp - damage);
 		}
 	}
 
@@ -473,8 +467,7 @@ public class PlayerController : EntityBase {
 		nowTrigger = new List<Transform>();
 		bornAudio.Play();
 		rb.simulated = true;
-		hp = 2;
-		SetSize();
+		SetHP(GameEngine.direct.bornSize);
 		isDead = false;
 	}
 	
@@ -540,8 +533,7 @@ public class PlayerController : EntityBase {
 				ScoreSystem.AddRecord(playerID, 6, 1);
 			}
 
-			hp++;
-			SetSize();
+			SetHP(hp+1);
 			ScoreSystem.ModifyScore(target.bonus);
 
 			eating = target.transform;
@@ -552,7 +544,16 @@ public class PlayerController : EntityBase {
 			ScoreSystem.AddRecord(playerID , 0 , 1);
 		}
 	}
-	
+
+	protected void SetHP(int value) {
+		hp = value;
+		if (hp <= 0) {
+			OnDead();
+		} else {
+			SetSize();
+		}
+	}
+
 	protected void SetSize() {
 		size = hp;
 		float tempsize = GetSizeFormula(size) ;
