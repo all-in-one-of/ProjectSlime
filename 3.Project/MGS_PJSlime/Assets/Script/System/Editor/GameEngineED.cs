@@ -62,6 +62,7 @@ public class GameEngineED : Editor {
 		script.bornReqSize	= EditorTools.IntField(script.bornReqSize	, "重生需求量");
 		script.bornCost		= EditorTools.IntField(script.bornCost		, "重生消耗");
 
+		EditorTools.Space();
 		EditorTools.LabelField("-地面參數-");
 		script.walkXSpeed	= EditorTools.FloatField(script.walkXSpeed	, "移動速度(m/s)");
 		script.walkXAcc		= EditorTools.FloatField(script.walkXAcc	, "加速度(m/s)");
