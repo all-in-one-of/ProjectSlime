@@ -70,11 +70,10 @@ public class GameEngineED : Editor {
 
 		EditorTools.Space();
 		EditorTools.LabelField("-跳躍參數-");
-		script.jumpGape		= EditorTools.IntField(script.jumpGape		, "跳躍力");
 		script.jumpXSpeed	= EditorTools.FloatField(script.jumpXSpeed	, "移動速度(m/s)");
 		script.jumpXAcc		= EditorTools.FloatField(script.jumpXAcc	, "加速度(m/s)");
 		script.jumpXDec		= EditorTools.FloatField(script.jumpXDec	, "減速度(m/s)");
-		script.jumpYForce	= EditorTools.FloatField(script.jumpYForce	, "跳躍速度(m/s)");
+		script.jumpYForce	= EditorTools.FloatField(script.jumpYForce	, "跳躍力(m/s)");
 		script.jumpDuraion	= EditorTools.FloatField(script.jumpDuraion	, "跳躍時間(s)");
 		script.jumpYDec		= EditorTools.FloatField(script.jumpYDec	, "落下減速度(m/s)");
 

@@ -351,7 +351,7 @@ public class PlayerController : EntityBase {
 			jumpTimer = Time.timeSinceLevelLoad;
 			jumpAudio.Play();
 			SetState("Jump");
-			rb.velocity = new Vector2(rb.velocity.x, (GameEngine.direct.jumpYForce + GameEngine.GetBuffer(playerID).jumpYForce) * (GameEngine.direct.jumpGape / GameEngine.direct.jumpGape));
+			rb.velocity = new Vector2(rb.velocity.x, GameEngine.direct.jumpYForce * (1 + GameEngine.GetBuffer(playerID).jumpYForce));
 			jumpCounter++;
 			if (this == GameEngine.mainPlayer) {
 				CameraManager.direct.Bump();
@@ -360,7 +360,7 @@ public class PlayerController : EntityBase {
 			jumpTimer = Time.timeSinceLevelLoad;
 			jumpAudio.Play();
 			SetState(Secret ? "Roll" : "Jump");
-			rb.velocity = new Vector2(rb.velocity.x, (GameEngine.direct.jumpYForce + GameEngine.GetBuffer(playerID).jumpYForce) * (GameEngine.direct.jumpGape / GameEngine.direct.jumpGape) * GameEngine.direct.jumpReduce);
+			rb.velocity = new Vector2(rb.velocity.x, GameEngine.direct.jumpYForce * (1 + GameEngine.GetBuffer(playerID).jumpYForce) * GameEngine.direct.jumpReduce);
 			if (jumpCounter == 0) {
 				jumpCounter++;
 			}
@@ -374,7 +374,7 @@ public class PlayerController : EntityBase {
 	[Command]
 	public void CmdJumpForce() {
 		if (!onGround && Time.timeSinceLevelLoad - jumpTimer < GameEngine.direct.jumpDuraion && jumpCounter < 2) {
-			rb.velocity = new Vector2(rb.velocity.x, (GameEngine.direct.jumpYForce + GameEngine.GetBuffer(playerID).jumpYForce) * (GameEngine.direct.jumpGape / GameEngine.direct.jumpGape));
+			rb.velocity = new Vector2(rb.velocity.x, GameEngine.direct.jumpYForce * (1 + GameEngine.GetBuffer(playerID).jumpYForce));
 		}
 	}
 	
@@ -513,10 +513,8 @@ public class PlayerController : EntityBase {
 					collision.gameObject.GetComponent<PlayerController>().velocityOut.x = xv * Mathf.Abs(xe + ixe) * 0.5f;
 				}
 			}
-
 		}
-	}
-	
+	}	
 
 	protected void Eat() {
 		eatAudio.Play();
@@ -538,8 +536,8 @@ public class PlayerController : EntityBase {
 
 			eating = target.transform;
 			target.OnDead();
-
 			return;
+
 		} else {
 			ScoreSystem.AddRecord(playerID , 0 , 1);
 		}
@@ -556,12 +554,11 @@ public class PlayerController : EntityBase {
 
 	protected void SetSize() {
 		size = hp;
-		float tempsize = GetSizeFormula(size) ;
+		float tempsize = GetSizeFormula(size);
 		transform.localScale = new Vector3(tempsize, tempsize, 1);
 		GameEngine.direct.ResetCamera();		
 	}
-
-
+	
 	public bool IsSlideing() {
 		return onGround && onGround.tag == "Ice";
 	}
