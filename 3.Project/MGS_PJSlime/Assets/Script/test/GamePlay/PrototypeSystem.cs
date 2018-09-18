@@ -21,6 +21,7 @@ public class PrototypeSystem : NetworkBehaviour {
 	 
 	public void SpawnPlayer() {
 		if (playerCount < 4) {
+			Debug.LogError(GameEngine.GetCheckPoint());
 			Vector2 spawnPoint = GameEngine.GetCheckPoint() != "" ? GameObject.Find(GameEngine.GetCheckPoint()).transform.position : transform.position;
 
 			GameObject newObj = Network.Instantiate(player, new Vector3(spawnPoint.x + Random.Range(-1, 1), spawnPoint.y, 0), Quaternion.identity, 0) as GameObject;

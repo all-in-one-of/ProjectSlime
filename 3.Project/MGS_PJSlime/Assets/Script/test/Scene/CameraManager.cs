@@ -51,17 +51,7 @@ public class CameraManager : MonoBehaviour {
 		
 		nowCamera.position = Vector3.Lerp(nowCamera.position, new Vector3(GameEngine.mainPlayer.transform.position.x, GameEngine.mainPlayer.transform.position.y + yOffset, nowCamera.transform.position.z), Time.deltaTime * mainSpeed);
 		targetHint.position = Vector3.Lerp(targetHint.position, new Vector3(GameEngine.mainPlayer.transform.position.x, GameEngine.mainPlayer.transform.position.y, targetHint.transform.position.z), Time.deltaTime * hintSpeed);
-
-		/*
-		float focusSpeed = focusCurve.Evaluate(mainSpeed);
-
-		if (focusSpeed > preFocusSpeed) {
-			mainCamera.orthographicSize = Mathf.Lerp(mainCamera.orthographicSize, 16 + focusCurve.Evaluate(mainSpeed), Time.deltaTime * focusPSpeed);
-		} else {
-			mainCamera.orthographicSize = Mathf.Lerp(mainCamera.orthographicSize, 16 + focusCurve.Evaluate(mainSpeed), Time.deltaTime * focusNSpeed);
-		}
-		preFocusSpeed = focusSpeed;*/
-		
+				
 		if (bumpTimer > 0) {
 			float targetBump = bumpCurve.Evaluate(bumpTime - bumpTimer);
 			

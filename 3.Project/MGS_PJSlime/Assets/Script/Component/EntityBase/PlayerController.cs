@@ -597,13 +597,16 @@ public class PlayerController : EntityBase {
 
 	private void OnTriggerStay2D(Collider2D collider) {
 		if (Network.isServer ) {
-			if(nowTrigger.Contains(collider.transform))
+			if (nowTrigger.Contains(collider.transform)) {
 
-			if (collider.tag == "Water") {
-				nowTrigger.Add(collider.transform);
-				velocitSim *= 0.2f;
-			} else if (collider.tag == "CheckPoint") {
-				GameEngine.RegistCheckPoint(collider.gameObject.name);
+			} else {
+				if (collider.tag == "Water") {
+					nowTrigger.Add(collider.transform);
+					velocitSim *= 0.2f;
+
+				} else if (collider.tag == "CheckPoint") {
+					GameEngine.RegistCheckPoint(collider.gameObject.name);
+				}
 			}
 		}
 	}
