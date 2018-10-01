@@ -68,7 +68,7 @@ Transform:
   m_GameObject: {fileID: 1634725205279740}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.4, y: 11.28, z: 10}
-  m_LocalScale: {x: 18, y: 18, z: 1}
+  m_LocalScale: {x: 9, y: 9, z: 1}
   m_Children:
   - {fileID: 4491595092965996}
   m_Father: {fileID: 0}
@@ -150,22 +150,22 @@ MonoBehaviour:
   m_SceneId:
     m_Value: 0
   m_AssetId:
-    i0: 120
-    i1: 136
-    i2: 129
-    i3: 251
-    i4: 178
-    i5: 240
-    i6: 35
-    i7: 116
-    i8: 90
-    i9: 24
-    i10: 29
-    i11: 220
-    i12: 7
-    i13: 241
-    i14: 135
-    i15: 143
+    i0: 250
+    i1: 250
+    i2: 60
+    i3: 0
+    i4: 64
+    i5: 88
+    i6: 68
+    i7: 20
+    i8: 136
+    i9: 47
+    i10: 103
+    i11: 118
+    i12: 142
+    i13: 242
+    i14: 247
+    i15: 93
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
 --- !u!114 &114976808394555340
@@ -180,6 +180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer:
+    cost: 0
     walkXSpeed: 0
     jumpYForce: 0
     waterXSpeed: 0
@@ -195,7 +196,7 @@ MonoBehaviour:
   bonus: 0
   attack: 2
   hp: 20
-  face: 1
+  facing: 1
   moveAI: 1
   agressiveAI: 1
   jumpAI: 1
@@ -204,7 +205,7 @@ MonoBehaviour:
   moveSpeed: 6
   jumpForce: 120
   bullet: {fileID: 0}
-  aiGape: {x: 1, y: 5}
+  aiGape: {x: 1, y: 2}
 --- !u!212 &212253709005066906
 SpriteRenderer:
   m_ObjectHideFlags: 1
