@@ -86,12 +86,42 @@ public class PatrolBaseED : Editor {
 		script.accMode		= EditorTools.BoolField(script.accMode		, "緩衝模式(損毀)");
 		script.carryMode	= EditorTools.BoolField(script.carryMode	, "運輸模式");
 		script.positive		= EditorTools.BoolField(script.positive		, "正極狀態");
-		script.vector		= EditorTools.Vector2Field(script.vector	, "移動速度(m/s)");
+		script.vector		= EditorTools.Vector2Field(script.vector	, "OLD移動速度(m/s)");
+		script.speed		= EditorTools.FloatField(script.speed		, "移動速度(m/s)");
 		script.onceTime		= EditorTools.FloatField(script.onceTime	, "時間(s)");
-		
-		EditorTools.Vector2Field(script.pa, "#A點");
-		EditorTools.Vector2Field(script.pb, "#B點");
+
+		EditorTools.LabelField(((Vector2)script.transform.position).ToString(), "#A點");
+		EditorTools.LabelField(((Vector2)script.transform.position + script.vector * script.onceTime).ToString(), "#B點");
+
+		float length = 0;
+		for (int i = 1; i < script.pointList.Count; i++) {
+			length += Vector2.Distance(script.pointList[i - 1], script.pointList[i]);
+		}
+
+		EditorTools.LabelField(length.ToString("f2"), "總長度");
+
+		var serializedObject2 = new SerializedObject(target);
+		var property2 = serializedObject2.FindProperty("pointList");
+		serializedObject2.Update();
+		EditorGUILayout.PropertyField(property2, true);
+		serializedObject2.ApplyModifiedProperties();
+
 		EditorTools.Mig();
+	}
+
+	public void OnSceneGUI() {
+		GUIStyle lableStyle = new GUIStyle();
+		lableStyle.normal.textColor = Color.white;
+
+		int i = 0;
+		Handles.Label(script.pointList[i] + new Vector2(0, 0.5f), "P: " + (i + 1) , lableStyle);
+		Handles.CubeHandleCap(0, script.pointList[i], Quaternion.identity, 0.1f, EventType.Repaint);
+
+		for (i = 1; i < script.pointList.Count; i++) {
+			Handles.DrawLine(script.pointList[i - 1], script.pointList[i]);
+			Handles.Label(script.pointList[i] + new Vector2(0, 0.5f), "P: " + (i + 1), lableStyle);
+			Handles.CubeHandleCap(0, script.pointList[i], Quaternion.identity, 0.1f, EventType.Repaint);
+		}
 	}
 }
 
