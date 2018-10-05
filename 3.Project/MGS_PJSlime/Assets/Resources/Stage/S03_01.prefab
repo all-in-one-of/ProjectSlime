@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 23077280627142038}
   - component: {fileID: 114755021965600910}
   m_Layer: 11
-  m_Name: Solider01 (47)
+  m_Name: Solider01 (48)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5989,7 +5989,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1002513763497982}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.47, y: 3.49, z: 2.5}
+  m_LocalPosition: {x: 0.47000027, y: 3.4900007, z: 2.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4522248239663060}
@@ -16236,12 +16236,15 @@ MonoBehaviour:
   triggers: []
   detriggers: []
   vector: {x: 3, y: 0}
+  speed: 3
   onceTime: 2
   accMode: 1
   carryMode: 1
   positive: 0
-  pa: {x: 0, y: 0}
-  pb: {x: 0, y: 0}
+  nowPoint: 0
+  pointList:
+  - {x: 39.9, y: 27}
+  - {x: 45.9, y: 27}
 --- !u!114 &114018457429145966
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16545,12 +16548,13 @@ MonoBehaviour:
   triggers: []
   detriggers: []
   vector: {x: -2, y: 0}
+  speed: 1
   onceTime: 1
   accMode: 1
   carryMode: 1
   positive: 1
-  pa: {x: 0, y: 0}
-  pb: {x: 0, y: 0}
+  nowPoint: 0
+  pointList: []
 --- !u!114 &114068314096271420
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -17623,12 +17627,15 @@ MonoBehaviour:
   - {fileID: 0}
   detriggers: []
   vector: {x: 0, y: -4}
+  speed: 4
   onceTime: 0.5
   accMode: 0
   carryMode: 1
   positive: 1
-  pa: {x: 0, y: 0}
-  pb: {x: 0, y: 0}
+  nowPoint: 0
+  pointList:
+  - {x: 115, y: 6.6}
+  - {x: 115, y: 4.6}
 --- !u!114 &114182919308913880
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -18475,12 +18482,15 @@ MonoBehaviour:
   - {fileID: 0}
   detriggers: []
   vector: {x: -3, y: 0}
+  speed: 3
   onceTime: 1
   accMode: 0
   carryMode: 1
   positive: 1
-  pa: {x: 0, y: 0}
-  pb: {x: 0, y: 0}
+  nowPoint: 0
+  pointList:
+  - {x: 21.1, y: 6.3}
+  - {x: 18.1, y: 6.3}
 --- !u!114 &114288446580039148
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -19649,12 +19659,13 @@ MonoBehaviour:
   triggers: []
   detriggers: []
   vector: {x: 2, y: 0}
+  speed: 1
   onceTime: 1.5
   accMode: 1
   carryMode: 1
   positive: 1
-  pa: {x: 0, y: 0}
-  pb: {x: 0, y: 0}
+  nowPoint: 0
+  pointList: []
 --- !u!114 &114482977979354286
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -20179,12 +20190,15 @@ MonoBehaviour:
   - {fileID: 114184002797736276}
   detriggers: []
   vector: {x: -3, y: -3}
+  speed: 3
   onceTime: 2.5
   accMode: 0
   carryMode: 1
   positive: 1
-  pa: {x: 0, y: 0}
-  pb: {x: 0, y: 0}
+  nowPoint: 0
+  pointList:
+  - {x: 24.9, y: 24}
+  - {x: 17.4, y: 16.5}
 --- !u!114 &114532997477090936
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -20271,12 +20285,15 @@ MonoBehaviour:
   - {fileID: 114563892178044462}
   detriggers: []
   vector: {x: 0, y: -0.75}
+  speed: -0.75
   onceTime: 14
   accMode: 1
   carryMode: 0
   positive: 0
-  pa: {x: 0, y: 0}
-  pb: {x: 0, y: 0}
+  nowPoint: 0
+  pointList:
+  - {x: 51.8, y: 29.6}
+  - {x: 51.8, y: 29.6}
 --- !u!114 &114544341119840000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -20486,12 +20503,15 @@ MonoBehaviour:
   - {fileID: 114079656817271388}
   detriggers: []
   vector: {x: 2.5, y: 0}
+  speed: 2.5
   onceTime: 8
   accMode: 0
   carryMode: 1
   positive: 1
-  pa: {x: 0, y: 0}
-  pb: {x: 0, y: 0}
+  nowPoint: 0
+  pointList:
+  - {x: 68.6, y: 5.9}
+  - {x: 88.6, y: 5.9}
 --- !u!114 &114562328730194608
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -21058,12 +21078,13 @@ MonoBehaviour:
   triggers: []
   detriggers: []
   vector: {x: -2, y: 0}
+  speed: 1
   onceTime: 1
   accMode: 1
   carryMode: 1
   positive: 1
-  pa: {x: 0, y: 0}
-  pb: {x: 0, y: 0}
+  nowPoint: 0
+  pointList: []
 --- !u!114 &114644334083843272
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -21238,12 +21259,13 @@ MonoBehaviour:
   triggers: []
   detriggers: []
   vector: {x: 0, y: -3}
+  speed: 1
   onceTime: 1
   accMode: 1
   carryMode: 1
   positive: 1
-  pa: {x: 0, y: 0}
-  pb: {x: 0, y: 0}
+  nowPoint: 0
+  pointList: []
 --- !u!114 &114671894061899788
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -21545,12 +21567,15 @@ MonoBehaviour:
   - {fileID: 114937887309571944}
   detriggers: []
   vector: {x: 0, y: 5}
+  speed: 5
   onceTime: 3
   accMode: 0
   carryMode: 1
   positive: 1
-  pa: {x: 0, y: 0}
-  pb: {x: 0, y: 0}
+  nowPoint: 0
+  pointList:
+  - {x: 45.3, y: 14.6}
+  - {x: 45.3, y: 29.6}
 --- !u!114 &114706930701098992
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -21959,12 +21984,13 @@ MonoBehaviour:
   triggers: []
   detriggers: []
   vector: {x: -2, y: 0}
+  speed: 1
   onceTime: 1
   accMode: 1
   carryMode: 1
   positive: 1
-  pa: {x: 0, y: 0}
-  pb: {x: 0, y: 0}
+  nowPoint: 0
+  pointList: []
 --- !u!114 &114742464963377510
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -22222,12 +22248,15 @@ MonoBehaviour:
   - {fileID: 114537585552745174}
   detriggers: []
   vector: {x: 2.5, y: 0}
+  speed: 2.5
   onceTime: 3.5
   accMode: 0
   carryMode: 1
   positive: 1
-  pa: {x: 0, y: 0}
-  pb: {x: 0, y: 0}
+  nowPoint: 0
+  pointList:
+  - {x: 93.1, y: 5.8}
+  - {x: 101.8, y: 5.8}
 --- !u!114 &114786041411477988
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -23325,12 +23354,13 @@ MonoBehaviour:
   - {fileID: 114565287642176348}
   detriggers: []
   vector: {x: 0, y: 1.5}
+  speed: 1
   onceTime: 14
   accMode: 1
   carryMode: 0
   positive: 1
-  pa: {x: 0, y: 0}
-  pb: {x: 0, y: 0}
+  nowPoint: 0
+  pointList: []
 --- !u!114 &114894504073714518
 MonoBehaviour:
   m_ObjectHideFlags: 1
