@@ -83,7 +83,6 @@ public class PatrolBaseED : Editor {
 			script.triggerType = (GearBase.TriggerType)EditorTools.EnumField(script.triggerType, "機關模式");
 		}
 		
-		script.accMode		= EditorTools.BoolField(script.accMode		, "OLD緩衝模式(損毀)");
 		script.carryMode	= EditorTools.BoolField(script.carryMode	, "運輸模式");
 		EditorTools.BoolField(script.positive		, "正極狀態");
 		script.vector		= EditorTools.Vector2Field(script.vector	, "OLD移動速度(m/s)");
