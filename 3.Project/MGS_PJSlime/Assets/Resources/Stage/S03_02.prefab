@@ -1957,26 +1957,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1326180626393340
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4182956124849196}
-  - component: {fileID: 61761333788199260}
-  - component: {fileID: 50555809386240362}
-  - component: {fileID: 212911470746777294}
-  - component: {fileID: 114854891067133118}
-  - component: {fileID: 114870421648907282}
-  m_Layer: 8
-  m_Name: Platform (7)
-  m_TagString: Ground
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1337417839788042
 GameObject:
   m_ObjectHideFlags: 1
@@ -3484,7 +3464,7 @@ GameObject:
   - component: {fileID: 114606153549795896}
   - component: {fileID: 114211879274280846}
   m_Layer: 8
-  m_Name: Platform (1)
+  m_Name: Platform (5)
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5563,21 +5543,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1940353036633962
+--- !u!1 &1945715076908794
 GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4773190017829984}
-  - component: {fileID: 61097749298777264}
-  - component: {fileID: 50181101351666768}
-  - component: {fileID: 212615075407298724}
-  - component: {fileID: 114484508075111624}
-  - component: {fileID: 114315400992503682}
+  - component: {fileID: 4487405447782070}
+  - component: {fileID: 61116233038525754}
+  - component: {fileID: 50693004342227286}
+  - component: {fileID: 212361144507296176}
+  - component: {fileID: 114536846339974892}
+  - component: {fileID: 114984555054788468}
   m_Layer: 8
-  m_Name: Platform (6)
+  m_Name: Platform (1)
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6844,19 +6824,6 @@ Transform:
   m_Father: {fileID: 4391899538290146}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4182956124849196
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1326180626393340}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.93, y: -52.9, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4923504775644476}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4184466353589620
 Transform:
   m_ObjectHideFlags: 1
@@ -6929,7 +6896,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1882193009988060}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.83, y: -53.97, z: 0}
+  m_LocalPosition: {x: -79.35999, y: 2.199997, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4923504775644476}
@@ -7623,7 +7590,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1498721691075264}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.37999725, y: -51.95, z: 0}
+  m_LocalPosition: {x: -84.189995, y: 4.2199974, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4923504775644476}
@@ -8213,6 +8180,19 @@ Transform:
   m_Father: {fileID: 4632495181954216}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4487405447782070
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1945715076908794}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -73.2, y: 4.41, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4923504775644476}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4489456380922518
 Transform:
   m_ObjectHideFlags: 1
@@ -8298,7 +8278,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1063481176537888}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.278952, y: 13.846784, z: -1.25}
+  m_LocalPosition: {x: 0, y: 0, z: -1.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4080807133637304}
@@ -8533,11 +8513,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1608186420068680}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.99, y: -51.87, z: 0}
+  m_LocalPosition: {x: -73.2, y: 2.27, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4923504775644476}
-  m_RootOrder: 2
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4594128986157772
 Transform:
@@ -9459,19 +9439,6 @@ Transform:
   m_Father: {fileID: 4035419259503390}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4773190017829984
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1940353036633962}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.91, y: -53.93, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4923504775644476}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4778307420443994
 Transform:
   m_ObjectHideFlags: 1
@@ -10032,16 +9999,15 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1733878739866684}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -83.9, y: 56.3, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4201171524065468}
   - {fileID: 4991302092395826}
-  - {fileID: 4588966484045680}
+  - {fileID: 4487405447782070}
   - {fileID: 4940840682763976}
   - {fileID: 4359239482116052}
-  - {fileID: 4773190017829984}
-  - {fileID: 4182956124849196}
+  - {fileID: 4588966484045680}
   m_Father: {fileID: 4794226861108484}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10078,7 +10044,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1596935055517368}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.86, y: -53.93, z: 0}
+  m_LocalPosition: {x: -81.329994, y: 2.2399979, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4923504775644476}
@@ -10338,7 +10304,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1224032631258250}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.35, y: -53.22, z: 0}
+  m_LocalPosition: {x: -77.84, y: 2.949997, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4923504775644476}
@@ -13638,26 +13604,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!50 &50181101351666768
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1940353036633962}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 10
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!50 &50190007689776516
 Rigidbody2D:
   serializedVersion: 4
@@ -14798,26 +14744,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!50 &50555809386240362
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1326180626393340}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 10
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!50 &50556187813558710
 Rigidbody2D:
   serializedVersion: 4
@@ -15273,6 +15199,26 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0.5
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!50 &50693004342227286
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1945715076908794}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 10
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -17447,31 +17393,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.9907522, y: 1.076838}
   m_EdgeRadius: 0
---- !u!61 &61097749298777264
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1940353036633962}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.06343126, y: -0.04862237}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.5, y: 4.35}
-    newSize: {x: 4.5, y: 4.35}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2.0004053, y: 1.076839}
-  m_EdgeRadius: 0
 --- !u!61 &61108551489938194
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -17521,6 +17442,31 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 5.7087555, y: 15.638649}
+  m_EdgeRadius: 0
+--- !u!61 &61116233038525754
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1945715076908794}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.009658337, y: -0.024258852}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4.5, y: 4.35}
+    newSize: {x: 4.5, y: 4.35}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.0004053, y: 1.076839}
   m_EdgeRadius: 0
 --- !u!61 &61119104165347896
 BoxCollider2D:
@@ -20672,31 +20618,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.35476077, y: 0.8069443}
   m_EdgeRadius: 0
---- !u!61 &61761333788199260
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1326180626393340}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.06343126, y: -0.04862237}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.5, y: 4.35}
-    newSize: {x: 4.5, y: 4.35}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2.0004053, y: 1.076839}
-  m_EdgeRadius: 0
 --- !u!61 &61770527288659554
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -22155,12 +22076,12 @@ MonoBehaviour:
   - {fileID: 114455779285078112}
   detriggers: []
   vector: {x: 0, y: 1.5}
+  speed: 1
   onceTime: 2.5
-  accMode: 0
   carryMode: 1
   positive: 1
-  pa: {x: 2.72, y: 14.54}
-  pb: {x: 2.72, y: 44.54}
+  nowPoint: 0
+  pointList: []
 --- !u!114 &114012053177773102
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -22231,12 +22152,12 @@ MonoBehaviour:
   triggers: []
   detriggers: []
   vector: {x: -3.3, y: 0}
+  speed: 1
   onceTime: 2
-  accMode: 1
   carryMode: 0
   positive: 0
-  pa: {x: -45.73, y: 44.88}
-  pb: {x: -52.329998, y: 44.88}
+  nowPoint: 0
+  pointList: []
 --- !u!114 &114016869525780814
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -22524,12 +22445,12 @@ MonoBehaviour:
   - {fileID: 114736803028547092}
   detriggers: []
   vector: {x: 8, y: 0}
+  speed: 1
   onceTime: 3.5
-  accMode: 0
   carryMode: 1
   positive: 1
-  pa: {x: -49.7, y: 3.74}
-  pb: {x: -21.7, y: 3.74}
+  nowPoint: 0
+  pointList: []
 --- !u!114 &114047573820040740
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -22649,12 +22570,12 @@ MonoBehaviour:
   - {fileID: 114674336319302050}
   detriggers: []
   vector: {x: 5, y: 0}
+  speed: 1
   onceTime: 15
-  accMode: 0
   carryMode: 1
   positive: 1
-  pa: {x: -5.3399997, y: 30.130001}
-  pb: {x: 69.66, y: 30.130001}
+  nowPoint: 0
+  pointList: []
 --- !u!114 &114067273118866294
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -22671,12 +22592,12 @@ MonoBehaviour:
   triggers: []
   detriggers: []
   vector: {x: 3, y: 0}
+  speed: 1
   onceTime: 1
-  accMode: 1
   carryMode: 0
   positive: 1
-  pa: {x: -41.64, y: 10.58}
-  pb: {x: -49.14, y: 10.58}
+  nowPoint: 0
+  pointList: []
 --- !u!114 &114075341005217800
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -23562,12 +23483,12 @@ MonoBehaviour:
   triggers: []
   detriggers: []
   vector: {x: 3.3, y: 0}
+  speed: 1
   onceTime: 2
-  accMode: 1
   carryMode: 0
   positive: 0
-  pa: {x: -44.03, y: 41.170002}
-  pb: {x: -37.43, y: 41.170002}
+  nowPoint: 0
+  pointList: []
 --- !u!114 &114154443956867268
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -23698,12 +23619,12 @@ MonoBehaviour:
   triggers: []
   detriggers: []
   vector: {x: -3, y: 0}
+  speed: 1
   onceTime: 1
-  accMode: 1
   carryMode: 0
   positive: 1
-  pa: {x: -41.63, y: 13.64}
-  pb: {x: -47.63, y: 13.64}
+  nowPoint: 0
+  pointList: []
 --- !u!114 &114162365708607386
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -23750,12 +23671,12 @@ MonoBehaviour:
   triggers: []
   detriggers: []
   vector: {x: -2.5, y: 0}
+  speed: 1
   onceTime: 2
-  accMode: 1
   carryMode: 0
   positive: 0
-  pa: {x: -41.57, y: 1.39}
-  pb: {x: -46.57, y: 1.39}
+  nowPoint: 0
+  pointList: []
 --- !u!114 &114167268857255256
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -23772,12 +23693,12 @@ MonoBehaviour:
   triggers: []
   detriggers: []
   vector: {x: 4.5, y: 0}
+  speed: 1
   onceTime: 1.5
-  accMode: 1
   carryMode: 0
   positive: 0
-  pa: {x: -44.980003, y: 8.38}
-  pb: {x: -36.880005, y: 8.38}
+  nowPoint: 0
+  pointList: []
 --- !u!114 &114168127789427106
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -24075,12 +23996,12 @@ MonoBehaviour:
   triggers: []
   detriggers: []
   vector: {x: 3.3, y: 0}
+  speed: 1
   onceTime: 2
-  accMode: 1
   carryMode: 0
   positive: 0
-  pa: {x: -76.979996, y: 40.780003}
-  pb: {x: -70.38, y: 40.780003}
+  nowPoint: 0
+  pointList: []
 --- !u!114 &114194647289440856
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -24334,12 +24255,17 @@ MonoBehaviour:
   triggers: []
   detriggers: []
   vector: {x: 2.5, y: 0}
+  speed: 2.5
   onceTime: 1
-  accMode: 1
   carryMode: 0
   positive: 0
-  pa: {x: -72.950005, y: 4.4300003}
-  pb: {x: -70.450005, y: 4.4300003}
+  nowPoint: 0
+  pointList:
+  - {x: -73.2, y: 2.27}
+  - {x: -73.2, y: 4.31}
+  - {x: -75.11, y: 4.31}
+  - {x: -75.11, y: 2.27}
+  - {x: -73.2, y: 2.27}
 --- !u!114 &114218557127298956
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -24826,12 +24752,12 @@ MonoBehaviour:
   - {fileID: 114383890875154404}
   detriggers: []
   vector: {x: 8, y: 0}
+  speed: 1
   onceTime: 2
-  accMode: 0
   carryMode: 1
   positive: 0
-  pa: {x: 25.070002, y: 19.560001}
-  pb: {x: 41.07, y: 19.560001}
+  nowPoint: 0
+  pointList: []
 --- !u!114 &114255716063640160
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -24941,12 +24867,12 @@ MonoBehaviour:
   - {fileID: 0}
   detriggers: []
   vector: {x: 8, y: 0}
+  speed: 1
   onceTime: 2
-  accMode: 1
   carryMode: 1
   positive: 0
-  pa: {x: -32.969997, y: 17.92}
-  pb: {x: -16.969997, y: 17.92}
+  nowPoint: 0
+  pointList: []
 --- !u!114 &114260409057725232
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -25177,12 +25103,12 @@ MonoBehaviour:
   triggers: []
   detriggers: []
   vector: {x: 4, y: 0}
+  speed: 1
   onceTime: 1.5
-  accMode: 1
   carryMode: 0
   positive: 0
-  pa: {x: -41.5, y: 3.9400003}
-  pb: {x: -49.5, y: 3.9400003}
+  nowPoint: 0
+  pointList: []
 --- !u!114 &114267099575279082
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -25454,28 +25380,6 @@ MonoBehaviour:
     i15: 136
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
---- !u!114 &114315400992503682
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1940353036633962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c2f2594b781b52459490ad7064b93a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  toAlways: 0
-  triggerType: 0
-  triggers: []
-  detriggers: []
-  vector: {x: -2.5, y: 0}
-  onceTime: 1
-  accMode: 1
-  carryMode: 0
-  positive: 1
-  pa: {x: -73.01, y: 2.369999}
-  pb: {x: -75.51, y: 2.369999}
 --- !u!114 &114318667256830198
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -25511,12 +25415,14 @@ MonoBehaviour:
   triggers: []
   detriggers: []
   vector: {x: -2, y: 0}
+  speed: 2.5
   onceTime: 1
-  accMode: 1
   carryMode: 0
   positive: 1
-  pa: {x: -80.94, y: 3.290001}
-  pb: {x: -78.94, y: 3.290001}
+  nowPoint: 0
+  pointList:
+  - {x: -79.35999, y: 2.199997}
+  - {x: -79.35999, y: 4.2}
 --- !u!114 &114321749761770538
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -25757,12 +25663,12 @@ MonoBehaviour:
   triggers: []
   detriggers: []
   vector: {x: -3.5, y: 0}
+  speed: 1
   onceTime: 1
-  accMode: 1
   carryMode: 0
   positive: 0
-  pa: {x: -43.870003, y: 5.8300004}
-  pb: {x: -36.870003, y: 5.8300004}
+  nowPoint: 0
+  pointList: []
 --- !u!114 &114347779085345198
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -25926,12 +25832,12 @@ MonoBehaviour:
   - {fileID: 114383890875154404}
   detriggers: []
   vector: {x: 5, y: 0}
+  speed: 1
   onceTime: 3
-  accMode: 0
   carryMode: 1
   positive: 1
-  pa: {x: 10.470001, y: 18.41}
-  pb: {x: 25.470001, y: 18.41}
+  nowPoint: 0
+  pointList: []
 --- !u!114 &114372313209369048
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -26512,12 +26418,12 @@ MonoBehaviour:
   triggers: []
   detriggers: []
   vector: {x: -6.6, y: 0}
+  speed: 1
   onceTime: 1
-  accMode: 1
   carryMode: 0
   positive: 1
-  pa: {x: -47, y: 16.330002}
-  pb: {x: -53.6, y: 16.330002}
+  nowPoint: 0
+  pointList: []
 --- !u!114 &114429998655653310
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -26786,12 +26692,16 @@ MonoBehaviour:
   triggers: []
   detriggers: []
   vector: {x: 0, y: -1}
+  speed: 2.5
   onceTime: 1
-  accMode: 1
   carryMode: 0
   positive: 1
-  pa: {x: -83.520004, y: 4.299999}
-  pb: {x: -83.520004, y: 3.2999992}
+  nowPoint: 0
+  pointList:
+  - {x: -84.18999, y: 4.219997}
+  - {x: -81.22, y: 4.219997}
+  - {x: -81.22, y: 3.1}
+  - {x: -84.18999, y: 3.1}
 --- !u!114 &114462690509500194
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -26901,12 +26811,12 @@ MonoBehaviour:
   - {fileID: 114383890875154404}
   detriggers: []
   vector: {x: -5, y: 0}
+  speed: 1
   onceTime: 3
-  accMode: 0
   carryMode: 1
   positive: 0
-  pa: {x: 20.4, y: 18.410002}
-  pb: {x: 5.3999996, y: 18.410002}
+  nowPoint: 0
+  pointList: []
 --- !u!114 &114478602270441130
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -27045,12 +26955,12 @@ MonoBehaviour:
   triggers: []
   detriggers: []
   vector: {x: 0, y: 3.6}
+  speed: 1
   onceTime: 1
-  accMode: 1
   carryMode: 0
   positive: 1
-  pa: {x: -64.64, y: 40.780003}
-  pb: {x: -64.64, y: 44.38}
+  nowPoint: 0
+  pointList: []
 --- !u!114 &114483316972746470
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -27067,50 +26977,20 @@ MonoBehaviour:
   triggers: []
   detriggers: []
   vector: {x: 0, y: -1}
+  speed: 2.5
   onceTime: 1
-  accMode: 1
   carryMode: 0
   positive: 1
-  pa: {x: -74.950005, y: 2.380001}
-  pb: {x: -74.950005, y: 1.3800011}
+  nowPoint: 0
+  pointList:
+  - {x: -81.22, y: 2.239998}
+  - {x: -83.75, y: 2.239998}
 --- !u!114 &114484081148104164
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1115523567486928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 186
-    i1: 76
-    i2: 192
-    i3: 64
-    i4: 156
-    i5: 15
-    i6: 11
-    i7: 244
-    i8: 121
-    i9: 21
-    i10: 165
-    i11: 188
-    i12: 234
-    i13: 107
-    i14: 50
-    i15: 136
-  m_ServerOnly: 0
-  m_LocalPlayerAuthority: 0
---- !u!114 &114484508075111624
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1940353036633962}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
@@ -27390,12 +27270,12 @@ MonoBehaviour:
   triggers: []
   detriggers: []
   vector: {x: 6.6, y: 0}
+  speed: 1
   onceTime: 1
-  accMode: 1
   carryMode: 0
   positive: 1
-  pa: {x: -64.57, y: 48.4}
-  pb: {x: -57.97, y: 48.4}
+  nowPoint: 0
+  pointList: []
 --- !u!114 &114505639559407242
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -27861,6 +27741,38 @@ MonoBehaviour:
   _animationName: 
   loop: 0
   timeScale: 1
+--- !u!114 &114536846339974892
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1945715076908794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 186
+    i1: 76
+    i2: 192
+    i3: 64
+    i4: 156
+    i5: 15
+    i6: 11
+    i7: 244
+    i8: 121
+    i9: 21
+    i10: 165
+    i11: 188
+    i12: 234
+    i13: 107
+    i14: 50
+    i15: 136
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!114 &114537426587997684
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -28297,12 +28209,12 @@ MonoBehaviour:
   triggers: []
   detriggers: []
   vector: {x: 0, y: -1.8}
+  speed: 1
   onceTime: 2
-  accMode: 1
   carryMode: 0
   positive: 0
-  pa: {x: -75.28, y: 45.140003}
-  pb: {x: -75.28, y: 41.540005}
+  nowPoint: 0
+  pointList: []
 --- !u!114 &114579471862546464
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -29446,12 +29358,12 @@ MonoBehaviour:
   triggers: []
   detriggers: []
   vector: {x: 3, y: 0}
+  speed: 1
   onceTime: 1
-  accMode: 1
   carryMode: 1
   positive: 1
-  pa: {x: -23.64, y: -4.36}
-  pb: {x: -7.6399994, y: -4.36}
+  nowPoint: 0
+  pointList: []
 --- !u!114 &114657921783338438
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -29520,12 +29432,12 @@ MonoBehaviour:
   triggers: []
   detriggers: []
   vector: {x: 2, y: 0}
+  speed: 1
   onceTime: 2
-  accMode: 1
   carryMode: 0
   positive: 0
-  pa: {x: -43.77, y: -0.2}
-  pb: {x: -39.77, y: -0.2}
+  nowPoint: 0
+  pointList: []
 --- !u!114 &114661921075168182
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -29611,12 +29523,12 @@ MonoBehaviour:
   - {fileID: 114776029056451862}
   detriggers: []
   vector: {x: 4, y: 2}
+  speed: 1
   onceTime: 1.75
-  accMode: 0
   carryMode: 1
   positive: 1
-  pa: {x: -37.2, y: -4.36}
-  pb: {x: -37.2, y: 25.64}
+  nowPoint: 0
+  pointList: []
 --- !u!114 &114668917200890562
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -29703,12 +29615,12 @@ MonoBehaviour:
   triggers: []
   detriggers: []
   vector: {x: 3, y: 0}
+  speed: 1
   onceTime: 1
-  accMode: 1
   carryMode: 0
   positive: 1
-  pa: {x: -44.68, y: 11.95}
-  pb: {x: -38.68, y: 11.95}
+  nowPoint: 0
+  pointList: []
 --- !u!114 &114677868267544194
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -29725,12 +29637,12 @@ MonoBehaviour:
   triggers: []
   detriggers: []
   vector: {x: 0, y: -3.6}
+  speed: 1
   onceTime: 1
-  accMode: 1
   carryMode: 0
   positive: 1
-  pa: {x: -56.16, y: 45.15}
-  pb: {x: -56.16, y: 41.550003}
+  nowPoint: 0
+  pointList: []
 --- !u!114 &114681337475210102
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -30111,12 +30023,12 @@ MonoBehaviour:
   triggers: []
   detriggers: []
   vector: {x: -3, y: 0}
+  speed: 1
   onceTime: 1
-  accMode: 1
   carryMode: 0
   positive: 1
-  pa: {x: -7.07542, y: -12.515909}
-  pb: {x: -10.07542, y: -12.515909}
+  nowPoint: 0
+  pointList: []
 --- !u!114 &114719865234511132
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -30522,12 +30434,12 @@ MonoBehaviour:
   triggers: []
   detriggers: []
   vector: {x: 0, y: 3.6}
+  speed: 1
   onceTime: 1
-  accMode: 1
   carryMode: 0
   positive: 1
-  pa: {x: -56.19, y: 48.640003}
-  pb: {x: -56.19, y: 52.24}
+  nowPoint: 0
+  pointList: []
 --- !u!114 &114744595988272850
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -30595,12 +30507,12 @@ MonoBehaviour:
   triggers: []
   detriggers: []
   vector: {x: -6.6, y: 0}
+  speed: 1
   onceTime: 1
-  accMode: 1
   carryMode: 0
   positive: 1
-  pa: {x: -51.08, y: 15}
-  pb: {x: -57.68, y: 15}
+  nowPoint: 0
+  pointList: []
 --- !u!114 &114755061246091048
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -30618,12 +30530,12 @@ MonoBehaviour:
   - {fileID: 0}
   detriggers: []
   vector: {x: -6, y: 0}
+  speed: 1
   onceTime: 1.5
-  accMode: 0
   carryMode: 1
   positive: 1
-  pa: {x: 113.02, y: -29.07}
-  pb: {x: 104.02, y: -29.07}
+  nowPoint: 0
+  pointList: []
 --- !u!114 &114756191067197378
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -31045,12 +30957,14 @@ MonoBehaviour:
   triggers: []
   detriggers: []
   vector: {x: 0, y: -1}
+  speed: 2.5
   onceTime: 1
-  accMode: 1
   carryMode: 0
   positive: 1
-  pa: {x: -77.5, y: 3.0699997}
-  pb: {x: -77.5, y: 2.0699997}
+  nowPoint: 0
+  pointList:
+  - {x: -77.84, y: 2.2}
+  - {x: -77.84, y: 4.24}
 --- !u!114 &114802553044433146
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -31067,12 +30981,12 @@ MonoBehaviour:
   triggers: []
   detriggers: []
   vector: {x: 0, y: 1.8}
+  speed: 1
   onceTime: 2
-  accMode: 1
   carryMode: 0
   positive: 0
-  pa: {x: -70.8, y: 48.4}
-  pb: {x: -70.8, y: 52}
+  nowPoint: 0
+  pointList: []
 --- !u!114 &114804208162486104
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -31119,12 +31033,12 @@ MonoBehaviour:
   triggers: []
   detriggers: []
   vector: {x: 6.6, y: 0}
+  speed: 1
   onceTime: 0.8
-  accMode: 1
   carryMode: 0
   positive: 1
-  pa: {x: -55.39, y: 13.599998}
-  pb: {x: -48.79, y: 13.599998}
+  nowPoint: 0
+  pointList: []
 --- !u!114 &114808044727736446
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -31142,12 +31056,12 @@ MonoBehaviour:
   - {fileID: 0}
   detriggers: []
   vector: {x: -8, y: 0}
+  speed: 1
   onceTime: 1
-  accMode: 0
   carryMode: 1
   positive: 1
-  pa: {x: -53.5, y: -27.84}
-  pb: {x: -61.5, y: -27.84}
+  nowPoint: 0
+  pointList: []
 --- !u!114 &114810848373696566
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -31774,38 +31688,6 @@ MonoBehaviour:
     i15: 136
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
---- !u!114 &114854891067133118
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1326180626393340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 186
-    i1: 76
-    i2: 192
-    i3: 64
-    i4: 156
-    i5: 15
-    i6: 11
-    i7: 244
-    i8: 121
-    i9: 21
-    i10: 165
-    i11: 188
-    i12: 234
-    i13: 107
-    i14: 50
-    i15: 136
-  m_ServerOnly: 0
-  m_LocalPlayerAuthority: 0
 --- !u!114 &114855010637284980
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -31884,12 +31766,12 @@ MonoBehaviour:
   triggers: []
   detriggers: []
   vector: {x: 3.3, y: 0}
+  speed: 1
   onceTime: 2
-  accMode: 1
   carryMode: 0
   positive: 0
-  pa: {x: -77.03, y: 51.83}
-  pb: {x: -70.43, y: 51.83}
+  nowPoint: 0
+  pointList: []
 --- !u!114 &114861206359893594
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -32051,28 +31933,6 @@ MonoBehaviour:
   weightMode: 1
   triggerOnce: 1
   triggerWeight: 2
---- !u!114 &114870421648907282
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1326180626393340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c2f2594b781b52459490ad7064b93a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  toAlways: 0
-  triggerType: 0
-  triggers: []
-  detriggers: []
-  vector: {x: 2.5, y: 0}
-  onceTime: 1
-  accMode: 1
-  carryMode: 0
-  positive: 1
-  pa: {x: -73.01, y: 3.4099998}
-  pb: {x: -70.51, y: 3.4099998}
 --- !u!114 &114871740541504508
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -32297,12 +32157,12 @@ MonoBehaviour:
   - {fileID: 0}
   detriggers: []
   vector: {x: 8, y: 0}
+  speed: 1
   onceTime: 2
-  accMode: 1
   carryMode: 1
   positive: 0
-  pa: {x: -34.989998, y: 16.89}
-  pb: {x: -18.989998, y: 16.89}
+  nowPoint: 0
+  pointList: []
 --- !u!114 &114893503011145420
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -32606,12 +32466,12 @@ MonoBehaviour:
   - {fileID: 0}
   detriggers: []
   vector: {x: 8, y: 0}
+  speed: 1
   onceTime: 1.5
-  accMode: 1
   carryMode: 0
   positive: 1
-  pa: {x: 68.98832, y: -4.6036377}
-  pb: {x: 80.98832, y: -4.6036377}
+  nowPoint: 0
+  pointList: []
 --- !u!114 &114927679098982840
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -32896,12 +32756,12 @@ MonoBehaviour:
   triggers: []
   detriggers: []
   vector: {x: -2, y: 0}
+  speed: 1
   onceTime: 1.5
-  accMode: 1
   carryMode: 0
   positive: 0
-  pa: {x: -45.33, y: 3.0900004}
-  pb: {x: -38.33, y: 3.0900004}
+  nowPoint: 0
+  pointList: []
 --- !u!114 &114950604004843722
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -33111,12 +32971,12 @@ MonoBehaviour:
   - {fileID: 114587696742452068}
   detriggers: []
   vector: {x: 0, y: -1.5}
+  speed: 1
   onceTime: 14
-  accMode: 1
   carryMode: 0
   positive: 0
-  pa: {x: 0, y: 0}
-  pb: {x: 0, y: 0}
+  nowPoint: 0
+  pointList: []
 --- !u!114 &114967123709867490
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -33257,12 +33117,12 @@ MonoBehaviour:
   triggers: []
   detriggers: []
   vector: {x: -3.3, y: 0}
+  speed: 1
   onceTime: 2
-  accMode: 1
   carryMode: 0
   positive: 0
-  pa: {x: -69, y: 45.140003}
-  pb: {x: -75.6, y: 45.140003}
+  nowPoint: 0
+  pointList: []
 --- !u!114 &114976124748036360
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -33389,6 +33249,33 @@ MonoBehaviour:
     i15: 136
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
+--- !u!114 &114984555054788468
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1945715076908794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c2f2594b781b52459490ad7064b93a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toAlways: 0
+  triggerType: 0
+  triggers: []
+  detriggers: []
+  vector: {x: 2.5, y: 0}
+  speed: 2.5
+  onceTime: 1
+  carryMode: 0
+  positive: 0
+  nowPoint: 0
+  pointList:
+  - {x: -73.2, y: 4.3}
+  - {x: -75.13, y: 4.3}
+  - {x: -75.13, y: 2.3}
+  - {x: -73.26, y: 2.3}
+  - {x: -73.2, y: 4.3}
 --- !u!114 &114989370445360368
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -33406,12 +33293,12 @@ MonoBehaviour:
   - {fileID: 114318667256830198}
   detriggers: []
   vector: {x: 0, y: 1.5}
+  speed: 1
   onceTime: 14
-  accMode: 1
   carryMode: 0
   positive: 1
-  pa: {x: -7.7, y: -14}
-  pb: {x: -7.7, y: 28}
+  nowPoint: 0
+  pointList: []
 --- !u!114 &114995061480245298
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -36491,6 +36378,50 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!212 &212361144507296176
+SpriteRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1945715076908794}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 5618c008df7875742856de4ed77f97e5, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: e345908b925c8a44c85dadeef2b68555, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 4.5, y: 4.35}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!212 &212367595816560740
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -38031,50 +37962,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!212 &212615075407298724
-SpriteRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1940353036633962}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_Materials:
-  - {fileID: 2100000, guid: 5618c008df7875742856de4ed77f97e5, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: df6da9b0bbc0f6b43b27e06cfba819e3, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 4.5, y: 4.35}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
 --- !u!212 &212616384267791624
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -39518,50 +39405,6 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 54b7bb1a11bbf074ba4f68423c731e45, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 4.5, y: 4.35}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
---- !u!212 &212911470746777294
-SpriteRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1326180626393340}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_Materials:
-  - {fileID: 2100000, guid: 5618c008df7875742856de4ed77f97e5, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: df6da9b0bbc0f6b43b27e06cfba819e3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
