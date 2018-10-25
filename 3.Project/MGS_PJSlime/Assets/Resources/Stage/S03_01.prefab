@@ -6438,7 +6438,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1714693063853230}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 38.1, y: 23.7, z: -8.75}
+  m_LocalPosition: {x: 38.1, y: 23.7, z: -2.91}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4008232616029560}
@@ -12932,7 +12932,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.015732363, y: -0.00482285}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -12943,7 +12943,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.4524198, y: 0.83542824}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!61 &61056743772424214
 BoxCollider2D:
@@ -16238,7 +16238,6 @@ MonoBehaviour:
   vector: {x: 3, y: 0}
   speed: 3
   onceTime: 2
-  accMode: 1
   carryMode: 1
   positive: 0
   nowPoint: 0
@@ -16548,13 +16547,14 @@ MonoBehaviour:
   triggers: []
   detriggers: []
   vector: {x: -2, y: 0}
-  speed: 1
+  speed: 3
   onceTime: 1
-  accMode: 1
   carryMode: 1
   positive: 1
   nowPoint: 0
-  pointList: []
+  pointList:
+  - {x: 31.9, y: 19.8}
+  - {x: 28.2, y: 19.8}
 --- !u!114 &114068314096271420
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -17508,12 +17508,15 @@ MonoBehaviour:
   facing: 1
   cannonIndex: 0
   poss:
-  - {x: 0.7, y: 7}
-  - {x: 0.7, y: 15}
-  - {x: 0.7, y: 28}
-  - {x: 19, y: 42}
-  - {x: 29, y: 42}
-  - {x: 39, y: 42}
+  - {x: 5, y: 5}
+  - {x: 10, y: 5}
+  - {x: 15, y: 5}
+  - {x: 0, y: 5}
+  - {x: 0, y: 0}
+  - {x: 0, y: -5}
+  - {x: 20, y: 5}
+  - {x: 20, y: 0}
+  - {x: 20, y: -5}
   angles:
   - {x: 1, y: 0}
   - {x: 1, y: 0}
@@ -17521,10 +17524,16 @@ MonoBehaviour:
   - {x: 0, y: -1}
   - {x: 0, y: -1}
   - {x: 0, y: -1}
+  - {x: -1, y: -1}
+  - {x: -1, y: 0}
+  - {x: -1, y: 0}
   bullets:
   - {fileID: 1974477046238388, guid: 04cda87461ede764a96206cdbab25ec7, type: 2}
   - {fileID: 1974477046238388, guid: 04cda87461ede764a96206cdbab25ec7, type: 2}
   - {fileID: 1974477046238388, guid: 4da4a8d8516718c499a25ad2493af92b, type: 2}
+  - {fileID: 1974477046238388, guid: 04cda87461ede764a96206cdbab25ec7, type: 2}
+  - {fileID: 1974477046238388, guid: 4da4a8d8516718c499a25ad2493af92b, type: 2}
+  - {fileID: 1974477046238388, guid: 04cda87461ede764a96206cdbab25ec7, type: 2}
   - {fileID: 1974477046238388, guid: 04cda87461ede764a96206cdbab25ec7, type: 2}
   - {fileID: 1974477046238388, guid: 4da4a8d8516718c499a25ad2493af92b, type: 2}
   - {fileID: 1974477046238388, guid: 04cda87461ede764a96206cdbab25ec7, type: 2}
@@ -17629,7 +17638,6 @@ MonoBehaviour:
   vector: {x: 0, y: -4}
   speed: 4
   onceTime: 0.5
-  accMode: 0
   carryMode: 1
   positive: 1
   nowPoint: 0
@@ -18484,7 +18492,6 @@ MonoBehaviour:
   vector: {x: -3, y: 0}
   speed: 3
   onceTime: 1
-  accMode: 0
   carryMode: 1
   positive: 1
   nowPoint: 0
@@ -19659,13 +19666,14 @@ MonoBehaviour:
   triggers: []
   detriggers: []
   vector: {x: 2, y: 0}
-  speed: 1
+  speed: 3
   onceTime: 1.5
-  accMode: 1
   carryMode: 1
   positive: 1
   nowPoint: 0
-  pointList: []
+  pointList:
+  - {x: 26.1, y: 18.5}
+  - {x: 29.1, y: 18.5}
 --- !u!114 &114482977979354286
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -20192,7 +20200,6 @@ MonoBehaviour:
   vector: {x: -3, y: -3}
   speed: 3
   onceTime: 2.5
-  accMode: 0
   carryMode: 1
   positive: 1
   nowPoint: 0
@@ -20287,7 +20294,6 @@ MonoBehaviour:
   vector: {x: 0, y: -0.75}
   speed: -0.75
   onceTime: 14
-  accMode: 1
   carryMode: 0
   positive: 0
   nowPoint: 0
@@ -20505,7 +20511,6 @@ MonoBehaviour:
   vector: {x: 2.5, y: 0}
   speed: 2.5
   onceTime: 8
-  accMode: 0
   carryMode: 1
   positive: 1
   nowPoint: 0
@@ -21078,13 +21083,14 @@ MonoBehaviour:
   triggers: []
   detriggers: []
   vector: {x: -2, y: 0}
-  speed: 1
+  speed: 3
   onceTime: 1
-  accMode: 1
   carryMode: 1
   positive: 1
   nowPoint: 0
-  pointList: []
+  pointList:
+  - {x: 32.5, y: 22.7}
+  - {x: 28.2, y: 22.7}
 --- !u!114 &114644334083843272
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -21259,13 +21265,14 @@ MonoBehaviour:
   triggers: []
   detriggers: []
   vector: {x: 0, y: -3}
-  speed: 1
+  speed: 3
   onceTime: 1
-  accMode: 1
   carryMode: 1
   positive: 1
   nowPoint: 0
-  pointList: []
+  pointList:
+  - {x: 28.9, y: 27.5}
+  - {x: 28.9, y: 24.5}
 --- !u!114 &114671894061899788
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -21569,7 +21576,6 @@ MonoBehaviour:
   vector: {x: 0, y: 5}
   speed: 5
   onceTime: 3
-  accMode: 0
   carryMode: 1
   positive: 1
   nowPoint: 0
@@ -21984,13 +21990,14 @@ MonoBehaviour:
   triggers: []
   detriggers: []
   vector: {x: -2, y: 0}
-  speed: 1
+  speed: 3
   onceTime: 1
-  accMode: 1
   carryMode: 1
   positive: 1
   nowPoint: 0
-  pointList: []
+  pointList:
+  - {x: 32.61, y: 17.4}
+  - {x: 28.2, y: 17.4}
 --- !u!114 &114742464963377510
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -22250,7 +22257,6 @@ MonoBehaviour:
   vector: {x: 2.5, y: 0}
   speed: 2.5
   onceTime: 3.5
-  accMode: 0
   carryMode: 1
   positive: 1
   nowPoint: 0
@@ -23356,7 +23362,6 @@ MonoBehaviour:
   vector: {x: 0, y: 1.5}
   speed: 1
   onceTime: 14
-  accMode: 1
   carryMode: 0
   positive: 1
   nowPoint: 0
