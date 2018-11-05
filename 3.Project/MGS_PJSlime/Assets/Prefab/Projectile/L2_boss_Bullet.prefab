@@ -139,7 +139,7 @@ MonoBehaviour:
     iceXDec: 0
   isInvincible: 0
   isUndead: 0
-  eatAble: 0
+  eatAble: 1
   eatBuffer: 0
   isDead: 0
   invincibleTimer: 0
@@ -147,7 +147,7 @@ MonoBehaviour:
   attack: 2
   hp: 1
   facing: 1
-  constLifeTime: 8
+  constLifeTime: 4
   constSpeed: 5
   isCruise: 1
   cruiseRate: 0.5
