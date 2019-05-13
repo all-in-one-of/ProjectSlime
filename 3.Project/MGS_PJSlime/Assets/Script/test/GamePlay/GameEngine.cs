@@ -6,7 +6,7 @@ using UnityEngine;
 public class GameEngine : MonoBehaviour {
 	public static GameEngine direct;
 	public static int stageCountDown = 240;
-	private static string checkPoint = "";
+	private static Transform checkPoint ;
 
 	public enum Status {
 		Bullpen,
@@ -18,14 +18,13 @@ public class GameEngine : MonoBehaviour {
 
 	public Status status = Status.Loading;
 	public bool connecting;
-
-	//test
+	
+	//testScene
 	public bool preTester = false;
 	public GameObject testStage;
 
 	public static PlayerController mainPlayer;
 
-	public static GameObject nowStage;
 	public static StageData nowStageData;
 
 	public Material[] playerMaterial;
@@ -44,6 +43,10 @@ public class GameEngine : MonoBehaviour {
 	public GameObject audioManager;
 	public GameObject uiManager;
 	public GameObject gardenStage;
+
+	//玩家設定
+	public GameObject pcRole;
+	protected int pcCount = 0;
 
 	public int broSize = 4;		//大哥生命
 	public int baseSize = 2;		//小弟生命
@@ -83,10 +86,36 @@ public class GameEngine : MonoBehaviour {
 
 
 	void Start() {
-		direct = this;
-		DontDestroyOnLoad(this);
+		Init();
+	}
 
+	public void Init() {
+		if (direct) {
+			ValueInit();
+			StageInit();
+
+		} else {
+			direct = this;
+			DontDestroyOnLoad(this);
+
+			ValueInit();
+			SystemInit();
+			StageInit();
+		}
+	}
+
+	public void ValueInit() {
+		//Init - Value
+		StageHoster.Log("[Node:ValueInit]" , 1);
+		mainPlayer	= null;
+		players		= new List<PlayerController>();
+		playerUIs	= new List<GameObject>();
+		pcCount		= 0;
+	}
+
+	public void SystemInit() {
 		//Initiate Manger
+		StageHoster.Log("[Node:SystemInit]" , 1);
 		GameObject temp;
 		temp = Instantiate(cameraManager);
 		CameraManager.direct = temp.GetComponent<CameraManager>();
@@ -99,29 +128,22 @@ public class GameEngine : MonoBehaviour {
 
 		//Init - SYS
 		new ScoreSystem();
-		Init();
 	}
 
-
-
-	public void Init( Status nextStatus = Status.Stage) {
-		//Init - Value
-		mainPlayer = null;
-		players = new List<PlayerController>();
-		playerUIs = new List<GameObject>();
-
-		//Init - System
+	public void StageInit( Status nextStatus = Status.Stage) {
+		//Init - Stage
+		StageHoster.Log("[Node:StageInit]" , 1 );
+		
 		CameraManager.direct.Init();
 		AudioManager.direct.Init();
 
-		//Init - Stage
 		if (preTester && testStage) {
 			LoadStage(testStage);
+
 		} else {
 			LoadStage(stageList[stageIndex]);
 		}
 
-		UIManager.direct.OnStage();
 		/*
 		if (nextStatus == Status.Stage) {
 			if (preTester && testStage) {
@@ -139,19 +161,26 @@ public class GameEngine : MonoBehaviour {
 		status = nextStatus;
 		connecting = false;
 		gameStart = true;
+
+		try {
+			RegistCheckPoint(nowStageData.checkList[0]);
+		} catch {
+			Debug.LogError("[Error:No CheckPoint Scene :" + nowStageData.name + "]");
+		}
+
+		StartGame();
 	}
 	
 	//讀取場景
 	public void LoadStage(GameObject value) {
-		nowStage = Instantiate(value);
+		GameObject nowStage = Instantiate(value);
 		nowStageData = nowStage.GetComponent<StageData>();
 	}
 	
 	private void Update() {
 		if (status == Status.Stage) {
 			if (!connecting) {
-				Network.InitializeServer(1, 7777, true);
-				//PrototypeSystem.direct.Init();
+				//Network.InitializeServer(1, 7777, true);
 			} else {
 				UIManager.direct.timer.text = ((int)(stageCountDown - Time.timeSinceLevelLoad)).ToString();
 				if (stageCountDown - Time.timeSinceLevelLoad < 0) {
@@ -160,8 +189,7 @@ public class GameEngine : MonoBehaviour {
 			}
 		} else if (status == Status.Garden) {
 			if (!connecting) {
-				Network.InitializeServer(1, 7777, true);
-				//PrototypeSystem.direct.Init();
+				//Network.InitializeServer(1, 7777, true);
 			}
 		}
 	}
@@ -186,8 +214,8 @@ public class GameEngine : MonoBehaviour {
 			stageIndex = stageIndex + 1 >= stageList.Count ? 0 : stageIndex + 1;
 
 			ScoreSystem.CaculateRecord();
-			if (nowStage) {
-				Destroy(nowStage);
+			if (nowStageData) {
+				Destroy(nowStageData.gameObject);
 			}
 
 			foreach (PlayerController pl in players) {
@@ -255,15 +283,45 @@ public class GameEngine : MonoBehaviour {
 		}
 	}
 
-	public static void RegistCheckPoint(string obj) {
+	public void StartGame() {
+		StageHoster.Log("[Node:GameStart]" , 1);
+		SpawnPlayer();
+		CameraManager.nowCamera.transform.position = new Vector3(mainPlayer.transform.position.x, mainPlayer.transform.position.y, CameraManager.nowCamera.transform.position.z);
+	}
+
+	public void SpawnPlayer() {
+		if (pcCount < 4) {
+			Vector2 spawnPoint = GetCheckPoint().position;
+			GameObject newObj = Instantiate(pcRole, new Vector3(spawnPoint.x + Random.Range(-1, 1), spawnPoint.y, 0), Quaternion.identity) as GameObject;
+			//NetworkServer.Spawn(newObj);
+
+			if (pcCount == 0) {
+				newObj.GetComponent<PlayerController>().CmdRegist(pcCount, broSize);
+				Focus(newObj.GetComponent<PlayerController>());
+			} else {
+				newObj.GetComponent<PlayerController>().CmdRegist(pcCount, baseSize);
+			}
+
+			pcCount++;
+		}
+	}
+
+	public void Pause() {
+		Time.timeScale = Time.timeScale == 0 ? 1 : 0;
+	}
+
+	public GameObject SpawnUnit(GameObject spawnUnit, Vector2 spawnPoint) {
+		GameObject newObj = Instantiate(spawnUnit, spawnPoint, Quaternion.identity) as GameObject;
+		//NetworkServer.Spawn(newObj);
+		return newObj;
+	}
+	
+
+	public static void RegistCheckPoint(Transform obj = null) {
 		checkPoint = obj;
 	}
 
-	public static void ResetCheckPoint() {
-		checkPoint = null;
-	}
-
-	public static string GetCheckPoint() {
+	public static Transform GetCheckPoint() {
 		return checkPoint;
 	}
 
@@ -293,4 +351,5 @@ public class GameEngine : MonoBehaviour {
 			pcBuffer.AddEffect(new BufferEffect(buffValue));
 		}
 	}
+
 }

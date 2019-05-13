@@ -14,35 +14,12 @@ public class PrototypeSystem : NetworkBehaviour {
 		direct = this;
 	}
 	
-	void OnServerInitialized() {
-		SpawnPlayer();
-		CameraManager.nowCamera.transform.position = new Vector3(GameEngine.mainPlayer.transform.position.x, GameEngine.mainPlayer.transform.position.y, CameraManager.nowCamera.transform.position.z);
-	}
-	 
-	public void SpawnPlayer() {
-		if (playerCount < 4) {
-			Vector2 spawnPoint = GameEngine.GetCheckPoint() != "" ? GameObject.Find(GameEngine.GetCheckPoint()).transform.position : transform.position;
-
-			GameObject newObj = Network.Instantiate(player, new Vector3(spawnPoint.x + Random.Range(-1, 1), spawnPoint.y, 0), Quaternion.identity, 0) as GameObject;
-			NetworkServer.Spawn(newObj);
- 
-			if (playerCount == 0) {
-				newObj.GetComponent<PlayerController>().CmdRegist(playerCount, GameEngine.direct.broSize);
-				GameEngine.direct.Focus(newObj.GetComponent<PlayerController>());
-			} else {
-				newObj.GetComponent<PlayerController>().CmdRegist(playerCount, GameEngine.direct.baseSize);
-			}
-
-			playerCount++;
-		}
-	}
-
 	public void Pause() {
 		Time.timeScale = Time.timeScale == 0 ? 1 : 0;
 	}
 
 	public GameObject SpawnUnit(GameObject spawnUnit, Vector2 spawnPoint ) {
-		GameObject newObj = Network.Instantiate(spawnUnit, spawnPoint, Quaternion.identity, 0) as GameObject;
+		GameObject newObj = Instantiate(spawnUnit, spawnPoint, Quaternion.identity) as GameObject;
 		NetworkServer.Spawn(newObj);
 		return newObj;
 	}

@@ -52,13 +52,13 @@ public class PlayerController : EntityBase {
 
 	protected override void FStart() {
 		SetSize();
-
-		//ceilOffset = new Vector2(bc.offset.x, bc.offset.y + bc.size.y * 0.5f);
+		
 		faceOffset = new Vector2(bc.offset.x + bc.size.x * 0.5f, bc.offset.y);
 		groundOffset = new Vector2(bc.offset.x, bc.offset.y - bc.size.y * 0.5f);
 
 		bcWidth = new Vector2(bc.size.x * 0.8f, 0);
 		bcHeight = new Vector2(0, bc.size.y * 0.8f);
+
 		//GetComponent<MeshRenderer>().materials[0] = GameEngine.direct.playerMaterial[playerID];
 		GameEngine.direct.playerMaterial[playerID].enableInstancing = true;
 	}
@@ -66,154 +66,149 @@ public class PlayerController : EntityBase {
 	public bool fuck;
 
 	void Update () {
+		if (!fuck) {
+			GetComponent<MeshRenderer>().material = GameEngine.direct.playerMaterial[playerID];
+			//fuck = true;
+		}
 
-		if ((Network.isClient || Network.isServer)) {
-			if (!fuck) {
-				GetComponent<MeshRenderer>().material = GameEngine.direct.playerMaterial[playerID];
-				//fuck = true;
+		float horizonDirection = 0;
+		//bool downCommand = false;
+		bool jumpCommand = false;
+		bool jumpNowCommand = false;
+		bool eatCommand = false;
+		bool skipper = false;
+
+		if (playerID == 0) {
+			if (isDead) {
+				if (Input.GetKeyDown(KeyCode.E)) {
+					GameEngine.direct.OnReborn(this);
+				}
+				return;
 			}
-						
-			float horizonDirection = 0;
-			//bool downCommand = false;
-			bool jumpCommand = false;
-			bool jumpNowCommand = false;
-			bool eatCommand = false;
-			bool skipper = false;
-
-			if (playerID == 0) {
-				if (isDead) {
-					if (Input.GetKeyDown(KeyCode.E)) {
-						GameEngine.direct.OnReborn(this);
-					}
-					return;
-				}
-				horizonDirection = (Input.GetAxisRaw("LeftHorizon") > 0 ? 1 : 0) + (Input.GetAxisRaw("LeftHorizon") < 0 ? -1 : 0);
-				//downCommand = Input.GetKey(KeyCode.Q);
-				jumpCommand = Input.GetKey(KeyCode.Space);				
-				eatCommand = Input.GetKeyDown(KeyCode.E);
-				if (Input.GetKey(KeyCode.Space)) {
-					if (jumpPreCommand == false) {
-						jumpNowCommand = true;
-						jumpPreCommand = true;
-					}
-				}
-				if (!Input.GetKey(KeyCode.Space)) {
-					jumpPreCommand = false;
-				}
-
-			} else if (playerID == 1) {
-				if (isDead) {
-					if (Input.GetKeyDown(KeyCode.Comma)) {
-						GameEngine.direct.OnReborn(this);
-					}
-					return;
-				}
-				horizonDirection = (Input.GetAxisRaw("RightHorizon") > 0 ? 1 : 0) + (Input.GetAxisRaw("RightHorizon") < 0 ? -1 : 0);
-				//downCommand = Input.GetKey(KeyCode.Slash);
-				jumpCommand = Input.GetKey(KeyCode.Period);
-				eatCommand = Input.GetKeyDown(KeyCode.Comma);
-				if (Input.GetKey(KeyCode.Period)) {
-					if (jumpPreCommand == false) {
-						jumpNowCommand = true;
-						jumpPreCommand = true;
-					}
-				}
-				if (!Input.GetKey(KeyCode.Period)) {
-					jumpPreCommand = false;
-				}
-
-			} else if (playerID == 2) {
-				if (isDead) {
-					if (Input.GetAxisRaw("LHPanel") > 0) {
-						GameEngine.direct.OnReborn(this);
-					}
-					return;
-				}
-				horizonDirection = (Input.GetAxisRaw("PS4LeftHorizon") > 0 ? 1 : 0) + (Input.GetAxisRaw("PS4LeftHorizon") < 0 ? -1 : 0);
-				//downCommand = Input.GetAxisRaw("LVPanel") > 0;
-				jumpCommand = Input.GetAxisRaw("LVPanel") < 0;
-				eatCommand = Input.GetAxisRaw("LHPanel") > 0;
-				if (Input.GetAxisRaw("LVPanel") < 0) {
-					if (jumpPreCommand == false) {
-						jumpNowCommand = true;
-						jumpPreCommand = true;
-					}
-				}
-				if (Input.GetAxisRaw("LVPanel") == 0) {
-					jumpPreCommand = false;
-				}
-
-			} else if (playerID == 3) {
-				if (isDead) {
-					if (Input.GetAxisRaw("PS4RightHorizonPanel") > 0) {
-						GameEngine.direct.OnReborn(this);
-					}
-					return;
-				}
-				horizonDirection = (Input.GetAxisRaw("PS4RightHorizon") > 0 ? 1 : 0) + (Input.GetAxisRaw("PS4RightHorizon") < 0 ? -1 : 0);
-				//downCommand = Input.GetAxisRaw("PS4RightVerticalPanel") < 0;
-				jumpCommand = Input.GetAxisRaw("PS4RightVerticalPanel") > 0;
-				eatCommand = Input.GetAxisRaw("PS4RightHorizonPanel") > 0;
-				if (Input.GetAxisRaw("PS4RightVerticalPanel") > 0) {
-					if (jumpPreCommand == false) {
-						jumpNowCommand = true;
-						jumpPreCommand = true;
-					}
-				}
-				if (Input.GetAxisRaw("PS4RightVerticalPanel") == 0) {
-					jumpPreCommand = false;
+			horizonDirection = (Input.GetAxisRaw("LeftHorizon") > 0 ? 1 : 0) + (Input.GetAxisRaw("LeftHorizon") < 0 ? -1 : 0);
+			//downCommand = Input.GetKey(KeyCode.Q);
+			jumpCommand = Input.GetKey(KeyCode.Space);
+			eatCommand = Input.GetKeyDown(KeyCode.E);
+			if (Input.GetKey(KeyCode.Space)) {
+				if (jumpPreCommand == false) {
+					jumpNowCommand = true;
+					jumpPreCommand = true;
 				}
 			}
-
-			if (eatSkill && eatCommand && !skipper) {
-				CmdEat();
-				skipper = true;
-			}
-			/*
-			if (downCommand && !skipper) {
-				CmdCrouch(horizonDirection);
-				skipper = true;
-			}*/
-
-			if (jumpNowCommand && !skipper) {
-				CmdJump();
-
-			} else if (jumpCommand && !skipper) {
-				CmdJumpForce();
+			if (!Input.GetKey(KeyCode.Space)) {
+				jumpPreCommand = false;
 			}
 
-			if (horizonDirection != 0 && !skipper) {
-				CmdMove(horizonDirection);
-				skipper = true;
+		} else if (playerID == 1) {
+			if (isDead) {
+				if (Input.GetKeyDown(KeyCode.Comma)) {
+					GameEngine.direct.OnReborn(this);
+				}
+				return;
+			}
+			horizonDirection = (Input.GetAxisRaw("RightHorizon") > 0 ? 1 : 0) + (Input.GetAxisRaw("RightHorizon") < 0 ? -1 : 0);
+			//downCommand = Input.GetKey(KeyCode.Slash);
+			jumpCommand = Input.GetKey(KeyCode.Period);
+			eatCommand = Input.GetKeyDown(KeyCode.Comma);
+			if (Input.GetKey(KeyCode.Period)) {
+				if (jumpPreCommand == false) {
+					jumpNowCommand = true;
+					jumpPreCommand = true;
+				}
+			}
+			if (!Input.GetKey(KeyCode.Period)) {
+				jumpPreCommand = false;
 			}
 
-			if (!skipper) {
-				CmdIdle();
-				skipper = true;
+		} else if (playerID == 2) {
+			if (isDead) {
+				if (Input.GetAxisRaw("LHPanel") > 0) {
+					GameEngine.direct.OnReborn(this);
+				}
+				return;
+			}
+			horizonDirection = (Input.GetAxisRaw("PS4LeftHorizon") > 0 ? 1 : 0) + (Input.GetAxisRaw("PS4LeftHorizon") < 0 ? -1 : 0);
+			//downCommand = Input.GetAxisRaw("LVPanel") > 0;
+			jumpCommand = Input.GetAxisRaw("LVPanel") < 0;
+			eatCommand = Input.GetAxisRaw("LHPanel") > 0;
+			if (Input.GetAxisRaw("LVPanel") < 0) {
+				if (jumpPreCommand == false) {
+					jumpNowCommand = true;
+					jumpPreCommand = true;
+				}
+			}
+			if (Input.GetAxisRaw("LVPanel") == 0) {
+				jumpPreCommand = false;
 			}
 
-			if (eating) {
-				eating.transform.position = Vector2.Lerp(eating.transform.position, transform.position, 0.1f);
+		} else if (playerID == 3) {
+			if (isDead) {
+				if (Input.GetAxisRaw("PS4RightHorizonPanel") > 0) {
+					GameEngine.direct.OnReborn(this);
+				}
+				return;
+			}
+			horizonDirection = (Input.GetAxisRaw("PS4RightHorizon") > 0 ? 1 : 0) + (Input.GetAxisRaw("PS4RightHorizon") < 0 ? -1 : 0);
+			//downCommand = Input.GetAxisRaw("PS4RightVerticalPanel") < 0;
+			jumpCommand = Input.GetAxisRaw("PS4RightVerticalPanel") > 0;
+			eatCommand = Input.GetAxisRaw("PS4RightHorizonPanel") > 0;
+			if (Input.GetAxisRaw("PS4RightVerticalPanel") > 0) {
+				if (jumpPreCommand == false) {
+					jumpNowCommand = true;
+					jumpPreCommand = true;
+				}
+			}
+			if (Input.GetAxisRaw("PS4RightVerticalPanel") == 0) {
+				jumpPreCommand = false;
 			}
 		}
 
-		if (Network.isServer) {
-			if (isInvincible) {
-				invincibleTimer += Time.deltaTime;
-				
-				if (invincibleTimer < 2f) {
-					float remainder = invincibleTimer % 0.2f;
-					skam.skeleton.a = remainder > 0.1f ? 1 : 0.4f;
+		if (eatSkill && eatCommand && !skipper) {
+			CmdEat();
+			skipper = true;
+		}
+		/*
+		if (downCommand && !skipper) {
+			CmdCrouch(horizonDirection);
+			skipper = true;
+		}*/
 
-				} else {
-					invincibleTimer = 0;
-					skam.skeleton.a = 1;
-					isInvincible = false;
-				}
+		if (jumpNowCommand && !skipper) {
+			CmdJump();
+
+		} else if (jumpCommand && !skipper) {
+			CmdJumpForce();
+		}
+
+		if (horizonDirection != 0 && !skipper) {
+			CmdMove(horizonDirection);
+			skipper = true;
+		}
+
+		if (!skipper) {
+			CmdUnmove();
+			skipper = true;
+		}
+
+		if (eating) {
+			eating.transform.position = Vector2.Lerp(eating.transform.position, transform.position, 0.1f);
+		}
+
+		if (isInvincible) {
+			invincibleTimer += Time.deltaTime;
+
+			if (invincibleTimer < 2f) {
+				float remainder = invincibleTimer % 0.2f;
+				skam.skeleton.a = remainder > 0.1f ? 1 : 0.4f;
+
+			} else {
+				invincibleTimer = 0;
+				skam.skeleton.a = 1;
+				isInvincible = false;
 			}
+		}
 
-			RpcTransform(transform.position , transform.localScale);
-		}		
+		RpcTransform(transform.position, transform.localScale);
 	}
 
 	protected override void FFixedUpdate() {
@@ -231,7 +226,7 @@ public class PlayerController : EntityBase {
 			}
 
 			if (!preGround && onGround) {
-				CmdLand();
+				CmdEnGround();
 			}
 
 
@@ -240,9 +235,11 @@ public class PlayerController : EntityBase {
 				velocityOut = Vector2.zero;
 			}
 
+			/*
+			//撞牆停止，實作有誤
 			if (onFace) {
 				velocitSim.x = 0;
-			}
+			}*/
 
 			if (OnTrigger("Water")) {
 				velocitSim.y = rb.velocity.y - GameEngine.direct.waterYDec * Time.deltaTime;
@@ -267,12 +264,12 @@ public class PlayerController : EntityBase {
 		RpcState(animValue, loopValue, returnValue, 1);
 	}
 
-	[ClientRpc]
+	//[ClientRpc]
 	public void RpcTransform(Vector2 position, Vector2 localScale) {
 		transform.position = position;
 	}
 		
-	[ClientRpc]
+	//[ClientRpc]
 	public void RpcState(string animValue, bool loopValue , bool returnValue , int trackValue) { 
 		Spine.TrackEntry entry = skam.state.SetAnimation(trackValue, animValue, loopValue);
 
@@ -291,7 +288,7 @@ public class PlayerController : EntityBase {
 		}
 	} 	
 
-	[Command]
+	//[Command]
 	public void CmdRegist(int playerID, int hpValue) {
 		this.playerID = playerID;
 
@@ -299,7 +296,7 @@ public class PlayerController : EntityBase {
 		SetHP(hpValue);
 	}
 
-	[Command]
+	//[Command]
 	public void CmdCrouch(float direction) {
 		if (state == "Eat") {
 			return;
@@ -325,7 +322,7 @@ public class PlayerController : EntityBase {
 		}
 	}
 
-	[Command]
+	//[Command]
 	public void CmdEat() {
 		if (stateOver == "Eat") {
 			return;
@@ -335,9 +332,9 @@ public class PlayerController : EntityBase {
 		Eat();
 	}
 	
-	[Command]
+	//[Command]
 	public void CmdJump() {
-		if (OnTrigger("Water")) {
+		if (OnTrigger("Water")) { //WATER
 			if (Time.timeSinceLevelLoad - swimTimer >= GameEngine.direct.waterColdDown) {
 				ScoreSystem.AddRecord(playerID, 4, 1);
 				swimTimer = Time.timeSinceLevelLoad;
@@ -346,7 +343,7 @@ public class PlayerController : EntityBase {
 				rb.velocity = new Vector2(rb.velocity.x, (GameEngine.direct.waterYForce + GameEngine.GetBuffer(playerID).waterYForce));
 			}
 
-		} else if (onGround) {
+		} else if (onGround) { //LAND
 			ScoreSystem.AddRecord(playerID, 2, 1);
 			jumpTimer = Time.timeSinceLevelLoad;
 			jumpAudio.Play();
@@ -356,7 +353,7 @@ public class PlayerController : EntityBase {
 			if (this == GameEngine.mainPlayer) {
 				CameraManager.direct.Bump();
 			}
-		} else if (jumpCounter < GameEngine.direct.jumpMaxCount/**/) {
+		} else if (jumpCounter < GameEngine.direct.jumpMaxCount/**/) { //AIR
 			jumpTimer = Time.timeSinceLevelLoad;
 			jumpAudio.Play();
 			SetState(Secret ? "Roll" : "Jump");
@@ -371,14 +368,14 @@ public class PlayerController : EntityBase {
 		}
 	}
 
-	[Command]
+	//[Command]
 	public void CmdJumpForce() {
 		if (!onGround && Time.timeSinceLevelLoad - jumpTimer < GameEngine.direct.jumpDuraion && jumpCounter < 2) {
 			rb.velocity = new Vector2(rb.velocity.x, GameEngine.direct.jumpYForce * (1 + GameEngine.GetBuffer(playerID).jumpYForce));
 		}
 	}
 	
-	[Command]
+	//[Command]
 	public void CmdMove(float direction) {		
 		if (onGround) {//地面發呆
 			if (direction != 0) {				
@@ -387,64 +384,68 @@ public class PlayerController : EntityBase {
 				}
 
 				Face(direction == 1);
-				if (!IsSlideing()) {
+				if (!IsSlideing()) {//GROUND
 					velocitSim.x = Accelerator(velocitSim.x, direction * GameEngine.direct.walkXAcc, direction * (GameEngine.direct.walkXSpeed + GameEngine.GetBuffer(playerID).walkXSpeed));
-				} else {
+				} else {//ICE
 					velocitSim.x = Accelerator(velocitSim.x, direction * (GameEngine.direct.iceXAcc + GameEngine.GetBuffer(playerID).iceXAcc), direction * (GameEngine.direct.walkXSpeed + GameEngine.GetBuffer(playerID).walkXSpeed));
 				}				
 				return;
 			}
-			CmdIdle();
-		} else  {//空中移動
-			if (direction != 0) {
-				Face(direction == 1);
-				if (OnTrigger("Water")) {
-					velocitSim.x = Accelerator(velocitSim.x, direction * GameEngine.direct.waterXAcc, direction * (GameEngine.direct.waterXSpeed + GameEngine.GetBuffer(playerID).waterXSpeed));
-				} else {
-					velocitSim.x = Accelerator(velocitSim.x, direction * GameEngine.direct.jumpXAcc, direction * GameEngine.direct.jumpXSpeed);
-				}
-			}				
+			CmdUnmove();
+		} else if (direction != 0) {
+			Face(direction == 1);
+			if (OnTrigger("Water")) {//WATER
+				velocitSim.x = Accelerator(velocitSim.x, direction * GameEngine.direct.waterXAcc, direction * (GameEngine.direct.waterXSpeed + GameEngine.GetBuffer(playerID).waterXSpeed));
+			} else {//AIR
+				velocitSim.x = Accelerator(velocitSim.x, direction * GameEngine.direct.jumpXAcc, direction * GameEngine.direct.jumpXSpeed);
+			}
 		}
 	}
 
-	[Command]
-	public void CmdLand() {
+	//[Command]
+	public void CmdEnGround() {
 		SetState("Idle" , true , false , true);
 		jumpCounter = 0;
 	}
 
-	[Command]
-	public void CmdIdle() {
-		if (state == "Eat") {
-			if (onGround) {
-				if (rb.velocity.x != 0) {
-					if (!IsSlideing()) {
-						velocitSim.x = Decelerator(velocitSim.x, GameEngine.direct.walkXDec, 0);
-					} else {
-						velocitSim.x = Decelerator(velocitSim.x, (GameEngine.direct.iceXDec + GameEngine.GetBuffer(playerID).iceXDec), 0);
-					}
-				}
-			} else {//空中移動
-				velocitSim.x = Decelerator(velocitSim.x, (GameEngine.direct.iceXDec + GameEngine.GetBuffer(playerID).iceXDec), 0);
-			}
-			return;
-		}
+	//[Command]
+	public void CmdEnWater() {
+		jumpCounter = 0;
+		rb.velocity *= 0.05f;
+	}
 
-		if (onGround) {//地面發呆
+	//[Command]
+	public void CmdDeWater() {
+		if (rb.velocity.y > 0) {
+			float tempMaxForce = GameEngine.direct.jumpYForce * (1 + GameEngine.GetBuffer(playerID).jumpYForce);
+			float tempForce = rb.velocity.y * tempMaxForce * 0.75f;
+
+			rb.velocity = new Vector2(rb.velocity.x, tempForce > tempMaxForce ? tempMaxForce : tempForce);
+		}
+	}
+
+	//[Command]
+	public void CmdUnmove() {
+		if (onGround) { 
 			if (rb.velocity.x != 0) {
-				if (!IsSlideing()) {
+				if (!IsSlideing()) { //GROUND
 					velocitSim.x = Decelerator(velocitSim.x, GameEngine.direct.walkXDec, 0);
-				} else {
+				} else { //ICE
 					velocitSim.x = Decelerator(velocitSim.x, (GameEngine.direct.iceXDec + GameEngine.GetBuffer(playerID).iceXDec), 0);
 				}
-			} else if (state == "Walk") {
+			} else if (state == "Walk") { //發呆
 				if (state != "") {
 					SetState("Idle", true, false, true);
 				}
+			} 
+		} else {
+			if (OnTrigger("Water")) {//WATER
+				velocitSim.x = Decelerator(velocitSim.x, GameEngine.direct.waterXDec, 0);
+			} else {//AIR
+				velocitSim.x = Decelerator(velocitSim.x, GameEngine.direct.jumpXDec, 0);
 			}
-		} else {//空中移動
-			velocitSim.x = Decelerator(velocitSim.x, (GameEngine.direct.iceXDec + GameEngine.GetBuffer(playerID).iceXDec), 0);
 		}
+		
 	}
 
 	public override void Attack(int damage, bool firstOrder = false) {
@@ -472,14 +473,12 @@ public class PlayerController : EntityBase {
 	}
 	
 	protected void OnCollisionExit2D(Collision2D collision) {
-		if (Network.isServer) {
-			if (isDead) {
-				return;
-			}
+		if (isDead) {
+			return;
+		}
 
-			if (onGround) {
-				SetState("Jump");
-			}
+		if (onGround) {
+			SetState("Jump");
 		}
 	}
 
@@ -596,28 +595,24 @@ public class PlayerController : EntityBase {
 	}
 
 	private void OnTriggerStay2D(Collider2D collider) {
-		if (Network.isServer ) {
-			if (nowTrigger.Contains(collider.transform)) {
+		if (nowTrigger.Contains(collider.transform)) {
 
-			} else {
-				if (collider.tag == "Water") {
-					nowTrigger.Add(collider.transform);
-					velocitSim *= 0.2f;
+		} else {
+			if (collider.tag == "Water") {
+				nowTrigger.Add(collider.transform);
+				CmdEnWater();
 
-				} else if (collider.tag == "CheckPoint") {
-					GameEngine.RegistCheckPoint(collider.gameObject.name);
-				}
+			} else if (collider.tag == "CheckPoint") {
+				GameEngine.RegistCheckPoint(collider.transform);
 			}
 		}
 	}
 
 	private void OnTriggerExit2D(Collider2D collider) {
-		if (Network.isServer) {
-			nowTrigger.Remove(collider.transform);
+		nowTrigger.Remove(collider.transform);
 
-			if (collider.tag == "Water" && !OnTrigger("Water")) {
-				rb.velocity = new Vector2(rb.velocity.x, 3 * 5);
-			}
+		if (collider.tag == "Water" && !OnTrigger("Water")) {
+			CmdDeWater();
 		}
 	}
 

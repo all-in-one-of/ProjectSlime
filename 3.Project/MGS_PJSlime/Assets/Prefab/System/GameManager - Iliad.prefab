@@ -1,22 +1,12 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &100100000
-Prefab:
-  m_ObjectHideFlags: 1
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications: []
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1311638238111046}
-  m_IsPrefabParent: 1
 --- !u!1 &1311638238111046
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4297912910527816}
   - component: {fileID: 114256370892126294}
@@ -31,9 +21,10 @@ GameObject:
   m_IsActive: 1
 --- !u!4 &4297912910527816
 Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1311638238111046}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -42,23 +33,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114056483264192660
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1311638238111046}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51c4f16672282c44689395b7783f3118, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  progressSlider: {fileID: 0}
 --- !u!114 &114256370892126294
 MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1311638238111046}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -68,9 +48,10 @@ MonoBehaviour:
   allPlayer: []
 --- !u!114 &114990384538673632
 MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1311638238111046}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -80,7 +61,7 @@ MonoBehaviour:
   status: 3
   connecting: 0
   preTester: 1
-  testStage: {fileID: 1945061982297576, guid: 12e80d78ff22a634aab2f72c8cc10ba2, type: 2}
+  testStage: {fileID: 1715915177075942, guid: 5bcc0bd996dfbc948aff0163185d4f64, type: 3}
   playerMaterial:
   - {fileID: 2100000, guid: 72329b0335e7c4643a9fd0dd3b38e0d6, type: 2}
   - {fileID: 2100000, guid: 49f9b6c781493764db7b9e348b8f4509, type: 2}
@@ -89,39 +70,52 @@ MonoBehaviour:
   players: []
   playerUIs: []
   stageList:
-  - {fileID: 1063481176537888, guid: ba4cc0409c0f0bf47915a5bcea6b3288, type: 2}
-  - {fileID: 1063481176537888, guid: ba4cc0409c0f0bf47915a5bcea6b3288, type: 2}
-  - {fileID: 1063481176537888, guid: ba4cc0409c0f0bf47915a5bcea6b3288, type: 2}
+  - {fileID: 1561832114416774, guid: b8d93f5f641cb2e469d5b09ecb0e886a, type: 3}
+  - {fileID: 1063481176537888, guid: ba4cc0409c0f0bf47915a5bcea6b3288, type: 3}
+  - {fileID: 1945061982297576, guid: 12e80d78ff22a634aab2f72c8cc10ba2, type: 3}
   cameraManager: {fileID: 1732961849303570, guid: b8278ee36efd6c74aa13c703f582849b,
-    type: 2}
+    type: 3}
   audioManager: {fileID: 1959445894480242, guid: f6f407debd301de4f9b59f8edcb73fad,
-    type: 2}
-  uiManager: {fileID: 1184188543418308, guid: 43764cb8e1806a24fb6daa9a987e21fe, type: 2}
+    type: 3}
+  uiManager: {fileID: 1184188543418308, guid: 43764cb8e1806a24fb6daa9a987e21fe, type: 3}
   gardenStage: {fileID: 1940803756852130, guid: d62166a549f43a542a5d07676bd46fe4,
-    type: 2}
+    type: 3}
+  pcRole: {fileID: 1523133011794390, guid: 69d582db655bb0a438f80bc068cd8267, type: 3}
   broSize: 4
   baseSize: 2
   bornSize: 1
   bornReqSize: 2
   bornCost: 1
   walkXSpeed: 6
-  walkXAcc: 22
-  walkXDec: 8
-  jumpGape: 100
+  walkXAcc: 30
+  walkXDec: 30
   jumpMaxCount: 2
   jumpReduce: 1
   jumpXSpeed: 6
-  jumpXAcc: 10
-  jumpXDec: 8
+  jumpXAcc: 18
+  jumpXDec: 6
   jumpYForce: 10
   jumpDuraion: 0.15
   jumpYDec: 30
-  waterXSpeed: 8
-  waterYSpeed: 6
-  waterXAcc: 23
-  waterXDec: 20
-  waterYForce: 2
-  waterColdDown: 0.25
+  waterXSpeed: 4
+  waterYSpeed: 2
+  waterXAcc: 4
+  waterXDec: 8
+  waterYForce: 2.5
+  waterColdDown: 0.3
   waterYDec: 2.5
   iceXAcc: 25
   iceXDec: 5
+--- !u!114 &114056483264192660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311638238111046}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51c4f16672282c44689395b7783f3118, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  progressSlider: {fileID: 0}

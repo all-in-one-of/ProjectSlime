@@ -13,3 +13,6 @@ Assets/Ferr/SlimeTerrain/TerrainMaterials/RockWTerrainMaterial.prefab
 Assets/Ferr/SlimeTerrain/TerrainMaterials/LavaTerrainMaterial.prefab
 
 [Ferr2DT_PathTerrain]
+Assets/Resources/Stage/S04_01.prefab
+Assets/Resources/Stage/S04_02.prefab
+Assets/Resources/Stage/S05_01.prefab

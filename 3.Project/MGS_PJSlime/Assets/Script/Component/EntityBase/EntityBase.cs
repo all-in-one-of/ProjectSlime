@@ -26,23 +26,21 @@ public class EntityBase : NetworkBehaviour {
 	protected Animator an;
 	protected Rigidbody2D rb;
 	protected BoxCollider2D bc;
+	protected CircleCollider2D cc;
 
-	
+
 	void Start() {
-		if (Network.isServer) {
-			an = GetComponentInChildren<Animator>();
-			rb = GetComponent<Rigidbody2D>();
-			bc = GetComponent<BoxCollider2D>();
-			skam = GetComponent<SkeletonAnimation>();
-			rb.simulated = true;
-			FStart();
-		}		
+		an = GetComponentInChildren<Animator>();
+		rb = GetComponent<Rigidbody2D>();
+		bc = GetComponent<BoxCollider2D>();
+		cc = GetComponent<CircleCollider2D>();
+		skam = GetComponent<SkeletonAnimation>();
+		rb.simulated = true;
+		FStart();
 	}
 	
 	void FixedUpdate() {
-		if (Network.isServer) {
-			FFixedUpdate();
-		}
+		FFixedUpdate();
 	}
 
 	protected virtual void FStart() { }
@@ -52,11 +50,11 @@ public class EntityBase : NetworkBehaviour {
 	}
 
 	private void OnCollisionEnter2D(Collision2D collision) {
-		if (Network.isServer) { FOnCollisionEnter2D(collision); }
+		FOnCollisionEnter2D(collision);
 	}
 
 	private void OnCollisionStay2D(Collision2D collision) {
-		if (Network.isServer) { FOnCollisionStay2D(collision); }
+		FOnCollisionStay2D(collision);
 	}
 
 	protected virtual void FOnCollisionEnter2D(Collision2D collision) {
@@ -85,6 +83,7 @@ public class EntityBase : NetworkBehaviour {
 	public virtual void OnDead() {
 		isDead = true;
 		bc.enabled = false;
+		cc.enabled = false;
 		rb.simulated = false;
 		if (an) {
 			an.Play("Eaten");

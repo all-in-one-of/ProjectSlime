@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEditor;
 using System;
 using System;
+using UnityEditor.SceneManagement;
 
 [CustomEditor(typeof(GameEngine))]
 public class GameEngineED : Editor {
@@ -11,12 +12,16 @@ public class GameEngineED : Editor {
 	public void OnEnable() {
 		script = (GameEngine)target;
 	}
-
+	
 	public override void OnInspectorGUI() {
+		EditorGUI.BeginChangeCheck();
+
 		SerializedObject serializedObject;
 		SerializedProperty property;
 		
 		EditorTools.TitleField("<<Prefab>>");
+				
+		script.pcRole = (GameObject)EditorTools.ObjectField(script.pcRole, typeof(GameObject), "PcRole");
 		script.cameraManager = (GameObject)EditorTools.ObjectField(script.cameraManager, typeof(GameObject), "CameraManager");
 		script.audioManager = (GameObject)EditorTools.ObjectField(script.audioManager, typeof(GameObject) , "AudioManager" );
 		script.uiManager = (GameObject)EditorTools.ObjectField(script.uiManager, typeof(GameObject), "UIManager");
@@ -91,7 +96,15 @@ public class GameEngineED : Editor {
 		EditorTools.LabelField("-冰上參數-");
 		script.iceXAcc		= EditorTools.FloatField(script.iceXAcc		, "加速度(m/s)");
 		script.iceXDec		= EditorTools.FloatField(script.iceXDec		, "減速度(m/s)");
-		
+
 		EditorTools.Mig();
+
+		if (EditorGUI.EndChangeCheck()) {
+			//Debug.LogError("SAVE" + script.gameObject);
+			//EditorUtility.SetDirty(script);
+			EditorSceneManager.MarkSceneDirty(script.gameObject.scene);
+		}
 	}
 }
+
+

@@ -3,10 +3,11 @@
 --- !u!43 &4300000
 Mesh:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: S04_02.PlayGround .Ground_normal.Section 1.Groundsmall (13)-Mesh
-  serializedVersion: 8
+  serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
     firstByte: 0
@@ -42,9 +43,8 @@ Mesh:
   m_KeepIndices: 1
   m_IndexFormat: 0
   m_IndexBuffer: 480049004a004b004c004d000200010004000500020004000000020005000300000005000900070006000800090006000a00090008000b000a0008000e000c000d000f000e000d0011000e000f00100011000f001400130016001700140016001200140017001500120017001b00190018001a001b0018001c001b001a001d001c001a0020001e001f00210020001f002300200021002200230021002600250028002900260028002400260029002700240029002d002b002a002c002d002a002e002d002c002f002e002c00320030003100330032003100350032003300340035003300380037003a003b0038003a00360038003b00390036003b003f003d003c003e003f003c0040003f003e00410040003e00440042004300450044004300470044004500460047004500
-  m_Skin: []
   m_VertexData:
-    m_CurrentChannels: 15
+    serializedVersion: 2
     m_VertexCount: 78
     m_Channels:
     - stream: 0
@@ -56,6 +56,10 @@ Mesh:
       format: 0
       dimension: 3
     - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
       offset: 24
       format: 0
       dimension: 4
@@ -63,6 +67,26 @@ Mesh:
       offset: 40
       format: 0
       dimension: 2
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
     - stream: 0
       offset: 0
       format: 0
@@ -139,4 +163,10 @@ Mesh:
   m_MeshUsageFlags: 0
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
+  m_MeshMetrics[0]: 1
+  m_MeshMetrics[1]: 1
   m_MeshOptimized: 0
+  m_StreamData:
+    offset: 0
+    size: 0
+    path: 

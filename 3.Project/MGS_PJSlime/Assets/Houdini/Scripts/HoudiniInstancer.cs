@@ -243,7 +243,7 @@ public class HoudiniInstancer : MonoBehaviour
 			prPersistentData.getUserObjToInstantiateFromName( objToInstantiate.name, point_index );
 
 		// See if object is a prefab instance.
-		var prefab_parent = PrefabUtility.GetPrefabParent( user_instance ) as GameObject;
+		var prefab_parent = PrefabUtility.GetCorrespondingObjectFromSource( user_instance ) as GameObject;
 		if ( prefab_parent != null )
 			user_instance = prefab_parent;
 

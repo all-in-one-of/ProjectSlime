@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour {
@@ -29,7 +30,7 @@ public class UIManager : MonoBehaviour {
 
 	public void Join() {
 		if (PrototypeSystem.direct) {
-			PrototypeSystem.direct.SpawnPlayer();
+			GameEngine.direct.SpawnPlayer();
 			uiTrigger.SetSelectedGameObject(gameObject);
 		}		
 	}
@@ -42,14 +43,10 @@ public class UIManager : MonoBehaviour {
 	}
 
 	public void Restart() {
-		SkyTalker.direct.ResetScene();
+		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 		uiTrigger.SetSelectedGameObject(gameObject);
 	}
-
-	public void OnStage() {
-		//bullpenObject.gameObject.SetActive(true);
-	}
-	
+		
 	//score
 	public void OnScore() {
 		Debug.Log("s");
@@ -74,6 +71,6 @@ public class UIManager : MonoBehaviour {
 
 	public void EndGarden() {
 		gardenObject.gameObject.SetActive(false);
-		GameEngine.direct.Init(GameEngine.Status.Garden);
+		GameEngine.direct.StageInit(GameEngine.Status.Garden);
 	}
 }

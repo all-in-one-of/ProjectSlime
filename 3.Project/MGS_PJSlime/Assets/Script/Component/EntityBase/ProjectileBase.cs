@@ -14,16 +14,11 @@ public class ProjectileBase : EntityBase {
 	private bool active;
 
 	protected void OnTriggerEnter2D(Collider2D collider) {
-		if (Network.isServer) {
-			FOnTriggerEnter2D(collider);
-		}
+		FOnTriggerEnter2D(collider);
 	}
 
 	protected override void FStart() {
 		base.FStart();
-		if (Network.isServer) {
-
-		}
 	}
 
 	public void FireProjectile(Vector2 vector) {
