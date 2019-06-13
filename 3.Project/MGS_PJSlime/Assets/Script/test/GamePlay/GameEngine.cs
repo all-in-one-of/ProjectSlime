@@ -40,6 +40,7 @@ public class GameEngine : MonoBehaviour {
 	public List<GameObject> stageList = new List<GameObject>();
 
 	public GameObject cameraManager;
+	public GameObject effectManager;
 	public GameObject audioManager;
 	public GameObject uiManager;
 	public GameObject gardenStage;
@@ -120,6 +121,9 @@ public class GameEngine : MonoBehaviour {
 		temp = Instantiate(cameraManager);
 		CameraManager.direct = temp.GetComponent<CameraManager>();
 
+		temp = Instantiate(effectManager);
+		EffectManager.direct = temp.GetComponent<EffectManager>();
+
 		temp = Instantiate(audioManager);
 		AudioManager.direct = temp.GetComponent<AudioManager>();
 
@@ -135,6 +139,7 @@ public class GameEngine : MonoBehaviour {
 		StageHoster.Log("[Node:StageInit]" , 1 );
 		
 		CameraManager.direct.Init();
+		EffectManager.direct.Init();
 		AudioManager.direct.Init();
 
 		if (preTester && testStage) {
@@ -306,16 +311,15 @@ public class GameEngine : MonoBehaviour {
 		}
 	}
 
-	public void Pause() {
+	public static void Pause() {
 		Time.timeScale = Time.timeScale == 0 ? 1 : 0;
 	}
 
-	public GameObject SpawnUnit(GameObject spawnUnit, Vector2 spawnPoint) {
+	public static GameObject SpawnUnit(GameObject spawnUnit, Vector2 spawnPoint) {
 		GameObject newObj = Instantiate(spawnUnit, spawnPoint, Quaternion.identity) as GameObject;
 		//NetworkServer.Spawn(newObj);
 		return newObj;
 	}
-	
 
 	public static void RegistCheckPoint(Transform obj = null) {
 		checkPoint = obj;
@@ -351,5 +355,4 @@ public class GameEngine : MonoBehaviour {
 			pcBuffer.AddEffect(new BufferEffect(buffValue));
 		}
 	}
-
 }

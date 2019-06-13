@@ -75,6 +75,8 @@ MonoBehaviour:
   - {fileID: 1945061982297576, guid: 12e80d78ff22a634aab2f72c8cc10ba2, type: 3}
   cameraManager: {fileID: 1732961849303570, guid: b8278ee36efd6c74aa13c703f582849b,
     type: 3}
+  effectManager: {fileID: 7588911187373174523, guid: e117bfbbea5926b4e8c01a824bac8db5,
+    type: 3}
   audioManager: {fileID: 1959445894480242, guid: f6f407debd301de4f9b59f8edcb73fad,
     type: 3}
   uiManager: {fileID: 1184188543418308, guid: 43764cb8e1806a24fb6daa9a987e21fe, type: 3}
@@ -86,13 +88,13 @@ MonoBehaviour:
   bornSize: 1
   bornReqSize: 2
   bornCost: 1
-  walkXSpeed: 6
-  walkXAcc: 30
-  walkXDec: 30
+  walkXSpeed: 5
+  walkXAcc: 25
+  walkXDec: 25
   jumpMaxCount: 2
   jumpReduce: 1
-  jumpXSpeed: 6
-  jumpXAcc: 18
+  jumpXSpeed: 5
+  jumpXAcc: 15
   jumpXDec: 6
   jumpYForce: 10
   jumpDuraion: 0.15
@@ -104,8 +106,8 @@ MonoBehaviour:
   waterYForce: 2.5
   waterColdDown: 0.3
   waterYDec: 2.5
-  iceXAcc: 25
-  iceXDec: 5
+  iceXAcc: 2
+  iceXDec: 1
 --- !u!114 &114056483264192660
 MonoBehaviour:
   m_ObjectHideFlags: 0

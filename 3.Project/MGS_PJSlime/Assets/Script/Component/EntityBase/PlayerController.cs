@@ -43,10 +43,8 @@ public class PlayerController : EntityBase {
 	private Vector2 bcHeight;
 	private Vector2 groundOffset;
 	private Vector2 faceOffset;
-	//private Vector2 ceilOffset;
 	private Collider2D onGround;
 	private Collider2D onFace;
-	//private bool onCeil;	
 
 	public bool Secret = false;
 
@@ -216,7 +214,6 @@ public class PlayerController : EntityBase {
 			//更新碰撞狀態
 			bool preGround = onGround;
 			
-			//onCeil = Physics2D.OverlapBox((Vector2)transform.position + ceilOffset * transform.localScale.x + new Vector2(0, DETECTOFFSET), bcWidth * transform.localScale.x, 0, LANDLAYER);
 			onGround = Physics2D.OverlapBox((Vector2)transform.position + groundOffset * transform.localScale.x - new Vector2(0, DETECTOFFSET), bcWidth * transform.localScale.x , 0, LANDLAYER);
 
 			if (facing == 1) {
@@ -477,9 +474,10 @@ public class PlayerController : EntityBase {
 			return;
 		}
 
+		/*
 		if (onGround) {
 			SetState("Jump");
-		}
+		}*/
 	}
 
 	protected override void FOnCollisionEnter2D(Collision2D collision) {
@@ -598,11 +596,19 @@ public class PlayerController : EntityBase {
 		if (nowTrigger.Contains(collider.transform)) {
 
 		} else {
-			if (collider.tag == "Water") {
+			if (collider.tag == "Water") {//入水
 				nowTrigger.Add(collider.transform);
 				CmdEnWater();
 
-			} else if (collider.tag == "CheckPoint") {
+				if (rb.velocity.y > -0.3f) {
+					EffectManager.direct.Play("e_waterflows", transform.position);
+				} else if (rb.velocity.y > -0.6f) {
+					EffectManager.direct.Play("e_waterflowm", transform.position);
+				} else {
+					EffectManager.direct.Play("e_waterflowl", transform.position);
+				}
+
+			} else if (collider.tag == "CheckPoint") {//踩點
 				GameEngine.RegistCheckPoint(collider.transform);
 			}
 		}
@@ -611,8 +617,9 @@ public class PlayerController : EntityBase {
 	private void OnTriggerExit2D(Collider2D collider) {
 		nowTrigger.Remove(collider.transform);
 
-		if (collider.tag == "Water" && !OnTrigger("Water")) {
+		if (collider.tag == "Water" && !OnTrigger("Water")) {//出水
 			CmdDeWater();
+			EffectManager.direct.Play("e_waterflowm", transform.position);
 		}
 	}
 

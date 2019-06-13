@@ -23,6 +23,7 @@ public class GameEngineED : Editor {
 				
 		script.pcRole = (GameObject)EditorTools.ObjectField(script.pcRole, typeof(GameObject), "PcRole");
 		script.cameraManager = (GameObject)EditorTools.ObjectField(script.cameraManager, typeof(GameObject), "CameraManager");
+		script.effectManager = (GameObject)EditorTools.ObjectField(script.effectManager, typeof(GameObject), "EffectManager");
 		script.audioManager = (GameObject)EditorTools.ObjectField(script.audioManager, typeof(GameObject) , "AudioManager" );
 		script.uiManager = (GameObject)EditorTools.ObjectField(script.uiManager, typeof(GameObject), "UIManager");
 		EditorTools.Space();
