@@ -46,6 +46,9 @@ public class PlayerController : EntityBase {
 	private Collider2D onGround;
 	private Collider2D onFace;
 
+
+	private EffectBase bubble;
+
 	public bool Secret = false;
 
 	protected override void FStart() {
@@ -59,6 +62,7 @@ public class PlayerController : EntityBase {
 
 		//GetComponent<MeshRenderer>().materials[0] = GameEngine.direct.playerMaterial[playerID];
 		GameEngine.direct.playerMaterial[playerID].enableInstancing = true;
+		bubble = EffectManager.direct.Play("e_bubble", transform , new Vector2(0.25f , 1.25f)).GetComponent<EffectBase>();
 	}
 
 	public bool fuck;
@@ -608,6 +612,8 @@ public class PlayerController : EntityBase {
 					EffectManager.direct.Play("e_waterflowl", transform.position);
 				}
 
+				bubble.Play();
+
 			} else if (collider.tag == "CheckPoint") {//踩點
 				GameEngine.RegistCheckPoint(collider.transform);
 			}
@@ -620,6 +626,7 @@ public class PlayerController : EntityBase {
 		if (collider.tag == "Water" && !OnTrigger("Water")) {//出水
 			CmdDeWater();
 			EffectManager.direct.Play("e_waterflowm", transform.position);
+			bubble.Pause();
 		}
 	}
 

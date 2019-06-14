@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class PoolBase : MonoBehaviour{
 	public abstract void Fstart();
 	public abstract void Init();
-	public abstract void Play(string index , Vector2 pos);
+	public abstract GameObject Play(string index , Vector2 pos);
 
 	public int poolSoftSize = 50;
 

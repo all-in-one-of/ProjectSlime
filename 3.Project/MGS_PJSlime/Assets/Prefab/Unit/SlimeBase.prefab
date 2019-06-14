@@ -990,7 +990,7 @@ GameObject:
   - component: {fileID: 114830840445734270}
   - component: {fileID: 114053036024915056}
   m_Layer: 9
-  m_Name: SlimeSample
+  m_Name: SlimeBase
   m_TagString: Slime
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
